@@ -3,8 +3,8 @@
 # autoenv
 .env
 
-# vim files
+# vim
 *.swp
 
-# macOS files
+# macOS
 .DS_Store*
