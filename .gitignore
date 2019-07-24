@@ -1,0 +1,10 @@
+# --- Miscellaneous
+
+# autoenv
+.env
+
+# vim files
+*.swp
+
+# macOS files
+.DS_Store*
