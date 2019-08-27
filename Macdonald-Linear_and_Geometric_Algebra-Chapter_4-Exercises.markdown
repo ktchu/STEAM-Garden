@@ -1,6 +1,7 @@
-Linear and Geometric Algebra (A. Macdonald): Chapter 4 Exercises
-=================================================================
+Linear and Geometric Algebra (A. Macdonald): Chapter 4
+======================================================
 
+## Exercises
 -------------------------------------------------------------------------------
 
 ### 4.1.
