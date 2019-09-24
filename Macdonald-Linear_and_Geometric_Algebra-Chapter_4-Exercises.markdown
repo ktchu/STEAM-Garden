@@ -116,8 +116,42 @@ $\mathbf{e}_3$ are an orthonormal set.
 
 ### 4.6.
 
-__Problem__. TODO
+__Problem__. Find the cosine of the angle between
+$\mathbf{u} = \mathbf{e}_1 + 2 \mathbf{e}_2 + 3 \mathbf{e}_3$
+and
+$\mathbf{v} = 4 \mathbf{e}_1 + 5 \mathbf{e}_2 + 6 \mathbf{e}_3$.
 
-__Solution__. TODO
+__Solution__. Let $\theta$ be the angle between $\mathbf{u}$ and $\mathbf{v}$.
+Then
+\[
+\cos \theta = \mathbf{u} \cdot \mathbf{v} / |\mathbf{u}||\mathbf{v}| \\
+= 32 / (14 \cdot 77)^{1/2}
+\]
+
+### 4.7.
+
+__Problem__. Compute the projection of the vector
+$\mathbf{v} = \mathbf{e}_1 + 2 \mathbf{e}_2 + 3 \mathbf{e}_3$
+on the vector
+$\mathbf{u} = 4 \mathbf{e}_1 + 5 \mathbf{e}_2 + 6 \mathbf{e}_3$.
+
+__Solution__. The projection of $\mathbf{v}$ onto $\mathbf{u}$ is equal to
+\[
+\left(\mathbf{v} \cdot \frac{\mathbf{u}}{|\mathbf{u}|} \right)
+\frac{\mathbf{u}}{|\mathbf{u}|}
+= \left( \frac{\mathbf{v} \cdot \mathbf{u}}{|\mathbf{u}|^2} \right)
+\mathbf{u} \\
+= \frac{32}{77}
+  \left( 4 \mathbf{e}_1 + 5 \mathbf{e}_2 + 6 \mathbf{e}_3 \right).
+\]
+
+### 4.8.
+
+__Problem__. Suppose that $\mathbf{u} \cdot \mathbf{v} = 0$ for all
+$\mathbf{v}$. Show that $\mathbf{u} = \mathbf{0}$.
+
+__Solution__. We prove the contrapositive of the statement. Suppose that
+$\mathbf{u} \ne \mathbf{0}$. Taking $\mathbf{v} = \mathbf{u}$, we find that
+$\mathbf{u} \cdot \mathbf{v} = |\mathbf{u}|^2 \ne 0$.
 
 -------------------------------------------------------------------------------
