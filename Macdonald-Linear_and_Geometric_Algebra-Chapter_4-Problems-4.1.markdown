@@ -51,4 +51,42 @@ and
 |\mathbf{v}|^2 = a_2^1 + a_1^2 = a_1^2 + a_2^2 = |\mathbf{u}|^2.
 \]
 
+### 4.1.3
+
+#### 4.1.3.a
+
+__Problem__. Find the equation, in the form $ax + by+cz = 0$, of the plane
+through the origin and orthogonal to the vector
+$\mathbf{n} = \mathbf{e_1} + 2 \mathbf{e_2} + 3 \mathbf{e_3}$.
+
+__Solution__. Let
+$\mathbf{v} = x \mathbf{e_1} + y \mathbf{e_2} + z \mathbf{e_3}$ be an arbitrary
+vector that lies in desired plane. Expanding the orthogonality equation
+$\mathbf{v} \cdot \mathbf{n} = 0$ in terms of components, we find the equation
+of the plane is given by
+\[
+ 0 = \mathbf{v} \cdot \mathbf{n} = x + 2 y + 3 z.
+\]
+
+#### 4.1.3.b
+
+__Problem__. Find the equation, in the form $ax + by+cz = d$, of the plane
+through the point $\mathbf{v}_0 \mathbf{e_1} - \mathbf{e_2} + \mathbf{e_3}$ and
+orthogonal to the vector
+$\mathbf{n} = \mathbf{e_1} + 2 \mathbf{e_2} + 3 \mathbf{e_3}$.
+
+__Solution__. Let
+$\mathbf{v} = x \mathbf{e_1} + y \mathbf{e_2} + z \mathbf{e_3}$ be an arbitrary
+vector that lies in the desired plane. Expanding the orthogonality equation
+$(\mathbf{v} - \mathbf{v}_0) \cdot \mathbf{n} = 0$ in terms of
+components, we find that
+\[
+ 0 = (\mathbf{v} - \mathbf{v}_0) \cdot \mathbf{n} =
+ (x - 1) + 2 (y + 1) + 3 (z - 1),
+\]
+which can be rearranged to obtain the equation of the plane:
+\[
+ x + 2 y + 3 z = 1 - 2 + 3 = 2.
+\]
+
 -------------------------------------------------------------------------------
