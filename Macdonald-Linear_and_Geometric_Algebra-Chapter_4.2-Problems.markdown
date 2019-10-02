@@ -29,4 +29,28 @@ A \mathbf{x} \cdot \mathbf{y}
 = \mathbf{x} \cdot A^* \mathbf{y}
 \]
 
+### 4.2.2
+
+Let $\mathbf{v}_1, \ldots, \mathbf{v}_k$ be vectors in
+$\mathbb{R}^n$. Place the $\mathbf{v}$'s in an $n \times k$ matrix $A$ as
+columns: $A = [\mathbf{v}_1 \ldots \mathbf{v}_k]$.
+
+#### 4.2.2.a
+
+__Problem__. Describe the entries of the $k \times k$ matrix $A^* A$ in terms
+of the $\mathbf{v}$'s.
+
+__Solution__.
+\[
+A_{ij} = \mathbf{v}_i \cdot \mathbf{v}_j
+= \mathbf{v}_j \cdot \mathbf{v}_i = A_{ji}
+\]
+
+#### 4.2.2.b
+
+__Problem__. Give a test for the $\mathbf{v}$'s being orthonormal.
+
+__Solution__. The $\mathbf{v}$'s are orthonormal iff $A^* A = I_k$, the
+identity matrix for $k \times k$ matrices.
+
 -------------------------------------------------------------------------------
