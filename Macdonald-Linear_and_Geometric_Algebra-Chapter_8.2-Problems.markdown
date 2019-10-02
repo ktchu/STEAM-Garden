@@ -5,9 +5,9 @@ Linear and Geometric Algebra (A. Macdonald): Chapter 8
 
 -------------------------------------------------------------------------------
 
-### 8.2.7
+### 8.2.7.
 
-#### c.
+#### 8.2.7.c.
 
 Suppose $\mathrm{f}$ is normal. Then
 \[

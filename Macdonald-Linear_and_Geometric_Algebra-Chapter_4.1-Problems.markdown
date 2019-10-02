@@ -5,7 +5,7 @@ Linear and Geometric Algebra (A. Macdonald): Chapter 4
 
 -------------------------------------------------------------------------------
 
-### 4.1.1
+### 4.1.1.
 
 __Problem__. Modify Eq. (4.3) to provide
 $(a \mathbf{u}) \cdot \mathbf{v} = a (\mathbf{u} \cdot \mathbf{v})$ when
@@ -29,7 +29,7 @@ is $\pi - \theta$. Therefore,
 = a (\mathbf{u} \cdot \mathbf{v}).
 \]
 
-### 4.1.2
+### 4.1.2.
 
 __Problem__. Find a vector in the $\mathbf{e_1}$-$\mathbf{e_2}$ plane
 orthogonal to $a_1 \mathbf{e_1} + a_2 \mathbf{e_2}$ and of equal norm.
@@ -52,9 +52,9 @@ and
 |\mathbf{v}|^2 = a_2^1 + a_1^2 = a_1^2 + a_2^2 = |\mathbf{u}|^2.
 \]
 
-### 4.1.3
+### 4.1.3.
 
-#### 4.1.3.a
+#### 4.1.3.a.
 
 __Problem__. Find the equation, in the form $ax + by+cz = 0$, of the plane
 through the origin and orthogonal to the vector
@@ -69,7 +69,7 @@ of the plane is given by
  0 = \mathbf{v} \cdot \mathbf{n} = x + 2 y + 3 z.
 \]
 
-#### 4.1.3.b
+#### 4.1.3.b.
 
 __Problem__. Find the equation, in the form $ax + by+cz = d$, of the plane
 through the point $\mathbf{v}_0 \mathbf{e_1} - \mathbf{e_2} + \mathbf{e_3}$ and
