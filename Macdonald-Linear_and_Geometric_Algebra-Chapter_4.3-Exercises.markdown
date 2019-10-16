@@ -135,4 +135,94 @@ $\mathbf{u} \cdot \mathbf{v} = 0$. Therefore,
 = |\mathbf{u}|^2 + |\mathbf{v}|^2
 \]
 
+### 4.16.
+
+__Problem__. Prove that
+\[
+|\mathbf{u} + \mathbf{v}|^2 + |\mathbf{u} - \mathbf{v}|^2
+= 2 |\mathbf{u}|^2 + 2 |\mathbf{v}|^2.
+\]
+This is called the _parallelogram identity_. Illustrate with a sketch for
+oriented lengths.
+
+__Solution__.
+\[
+|\mathbf{u} + \mathbf{v}|^2 + |\mathbf{u} - \mathbf{v}|^2
+= (\mathbf{u} + \mathbf{v}) \cdot (\mathbf{u} + \mathbf{v})
++ (\mathbf{u} - \mathbf{v}) \cdot (\mathbf{u} - \mathbf{v}) \\
+= |\mathbf{u}|^2 + |\mathbf{v}|^2 + 2 \mathbf{u} \cdot \mathbf{v}
++ |\mathbf{u}|^2 + |\mathbf{v}|^2 - 2 \mathbf{u} \cdot \mathbf{v}
+= 2 |\mathbf{u}|^2 + 2 |\mathbf{v}|^2
+\]
+
+### 4.17.
+
+__Problem__. Let $\mathbf{u} = (u_1, \ldots, u_n)$ and
+$\mathbf{v} = (v_1, \ldots, v_n)$ be vectors in $\mathbb{R}^n$. Express
+the Cauchy-Schwarz inequality in terms of the $u$'s and $v$'s.
+
+__Solution__. Expressing the terms in the Cauchy-Schwarz inequality in terms
+of components,
+\[
+|\mathbf{u} \cdot \mathbf{v}| \le |\mathbf{u}| |\mathbf{v}|
+\]
+becomes
+\[
+\left| \sum_i u_i v_i \right| \le
+\sqrt{
+  \left( \sum_i u_i^2 \right) \left( \sum_i v_i^2 \right)
+}
+\]
+
+### 4.18.
+
+__Problem__. Repeat Exercise 4.17 for the inner product of Exercise 4.12.
+
+__Solution__. Expressing the terms in the Cauchy-Schwarz inequality in terms
+of components,
+\[
+|\mathbf{u} \odot \mathbf{v}| \le |\mathbf{u}| |\mathbf{v}|
+\]
+becomes
+\[
+\left| \sum_i a_i u_i v_i \right| \le
+\sqrt{
+  \left( \sum_i a_i u_i^2 \right) \left( \sum_i a_i v_i^2 \right)
+}
+\]
+
+### 4.19.
+
+__Problem__. Prove N1 of Theorem 4.14: if $\mathbf{v} \ne \mathbf{0}$, then
+$|\mathbf{v}| > 0$.
+
+__Solution__. $|\mathbf{v}|$ is equal to the positive square root of
+$\mathbf{v} \cdot \mathbf{v}$, which is postiive when
+$\mathbf{v} \ne \mathbf{0}$.
+
+### 4.20.
+
+__Problem__. Show that $|\mathbf{0}| = 0$ using only Theorem 4.14.
+
+__Solution__.
+\[
+|\mathbf{0}| = |0 \mathbf{0}| = |0| |\mathbf{0}| = 0 |\mathbf{0}| = 0,
+\]
+where the second equality follows from N2 of Theorem 4.14 by letting
+$a = 0$ and $\mathbf{v} = \mathbf{0}$.
+
+### 4.21.
+
+__Problem__. Show that if $|\mathbf{v}| \ne \mathbf{0}$, then
+$\frac{1}{|\mathbf{v}|} \mathbf{v}$ is _normalized_, i.e., has norm 1.
+
+__Solution__.
+\[
+\left| \frac{1}{|\mathbf{v}|} \mathbf{v} \right|^2
+= \left( \frac{1}{|\mathbf{v}|} \mathbf{v} \right) \cdot
+  \left( \frac{1}{|\mathbf{v}|} \mathbf{v} \right)
+= \frac{1}{|\mathbf{v}|^2} ( \mathbf{v} \cdot \mathbf{v} )
+= \frac{1}{|\mathbf{v}|^2} |\mathbf{v}|^2 = 1
+\]
+
 -------------------------------------------------------------------------------
