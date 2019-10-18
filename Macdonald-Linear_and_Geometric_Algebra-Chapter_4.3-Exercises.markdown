@@ -225,4 +225,29 @@ __Solution__.
 = \frac{1}{|\mathbf{v}|^2} |\mathbf{v}|^2 = 1
 \]
 
+### 4.22.
+
+__Problem__. Prove Axiom I2 for the inner product space $C[a,b]$.
+
+__Solution__.
+\[
+(f + g) \cdot h
+= \int_a^b \left( f(x) + g(x) \right) h(x) dx
+= \int_a^b \left( f(x) h(x) + g(x) h(x) \right) dx \\
+= \int_a^b f(x) h(x) dx + \int_a^b g(x) h(x) dx
+= f \cdot h + g \cdot h
+\]
+
+### 4.23.
+
+__Problem__. What is the norm of the function $f(x) = x$ in $C[0,1]$ with
+the inner product $f \cdot g = \int_a^b f(x) g(x) dx$?
+
+__Solution__.
+\[
+|f|^2 = \int_0^1 f(x)^2 dx = \int_0^1 x^2 dx = 1/3,
+\]
+
+so $|f| = 1 / \sqrt{3}$.
+
 -------------------------------------------------------------------------------
