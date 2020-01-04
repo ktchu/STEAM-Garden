@@ -246,4 +246,41 @@ Therefore
 = |\mathbf{u}|_\infty + |\mathbf{v}|_\infty
 \]
 
+### 4.3.10.
+
+__Problem__. Let $|\mathbf{v}|$ be a norm on a vector space. Prove that
+$|\mathbf{v} - \mathbf{u}| \ge ||\mathbf{v}| - |\mathbf{u}||$.
+
+__Solution__. Applying the triangle inequality to
+
+\[
+\mathbf{v} = \mathbf{u} + (\mathbf{v} - \mathbf{u}) \\
+\mathbf{u} = \mathbf{v} + (\mathbf{u} - \mathbf{v}),
+\]
+
+we find that
+\[
+|\mathbf{v}| \le |\mathbf{u}| + |\mathbf{v} - \mathbf{u}| \\
+|\mathbf{u}| \le |\mathbf{v}| + |\mathbf{u} - \mathbf{v}|.
+\]
+
+Rearranging the inequalities,
+\[
+|\mathbf{v}| - |\mathbf{u}| \le |\mathbf{v} - \mathbf{u}| \\
+|\mathbf{u}| - |\mathbf{v}| \le |\mathbf{u} - \mathbf{v}|.
+\]
+
+Combining these inequalities, we obtain
+\[
+-|\mathbf{u} - \mathbf{v}| = -|\mathbf{v} - \mathbf{u}|
+\le |\mathbf{u}| - |\mathbf{v}|
+\le |\mathbf{u} - \mathbf{v}|,
+\]
+
+which is equivalent to the desired result
+
+\[
+||\mathbf{u}| - |\mathbf{v}|| \le |\mathbf{u} - \mathbf{v}|.
+\]
+
 -------------------------------------------------------------------------------
