@@ -72,8 +72,8 @@ of the plane is given by
 #### 4.1.3.b.
 
 __Problem__. Find the equation, in the form $ax + by+cz = d$, of the plane
-through the point $\mathbf{v}_0 \mathbf{e_1} - \mathbf{e_2} + \mathbf{e_3}$ and
-orthogonal to the vector
+through the point $\mathbf{v}_0 = \mathbf{e_1} - \mathbf{e_2} + \mathbf{e_3}$
+and orthogonal to the vector
 $\mathbf{n} = \mathbf{e_1} + 2 \mathbf{e_2} + 3 \mathbf{e_3}$.
 
 __Solution__. Let
