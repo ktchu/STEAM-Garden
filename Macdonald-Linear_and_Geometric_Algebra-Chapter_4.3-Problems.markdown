@@ -175,13 +175,75 @@ in terms of an inner product on $\mathbb{R}^n$.
 __Problem__. Define $|\mathbf{v}|_1 = |v_1| + \cdots + |v_n|$. Show that
 $|\mathbf{v}|_1$ is a norm.
 
-__Solution__. TODO
+__Solution__. We need to show that $|\mathbf{v}|_1$ satisfies the properties
+of a norm.
+
+___N1___. If $\mathbf{v} \ne \mathbf{0}$, then at least one component of
+$\mathbf{v}$ is nonzero. Without loss of generality, suppose that
+$|v_1| \ne 0$. Then $|\mathbf{v}|_1 \ge |v_1| > 0$ so that
+$|\mathbf{v}|_1 > 0$.
+
+___N2___.
+\[
+  a \mathbf{v} = a (v_1, \ldots, v_n) = (a v_1, \ldots a v_n).
+\]
+
+Therefore
+\[
+|a \mathbf{v}|_1 = |a v_1| + \cdots + |a v_n|
+                 = |a| |v_1| + \cdots + |a| |v_n| = |a| |\mathbf{v}|_1.
+\]
+
+___N3___.
+\[
+\mathbf{u} + \mathbf{v} = (u_1, \ldots, u_n) + (v_1, \ldots, v_n)
+                        = (u_1 + v_1, \ldots, u_n + v_n)
+\]
+
+Therefore
+\[
+|\mathbf{u} + \mathbf{v}|_1
+= |u_1 + v_1| + \cdots + |u_n + v_n|
+\le (|u_1| + |v_1|) + \cdots + (|u_n| + |v_n|)
+= |\mathbf{u}|_1 + |\mathbf{v}|_1
+\]
 
 ### 4.3.9.b.
 
 __Problem__. Define $|\mathbf{v}|_\infty = \max_{1 \le i \le n} |v_i|$. Show
 that $|\mathbf{v}|_\infty$ is a norm.
 
-__Solution__. TODO
+__Solution__. We need to show that $|\mathbf{v}|_\infty$ satisfies the
+properties of a norm.
+
+___N1___. If $\mathbf{v} \ne \mathbf{0}$, then at least one component of
+$\mathbf{v}$ is nonzero. Therefore, $\max_{1 \le i \le n} |v_i| > 0$ so that
+$|\mathbf{v}|_\infty > 0$
+
+___N2___.
+\[
+  a \mathbf{v} = a (v_1, \ldots, v_n) = (a v_1, \ldots a v_n).
+\]
+
+Therefore
+\[
+|a \mathbf{v}|_\infty = \max_{1 \le i \le n} |a v_i|
+                 = |a| \max_{1 \le i \le n} |v_i| = |a| |\mathbf{v}|_\infty.
+\]
+
+___N3___.
+\[
+\mathbf{u} + \mathbf{v} = (u_1, \ldots, u_n) + (v_1, \ldots, v_n)
+                        = (u_1 + v_1, \ldots, u_n + v_n)
+\]
+
+Therefore
+\[
+|\mathbf{u} + \mathbf{v}|_\infty
+= \max_{1 \le i \le n} |u_i + v_i|
+\le \max_{1 \le i \le n} (|u_i| + |v_i|)
+= \max_{1 \le i \le n} |u_i| + \max_{1 \le i \le n} |v_i|
+= |\mathbf{u}|_\infty + |\mathbf{v}|_\infty
+\]
 
 -------------------------------------------------------------------------------
