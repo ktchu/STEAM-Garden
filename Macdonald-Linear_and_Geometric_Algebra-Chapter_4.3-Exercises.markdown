@@ -78,12 +78,41 @@ __Solution__.
 We need to show that the polarization identity satisfies the properties of an
 inner product.
 
-___I1___. TODO
+___I1___. We wish to show that
+
 \[
-(a \mathbf{u}) \cdot \mathbf{w}
-= \frac{1}{2}
-  \left( |(a \mathbf{u}) + \mathbf{w}|^2 - |a \mathbf{u}|^2 - |\mathbf{w}|^2
-  \right)
+(a \mathbf{u}) \cdot \mathbf{w} = a ( \mathbf{u} \cdot \mathbf{w} )
+\]
+
+Note that all of the vectors in the above relation lie in a plane. Consider
+the triangles formed with $\mathbf{u}$ and $a \mathbf{u}$ as bases. Dropping
+an altitude from the top vertex of the triangle, we obtain three right
+triangles with the same altitude. Letting $h$ be the length of the altitude
+and $\Delta$ be the distance between the point where $\mathbf{u}$ and
+$\mathbf{w}$ meet, we find that (after applying the Pythagorean theorem
+three times):
+\[
+|a \mathbf{u} + \mathbf{w}|^2 = h^2
+                            + \left( a |\mathbf{u}| \pm \Delta \right)^2 \\
+|\mathbf{u} + \mathbf{w}|^2 = h^2
+                            + \left( |\mathbf{u}| \pm \Delta \right)^2 \\
+|\mathbf{w}|^2 = h^2 + \Delta^2
+\]
+
+where the sign on $\Delta$ depends on whether the angle betweeen $\mathbf{u}$
+and $\mathbf{w}$ is acute or obtuse. After some algebra, we obtain
+
+\[
+|a \mathbf{u} + \mathbf{w}|^2 - |a \mathbf{u}|^2 - |\mathbf{w}|^2 =
+  \pm 2 a |\mathbf{u}| \Delta.
+|\mathbf{u} + \mathbf{w}|^2 - |\mathbf{u}|^2 - |\mathbf{w}|^2 =
+  \pm 2|\mathbf{u}| \Delta \\
+\]
+
+Using the polarization identity to express the left-hand side of these
+equations, we obtain the desired result:
+\[
+(a \mathbf{u}) \cdot \mathbf{w} = a ( \mathbf{u} \cdot \mathbf{w} ).
 \]
 
 ___I2___. TODO
