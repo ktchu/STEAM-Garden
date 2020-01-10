@@ -339,5 +339,112 @@ because the inner product of a spacetime vector with itself can be zero or
 negative. Examples of both of these situations are provided by the vectors
 $(1, c, 0, 0)$ and $(1, c, c, 0)$, respectively.
 
+### 4.3.13
+
+__Problem__. Let $\{ \mathbf{v}_1, \ldots, \mathbf{v}_n \}$ be a basis for an
+inner product space $\mathbf{V}$. Expand vectors $\mathbf{u}$ and $\mathbf{w}$
+with respect to the basis:
+
+\[
+\mathbf{u}
+= u_1 \mathbf{v}_1 + \cdots + u_n \mathbf{v}_n
+
+\text{ and }
+
+\mathbf{w}
+= w_1 \mathbf{v}_1 + \cdots + w_n \mathbf{v}_n.
+\]
+
+Show that $u_1 w_1 + \cdots + u_n w_n$ is an inner product on $\mathbf{V}$.
+
+__Solution__.
+
+Axioms _I1_ and _I2_ for inner products are satisfied because the inner
+product formula is linear in the $\mathbf{u}$. Axiom _I3_ is satisfied because
+the inner product formula is symmetric with respect to $\mathbf{u}$ and
+$\mathbf{w}$. Finally, Axiom _I4_ is satisfied because
+$\mathbf{u} \ne \mathbf{0}$ implies that $u_i \ne 0$ for some $i$ so that
+$\mathbf{u} \cdot \mathbf{u}$ = $u_1^2 + \cdots + u_n^2 > 0$.
+
+### 4.3.14
+
+Recall that the trace of a square matrix is the sum of its diagonal elements.
+
+#### 4.3.14.a
+
+__Problem__. Show that $A \cdot B = \mathrm{tr}(A^* B)$ is an inner product
+on the vector space of all $n \times n$ matrices (Theorem 3.2).
+_Hint_: First show that $A \cdot B = \sum_{i,j} a_{ji} b_{ji}$. In particular,
+$A \cdot A = \sum_{i,j} |a_{ji}|^2$.
+
+__Solution__. Recall that
+
+\[
+(A^* B)_{ik} = \sum_j (A^*)_{ij} b_{jk} = \sum_j a_{ji} b_{jk}
+\]
+
+so that
+
+\[
+A \cdot B = \mathrm{tr}(A^* B) = \sum_i (A^* B)_{ii}
+= \sum_{i,j} a_{ji} b_{ji}.
+\]
+
+From this formula for $A \cdot B$, we see that the Axioms _I1_ and _I2_ are
+satisfied because the formula is linear in the elements of $A$. Axiom _I3_ is
+satisfied because the formula is symmetric in the elements of $A$ and $B$.
+Finally, Axiom _I4_ is satisfied because $A \cdot A = \sum_{i,j} a_{ji}^2 > 0$
+whenever $A \ne 0$.
+
+#### 4.3.14.b
+
+__Problem__. Prove:
+$|\mathrm{tr}(A^* B)|^2 \le \mathrm{tr}(A^* A) \mathrm{tr}(B^* B)$.
+
+__Solution__.
+
+Apply the Cauchy-Schwarz inequality to the inner product space of square
+matrices with inner product defined in part (a).
+
+\[
+|\mathrm{tr}(A^* B)|^2 = |A \cdot B|^2
+\le |A \cdot A| |B \cdot B| = \mathrm{tr}(A^* A) \mathrm{tr}(B^* B).
+\]
+
+### 4.3.15
+
+(Correlation). TODO
+
+#### 4.3.15.a
+
+__Problem__. TODO
+
+__Solution__.  TODO
+
+#### 4.3.15.b
+
+__Problem__. TODO
+
+__Solution__.  TODO
+
+### 4.3.16
+
+__Problem__. Prove:
+
+\[
+|f(b) - f(a)| \le \sqrt{b - a} \left( \int_a^b (f'(x))^2 dx \right)^{1/2}
+\]
+
+__Solution__.
+
+Apply the Cauchy-Schwarz inequality to the inner product space $C[a,b]$
+with the functions $f'(x)$ and $1$. Then,
+
+\[
+|f(b) - f(a)| = \left| \int_a^b f'(x) dx \right |
+\le \left( \int_a^b dx \right)^{1/2}
+    \left( \int_a^b (f'(x))^2 dx \right)^{1/2}
+= \sqrt{b - a} \left( \int_a^b (f'(x))^2 dx \right)^{1/2}
+\]
 
 -------------------------------------------------------------------------------
