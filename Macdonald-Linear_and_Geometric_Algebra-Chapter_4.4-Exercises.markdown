@@ -120,12 +120,12 @@ __Solution__.
 ### 4.28.
 
 __Problem__. Perform a Gram-Schmidt orthogonalization on the linearly
-independent vectors $\mathbf{u}_1 = (2, 2, 2)$, $\mathbf{u}_2 = (0, 2, 2)$,
-and $\mathbf{u}_3 = (0, 0, 2)$.
+independent vectors $\mathbf{u}_1 = (2,2,2)$, $\mathbf{u}_2 = (0,2,2)$,
+and $\mathbf{u}_3 = (0,0,2)$.
 
 __Solution__.
 \[
-\mathbf{b}_1 = \mathbf{u}_1 = (2, 2, 2)
+\mathbf{b}_1 = \mathbf{u}_1 = (2,2,2)
 \]
 
 \[
@@ -133,9 +133,9 @@ __Solution__.
 =   \mathbf{u}_2
   - \frac{\mathbf{u}_2 \cdot \mathbf{b}_1}{\mathbf{b}_1 \cdot \mathbf{b}_1}
     \mathbf{b}_1
-= (0, 2, 2) - \frac{(0, 2, 2) \cdot (2, 2, 2)}{12} (2, 2, 2)
-= (0, 2, 2) - \frac{8}{12} (2, 2, 2) \\
-= (0, 2, 2) - (4/3, 4/3, 4/3) = (-4/3, 2/3, 2/3)
+= (0,2,2) - \frac{(0,2,2) \cdot (2,2,2)}{12} (2,2,2)
+= (0,2,2) - \frac{8}{12} (2,2,2) \\
+= (0,2,2) - (4/3,4/3,4/3) = (-4/3,2/3,2/3)
 \]
 
 \[
@@ -145,14 +145,107 @@ __Solution__.
     \mathbf{b}_1
   - \frac{\mathbf{u}_3 \cdot \mathbf{b}_2}{\mathbf{b}_2 \cdot \mathbf{b}_2}
     \mathbf{b}_2 \\
-=   (0, 0, 2)
-  - \frac{(0, 0, 2) \cdot (2, 2, 2)}{12} (2, 2, 2)
-  - \frac{(0, 0, 2) \cdot (-4/3, 2/3, 2/3)}{24/9} (-4/3, 2/3, 2/3) \\
-=   (0, 0, 2)
-  - \frac{4}{12} (2, 2, 2)
-  - \frac{4/3}{24/9} (-4/3, 2/3, 2/3) \\
-=   (0, 0, 2) - (2/3, 2/3, 2/3) - (-2/3, 1/3, 1/3) \\
-= (0, -1, 1)
+=   (0,0,2)
+  - \frac{(0,0,2) \cdot (2,2,2)}{12} (2,2,2)
+  - \frac{(0,0,2) \cdot (-4/3,2/3,2/3)}{24/9} (-4/3,2/3,2/3) \\
+=   (0,0,2) - \frac{4}{12} (2,2,2) - \frac{4/3}{24/9} (-4/3,2/3,2/3) \\
+=   (0,0,2) - (2/3,2/3,2/3) - (-2/3,1/3,1/3) \\
+= (0,-1,1)
 \]
+
+### 4.29.
+
+__Problem__. Let $\mathbf{A} = \text{span}(\mathbf{a}_1, \ldots \mathbf{a}_m)$
+and $\mathbf{B} = \text{span}(\mathbf{b}_1, \ldots \mathbf{b}_n)$. Show that
+$\text{span} (\mathbf{A}, \mathbf{B})
+ = \text{span} (\mathbf{a}_1, \ldots \mathbf{a}_m,
+                \mathbf{b}_1, \ldots \mathbf{b}_n)$.
+
+__Solution__.
+
+TODO
+
+### 4.30.
+
+#### 4.30.a.
+
+__Problem__. Let $\mathbf{U}$ be the $\mathbf{e}_1 \mathbf{e}_2$ plane in
+$\mathbb{R}^3$. What is $\mathbf{U}^\perp$?
+
+__Solution__. $\mathbf{U}^\perp$ is the $\mathbf{e}_3$ line.
+
+#### 4.30.b
+
+__Problem__. Let $\mathbf{U}$ be the $\mathbf{e}_1 \mathbf{e}_2$ plane in
+$\mathbb{R}^4$. What is $\mathbf{U}^\perp$?
+
+__Solution__. $\mathbf{U}^\perp$ is the line $\mathbf{e}_3 \mathbf{e}_4$ plane.
+
+### 4.31.
+
+__Problem__. Let $\mathbf{U}$ be a subspace of an inner product space
+$\mathbf{V}$. Then $\mathbf{U}^\perp$ is a subspace of $\mathbf{V}$.
+
+__Solution__.
+
+We need to show that (1) $\mathbf{0} \in \mathbf{U}^\perp$ and
+(2) $\mathbf{U}^\perp$ is closed under scalar multiplication and vector
+addition.
+
+(1) $\mathbf{0} \in \mathbf{U}^\perp$ because
+$\mathbf{0} \cdot \mathbf{u} = 0$ for every $\mathbf{u} \in \mathbf{U}$.
+
+(2) Let $\mathbf{v}, \mathbf{w} \in \mathbf{U}^\perp$ and let
+$\mathbf{u} \in \mathbf{U}$.
+
+$\mathbf{v} \cdot \mathbf{u} = 0$ implies that
+$(\alpha \mathbf{v}) \cdot \mathbf{u} = 0$. Since this holds for all
+$\mathbf{u} \in \mathbf{U}$, $(\alpha \mathbf{v}) \in \mathbf{U}^\perp$ and
+$\mathbf{U}^\perp$ is closed under scalar multiplication.
+
+$\mathbf{v} \cdot \mathbf{u} = 0$ and $\mathbf{w} \cdot \mathbf{u} = 0$
+implies that $(\mathbf{v} + \mathbf{w}) \cdot \mathbf{u} = 0$. Since this is holds for any
+$\mathbf{u} \in \mathbf{U}$, $\mathbf{v} + \mathbf{w} \in \mathbf{U}^\perp$
+and $\mathbf{U}^\perp$ is closed under vector addition.
+
+### 4.32.
+
+#### 4.32.a.
+
+__Problem__. Find $P_{\mathbf{U}} (\mathbf{v})$, where $\mathbf{v} = (1,1,1,1)$
+and $\mathbf{U}$ is 2-dimensional, with orthogonal basis
+$\mathbf{u}_1 = (3,0,4,0)$ and $\mathbf{u}_2 = (0,3,0,4)$.
+
+__Solution__.
+
+Normalizing $\mathbf{u}_1$ and $\mathbf{u}_2$, we obtain an orthonormal
+basis for $\mathbf{U}$:
+
+\[
+  \hat{\mathbf{u}}_1 = (3/5, 0, 4/5, 0) \\
+  \hat{\mathbf{u}}_2 = (0, 3/5, 0, 4/5)
+\]
+
+Projecting $\mathbf{v}$ onto $\hat{\mathbf{u}}_1$ and $\hat{\mathbf{u}}_2$,
+we obtain $P_\mathbf{U} (\mathbf{v})$:
+
+\[
+  P_\mathbf{U} (\mathbf{v}) = (21/25, 21/25, 28/25, 28/25).
+\]
+
+#### 4.32.b
+
+__Problem__. Determine $\mathbf{v} - P_{\mathbf{U}} (\mathbf{v})$.
+A check: $|\mathbf{v} - P_{\mathbf{U}} (\mathbf{v})| = 0.28$.
+
+__Solution__.
+
+\[
+  \mathbf{v} - P_\mathbf{U} (\mathbf{v})
+  = (1, 1, 1, 1) - (21/25, 21/25, 28/25, 28/25) \\
+  = (4/25, 4/25, -3/25, -3/25).
+\]
+
+Check: $|\mathbf{v} - P_\mathbf{U} (\mathbf{v})| = \sqrt{50} / 25 \approx 0.28$
 
 -------------------------------------------------------------------------------
