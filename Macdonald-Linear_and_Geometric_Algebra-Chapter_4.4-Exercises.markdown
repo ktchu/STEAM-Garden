@@ -163,7 +163,41 @@ $\text{span} (\mathbf{A}, \mathbf{B})
 
 __Solution__.
 
-TODO
+Suppose that $\mathbf{u} \in \text{span}(\mathbf{A}, \mathbf{B})$. Then
+$\mathbf{u} = \mathbf{a} + \mathbf{b}$ for $\mathbf{a} \in \mathbf{A}$ and
+$\mathbf{b} \in \mathbf{B}$.  Since $\mathbf{a} \in \mathbf{A}$ and
+$\mathbf{b} \in \mathbf{B}$, $\mathbf{a}$ is a linear combination of
+$\{ \mathbf{a}_1, \ldots, \mathbf{a}_m \}$ and $\mathbf{b}$ is a linear
+combination of $\{ \mathbf{b}_1, \ldots, \mathbf{b}_n \}$. Therefore,
+$\mathbf{u}$ is a linear combination of
+$\{ \mathbf{a}_1, \ldots, \mathbf{a}_m, \mathbf{b}_1, \ldots, \mathbf{b}_n \}$,
+so $\mathbf{u} \in \text{span} (\mathbf{a}_1, \ldots \mathbf{a}_m,
+                                \mathbf{b}_1, \ldots \mathbf{b}_n)$
+and $\text{span}(\mathbf{A}, \mathbf{B}) \subseteq
+     \text{span} (\mathbf{a}_1, \ldots \mathbf{a}_m,
+                  \mathbf{b}_1, \ldots \mathbf{b}_n)$.
+
+Next, suppose that $\mathbf{u} \in
+                    \text{span} (\mathbf{a}_1, \ldots \mathbf{a}_m,
+                                 \mathbf{b}_1, \ldots \mathbf{b}_n)$.
+Then, $\mathbf{u}$ is a linear combination of
+$\{ \mathbf{a}_1, \ldots, \mathbf{a}_m, \mathbf{b}_1, \ldots, \mathbf{b}_n \}$:
+\[
+  \mathbf{u} = \sum_{i=1}^m \alpha_i \mathbf{a}_i
+             + \sum_{i=1}^n \beta_i \mathbf{b}_i.
+\]
+Since $\sum_{i=1}^m \alpha_i \mathbf{a}_i \in \mathbf{A}$ and
+$\sum_{i=1}^n \beta_i \mathbf{b}_i \in \mathbf{B}$, we see that $\mathbf{u}$
+is the sum of a vector in $\mathbf{A}$ and a vector in $\mathbf{B}$. Therefore,
+$\mathbf{u} \in \text{span}(\mathbf{A}, \mathbf{B})$ and
+$\text{span} (\mathbf{a}_1, \ldots \mathbf{a}_m,
+              \mathbf{b}_1, \ldots \mathbf{b}_n) \subseteq
+ \text{span}(\mathbf{A}, \mathbf{B})$.
+
+Combining the two inclusion results, we obtain the desired result:
+$\text{span} (\mathbf{a}_1, \ldots \mathbf{a}_m,
+              \mathbf{b}_1, \ldots \mathbf{b}_n)
+ = \text{span}(\mathbf{A}, \mathbf{B})$.
 
 ### 4.30.
 
