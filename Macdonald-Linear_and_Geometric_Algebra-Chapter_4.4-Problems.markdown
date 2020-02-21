@@ -107,7 +107,7 @@ _Second basis vector $\mathbf{e}_2$_.
 \[
 \mathbf{b}_2
 = \mathbf{u}_2 - (\mathbf{u}_2 \cdot \mathbf{e}_1) \mathbf{e}_1
-= (3,1,1,-1) - ((3,1,1,-1) \cdot (1,1,0,1)) (1,1,0,1) / 3
+= (3,1,1,-1) - ((3,1,1,-1) \cdot (1,1,0,1)) (1,1,0,1) / 3 \\
 = (3,1,1,-1) - (1,1,0,1) = (2,0,1,-2)
 \]
 
@@ -121,7 +121,7 @@ _Third basis vector $\mathbf{e}_3$_.
 \mathbf{b}_3
 = \mathbf{u}_3
   - (\mathbf{u}_3 \cdot \mathbf{e}_1) \mathbf{e}_1
-  - (\mathbf{u}_2 \cdot \mathbf{e}_2) \mathbf{e}_2
+  - (\mathbf{u}_2 \cdot \mathbf{e}_2) \mathbf{e}_2 \\
 = (0,1,-1,1)
   - ((0,1,-1,1) \cdot (1,1,0,1)) (1,1,0,1) / 3
   - ((0,1,-1,1) \cdot (2,0,1,-2)) (2,0,1,-2) / 9 \\
