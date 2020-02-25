@@ -134,4 +134,102 @@ _Third basis vector $\mathbf{e}_3$_.
 = (0,1,-2,-1) / \sqrt{6}
 \]
 
+### 4.4.5
+
+__Problem__. Use Gram-Schmidt orthogonalization to produce an _orthonormal_
+set from the vectors $\mathbf{u}_1 = (1,2,3,4)$, $\mathbf{u}_2 = (-2,2,1,-1)$,
+$\mathbf{u}_3 = (3,4,5,6)$.
+
+__Solution__.
+
+_First basis vector $\mathbf{e}_1$_.
+
+\[
+\mathbf{e}_1 = \mathbf{u}_1 / |\mathbf{u}_1| = (1,2,3,4) / \sqrt{30}
+\]
+
+_Second basis vector $\mathbf{e}_2$_.
+
+\[
+\mathbf{b}_2
+= \mathbf{u}_2 - (\mathbf{u}_2 \cdot \mathbf{e}_1) \mathbf{e}_1
+= (-2,2,1,-1) - ((-2,2,1,-1) \cdot (1,2,3,4)) (1,2,3,4) / 30 \\
+= (-2,2,1,-1) - (1,2,3,4) / 30 = (-61, 58, 27, -34) / 30
+\]
+
+\[
+\mathbf{e}_2 = \mathbf{b}_2 / |\mathbf{b}_2| = (-61, 58, 27, -34) / \sqrt{8970}
+\]
+
+_Third basis vector $\mathbf{e}_3$_.
+
+\[
+\mathbf{b}_3
+= \mathbf{u}_3
+  - (\mathbf{u}_3 \cdot \mathbf{e}_1) \mathbf{e}_1
+  - (\mathbf{u}_2 \cdot \mathbf{e}_2) \mathbf{e}_2 \\
+= (3,4,5,6)
+  - ((3,4,5,6) \cdot (1,2,3,4)) (1,2,3,4) / 30
+  - ((3,4,5,6) \cdot (-61, 58, 27, -34)) (-61, 58, 27, -34) / 8970 \\
+= (3,4,5,6) - 5 (1,2,3,4) / 3 + 2 (-61, 58, 27, -34) / 897
+= (358, 238, 18, -222) / 299
+\]
+
+\[
+\mathbf{e}_3 = \mathbf{b}_3 / |\mathbf{b}_3|
+= \frac{1}{14 \sqrt{299}} (179, 119, 9, -111)
+\]
+
+### 4.4.6
+
+Consider the vectors $f_0(x) = 1, f_1(x) = x, \ldots, f_n(x) = x^n$ in
+$C[-1, 1]$. They are linearly independent.
+
+#### 4.4.6.a
+
+__Problem__. Perform a Gram-Schmidt orthogonalization on $f_0, f_1, f_2$ to
+obtain the polynomials $P_0, P_1, P_2$.
+
+__Solution__.
+
+\[
+P_0(x) = f_0(x) = 1
+\]
+
+\[
+P_1 (x)
+= f_1(x) - \frac{f_1 \cdot f_0}{f_0 \cdot f_0} f_0(x)
+= f_1(x) - \frac{\int_{-1}^1 f_1(x) f_0(x) dx}{\int_{-1}^1 f_0(x)^2 dx} f_0(x)
+= x - \frac{\int_{-1}^1 x dx}{\int_{-1}^1 dx} = x - 0
+= x
+\]
+
+\[
+P_2 (x)
+= f_2(x) - \frac{f_2 \cdot f_0}{f_0 \cdot f_0} f_0(x)
+         - \frac{f_2 \cdot f_1}{f_1 \cdot f_1} f_1(x) \\
+= f_2(x)
+  - \frac{\int_{-1}^1 f_2(x) f_0(x) dx}{\int_{-1}^1 f_0(x)^2 dx} f_0(x)
+  - \frac{\int_{-1}^1 f_2(x) f_1(x) dx}{\int_{-1}^1 f_1(x)^2 dx} f_1(x) \\
+= x^2 - \frac{\int_{-1}^1 x^2 dx}{\int_{-1}^1 dx}
+      - \frac{\int_{-1}^1 x^3 dx}{\int_{-1}^1 x^2 dx} x
+= x^2 - \frac{1}{3} - 0 x
+= x^2 - \frac{1}{3}
+\]
+
+#### 4.4.6.b
+
+__Problem__. Find the Fourier expansion of $f(x) = a + b x + c x^2$ with
+respect to $P_0, P_1, P_2$. Use Problem 4.4.2.
+
+__Solution__.
+
+\[
+f(x)
+=   \frac{(f \cdot P_0)}{(P_0 \cdot P_0)} P_0(x)
+  + \frac{(f \cdot P_1)}{(P_1 \cdot P_1)} P_1(x)
+  + \frac{(f \cdot P_2)}{(P_2 \cdot P_2)} P_2(x) \\
+=   (a +  c / 3) P_0(x) + b P_1(x) + c P_2(x)
+\]
+
 -------------------------------------------------------------------------------
