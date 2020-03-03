@@ -188,7 +188,9 @@ $C[-1, 1]$. They are linearly independent.
 #### 4.4.6.a
 
 __Problem__. Perform a Gram-Schmidt orthogonalization on $f_0, f_1, f_2$ to
-obtain the polynomials $P_0, P_1, P_2$.
+obtain the polynomials $P_0, P_1, P_2$. Except for scalar factors,
+$P_0, P_1, P_2, \ldots$ are called _Legendre polynomials_. They are widely
+used in physics and engineering.
 
 __Solution__.
 
@@ -231,5 +233,153 @@ f(x)
   + \frac{(f \cdot P_2)}{(P_2 \cdot P_2)} P_2(x) \\
 =   (a +  c / 3) P_0(x) + b P_1(x) + c P_2(x)
 \]
+
+### 4.4.7
+
+#### 4.4.7.a
+
+__Problem__. Suppose that the system of linear equations
+$A \mathbf{x} = \mathbf{b}$ has a solution. Show that the system has a unique
+solution in $\mathcal{N}(A)^{\perp}$. _Hint_. Decompose a solution using
+Theorem 4.25e. For uniqueness, show that the difference between two solutions
+in $\mathcal{N}(A)^{\perp}$ is in both $\mathcal{N}(A)$ and
+$\mathcal{N}(A)^{\perp}$.
+
+__Solution__. Let $\mathbf{x}^*$ be a solution to $A \mathbf{x} = \mathbf{b}$.
+Then, $\mathbf{x}^*$ can be decomposed as a sum
+$\mathbf{x}^* = \mathbf{x}_\perp + \mathbf{x}_\parallel$ where
+$\mathbf{x}_\perp \in \mathcal{N}(A)^\perp$ and
+$\mathbf{x}_\parallel \in \mathcal{N}(A)$. Since $A \mathbf{x}^* = \mathbf{b}$,
+
+\[
+A (\mathbf{x}_\perp + \mathbf{x}_\parallel)
+= A \mathbf{x}_\perp + A \mathbf{x}_\parallel
+= A \mathbf{x}_\perp
+= \mathbf{b},
+\]
+
+where the second to last equality follows because
+$\mathbf{x}_\parallel \in \mathcal{N}(A)$ implies that
+$A \mathbf{x}_\parallel = \mathbf{0}$. Therefore,
+$A \mathbf{x} = \mathbf{b}$ has a solution in $\mathcal{N}(A)^\perp$.
+
+To show that $\mathbf{x}_\perp$ is unique, suppose that
+$\mathbf{x}^\dagger \in \mathcal{N}(A)^\perp$ satisfies
+$A \mathbf{x} = \mathbf{b}$. Then,
+
+\[
+A \mathbf{x}_\perp = A \mathbf{x}^\dagger
+\Rightarrow A (\mathbf{x}_\perp - \mathbf{x}^\dagger) = 0
+\Rightarrow \mathbf{x}_\perp - \mathbf{x}^\dagger \in \mathbf{N}(A).
+\]
+
+But $\mathbf{x}_\perp - \mathbf{x}^\dagger$ is also contained in
+$\mathcal{N}(A)^\perp$ because $\mathcal{N}(A)^\perp$ is a linear space.
+Therefore, $\mathbf{x}_\perp = \mathbf{x}^\dagger$ because $\mathbf{0}$ is the
+only vector in the intersection of $\mathcal{N}(A)^\perp$ and $\mathcal{N}(A)$.
+
+#### 4.4.7.b
+
+__Problem__. Show that the solution of Part (a) is the solution of
+$A \mathbf{x} = \mathbf{b}$ of minimum norm.
+
+__Solution__. Let $\mathbf{x}^*$ be a solution of $A \mathbf{x} = \mathbf{b}$.
+Then $A (\mathbf{x}^* - \mathbf{x}_\perp) = 0$, so
+$\mathbf{x}^* - \mathbf{x}_\perp \in \mathcal{N}(A)$. Therefore,
+
+\[
+|\mathbf{x}^*|^2
+= |(\mathbf{x}^* - \mathbf{x}_\perp) + \mathbf{x}_\perp|^2
+= |\mathbf{x}^* - \mathbf{x}_\perp|^2 + |\mathbf{x}_\perp|^2
+\ge |\mathbf{x}_\perp|^2,
+\]
+
+where the second inequality follows because $\mathbf{x}^* - \mathbf{x}_\perp$
+and $\mathbf{x}_\perp$ are orthogonal.
+
+### 4.4.8
+
+Set $d(\mathbf{u}, \mathbf{v}) = |\mathbf{v} - \mathbf{u}|$. A set with a
+scalar valued function $d$ satisfying the following properties (a)-(c)
+is called a _metric space_. The problem shows that every inner product space
+is a metric space.
+
+#### 4.4.8.a
+
+__Problem__. If $\mathbf{u} \ne \mathbf{v}$, then
+$d(\mathbf{u}, \mathbf{v}) > 0$ and $d(\mathbf{u}, \mathbf{u}) = 0$.
+
+__Solution__. The result follows from the property that $|\mathbf{u}| > 0$
+if $\mathbf{u} \ne \mathbf{0}$ and $|\mathbf{0}| = 0$.
+
+#### 4.4.8.b
+
+__Problem__. Prove that $d(\mathbf{u}, \mathbf{v}) = d(\mathbf{v}, \mathbf{u})$.
+
+__Solution__. The result follows because
+
+\[
+|\mathbf{u} - \mathbf{v}|
+= \sqrt{(\mathbf{u} - \mathbf{v}) \cdot (\mathbf{u} - \mathbf{v})}
+= \sqrt{(\mathbf{v} - \mathbf{u}) \cdot (\mathbf{v} - \mathbf{u})}
+= |\mathbf{v} - \mathbf{u}|.
+\]
+
+#### 4.4.8.c
+
+__Problem__. Prove that $d(\mathbf{u}, \mathbf{w}) \le
+d(\mathbf{u}, \mathbf{v}) + d(\mathbf{v}, \mathbf{w})$.
+
+__Solution__. The result follows from the triangle inequality for norms.
+
+### 4.4.9
+
+#### 4.4.9.a
+
+__Problem__. Find the least squares line for the points (0, 1.5), (1, 2.5),
+(2, 5.5), (3, 6.5), (4, 9.5), (5, 10.5).
+
+__Solution__. The least squares line is the least squares solution to the
+equation
+
+\[
+\left[ \begin{array}{cc}
+0 & 1 \\
+1 & 1 \\
+2 & 1 \\
+3 & 1 \\
+4 & 1 \\
+5 & 1
+\end{array}
+\right]
+
+\left[ \begin{array}{c}
+m \\
+b
+\end{array}
+\right]
+
+=
+
+\left[ \begin{array}{c}
+1.5 \\
+2.5 \\
+5.5 \\
+6.5 \\
+9.5 \\
+10.5
+\end{array}
+\right]
+\]
+
+Inverting the normal equation associated with this least squares problem
+yields $m = 1.914$ and $b = 1.214$, so the least squares line is
+$y = 1.914 x + 1.214$ (to three decimal places in the coefficients).
+
+#### 4.4.9.b
+
+__Problem__. Graph the points and line from Part (a).
+
+__Solution__. Skipped.
 
 -------------------------------------------------------------------------------
