@@ -382,4 +382,553 @@ __Problem__. Graph the points and line from Part (a).
 
 __Solution__. Skipped.
 
+### 4.4.10
+
+__Problem__. Write an expression for the quantity which is minimized by the
+least squares line. Interpret the expression geometrically with a diagram in
+the $xy$-plane. The expression should contain only the coordinates of the data
+points. No vectors or matrices are allowed. You need not carry out the
+minimization.
+
+__Solution__. In vector form, the quantity minimized to find the least squares
+line is
+
+\[
+\left|
+  \mathbf{y} -
+  \left[\begin{array}{cc}
+    \mathbf{x} & \mathbf{1}
+  \end{array}\right]
+  \left[\begin{array}{c}
+    m \\
+    b
+  \end{array}\right]
+\right|^2
+\]
+
+Expanding this expression in terms of data points, we obtain the expression
+
+\[
+\sum_i \left( y_i - (m x_i + b) \right)^2.
+\]
+
+Geometrically, each term in this expression is the square of the difference
+between the $y$ value of the $i$-th data point and the $y$ value of the least
+square line at the $x$ value of the $i$-th data point. The full expression
+is the sum of the squared errors.
+
+### 4.4.11
+
+Least squares is not limited to fitting data points to a line.
+
+#### 4.4.11.a
+
+__Problem__. Show that no quadratic polynomial $f(x) = a x^2 + b x + c$ passes
+through the five points (1,0), (-1,4), (2,1), (-2,7), (3,3).
+
+__Solution__. Three points uniquely determine a quadratic polynomial. The
+quadratic polynomial points determined by the points (1,0), (-1,4), and (2,1)
+satisfies:
+
+\[
+ a +  b + c = 0 \\
+ a -  b + c = 4 \\
+4a + 2b + c = 1
+\]
+
+Solving this system of equations, we find that the quadratic polynomial
+determined by the first three points is $x^2 - 2x + 1$.
+
+Neither (2,7) nor (3,3) lie on the quadratic polynomial because
+
+\[
+  2^2 - 2(2) + 1 = 1 \ne 7 \\
+  3^2 - 2(3) + 1 = 4 \ne 3
+\]
+
+#### 4.4.11.b
+
+__Problem__. Define and find the quadratic polynomial which provides the
+"closest" fit to the points.
+
+__Solution__. The quadratic polynomial that provides the "closest" fit to the
+points in the least squares sense minimizes the following function.
+
+\[
+\left|
+  \mathbf{y} -
+  A \left[\begin{array}{c}
+      a \\
+      b \\
+      c \\
+    \end{array}\right]
+\right|^2,
+\]
+
+where
+
+\[
+A = \left[\begin{array}{ccc}
+      x_1^2 & x_1 & 1 \\
+      \vdots & \vdots & \vdots \\
+      x_n^2 & x_n & 1
+    \end{array}\right]
+\]
+
+Minimization of this function is achieved by solving the normal equation
+
+\[
+A^* A \left[\begin{array}{c}
+        a \\
+        b \\
+        c \\
+      \end{array}\right]
+= A^* \mathbf{y}.
+\]
+
+For the data points in Part (a),
+
+\[
+A = \left[\begin{array}{ccc}
+      1 &  1 & 1 \\
+      1 & -1 & 1 \\
+      4 &  2 & 1 \\
+      4 & -2 & 1 \\
+      9 &  3 & 1
+    \end{array}\right]
+\]
+
+and
+
+\[
+  \mathbf{y} = [0, 4, 1, 7, 3]^T.
+\]
+
+Solving the normal equation, we find that the best fit quadratic polynomial
+(to two decimal places in the coefficients) is
+
+\[
+0.72 x^2 - 1.58 x + 1.23.
+\]
+
+### 4.4.12
+
+__Problem__. Least squares is not limited to fitting data points to curves.
+
+Suppose that we have data points $(x_k, y_k, z_k)$. We want to find the
+equation $z = a x + b y + c$ of a plane which best fits the data in the least
+squares sense. Write the matrix equation similar to
+
+\[
+\left[\begin{array}{cc}
+  \mathbf{x} & \mathbf{1}
+\end{array}\right]
+\left[\begin{array}{c}
+  m \\
+  b
+\end{array}\right]
+= \mathbf{y}
+\]
+
+for this.
+
+__Solution__. For the plane that best fits the data in the least squares sense,
+the matrix equation analogous to the least square equation for the best fit
+line is
+
+\[
+\left[\begin{array}{cc}
+  \mathbf{x} & \mathbf{y} & \mathbf{1}
+\end{array}\right]
+
+\left[\begin{array}{c}
+    a \\
+    b \\
+    c
+\end{array}\right]
+
+= \mathbf{z}
+\]
+
+### 4.4.13
+
+### 4.4.13.a
+
+__Problem__. Recall that the least squares solution of
+$A \mathbf{x} = \mathbf{b}$ are solutions of
+$A \mathbf{x} = P_\mathbf{U} \mathbf{b}$ (Theorem 4.27a). Denote a least
+squares solution by $\hat{\mathbf{x}}$. Justify the steps of this proof that
+
+\[
+A \hat{\mathbf{x}} = P_\mathbf{U} \mathbf{b} \Leftrightarrow
+A^*A \hat{\mathbf{x}} = A^* \mathbf{b}.
+\]
+
+_Proof_
+
+\[
+A \hat{\mathbf{x}} = P_\mathbf{U} \mathbf{b} \Leftrightarrow \\
+\mathbf{b} - A \hat{\mathbf{x}} \perp \mathbf{U} \Leftrightarrow \\
+(\mathbf{b} - A \hat{\mathbf{x}}) \cdot \mathbf{u} = 0
+  \text{ for all } \mathbf{u} \in \mathbf{U} \Leftrightarrow \\
+(\mathbf{b} - A \hat{\mathbf{x}}) \cdot
+  A \mathbf{x} = 0 \text{ for all } \mathbf{x} \Leftrightarrow \\
+A^* (\mathbf{b} - A \hat{\mathbf{x}}) \cdot
+  \mathbf{x} = 0 \text{ for all } \mathbf{x} \Leftrightarrow \\
+A^* (\mathbf{b} - A \hat{\mathbf{x}}) = \mathbf{0} \Leftrightarrow \\
+A^* A \hat{\mathbf{x}} = A^* \mathbf{b}.
+\]
+
+__Solution__.
+
+_Step 1_. $\mathbf{b}$ can be expressed uniquely as
+$\mathbf{b}_\parallel + \mathbf{b}_\perp$ where
+$\mathbf{b}_\parallel \in \mathbf{U}$ and
+$\mathbf{b}_\perp \in \mathbf{U}^\perp$. Since
+$\mathbf{b} = P_\mathbf{U} \mathbf{b} + (I - P_\mathbf{U}) \mathbf{b}$
+and $P_\mathbf{U} \mathbf{b} \in \mathbf{U}$,
+$(I - P_\mathbf{U}) \mathbf{b} \in \mathbf{U}^\perp$. Therefore,
+
+\[
+(I - P_\mathbf{U}) \mathbf{b} = \mathbf{b} - P_\mathbf{U} \mathbf{b}
+= \mathbf{b} - A \hat{\mathbf{x}}
+\]
+
+lies in $\mathbf{U}^\perp$, which implies that
+$\mathbf{b} - A \hat{\mathbf{x}}$ is orthogonal to $\mathbf{U}$.
+
+_Step 2_. By definition, any vector that is orthogonal to $\mathbf{U}$ has
+zero dot product with all vectors $\mathbf{u} \in \mathbf{U}$.
+
+_Step 3_. Since $\mathbf{U}$ is the span of the columns of $A$, any vector
+$\mathbf{u} \in \mathbf{U}$ can be represented as a linear combination of
+columns of $A$. In other words, $\mathbf{u} = A \mathbf{x}$ for some
+$\mathbf{x}$. Therefore, the result of Step (2) implies that
+$\mathbf{b} - A \hat{\mathbf{x}}$ is orthogonal to $A \mathbf{x}$ for all
+$\mathbf{x}$.
+
+_Step 4_. Recalling that the dot product of vectors can be expressed as matrix
+multiplication, the left hand side of the result of Step (3) can be expressed
+as
+
+\[
+(A \mathbf{x})^* (\mathbf{b} - A \hat{\mathbf{x}})
+= \mathbf{x})^* A^* (\mathbf{b} - A \hat{\mathbf{x}})
+= \mathbf{x}^* \left( A^* (\mathbf{b} - A \hat{\mathbf{x}}) \right).
+\]
+
+Converting the matrix multiplication back to a dot product, we obtain the
+desired result:
+
+\[
+A^* (\mathbf{b} - A \hat{\mathbf{x}}) \cdot \mathbf{x} = 0
+\]
+
+for all $\mathbf{x}$.
+
+_Step 5_. If the dot product of a vector with all vectors $\mathbf{x}$ is
+equal to 0, then the vector is equal to zero. Therefore,
+
+\[
+A^* (\mathbf{b} - A \hat{\mathbf{x}}) = \mathbf{0}.
+\]
+
+_Step 4_. Carrying out the multiplications in the result of Step (5) and
+rearranging the equation yields the desired result
+
+\[
+A^* A \hat{\mathbf{x}} = A^* \mathbf{b}.
+\]
+
+### 4.4.13.b
+
+__Problem__. Find the least squares solution of
+
+\[
+ x + 2y = 6 \\
+2x -  y = 5 \\
+3x + 2y = 0 \\
+\]
+
+using the normal equation.
+
+Solving the normal equation is not the most practical way to find least squares
+solutions. For this see Problem 9.7.4.
+
+__Solution__. The matrix equation equivalent to the systemr of equations is
+
+\[
+\left[\begin{array}{cc}
+  1 &  2 \\
+  2 & -1 \\
+  3 &  2
+\end{array}\right]
+
+\left[\begin{array}{c}
+    x \\
+    y
+\end{array}\right]
+
+=
+
+\left[\begin{array}{c}
+    6 \\
+    5 \\
+    0
+\end{array}\right]
+\]
+
+The normal equation for this matrix equation is
+
+\[
+\left[\begin{array}{ccc}
+  1 &  2 & 3 \\
+  2 & -1 & 2
+\end{array}\right]
+\left[\begin{array}{cc}
+  1 &  2 \\
+  2 & -1 \\
+  3 &  2
+\end{array}\right]
+
+\left[\begin{array}{c}
+    x \\
+    y
+\end{array}\right]
+
+=
+
+\left[\begin{array}{ccc}
+  1 &  2 & 3 \\
+  2 & -1 & 2
+\end{array}\right]
+\left[\begin{array}{c}
+    6 \\
+    5 \\
+    0
+\end{array}\right]
+\]
+
+which simplifies to
+
+\[
+\left[\begin{array}{cc}
+  14 & 6 \\
+   6 & 9
+\end{array}\right]
+
+\left[\begin{array}{c}
+    x \\
+    y
+\end{array}\right]
+
+=
+
+\left[\begin{array}{c}
+    16 \\
+     7
+\end{array}\right]
+\]
+
+Therefore, the least squares solution to the original system of equations is:
+$x = 17/15$, $y = 1/45$.
+
+### 4.4.14
+
+If $\mathcal{N}(A) = \{ \mathbf{0} \}$, then $A^* A$ is invertible
+(Problem 3.2.6c). Thus the normal equation has the unique solution
+$\mathbf{x} = (A^* A)^{-1} A \mathbf{b}$. This is also the unique least squares
+solution to $A \mathbf{x} = \mathbf{b}$.
+
+### 4.4.14.a
+
+__Problem__. Show that $\mathcal{N}(A) = \{ \mathbf{0} \}$ for the $n \times 2$
+matrix on the left side of
+
+\[
+\left[\begin{array}{cc}
+  \mathbf{x} & \mathbf{1}
+\end{array}\right]
+\left[\begin{array}{c}
+  m \\
+  b
+\end{array}\right]
+= \mathbf{y}
+\]
+
+Note that by the nature of the problem, the $x$'s are distinct.
+
+__Solution__. Assume $n > 1$, then there are at least two rows in
+
+\[
+\left[\begin{array}{cc}
+  \mathbf{x} & \mathbf{1}
+\end{array}\right]
+\]
+
+Suppose that $(a,b) \in \mathcal{N}(A)$. Then,
+
+\[
+a \mathbf{x} + b \mathbf{1} = \mathbf{0}.
+\]
+
+In particular,
+
+\[
+a x_1 + b = 0 \\
+a x_2 + b = 0
+\]
+
+which implies that $a (x_1 - x_2) = 0$. Since the $x$'s are distinct, $a = 0$,
+which implies that $b = 0$. Therefore, $\mathbf{0}$ is the only vector in
+$\mathcal{N}(A)$, so $\mathcal{N}(A) = \{ \mathbf{0} \}$.
+
+### 4.4.14.b
+
+__Problem__. Show that the least squares solution to
+
+\[
+\left[\begin{array}{cc}
+  \mathbf{x} & \mathbf{1}
+\end{array}\right]
+\left[\begin{array}{c}
+  m \\
+  b
+\end{array}\right]
+= \mathbf{y},
+\]
+
+is the solution to
+
+\[
+\left[ \begin{array}{cc}
+\sum_i x_i^2 & \sum_i x_i \\
+\sum_i   x_i & n
+\end{array}\right]
+
+\left[ \begin{array}{c}
+\hat{m} \\
+\hat{b}
+\end{array}\right]
+=
+\left[ \begin{array}{c}
+\sum_i x_i y_i \\
+\sum_i y_i
+\end{array}\right].
+\]
+
+Solving for $\hat{m}$ and $\hat{b}$ using Eq. (3.11) gives
+
+\[
+\hat{m} = \frac{n \sum x_i y_i - \sum x_i \sum y_i}
+               {n \sum x_i^2 - (\sum x_i)^2} \\
+\hat{b} = \frac{\sum y_i \sum x_i^2 - \sum x_i \sum x_i y_i}
+               {n \sum x_i^2 - (\sum x_i)^2}
+\]
+
+This pair of formulas is used to compute the least squares line
+$y = \hat{m} x + \hat{b}$.
+
+__Solution__. The normal equation associated with the least square problem is
+
+\[
+\left[\begin{array}{c}
+  \mathbf{x}^T \\
+  \mathbf{1}^T
+\end{array}\right]
+\left[\begin{array}{cc}
+  \mathbf{x} & \mathbf{1}
+\end{array}\right]
+\left[\begin{array}{c}
+  \hat{m} \\
+  \hat{b}
+\end{array}\right]
+=
+\left[\begin{array}{c}
+  \mathbf{x}^T \\
+  \mathbf{1}^T
+\end{array}\right]
+\mathbf{y}.
+\]
+
+Carrying out the matrix multiplications on the left hand side of the equation,
+we obtain
+
+\[
+\left[\begin{array}{c}
+  \mathbf{x}^T \\
+  \mathbf{1}^T
+\end{array}\right]
+\left[\begin{array}{cc}
+  \mathbf{x} & \mathbf{1}
+\end{array}\right]
+=
+\left[\begin{array}{cc}
+  \mathbf{x}^T \mathbf{x} & \mathbf{x}^T \mathbf{1} \\
+  \mathbf{1}^T \mathbf{x} & \mathbf{1}^T \mathbf{1}
+\end{array}\right]
+=
+\left[\begin{array}{cc}
+  \sum_i x_i^2 & \sum_i x_i \\
+  \sum_i x_i & n
+\end{array}\right]
+\]
+
+Carrying out the matrix multiplications on the right hand side of the equation,
+we obtain
+
+\[
+\left[\begin{array}{c}
+  \mathbf{x}^T \\
+  \mathbf{1}^T
+\end{array}\right]
+\mathbf{y}
+=
+\left[\begin{array}{c}
+  \mathbf{x}^T \mathbf{y} \\
+  \mathbf{1}^T \mathbf{y}
+\end{array}\right]
+=
+\left[\begin{array}{c}
+  \sum_i x_i y_i \\
+  \sum_i y_i
+\end{array}\right]
+\]
+
+Substituting these matrices back into the normal equation yields the desired
+matrix equation for $\hat{m}$ and $\hat{b}$.
+
+Using the formula for the inverse of a 2 x 2 matrix, we have
+
+\[
+\left[ \begin{array}{cc}
+\sum_i x_i^2 & \sum_i x_i \\
+\sum_i   x_i & n
+\end{array}\right]^{-1}
+=
+\frac{1}{n\sum_i x_i^2 - (\sum_i x_i)^2}
+\left[ \begin{array}{cc}
+  n         & -\sum_i x_i \\
+-\sum_i x_i & \sum_i x_i^2
+\end{array}\right]
+\]
+
+so that the solution $[\hat{m}, \hat{b}]^T$ is given by
+
+\[
+\frac{1}{n\sum_i x_i^2 - (\sum_i x_i)^2}
+\left[ \begin{array}{cc}
+  n         & -\sum_i x_i \\
+-\sum_i x_i & \sum_i x_i^2
+\end{array}\right]
+
+\left[\begin{array}{c}
+  \sum_i x_i y_i \\
+  \sum_i y_i
+\end{array}\right].
+\]
+
+Carrying out the matrix multiplications yields the formulas for $\hat{m}$ and
+$\hat{b}$.
+
 -------------------------------------------------------------------------------
