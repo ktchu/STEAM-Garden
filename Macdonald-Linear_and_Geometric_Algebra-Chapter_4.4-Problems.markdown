@@ -552,7 +552,7 @@ line is
 
 ### 4.4.13
 
-### 4.4.13.a
+#### 4.4.13.a
 
 __Problem__. Recall that the least squares solution of
 $A \mathbf{x} = \mathbf{b}$ are solutions of
@@ -640,7 +640,7 @@ rearranging the equation yields the desired result
 A^* A \hat{\mathbf{x}} = A^* \mathbf{b}.
 \]
 
-### 4.4.13.b
+#### 4.4.13.b
 
 __Problem__. Find the least squares solution of
 
@@ -740,7 +740,7 @@ If $\mathcal{N}(A) = \{ \mathbf{0} \}$, then $A^* A$ is invertible
 $\mathbf{x} = (A^* A)^{-1} A \mathbf{b}$. This is also the unique least squares
 solution to $A \mathbf{x} = \mathbf{b}$.
 
-### 4.4.14.a
+#### 4.4.14.a
 
 __Problem__. Show that $\mathcal{N}(A) = \{ \mathbf{0} \}$ for the $n \times 2$
 matrix on the left side of
@@ -783,7 +783,7 @@ which implies that $a (x_1 - x_2) = 0$. Since the $x$'s are distinct, $a = 0$,
 which implies that $b = 0$. Therefore, $\mathbf{0}$ is the only vector in
 $\mathcal{N}(A)$, so $\mathcal{N}(A) = \{ \mathbf{0} \}$.
 
-### 4.4.14.b
+#### 4.4.14.b
 
 __Problem__. Show that the least squares solution to
 
