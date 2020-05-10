@@ -124,6 +124,17 @@ __Problem__. Show that the parallelogram with sides $\mathbf{x}$ and
 $\mathbf{b}$ and the paralleogram with sides $\mathbf{a}$ and $\mathbf{b}$
 have the same area.
 
-__Solution__. TODO
+__Solution__. The parallelogram with sides $\mathbf{x}$ and $\mathbf{b}$
+can be expressed as $\mathbf{x} \wedge \mathbf{b}$. Similarly, the
+parallelogram with sides $\mathbf{a}$ and $\mathbf{b}$ can be expressed as
+$\mathbf{a} \wedge \mathbf{b}$. Rearranging the vector equation for the line,
+we see that
+
+\[
+\mathbf{x} \wedge \mathbf{b} = \mathbf{a} \wedge \mathbf{b},
+\]
+
+which implies that the two parallelograms are equal oriented areas. In
+particular, their areas are equal.
 
 -------------------------------------------------------------------------------
