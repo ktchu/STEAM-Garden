@@ -11,7 +11,29 @@ __Problem__. Show that oriented area addition is well defined, i.e., if
 $a \mathbf{w}$ ($a \ne 0$) is used instead of $\mathbf{w}$ to form
 $\mathbf{B}_1 + \mathbf{B}_2$ in Figure 5.4, then the sum is the same.
 
-__Solution__. TODO
+__Solution__. Since any vector in the intersection of the planes
+$\mathbf{B}_1$ and $\mathbf{B}_2$ must be a nonzero scalar multiple of
+$\mathbf{w}$, we show that the construction for $\mathbf{B}_1 + \mathbf{B}_2$
+in Figure 5.4 yields the same result for $a \mathbf{w}$ ($a \ne 0$). Without
+loss of generality, we can assume that that $\mathbf{B}_1$ can be represented
+as $\mathbf{B}_1 = \mathbf{w} \wedge \mathbf{u}$. Therefore, reshaping
+$\mathbf{B}_1$ into a rectangle using $a \mathbf{w}$ as one of the sides, we
+find that the other side must be equal to $(1/a) \mathbf{u}$ so that the outer
+product of the sides does not change. Similarly, for $\mathbf{B}_2$, the other
+side is equal to $(1/a) \mathbf{v}$.
+
+Using the construction from Figure 5.4, we obtain the rectangle that is
+represented by
+
+\[
+a \mathbf{w} \wedge
+  \left(\frac{1}{a} \mathbf{u} + \frac{1}{a} \mathbf{v} \right)
+= a \mathbf{w} \wedge \frac{1}{a} (\mathbf{u} + \mathbf{v})
+= \mathbf{w} \wedge (\mathbf{u} + \mathbf{v}) = \mathbf{B}_1 + \mathbf{B}_2,
+\]
+
+where the last equality follows from the definition of
+$\mathbf{B}_1 + \mathbf{B}_2$ in the construction shown in Figure 5.4.
 
 ### 5.1.2.
 
@@ -66,7 +88,40 @@ __Problem__. Prove the companion to O3:
 a(\mathbf{u} \wedge \mathbf{v}) = \mathbf{u} \wedge (a \mathbf{v}).
 \]
 
-__Solution__. TODO
+__Solution__.
+
+_Geometric Proof_. We modify Figure 5.6 so that the scaled parallelogram is
+represented by a parallelgram with $\mathbf{u}$ unchanged and $\mathbf{v}$ is
+extended to $a \mathbf{v}$. The area of the resulting scaled parallel can be
+represented by $\mathbf{u} \wedge (a \mathbf{v})$.
+
+_Algebraic Proof_. We first observe that $a (\mathbf{u} \wedge \mathbf{v})$ is
+in the same plane as $\mathbf{u} \wedge (a \mathbf{v})$ because the first
+vectors are parallel and the second vectors are parallel. Second, both sides
+of the equation have the same orientation for the following reasons.
+
+* If $a > 0$, then the orientation of neither side of the equation changes
+  relative to the orientation of $\mathbf{u} \wedge \mathbf{v}$.
+
+* If $a < 0$, then the orientation of the left-hand side of the equation is
+  opposite the orientation of $\mathbf{u} \wedge \mathbf{v}$. The orientation
+  of $a \mathbf{v}$ is opposite the orientation of $\mathbf{v}$, so
+  $\mathbf{u} \wedge (a \mathbf{v})$ is also opposite the orientation of
+  $\mathbf{u} \wedge \mathbf{v}$.
+
+Finally, the norm of both sides of the equation are equal because
+
+\[
+|a (\mathbf{u} \wedge \mathbf{v})|
+= |a| |\mathbf{u}| |\mathbf{v}| \sin \theta
+= |\mathbf{u}| |(a \mathbf{v})| \sin \theta
+= |\mathbf{u} \wedge (a \mathbf{v})|,
+\]
+
+where $\theta$ is the angle between $\mathbf{u}$ and $\mathbf{v}$ (measured
+from $\mathbf{u}$ to $\mathbf{v}$).
+
+Combined, these results that the two sides of the equation are equal.
 
 #### 5.1.4.b.
 
