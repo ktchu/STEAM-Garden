@@ -63,7 +63,7 @@ __Problem__. Find the area of the triangle with vertices at (0,0),
 
 __Solution__. The triangle with vertices at (0,0), (2,1), and (1,3) is half
 the parallelogram from part (a), so the area is equal to half the area
-of $5|\mathbf{e}_1 \wedge \mathbf{e}_2$. Therefore, the area of the triangle
+of $5 \mathbf{e}_1 \wedge \mathbf{e}_2$. Therefore, the area of the triangle
 is equal to 5/2.
 
 ### 5.1.3.
@@ -159,8 +159,7 @@ parallel to $\mathbf{b}$.
 __Solution__. Observe that $\mathbf{u} \wedge \mathbf{b} = 0$ if and only if
 the sine of the angle between $\mathbf{u}$ and $\mathbf{b}$ is 0. Therefore,
 the angle between $\mathbf{u}$ and $\mathbf{b}$ is 0 or $\pi$, so $\mathbf{u}$
-and $\mathbf{b}$ are parallel because the angle between them must be be an
-integer multiple of $\pi$. Applying this observation to the equation
+and $\mathbf{b}$ are parallel. Applying this observation to the equation
 
 \[
 (\mathbf{x} - \mathbf{a}) \wedge \mathbf{b} = \mathbf{0},
