@@ -46,6 +46,7 @@ have the same orientation, they are equal.
 ### 5.4.
 
 __Problem__. Prove Eq. (5.3).
+
 \[
 \mathbf{u} \wedge \mathbf{v}
 =   (u_3 v_2 - u_2 v_3) \mathbf{e}_3 \wedge \mathbf{e}_2
