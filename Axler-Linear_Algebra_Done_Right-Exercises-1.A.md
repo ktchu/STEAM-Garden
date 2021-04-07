@@ -86,9 +86,9 @@ following sequence of equalities proves the result:
   = \beta + \alpha
 \]
 
-In the above sequence, the definition of addition of complex numbers justifies
-the second and fourth equalities and the commutativity of addition justifies
-the third equality.
+In the above sequence of equalities, the definition of addition of complex
+numbers justifies the second and fourth equalities and the commutativity of
+addition justifies the third equality.
 
 -------------------------------------------------------------------------------
 ### 5.
@@ -174,9 +174,9 @@ result:
   = \lambda \alpha + \lambda \beta
 \]
 
-In the above sequence, the definition of addition of complex numbers justifies
-the second and fourth equalities and the definition of multiplication justifies
-the third and fifth equalities.
+In the above sequence of equalities, the definition of addition of complex
+numbers justifies the second and fourth equalities and the definition of
+multiplication justifies the third and fifth equalities.
 
 -------------------------------------------------------------------------------
 ### 10.
@@ -237,7 +237,20 @@ Unfortunately, the equation for the third list item is _not_ satisfied
 __Problem__. Show that $(x + y) + z = x + (y + z)$ for all
 $x, y, z \in \mathbb{F}^n$.
 
-__Solution__. TODO
+__Solution__. Let $x = (x_1, x_2, \ldots, x_n)$, $y = (y_1, y_2, \ldots, y_n)$,
+and $z = (z_1, z_2, \ldots, z_n)$. Then the following sequence of equalities
+proves the result:
+
+\[
+  (x + y) + z \\
+  = ((x_1 + y_1) + z_1, (x_2 + y_2) + z_2, \ldots, (x_n + y_n) + z_n) \\
+  = (x_1 + (y_1 + z_1), x_2 + (y_2 + z_2), \ldots, x_n + (y_n + z_n)) \\
+  x + (y + z).
+\]
+
+In the above sequence of equalities, the definition of vector addition numbers
+justifies the first and last equalities, and the associative law for addition
+of scalars justifies the second equality.
 
 -------------------------------------------------------------------------------
 ### 13.
@@ -245,14 +258,25 @@ __Solution__. TODO
 __Problem__. Show that $(ab) x = a (bx)$ for all $x \in \mathbb{F}^n$ and
 $a, b \in \mathbb{F}$.
 
-__Solution__. TODO
+__Solution__. The proof is analogous to the proof for Problem #12.
 
 -------------------------------------------------------------------------------
 ### 14.
 
 __Problem__. Show that $1x = x$ for all $x \in \mathbb{F}^n$.
 
-__Solution__. TODO
+__Solution__. Let $x = (x_1, x_2, \ldots, x_n)$. Then the following sequence
+of equalities proves the result:
+
+\[
+  1x = (1(x_1), 1(x_2), \ldots, 1(x_n))
+  = (x_1, x_2, \ldots, x_n)
+  x.
+\]
+
+In the above sequence of equalities, the definition of scalar multiplication
+in $\mathbb{F}^n$ justifies the first and last equalities, and the definition
+of the identity in $\mathbb{F}$ justifies the second equality.
 
 -------------------------------------------------------------------------------
 ### 15.
@@ -260,7 +284,7 @@ __Solution__. TODO
 __Problem__. Show that $\lambda (x + y) = \lambda x + \lambda y$ for all
 $\lambda \in \mathbb{F}$ and $x, y \in \mathbb{F}^n$.
 
-__Solution__. TODO
+__Solution__. The proof is analogous to the proof for Problem #12.
 
 -------------------------------------------------------------------------------
 ### 16.
@@ -268,6 +292,6 @@ __Solution__. TODO
 __Problem__. Show that $(a + b) x = a x + b x$ for all $a, b \in \mathbb{F}$
 and $x \in \mathbb{F}^n$.
 
-__Solution__. TODO
+__Solution__. The proof is analogous to the proof for Problem #12.
 
 -------------------------------------------------------------------------------
