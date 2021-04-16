@@ -109,7 +109,26 @@ __Problem__. Show that the set of differentiable real-valued functions $f$ on
 the interval $(-4, 4)$ such that $f'(-1) = 3f(2)$ is a subspace of
 $\mathbb{R}^{(-4, 4)}$.
 
-__Solution__. TODO
+__Solution__. It is straightforward to verify that the conditions for a
+subspace are satisfied.
+
+* The zero function $f(x) = 0$ on $(-4, 4)$ satisfies the $f'(-1) = 3 f(2)$.
+
+* Let $f$ and $g$ be in the set, then
+
+  \[
+    (f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = (3f + 3g)(2) = 3(f+g)(2),
+  \]
+
+  so additive closure is satisfied.
+
+* Let $f$ in the set and $\lambda \in \mathbb{R}$, then
+
+  \[
+    (\lambda f)'(-1) = \lambda f'(-1) = \lambda(3f(2)) = 3(\lambda f(2))
+  \]
+
+  so the set is closed under scalar multiplication.
 
 -------------------------------------------------------------------------------
 ### 4.
@@ -126,7 +145,11 @@ __Solution__. TODO
 __Problem__. Is $\mathbb{R}^2$ a subspace of the complex vector space
 $\mathbb{C}^2$?
 
-__Solution__. TODO
+__Solution__. Yes. First, $\mathbb{R}^2 \subset \mathbb{C}^2$ because
+$\mathbb{R} \subset \mathbb{C}$. Second, the conditions for a subspace are
+automatically satisfied for $\mathbb{R}^2$ because $\mathbb{R}^2$ satisifes
+all of the conditions for a vector space, which are a superset of the
+conditions for a subspace.
 
 -------------------------------------------------------------------------------
 ### 6.
@@ -136,14 +159,41 @@ __Solution__. TODO
 __Problem__. Is $\{ (a, b, c) \in \mathbb{R}^3 : a^3 = b^3 \}$ a subspace of
 $\mathbb{R}^3$?
 
-__Solution__. TODO
+__Solution__. Yes. Verification of the conditions for a subspace relies on the
+fact that the function $f: \mathbb{R} \rightarrow \mathbb{R}$ defined by
+$f(x) = x^3$ is 1-1.
+
+* 0 is in the set because $a = 0 = b$ satisfies $a^3 = 0 = b^3$.
+
+* If $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$ are in the set then
+  $x_1^3 = x_2^3$ and $y_1^3 = y_2^3$, which implies that $x_1 = x_2$ and
+  $y_1 = y_2$. Therefore, $(x_1 + y_1)^3 = (x_2 + y_2)^3$, so the set is
+  closed under addition.
+
+* Let $x = (x_1, x_2, x_3)$ and $\lambda \in \mathbb{R}$. $x_1^3 = x_2^3$
+  implies that $x_1 = x_2$. Therefore, $(\lambda x_1)^3 = (\lambda x_2)^3$,
+  so the set is closed under scalar multiplication.
 
 #### 6.b.
 
 __Problem__. Is $\{ (a, b, c) \in \mathbb{C}^3 : a^3 = b^3 \}$ a subspace of
 $\mathbb{C}^3$?
 
-__Solution__. TODO
+__Solution__. No. Additive closure is not satisified for this set. Consider
+$x = (x_1, x_2, x_3) = (1, e^{2 \pi i / 3}, 0)$ and
+$y = (y_1, y_2, y_3) = (1, 1, 0)$. Then
+$x_1 = 1^3 = 1 = e^{2 \pi} = (e^{2 \pi i / 3})^3 = x_2^3$ and
+$y_1 = 1^3 = y_2^3$. However, $(x_1 + y_1)^3 = 2^3 = 8$ while
+
+\[
+  (x_2 + y_2)^3
+  = (1 + e^{2 \pi i / 3})^3
+  = 1 + 3 e^{2 \pi i / 3} + 3 e^{4 \pi i / 3}) + e^{2 \pi} \\
+  = 2 + 3 (\cos(2 \pi / 3) + i \sin(2 \pi / 3))
+      + 3 (\cos(4 \pi / 3) + i \sin(4 \pi / 3)) \\
+  = 2 + 6 (\cos(2 \pi / 3)
+  = 2 + 6 (-1/2) = 2 - 3 = -1.
+\]
 
 -------------------------------------------------------------------------------
 ### 7.
