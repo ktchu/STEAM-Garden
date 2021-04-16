@@ -9,21 +9,38 @@ Understanding Analysis (S. Axler): Section 1.2 Exercises
 __Problem__. Prove that $\sqrt{3}$ is irrational. Does a similar argument
 work to show $\sqrt{6}$ is irrational?
 
-__Solution__. TODO
+__Solution__. Proof by contradiction. Suppose that $\sqrt{3}$ is rational so
+that $\sqrt{3} = p/q$ where $p$ and $q$ are relatively prime integers.
+Then, $3 = p^2/q^2 \Rightarrow 3 q^2 = p^2$. Since $p$ and $q$ are
+relatively prime, $3$ must be a factor of $p$, so $p = 3 r$ where $r$ is
+an integer relatively prime to $q$. Substituting, we find that
+$3 q^2 = 9 r^2 \Rightarrow q^2 = 3 r^2$, which implies that $3$ is also a
+factor of $q$ contradicting our assumption that $p$ and $q$ are relatively
+prime. Therefore, $\sqrt{3}$ is not rational.
 
 #### 1.2.1.b.
 
 __Problem__. Where does the proof of Theorem 1.1.1 break down if we try to use
 it to prove that $\sqrt{4}$ is irrational?
 
-__Solution__. TODO
+__Solution__. If we apply the approach from Theorem 1.1.1 to the $\sqrt{4}$,
+the step $4 q^2 = p^2$ only allows us to conclude that $p$ is even. For the
+$\sqrt{4}$, $p$ even does not lead to a contradiction of the assumption that
+$p$ and $q$ are relatively prime because $4 q^2 = 4 r^2$ only implies that
+$q^2 = r^2$, which does not imply that $q$ is even.
 
 -------------------------------------------------------------------------------
 ### 1.2.2.
 
 __Problem__. Show that there is no rational number $r$ satisfying $2^r = 3$.
 
-__Solution__. TODO
+__Solution__. Proof by contradiction. Suppose that there exists a rational
+number $r = p / q$ satisfying $2^r = 3$ with $p$ and $q \ne 0$ relatively
+prime integers. Then $2^{p/q} = 3 \Rightarrow 2^p = 3^q$, which implies that
+either $p = 0 = q$ or 2 is a factor of 3. Both possibilities lead to a
+contradiction. The first possibility contradicts the assumption that $r$ is a
+rational number and the second possibility contradicts the fact that 3 is a
+prime number.
 
 -------------------------------------------------------------------------------
 ### 1.2.3.
@@ -38,7 +55,8 @@ __Problem__. If $A_1 \supseteq A_2 \supseteq A_3 \supseteq A_4 \cdots$ are
 all sets containing an infinite number of elements, then the intersection
 $\bigcap_{n=1}^\infty A_n$ is infinite as well.
 
-__Solution__. TODO
+__Solution__. This statement is false. Consider the sequence of nested
+sets $A_n = [-1/n, 1/n]$. $\bigcap_{n=1}^\infty A_n = \{0\}$, which is finite.
 
 #### 1.2.3.b.
 
@@ -46,7 +64,12 @@ __Problem__. If $A_1 \supseteq A_2 \supseteq A_3 \supseteq A_4 \cdots$ are
 all finite, nonempty sets of real numbers, then the intersection
 $\bigcap_{n=1}^\infty A_n$ is finite and nonempty.
 
-__Solution__. TODO
+__Solution__. This statement is true. Observe that there must be some $N$ such
+that for $n \ge N$, $A_n = A_N$ because $A_1$ finite implies that
+$A_{n+1} \subsetneq A_n$ for only a finite number of $n$. Moreover, because
+all $A_n$ are nonempty, $A_N$ is nonempty. Since $A_n = A_N$ for $n \ge N$,
+$\bigcap_{n=1}^\infty A_n = \bigcap_{n=N}^\infty A_n = A_N$. Therefore, we
+can conclude that $\bigcap_{n=1}^\infty A_n$ is finite and nonempty.
 
 #### 1.2.3.c.
 
@@ -70,11 +93,28 @@ __Solution__. TODO
 ### 1.2.4.
 
 __Problem__. Produce an infinite collection of sets $A_1, A_2, A_3, \ldots$
-with the proprty that every $A_i$ has an infinite number of elements and
+with the property that every $A_i$ has an infinite number of elements and
 $A_i \cap A_j = \emptyset$ for all $i \ne j$, and
 $\bigcup_{i=1}^\infty A_i = \mathbb{N}$.
 
-__Solution__. TODO
+__Solution__. Let $P = \{ p_1, p_2, \ldots \}$ be the set of prime numbers
+ordered so that $p_i < p_{i+1}$. Define $A_1 = \{1\}$ and
+
+\[
+  A_{n+1} = \{k p_n : k \in \mathbb{N} \} - \bigcup_{i = 1}^{n} A_i.
+\]
+
+That is, $A_{n+1}$ contains the multiples of the $n$-th prime number that are
+not also multiples of a smaller prime.
+
+This collection of sets satisfies our requirements. First,
+$\bigcup_{i = 1}^\infty A_i = \mathbb{N}$ because every natural number is
+equal to 1 or is a multiple of some prime number. To see that
+$A_i \cap A_j = \emptyset$ when $i \ne j$, suppose $x \in A_i$. If $i < j$, then
+$x \in A_i$ implies that $x \in \bigcup_{l=1}^{j-1} A_l$ so that $x \notin A_j$
+by construction. If $i > j$, then the definition of $A_i$ implies that
+$x \notin A_l$ for $l < i$. In particular, $x \notin A_j$. In both cases,
+$A_i \cap A_j = \emptyset$, as desired.
 
 -------------------------------------------------------------------------------
 ### 1.2.5. (De Morgan's Laws)
