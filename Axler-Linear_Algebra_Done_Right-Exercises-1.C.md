@@ -231,7 +231,19 @@ __Solution__. TODO
 __Problem__. Suppose $U_1$ and $U_2$ are subspaces of $V$. Prove that the
 intersection $U_1 \cap U_2$ is a subspace of $V$.
 
-__Solution__. TODO
+__Solution__. Verify the conditions for a subspace.
+
+* $U_1$ and $U_2$ are subspaces of $V$, so $0 \in U_1$ and $0 \in U_2$.
+  Therefore, $0 \in U_1 \cap U_2$.
+
+* Let $x, y \in U_1 \cap U_2$. Since $U_1$ and $U_2$ are subspaces,
+  $x + y \in U_1$ and $x + y \in U_2$. Therefore, $x + y \in U_1 \cap U_2$,
+  so $U_1 \cap U_2$ is closed under addition.
+
+* Let $x \in U_1 \cap U_2$ and $\lambda \in \mathbb{F}$. Since $U_1$ and $U_2$
+  are subspaces, $\lambda x \in U_1$ and $\lambda x \in U_2$. Therefore,
+  $\lambda x \in U_1 \cap U_2$, so $U_1 \cap U_2$ is closed under scalar
+  multiplication.
 
 -------------------------------------------------------------------------------
 ### 11.
@@ -272,7 +284,11 @@ __Solution__. TODO
 
 __Problem__. Suppose $U$ is a subspace of $V$. What is $U + U$?
 
-__Solution__. TODO
+__Solution__. $U + U = U$.
+
+_Proof_. $U \subseteq U + U$ because $x \in U$ and $0 \in U$ implies that
+$x = x + 0 \in U + U$. If $z \in U + U$, $z = x + y$ where $x, y \in U$.
+Therefore, $z \in U$ because $U$ is a subspace of $V$.
 
 -------------------------------------------------------------------------------
 ### 16.
@@ -280,7 +296,8 @@ __Solution__. TODO
 __Problem__. Is the operation of addition on the subspaces of $V$ commutative?
 In other words, if $U$ and $W$ are subspaces of $V$, is $U + W = W + U$?
 
-__Solution__. TODO
+__Solution__. Yes. Addition of subspaces is commutative because addition of
+vectors is commutative.
 
 -------------------------------------------------------------------------------
 ### 17.
@@ -289,7 +306,8 @@ __Problem__. Is the operation of addition on the subspaces of $V$ associative?
 In other words, if $U_1$, $U_2$, and $U_3$ are subspaces of $V$, is
 $(U_1 + U_2) + U_3 = U_1 + (U_2 + U_3)$?
 
-__Solution__. TODO
+__Solution__. Yes. Addition of subspaces is associative because addition of
+vectors is associative.
 
 -------------------------------------------------------------------------------
 ### 18.
@@ -297,7 +315,11 @@ __Solution__. TODO
 __Problem__. Does the operation of addition on the subspaces of $V$ have an
 additive identity? Which subspaces have additive inverses?
 
-__Solution__. TODO
+__Solution__. The subspace $\{0\}$ is the identity of the subspace addition
+operation. The only subspace with an inverse under subspace addition is
+$\{0\}$ because subspace addition always yields a vector space that is at
+least as large as the larger subspace. Therefore, the sum of any subspace
+larger than $\{0\}$ with any other subspace will always be larger than $\{0\}$.
 
 -------------------------------------------------------------------------------
 ### 19.
