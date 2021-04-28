@@ -36,7 +36,7 @@ __Problem__. Show that there is no rational number $r$ satisfying $2^r = 3$.
 
 __Solution__. Proof by contradiction. Suppose that there exists a rational
 number $r = p / q$ satisfying $2^r = 3$ with $p$ and $q \ne 0$ relatively
-prime integers. Then $2^{p/q} = 3 \Rightarrow 2^p = 3^q$, which implies that
+prime integers. Then, $2^{p/q} = 3 \Rightarrow 2^p = 3^q$, which implies that
 either $p = 0 = q$ or 2 is a factor of 3. Both possibilities lead to a
 contradiction. The first possibility contradicts the assumption that $r$ is a
 rational number and the second possibility contradicts the fact that 3 is a
@@ -75,19 +75,53 @@ can conclude that $\bigcap_{n=1}^\infty A_n$ is finite and nonempty.
 
 __Problem__. $A \cap (B \cup C) = (A \cap B) \cup C$.
 
-__Solution__. TODO
+__Solution__. This statement is false. Consider the sets
+
+* $A = \{ 1, 2 \}$
+
+* $B = \{ 1 \}$
+
+* $C = \{ 2, 3 \}$
+
+Then, $A \cap (B \cup C) = \{ 1, 2 \}$ but $(A \cap B) \cup C = \{ 1, 2, 3 \}$.
 
 #### 1.2.3.d.
 
 __Problem__. $A \cap (B \cap C) = (A \cap B) \cap C$.
 
-__Solution__. TODO
+__Solution__. This statement is true.
+
+Suppose $x \in A \cap (B \cap C)$. Then, $x \in A$ and $x \in B \cap C$. Since
+$x \in B \cap C$ implies that $x \in B$, $x \in A \cap B$. $x \in B \cap C$
+also implies that $x \in C$. In other words, $x \in (A \cap B) \cap C$, so we
+can conclude that $A \cap (B \cap C) \subseteq (A \cap B) \cap C$. Analogous
+logic yields containment in the opposite direction. Therefore,
+$A \cap (B \cap C) = (A \cap B) \cap C$.
 
 #### 1.2.3.e.
 
 __Problem__. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
 
-__Solution__. TODO
+__Solution__. This statement is true.
+
+Suppose $x \in A \cap (B \cup C)$. Then, $x \in A$ and $x \in B \cup C$. Because
+$x \in B \cup C$ implies that $x \in B$ or $x \in C$, $x \in A \cap B$ or
+$x \in A \cap C$. Therefore, $x \in (A \cap B) \cup (A \cap C)$, which implies
+that $A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$.
+
+Suppose $x \in (A \cap B) \cup (A \cap C)$. Then, $x \in A \cap B$ or
+$x \in A \cap C$. In either case, $x \in A$. Moreover, we can conclude that
+$x \in B \cup C$ because
+
+* $x \in A \cap B$ implies that $x \in B$ and
+
+* $x \in A \cap C$ implies that $x \in C$.
+
+Therefore, $x \in A \cap (B \cup C)$, which implies that
+$(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)$.
+
+Together, the containment results yield the desired equality:
+$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
 
 -------------------------------------------------------------------------------
 ### 1.2.4.
@@ -148,28 +182,69 @@ __Solution__. TODO
 __Problem__. Verify the triangle inequality in the special case where $a$ and
 $b$ have the same sign.
 
-__Solution__. TODO
+__Solution__. If $a$ and $b$ have the same sign, then $|a + b| = |a| + |b|$.
+Therefore, $|a + b| \le |a| + |b|$, so $a$ and $b$ satisfy the triangle
+inequality.
 
 #### 1.2.6.b.
 
 __Problem__. Find an efficient proof for all the cases at once by first
 demonstrating $(a + b)^2 \le (|a| + |b|)^2$.
 
-__Solution__. TODO
+__Solution__. Observe that
+
+\[
+  (a + b)^2
+  = a^2 + b^2 + 2 a b
+  = |a|^2 + |b|^2 + 2 a b
+  \le |a|^2 + |b|^2 + 2 |a b|
+  = |a|^2 + |b|^2 + 2 |a| |b|
+  = (|a| + |b|)^2
+\]
+
+Taking the square root of both sides of this equation, we arrive at the
+triangle inequality: $|a + b| \le |a| + |b|$.
 
 #### 1.2.6.c.
 
 __Problem__. Prove $|a - b| \le |a - c| + |c - d| + |d - b|$ for all
 $a$, $b$, $c$, and $d$.
 
-__Solution__. TODO
+__Solution__. Express $a - b$ as
+
+\[
+  a - b
+  = a - c + c - d + d - b
+  = (a - c) + (c - d) + (d - b).
+\]
+
+Applying the triangle inequality two times yields the desired result.
 
 #### 1.2.6.d.
 
 __Problem__. Prove $\left| |a| - |b| \right| \le |a - b|$. (The unremarkable
 identity $a = a - b + b$ may be useful.)
 
-__Solution__. TODO
+__Solution__. Applying the triangle inequality to the identity
+$a = a - b + b = (a - b) + b$, we find that
+
+\[
+  |a| \le |a - b| + |b| \Rightarrow |a| - |b| \le |a - b|.
+\]
+
+Switching the roles of $a$ and $b$,
+
+\[
+  |b| \le |b - a| + |a|
+  \Rightarrow |b| - |a| \le |b - a|
+  \Rightarrow |a| - |b| \ge -|b - a| = -|a - b|.
+\]
+
+Combining these inequalities yields the desired result:
+
+\[
+  ||a| - |b|| \le |a - b|.
+\]
 
 -------------------------------------------------------------------------------
 ### 1.2.7.
@@ -184,14 +259,29 @@ $\{x \in \mathbb{R} : 0 \le x \le 2\}$) and $B = [1, 4]$, find $f(A)$ and
 $f(B)$. Does $f(A \cap B) = f(A) \cap f(B)$ in this case?  Does
 $f(A \cup B) = f(A) \cup f(B)$?
 
-__Solution__. TODO
+__Solution__. For this case, $f(A \cap B) = f(A) \cap f(B)$:
+
+* $f(A \cap B) = f([1, 2]) = [1, 4]$
+
+* $f(A) \cap f(B) = f([0, 2]) \cap f([1, 4]) = [0, 4] \cap [1, 16] = [1, 4]$.
+
+For this case, $f(A \cup B) = f(A) \cup f(B)$:
+
+* $f(A \cup B) = f([0, 4]) = [0, 16]$
+
+* $f(A) \cup f(B) = [0, 4] \cup [1, 16] = [0, 16]$.
 
 #### 1.2.7.b.
 
 __Problem__. Find two sets $A$ and $B$ for which
 $f(A \cap B) \ne f(A) \cap f(B)$.
 
-__Solution__. TODO
+__Solution__. Let $A = [-1, 2]$ and $B = [-2, 1]$. Then,
+$f(A \cap B) \subsetneq f(A) \cap f(B)$:
+
+* $f(A \cap B) = f([-1, 1]) = [0, 1]$
+
+* $f(A) \cap f(B) = f([-1, 2]) \cap f([-2, 1]) = [0, 4] \cap [0, 4] = [0, 4]$
 
 #### 1.2.7.c.
 
@@ -199,14 +289,32 @@ __Problem__. Show that, for an arbitrary function
 $g : \mathbb{R} \rightarrow \mathbb{R}$, it is always true that
 $g(A \cap B) \subseteq g(A) \cap g(B)$ for all set $A, B \subseteq \mathbb{R}$.
 
-__Solution__. TODO
+__Solution__. Let $y \in g(A \cap B)$. Then, there exists $x \in A \cap B$
+such that $g(x) = y$. Since $x \in A$ and $x \in B$, $y = g(x) \in g(A)$ and
+$y = g(x) \in g(B)$. Therefore, $y \in g(A) \cap g(B)$, so we can conclude that
+$g(A \cap B) \subseteq g(A) \cap g(B)$.
 
 #### 1.2.7.d.
 
 __Problem__. Form and prove a conjecture about the relationship between
 $g(A \cup B)$ and $g(A) \cup g(B)$ for an arbitrary function $g$.
 
-__Solution__. TODO
+__Solution__. _Conjecture_: $g(A \cup B) = g(A) \cup g(B)$. To prove this
+conjecture, we show that $g(A \cup B) \subset g(A) \cup g(B)$ and
+$g(A) \cup g(B) \subset g(A \cup B)$.
+
+$g(A \cup B) \subset g(A) \cup g(B)$. Suppose $y \in g(A \cup B)$. Then,
+there exists $x \in A \cup B$ such that $y = g(x)$. $x \in A \cup B$ implies
+that $x \in A$ or $x \in B$, so $y = g(x) \in g(A)$ or $y = g(x) \in g(B)$.
+Therefore, $y \in g(A) \cup g(B)$ so that $g(A \cup B) \subset g(A) \cup g(B)$.
+
+$g(A) \cup g(B) \subset g(A \cup B)$. Suppose $y \in g(A) \cup g(B)$. Then,
+there exists $y \in g(A)$ or $y \in g(B)$. If $y \in g(A)$, then there exists
+$x \in A$ such that $y = g(x)$; if $y \in g(B)$, then there exists $x \in B$
+such that $y = g(x)$. Combining these cases, we can conclude that there exists
+an $x \in A$ or $x \in B$ such that $y = g(x)$. In other words, there exists
+an $x \in A \cup B$ such that $y = g(x)$. Therefore, $y \in g(A \cup B)$ so
+that $g(A) \cup g(B) \subset g(A \cup B)$.
 
 -------------------------------------------------------------------------------
 ### 1.2.8.
