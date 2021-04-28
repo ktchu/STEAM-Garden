@@ -137,7 +137,30 @@ __Problem__. Suppose that $b \in \mathbb{R}$. Show that the set of continuous
 real-valued functions $f$ on the interval $[0, 1]$ such that $\int_0^1 f = b$
 is a subspace of $\mathbb{F}^{[0,1]}$ if and only if $b = 0$.
 
-__Solution__. TODO
+__Solution__. Let $V$ be a subspace $\mathbb{F}^{[0, 1]}$ such that $f \in V$
+implies that $\int_0^1 f = b$ where $b \in \mathbb{R}$. Then, the zero
+function is an element of $V$, so $b = \int_0^1 0 = 0$.
+
+To prove the converse, let $b = 0$. It is straightforward to demonstrate the
+three conditions for a $V$ to be a subspace.
+
+* The zero function $f = 0$ satisfies the $\int_0^1 f = 0$.
+
+* Let $f$ and $g$ be in $V$, then
+
+  \[
+    \int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0
+  \]
+
+  so additive closure is satisfied.
+
+* Let $f$ in the set and $\lambda \in \mathbb{R}$, then
+
+  \[
+    \int_0^1 \lambda f = \lambda \int_0^1 f = \lambda (0) = 0
+  \]
+
+  so the set is closed under scalar multiplication.
 
 -------------------------------------------------------------------------------
 ### 5.
@@ -203,7 +226,9 @@ that $U$ is closed under addition and under taking additive inverses
 (meaning $-u \in U$ whenever $u \in U$), but $U$ is not a subspace of
 $\mathbb{R}^2$.
 
-__Solution__. TODO
+__Solution__. Let $U = \{(n, 0) : n \in \mathbb{Z} \}$. Then
+$U \subset \mathbb{R}^2$ is closed under addition and taking additive inverses, but it is not closed under scalar multiplication. Therefore, it is not a
+subspace of $\mathbb{R}^2$.
 
 -------------------------------------------------------------------------------
 ### 8.
@@ -212,18 +237,44 @@ __Problem__. Give an example of a nonempty subset $U$ of $\mathbb{R}^2$ such
 that $U$ is closed under scalar multiplication, but $U$ is not a subspace of
 $\mathbb{R}^2$.
 
-__Solution__. TODO
+__Solution__. Let $U$ be the union of the following to sets:
+
+* $\{(\lambda, 0) : \lambda \in \mathbb{R} \}$ and
+
+* $\{(0, \lambda) : \lambda \in \mathbb{R} \}$.
+
+Then $U \subset \mathbb{R}^2$ is closed under scalar multiplication, but it is
+not closed under addition. Therefore, it is not a subspace of $\mathbb{R}^2$.
 
 -------------------------------------------------------------------------------
 ### 9.
 
 __Problem__. A function $f : \mathbb{R} \rightarrow \mathbb{R}$ is called
 ___periodic___ if there exists a positive number $p$ such that
-$f(x) = f(x + p)$ for all $x \in \mathbb{R}$. Is the set of periodict functions
+$f(x) = f(x + p)$ for all $x \in \mathbb{R}$. Is the set of periodic functions
 from $\mathbb{R}$ to $\mathbb{R}$ a subspace of $\mathbb{R}^\mathbb{R}$?
 Explain.
 
-__Solution__. TODO
+__Solution__. Yes. The set of periodic functions is a subspace of
+$\mathbb{R}^{\mathbb{R}}$ because it satisfies the conditions for a subspace.
+
+* The zero function is clearly periodic.
+
+* Let $f$ and $g$ be periodic functions. Then
+
+  \[
+    (f + g)(x) = f(x) + g(x) = f(x + p) + g(x + p) = (f + g)(x + p),
+  \]
+
+  so the set of periodic functions is closed under addition.
+
+* Let $\lambda \in \mathbb{R}$ and $f$ be a periodic function. Then
+
+  \[
+    (\lambda f)(x) = \lambda f(x) = \lambda f(x + p) = (\lambda f)(x + p),
+  \]
+
+  so the set of periodic functions is closed under scalar multiplication.
 
 -------------------------------------------------------------------------------
 ### 10.
@@ -333,7 +384,16 @@ of $V$ such that
 
 then $U_1 = U_2$.
 
-__Solution__. TODO
+__Solution__. The assertion is false. As a counter example, let
+$U_1, U_2, W \subset \mathbb{R}^2$ defined by
+
+\[
+  W = \{ (x, 0) : x \in \mathbb{R} \} \\
+  U_1 = \{ (0, y) : y \in \mathbb{R} \} \\
+  U_2 = \{ (z, z) : z \in \mathbb{R} \}.
+\]
+
+Then $U_1 + W = U_2 + W = \mathbb{R}^2$, but $U_1 \ne U_2$.
 
 -------------------------------------------------------------------------------
 ### 20.
@@ -346,7 +406,12 @@ __Problem__. Suppose
 
 Find a subspace $W$ of $\mathbb{F}^4$ such that $\mathbb{F}^4 = U \oplus W$.
 
-__Solution__. TODO
+__Solution__. Let $W = \{ (0, w, 0, z) : w, z \in \mathbb{F} \}$. First, note
+that $U \cap W = \{ 0 \}$. Therefore, to prove $\mathbb{F}^4 = U \oplus W$,
+it is sufficient to show that $\mathbb{F}^4 = U + W$. $\mathbb{F}^4 = U + W$
+because any element $(a, b, c, d) \in \mathbb{F}^4$ can be expressed as
+$(a, a, c, c) + (0, b - a, 0, d - c)$, the sum of an element of $U$ and an
+element of $W$.
 
 -------------------------------------------------------------------------------
 ### 21.
@@ -359,7 +424,13 @@ __Problem__. Suppose
 
 Find a subspace $W$ of $\mathbb{F}^5$ such that $\mathbb{F}^5 = U \oplus W$.
 
-__Solution__. TODO
+__Solution__. Let $W = \{ (0, 0, v, w, z) : v, w, z \in \mathbb{F} \}$. First,
+note that $U \cap W = \{ 0 \}$. Therefore, to prove that
+$\mathbb{F}^5 = U \oplus W$, it is sufficient to show that
+$\mathbb{F}^5 = U + W$. $\mathbb{F}^5 = U + W$ because any element
+$(a, b, c, d, e) \in \mathbb{F}^5$ can be expressed as
+$(a, b, a + b, a - b, 2a) + (0, 0, c - a - b, d - a + b, e - 2a)$, the sum of
+an element of $U$ and an element of $W$.
 
 -------------------------------------------------------------------------------
 ### 22.
@@ -387,7 +458,18 @@ of $V$ such that
 
 then $U_1 = U_2$.
 
-__Solution__. TODO
+__Solution__. The assertion is false. As a counter example, let
+$U_1, U_2, W \subset \mathbb{R}^2$ defined by
+
+\[
+  W = \{ (x, 0) : x \in \mathbb{R} \} \\
+  U_1 = \{ (0, y) : y \in \mathbb{R} \} \\
+  U_2 = \{ (z, z) : z \in \mathbb{R} \}.
+\]
+
+Then $U_1 \oplus W = U_2 \oplus W = \mathbb{R}^2$, because
+$U_1 + W = U_2 + W = \mathbb{R}^2$ and $U_1 \cap W = U_2 \cap W = \{ 0 \}$,
+but $U_1 \ne U_2$.
 
 -------------------------------------------------------------------------------
 ### 24.
@@ -407,9 +489,18 @@ is called _odd_ if
 \]
 
 for all $x \in \mathbb{R}$. Let $U_e$ denote the set of real-valued even
-functions on $\mathbb{R}$ and let $U_o$ denote thes et of real-valued odd
+functions on $\mathbb{R}$ and let $U_o$ denote the set of real-valued odd
 functions on $\mathbb{R}$. Show that $\mathbb{R}^\mathbb{R} = U_e \oplus U_o$.
 
-__Solution__. TODO
+__Solution__. Let $f \in \mathbb{R}^{\mathbb{R}}$. $f$ can be expressed as the
+sum of $g(x) = (f(x) + f(-x)) / 2$ and $h(x) = (f(x) - f(-x)) / 2$. Since
+$g(x) = g(-x)$ and $h(x) = -h(x)$, $f$ is the sum of an even and odd function.
+Hence, $\mathbb{R}^\mathbb{R} = U_e + U_o$. To show that
+$\mathbb{R}^\mathbb{R} = U_e \oplus U_o$, it suffices to show that the
+intersection of $U_e$ and $U_o$ consists only of the zero function. Suppose
+that $f \in U_e \cap U_o$, then for all $x \in \mathbb{R}$, $f(-x) = f(x)$
+because $f$ is even and $f(-x) = -f(x)$ because $f$ is odd, which implies
+that $f(x) = -f(x)$ for all $\mathbb{R}$. Therefore, $f = 0$ so
+$U_e \cap U_o = \{ 0 \}$.
 
 -------------------------------------------------------------------------------
