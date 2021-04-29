@@ -9,11 +9,11 @@ Understanding Analysis (S. Abbott): Section 1.2 Exercises
 __Problem__. Prove that $\sqrt{3}$ is irrational. Does a similar argument
 work to show $\sqrt{6}$ is irrational?
 
-__Solution__. Proof by contradiction. Suppose that $\sqrt{3}$ is rational so
-that $\sqrt{3} = p/q$ where $p$ and $q$ are relatively prime integers.
-Then, $3 = p^2/q^2 \Rightarrow 3 q^2 = p^2$. Since $p$ and $q$ are
-relatively prime, $3$ must be a factor of $p$, so $p = 3 r$ where $r$ is
-an integer relatively prime to $q$. Substituting, we find that
+__Solution__. Proof by contradiction. If $\sqrt{3}$ is rational so that
+$\sqrt{3} = p/q$ where $p$ and $q$ are relatively prime integers, then
+$3 = p^2/q^2 \Rightarrow 3 q^2 = p^2$. Since $p$ and $q$ are relatively prime,
+$3$ must be a factor of $p$, so $p = 3 r$ where $r$ is an integer relatively
+prime to $q$. Substituting, we find that
 $3 q^2 = 9 r^2 \Rightarrow q^2 = 3 r^2$, which implies that $3$ is also a
 factor of $q$ contradicting our assumption that $p$ and $q$ are relatively
 prime. Therefore, $\sqrt{3}$ is not rational.
@@ -34,9 +34,9 @@ $q^2 = r^2$, which does not imply that $q$ is even.
 
 __Problem__. Show that there is no rational number $r$ satisfying $2^r = 3$.
 
-__Solution__. Proof by contradiction. Suppose that there exists a rational
-number $r = p / q$ satisfying $2^r = 3$ with $p$ and $q \ne 0$ relatively
-prime integers. Then, $2^{p/q} = 3 \Rightarrow 2^p = 3^q$, which implies that
+__Solution__. Proof by contradiction. If there exists a rational number
+$r = p / q$ satisfying $2^r = 3$ with $p$ and $q \ne 0$ relatively prime
+integers, then $2^{p/q} = 3 \Rightarrow 2^p = 3^q$, which implies that
 either $p = 0 = q$ or 2 is a factor of 3. Both possibilities lead to a
 contradiction. The first possibility contradicts the assumption that $r$ is a
 rational number and the second possibility contradicts the fact that 3 is a
@@ -83,7 +83,7 @@ __Solution__. This statement is false. Consider the sets
 
 * $C = \{ 2, 3 \}$
 
-Then, $A \cap (B \cup C) = \{ 1, 2 \}$ but $(A \cap B) \cup C = \{ 1, 2, 3 \}$.
+$A \cap (B \cup C) = \{ 1, 2 \}$ but $(A \cap B) \cup C = \{ 1, 2, 3 \}$.
 
 #### 1.2.3.d.
 
@@ -91,7 +91,7 @@ __Problem__. $A \cap (B \cap C) = (A \cap B) \cap C$.
 
 __Solution__. This statement is true.
 
-Suppose $x \in A \cap (B \cap C)$. Then, $x \in A$ and $x \in B \cap C$. Since
+If $x \in A \cap (B \cap C)$, then $x \in A$ and $x \in B \cap C$. Since
 $x \in B \cap C$ implies that $x \in B$, $x \in A \cap B$. $x \in B \cap C$
 also implies that $x \in C$. In other words, $x \in (A \cap B) \cap C$, so we
 can conclude that $A \cap (B \cap C) \subseteq (A \cap B) \cap C$. Analogous
@@ -104,12 +104,12 @@ __Problem__. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
 
 __Solution__. This statement is true.
 
-Suppose $x \in A \cap (B \cup C)$. Then, $x \in A$ and $x \in B \cup C$. Because
+If $x \in A \cap (B \cup C)$, then $x \in A$ and $x \in B \cup C$. Because
 $x \in B \cup C$ implies that $x \in B$ or $x \in C$, $x \in A \cap B$ or
 $x \in A \cap C$. Therefore, $x \in (A \cap B) \cup (A \cap C)$, which implies
 that $A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$.
 
-Suppose $x \in (A \cap B) \cup (A \cap C)$. Then, $x \in A \cap B$ or
+If $x \in (A \cap B) \cup (A \cap C)$, then $x \in A \cap B$ or
 $x \in A \cap C$. In either case, $x \in A$. Moreover, we can conclude that
 $x \in B \cup C$ because
 
@@ -276,7 +276,7 @@ For this case, $f(A \cup B) = f(A) \cup f(B)$:
 __Problem__. Find two sets $A$ and $B$ for which
 $f(A \cap B) \ne f(A) \cap f(B)$.
 
-__Solution__. Let $A = [-1, 2]$ and $B = [-2, 1]$. Then,
+__Solution__. Let $A = [-1, 2]$ and $B = [-2, 1]$. In this case,
 $f(A \cap B) \subsetneq f(A) \cap f(B)$:
 
 * $f(A \cap B) = f([-1, 1]) = [0, 1]$
@@ -289,8 +289,8 @@ __Problem__. Show that, for an arbitrary function
 $g : \mathbb{R} \rightarrow \mathbb{R}$, it is always true that
 $g(A \cap B) \subseteq g(A) \cap g(B)$ for all set $A, B \subseteq \mathbb{R}$.
 
-__Solution__. Let $y \in g(A \cap B)$. Then, there exists $x \in A \cap B$
-such that $g(x) = y$. Since $x \in A$ and $x \in B$, $y = g(x) \in g(A)$ and
+__Solution__. If $y \in g(A \cap B)$, then there exists $x \in A \cap B$ such
+that $g(x) = y$. Since $x \in A$ and $x \in B$, $y = g(x) \in g(A)$ and
 $y = g(x) \in g(B)$. Therefore, $y \in g(A) \cap g(B)$, so we can conclude that
 $g(A \cap B) \subseteq g(A) \cap g(B)$.
 
@@ -303,13 +303,13 @@ __Solution__. _Conjecture_: $g(A \cup B) = g(A) \cup g(B)$. To prove this
 conjecture, we show that $g(A \cup B) \subset g(A) \cup g(B)$ and
 $g(A) \cup g(B) \subset g(A \cup B)$.
 
-$g(A \cup B) \subset g(A) \cup g(B)$. Suppose $y \in g(A \cup B)$. Then,
-there exists $x \in A \cup B$ such that $y = g(x)$. $x \in A \cup B$ implies
-that $x \in A$ or $x \in B$, so $y = g(x) \in g(A)$ or $y = g(x) \in g(B)$.
-Therefore, $y \in g(A) \cup g(B)$ so that $g(A \cup B) \subset g(A) \cup g(B)$.
+$g(A \cup B) \subset g(A) \cup g(B)$. If $y \in g(A \cup B)$, then there exists
+$x \in A \cup B$ such that $y = g(x)$. $x \in A \cup B$ implies that $x \in A$
+or $x \in B$, so $y = g(x) \in g(A)$ or $y = g(x) \in g(B)$. Therefore,
+$y \in g(A) \cup g(B)$ so that $g(A \cup B) \subset g(A) \cup g(B)$.
 
-$g(A) \cup g(B) \subset g(A \cup B)$. Suppose $y \in g(A) \cup g(B)$. Then,
-there exists $y \in g(A)$ or $y \in g(B)$. If $y \in g(A)$, then there exists
+$g(A) \cup g(B) \subset g(A \cup B)$. If $y \in g(A) \cup g(B)$, then there
+exists $y \in g(A)$ or $y \in g(B)$. If $y \in g(A)$, then there exists
 $x \in A$ such that $y = g(x)$; if $y \in g(B)$, then there exists $x \in B$
 such that $y = g(x)$. Combining these cases, we can conclude that there exists
 an $x \in A$ or $x \in B$ such that $y = g(x)$. In other words, there exists
