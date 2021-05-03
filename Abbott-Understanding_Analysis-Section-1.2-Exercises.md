@@ -158,21 +158,48 @@ $A_i \cap A_j = \emptyset$, as desired.
 __Problem__. If $x \in (A \cap B)^c$, explain why $x \in A^c \cup B^c$. This
 shows that $(A \cap B)^c \subseteq A^c \cup B^c$.
 
-__Solution__. TODO
+__Solution__. If $x \in (A \cap B)^c$, then $x \notin A \cap B$. Observe
+that one of the following two situations must be true: $x \notin A$ or
+$x \in A$. If $x \in A$, then $x \notin A \cap B$ implies that $x \notin B$
+because $x \in B$ leads to the conclusion that $x \in A \cap B$. Therefore, we
+can conclude that $x \notin A$ or $x \notin B$. Expressing these statements in
+terms of the complements of $A$ and $B$, we find that $x \in A^c$ or
+$x \in B^c$, which is equivalent to $x \in A^c \cup B^c$. Thus,
+$(A \cap B)^c \subseteq A^c \cup B^c$.
 
 #### 1.2.5.b.
 
 __Problem__. Prove the reverse inclusion $(A \cap B)^c \supseteq A^c \cup B^c$,
 and conclude that $(A \cap B)^c = A^c \cup B^c$.
 
-__Solution__. TODO
+__Solution__. If $x \in A^c \cup B^c$, then $x \in A^c$ or $x \in B^c$,
+which is equivalent to $x \notin A$ or $x \notin B$. If $x \notin A$, then
+$x$ cannot be an element of $A \cap B$. Similarly, if $x \notin B$, then
+$x \notin A \cap B$. Therefore, $x \in (A \cap B)^c$ so that
+$(A \cap B)^c \supseteq A^c \cup B^c$.
+
+Since $(A \cap B)^c \subseteq A^c \cup B^c$ and
+$(A \cap B)^c \supseteq A^c \cup B^c$, we have shown that
+$(A \cap B)^c = A^c \cup B^c$.
 
 #### 1.2.5.c.
 
 __Problem__. Show $(A \cup B)^c = A^c \cap B^c$ by demonstrating inclusion both
 ways.
 
-__Solution__. TODO
+__Solution__. If $x \in (A \cup B)^c$, then $x \notin A \cup B$, which implies
+that $x$ cannot be an element of $A$ and $x$ cannot be an element of $B$. In
+other words, $x \in A^c$ and $x \in B^c$, which is equivalent to
+$x \in A^c \cap B^c$. Therefore, $(A \cup B)^c \subseteq A^c \cap B^c$.
+
+If $x \in A^c \cap B^c$, then $x \in A^c$ and $x \in B^c$, which implies that
+$x \notin A$ and $x \notin B$. Therefore, $x$ cannot be an element of either
+$A$ or $B$ so that $x \notin A \cup B$, which is equivalent to
+$x \in (A \cup B)^c$. Thus, we conclude that
+$(A \cup B)^c \supseteq A^c \cap B^c$.
+
+Since we have inclusion in both directions, we have shown that
+$(A \cup B)^c = A^c \cap B^c$.
 
 -------------------------------------------------------------------------------
 ### 1.2.6.
@@ -329,19 +356,80 @@ Give an example for each or state that the request is impossible.
 
 __Problem__. $f : \mathbb{N} \rightarrow \mathbb{N}$ that is 1-1 but not onto.
 
-__Solution__. TODO
+__Solution__. Define $f(x) = 2x$. $f$ is 1-1 because
+
+\[
+  f(a) = f(b) \Rightarrow 2a = 2b \Rightarrow a = b.
+\]
+
+$f$ is not onto because for any odd number $y$, there is no $x \in \mathbb{N}$
+such that $f(x) = 2x = y$.
 
 #### 1.2.8.b.
 
 __Problem__. $f : \mathbb{N} \rightarrow \mathbb{N}$ that is onto but not 1-1.
 
-__Solution__. TODO
+__Solution__. Define $f(x) = \left\lfloor \frac{x}{2} \right\rfloor$.
+
+$f$ is onto because for any $y \in \mathbb{N}$, $x = 2y$ maps to $y$:
+
+\[
+  f(2y) = \left\lfloor \frac{2y}{2} \right\rfloor = y
+\]
+
+$f$ is not 1-1 because $2y$ and $(2y + 1)$ both map to y:
+
+\[
+  f(2y + 1)
+  = \left\lfloor \frac{2y + 1}{2} \right\rfloor
+  = \left\lfloor y + 1/2 \right\rfloor
+  = y
+\]
 
 #### 1.2.8.c.
 
 __Problem__. $f : \mathbb{N} \rightarrow \mathbb{Z}$ that is 1-1 and onto.
 
-__Solution__. TODO
+__Solution__. Define
+
+\[
+  f(x) = (-1)^x {\left\lceil \frac{x}{2} \right\rceil}.
+\]
+
+$f$ is 1-1 because
+
+\[
+  f(a) = f(b)
+  \Rightarrow   (-1)^a {\left\lceil \frac{a}{2} \right\rceil}
+              = (-1)^b {\left\lceil \frac{b}{2} \right\rceil}
+  \Rightarrow   (-1)^{a-b} {\left\lceil \frac{a}{2} \right\rceil}
+              = {\left\lceil \frac{b}{2} \right\rceil}.
+\]
+
+Since the left hand side is positive, $a$ and $b$ must have the same parity.
+Since $a/2$ and $b/2$ must have the same ceiling value, $a$ and $b$ can
+differ by at most 1. Together, these imply that $a = b$.
+
+$f$ is onto because for any $y \in \mathbb{Z}$, we can find $x$ such that
+$f(x) = y$.
+
+* If $y \ge 0$, then
+
+  \[
+    f(2y)
+    = (-1)^{2y} {\left\lceil \frac{2y}{2} \right\rceil}
+    = y.
+  \]
+
+* If $y < 0$, then
+
+  \[
+    f(-2y - 1)
+    = (-1)^{-2y - 1} {\left\lceil \frac{-2y - 1}{2} \right\rceil}
+    = -1 ( {\left\lceil -y - 1/2 \right\rceil}
+    = -1 ( -y )
+    = y.
+  \]
 
 -------------------------------------------------------------------------------
 ### 1.2.9.
