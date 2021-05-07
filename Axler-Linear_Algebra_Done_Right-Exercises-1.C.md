@@ -302,7 +302,25 @@ __Solution__. Verify the conditions for a subspace.
 __Problem__. Prove that the intersection of every collection of subspaces of
 $V$ is a subpsace of $V$.
 
-__Solution__. TODO
+__Solution__. Verify the conditions for a subspace.
+
+* Since $0$ is an element of every subspace of $V$, $0$ is an element of the
+  intersection of any collection of subspaces of $V$.
+
+* If $x, y$ be elements in the intersection of a collection of subspaces of $V$,
+  then $x, y$ are elements of each subspace in the collection. Since subspaces
+  are closed under addition, $x + y$ is in each subspace of the collection,
+  which implies that $x + y$ is in the intersection of the collection.
+  Therefore, the intersection of any collection of subspaces of $V$ is closed
+  under addition.
+
+* Let $x$ be an element in the intersection of a collection of subspaces of $V$
+  and $\lambda \in \mathbb{F}$. Then, $x$ is an element of each subpsace in the
+  collection. Since subspaces are closed under scalar multiplication,
+  $\lambda x$ is in each subspace of the collection, which implies that
+  $\lambda x$ is in the intersection of the collection of subspaces. Therefore,
+  the intersection of any collection of subspaces of $V$ is closed under
+  scalar multiplication.
 
 -------------------------------------------------------------------------------
 ### 12.
@@ -310,7 +328,16 @@ __Solution__. TODO
 __Problem__. Prove that the union of two subspaces of $V$ is a subspace of $V$
 if and only if one of the subspaces is contained in the other.
 
-__Solution__. TODO
+__Solution__. Let $U$ and $W$ be two subspaces of $V$. Suppose that $U \cup W$
+is a subspace of $V$. If $u \in U$ and $w \in W$, then $u, w \in U \cup W$.
+Since $U \cup W$ is a subspace of $V$, $u + w \in U \cup W$, which implies that
+$u + w \in U$ or $u + w \in W$. If $u + w \in U$, then $w = u + w - u \in U$
+so that $W \subseteq U$. If $u + w \in W$, then $u = u + w - w \in W$ so that
+$U \subseteq W$. Thus, we can conclude that if $U \cup W$ is subspace of $V$,
+one of the subspaces contains the other.
+
+The converse is trivial. If $U \subseteq W$, then $U \cup W = W$, which implies
+that $U \cup W$ is a subspace of $V$.
 
 -------------------------------------------------------------------------------
 ### 13.
@@ -444,7 +471,24 @@ __Problem__. Suppose
 Find three subspaces $W_1$, $W_2$, $W_3$ of $\mathbb{F}^5$, none of which
 equals $\{ 0 \}$, such that $\mathbb{F}^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
 
-__Solution__. TODO
+__Solution__. Let $W_1 = \{ (0, 0, v, 0, 0) : v \in \mathbb{F} \}$,
+$W_2 = \{ (0, 0, 0, w, 0) : v \in \mathbb{F} \}$,
+$W_3 = \{ (0, 0, 0, 0, z) : v \in \mathbb{F} \}$. First, we show that
+$\mathbb{F}^5 = U + W_1 + W_2 + W_3$. Let $(a, b, c, d, e) \in \mathbb{F}^5$.
+Setting $x = a$, $y = b$, $v = c - a - b$, $w = d - x + y$, and $z = e - 2x$
+defines $u$, $w_1$, $w_2$, $w_3$ satisfying
+$u + w_1 + w_2 + w_3 = (a, b, c, d, e)$, which yields the desired result.
+
+To show that $U + W_1 + W_2 + W_3$ is a direct sum, we prove that the only way
+for $u + w_1 + w_2 + w_2 = (0, 0, 0, 0, 0)$ when $u \in U$, $w_1 \in W_1$,
+$w_2 \in W_2$, and $w_3 \in W_3$ is for $u = w_1 = w_2 = w_3 = 0$. From the two
+first components of this equation, we see that $x = y = 0$, which implies that
+$u = 0$. Using this result in equations implied by the third, fourth, and fifth
+components of the vector equation yields, $v = w = z = 0$ so that
+$w_1 = w_2 = w_3 = 0$, as desired.
+
+Putting these results together, we conclude that
+$\mathbb{F}^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
 
 -------------------------------------------------------------------------------
 ### 23.
