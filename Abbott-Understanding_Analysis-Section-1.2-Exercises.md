@@ -435,7 +435,7 @@ $f(x) = y$.
 ### 1.2.9.
 
 Given a function $f : D \rightarrow \mathbb{R}$ and a subset
-$B \subseteq \mathbb{R}$, let $f^{-1}(B)$ be the set of allp oints from the
+$B \subseteq \mathbb{R}$, let $f^{-1}(B)$ be the set of all points from the
 domain $D$ that get mapped into $B$; that is,
 $f^{-1}(B) \{ x \in D : f(x) \in B\}$. This set is called the _preimage_ of
 $B$.
@@ -443,11 +443,23 @@ $B$.
 #### 1.2.9.a.
 
 __Problem__. Let $f(x) = x^2$. If $A$ is the closed interval $[0, 4]$ and
-$B$ is the closed interval $[-1, 1]$, find $f^{-1}(A)$ and $f^{-1}(B)$. Does
-Does $f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)$ in this case?  Does
-$f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$?
+$B$ is the closed interval $[-1, 1]$, find $f^{-1}(A)$ and $f^{-1}(B)$.
+Does $f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)$ in this case?
+Does $f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$?
 
-__Solution__. TODO
+__Solution__. By inspection, $f^{-1}(A) = [0, 2]$ and $f^{-1}(B) = [0, 1]$.
+
+In this case, $f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)$:
+
+\[
+  f^{-1}(A \cap B) = f^{-1}([0, 1]) = [0, 1] = f^{-1}(A) \cap f^{-1}(B).
+\]
+
+In this case, $f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$:
+
+\[
+  f^{-1}(A \cup B) = f^{-1}([-1, 4]) = [0, 2] = f^{-1}(A) \cup f^{-1}(B).
+\]
 
 #### 1.2.9.b.
 
@@ -458,7 +470,30 @@ $g^{-1}(A \cap B) = g^{-1}(A) \cap g^{-1}(B)$ and
 $g^{-1}(A \cup B) = g^{-1}(A) \cup g^{-1}(B)$ for all sets
 $A, B \subseteq \mathbb{R}$.
 
-__Solution__. TODO
+__Solution__.
+
+* $g^{-1}(A \cap B) = g^{-1}(A) \cap g^{-1}(B)$. Suppose that
+  $x \in g^{-1}(A \cap B)$. Then $g(x) \in A \cap B$, which implies that
+  $g(x) \in A$ and $g(x) \in B$ - in other words, $x \in g^{-1}(A)$ and
+  $x \in g^{-1}(B)$. Therefore, $x \in g^{-1}(A) \cap g^{-1}(B)$, so we can
+  conclude that $g^{-1}(A \cap B) \subseteq g^{-1}(A) \cap g^{-1}(B)$. To
+  show the reverse containment, suppose $x \in g^{-1}(A) \cap g^{-1}(B)$.
+  Then $x \in g^{-1}(A)$ and $x \in g^{-1}(B)$, which implies that
+  $g(x) \in A \cap B$. Therefore, $x \in g^{-1}(A \cap B)$ so that
+  $g^{-1}(A \cap B) \supseteq g^{-1}(A) \cap g^{-1}(B)$. Since containment
+  is satisfied in both direction, we have proven the desired result.
+
+* $g^{-1}(A \cup B) = g^{-1}(A) \cup g^{-1}(B)$. The argument in this case is
+  similar to the intersection case with "and" replace by "or". Suppose that
+  $x \in g^{-1}(A \cup B)$. Then $g(x) \in A \cup B$, which implies that
+  $g(x) \in A$ or $g(x) \in B$ - in other words, $x \in g^{-1}(A)$ or
+  $x \in g^{-1}(B)$. Therefore, $x \in g^{-1}(A) \cup g^{-1}(B)$, so we can
+  conclude that $g^{-1}(A \cup B) \subseteq g^{-1}(A) \cup g^{-1}(B)$. To show
+  the reverse containment, suppose $x \in g^{-1}(A) \cup g^{-1}(B)$.  Then
+  $x \in g^{-1}(A)$ or $x \in g^{-1}(B)$, which implies that
+  $g(x) \in A \cup B$. Therefore, $x \in g^{-1}(A \cup B)$ so that
+  $g^{-1}(A \cup B) \supseteq g^{-1}(A) \cup g^{-1}(B)$. Since containment
+  is satisfied in both direction, the desired result follows.
 
 -------------------------------------------------------------------------------
 ### 1.2.10.
