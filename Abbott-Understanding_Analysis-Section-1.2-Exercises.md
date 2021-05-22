@@ -193,10 +193,9 @@ other words, $x \in A^c$ and $x \in B^c$, which is equivalent to
 $x \in A^c \cap B^c$. Therefore, $(A \cup B)^c \subseteq A^c \cap B^c$.
 
 If $x \in A^c \cap B^c$, then $x \in A^c$ and $x \in B^c$, which implies that
-$x \notin A$ and $x \notin B$. Therefore, $x$ cannot be an element of either
-$A$ or $B$ so that $x \notin A \cup B$, which is equivalent to
-$x \in (A \cup B)^c$. Thus, we conclude that
-$(A \cup B)^c \supseteq A^c \cap B^c$.
+$x \notin A$ and $x \notin B$. Since $x$ is not an element of either $A$ or $B$,
+$x \notin A \cup B$, which is equivalent to $x \in (A \cup B)^c$. Therefore, we
+can conclude that $(A \cup B)^c \supseteq A^c \cap B^c$.
 
 Since we have inclusion in both directions, we have shown that
 $(A \cup B)^c = A^c \cap B^c$.
@@ -630,7 +629,43 @@ __Problem__. Show how induction can be used to conclude that
 
 for any finite $n \in \mathbb{N}$.
 
-__Solution__. TODO
+__Solution__. The base case $n = 2$ follows from the solution to Problem 1.2.5.
+To apply induction, suppose that the statement holds for $n > 2$ and consider
+the set
+
+\[
+  \left( A_1 \cup A_2 \cup \cdots \cup A_{n+1} \right)^c
+  = \left(
+      \left(A_1 \cup A_2 \cup \cdots \cup A_n \right)
+      \cup A_{n+1}
+    \right)^c,
+\]
+
+where we have used the associative property of the union operation. Applying
+De Morgan's Law holds for two sets, the right hand side of this equation
+becomes
+
+\[
+  \left(A_1 \cup A_2 \cup \cdots \cup A_n \right)^c \cap A_{n+1}^c.
+\]
+
+Invoking the inductive hypothesis, this expression is equal to
+
+\[
+  \left(A_1^c \cap A_2^c \cap \cdots \cap A_n^c \right) \cap A_{n+1}^c
+  = A_1^c \cap A_2^c \cap \cdots \cap A_n^c \cap A_{n+1}^c,
+\]
+
+where the last equality follows because the intersection operation is
+associative. Combining these results, we find that the statement is true for
+$n + 1$:
+
+\[
+  \left( A_1 \cup A_2 \cup \cdots \cup A_{n+1} \right)^c
+  = A_1^c \cap A_2^c \cap \cdots \cap A_{n+1}^c.
+\]
+
+Therefore, the result holds for all $n > 2$.
 
 #### 1.2.13.b.
 
@@ -663,6 +698,19 @@ from all of the $B_i$.
 __Problem__. Nevertheless, the infinite version of De Morgan's Law stated in
 (b) is a valid statement. Provide a proof that does not use induction.
 
-__Solution__. TODO
+__Solution__. If $x \in \left( \bigcup_{i=1}^\infty A_i \right)^c$, then
+$x \notin \left( \bigcup_{i=1}^\infty A_i \right)$, which implies that $x$
+cannot be an element of any of the $A_i$. In other words, $x \in A_i^c$ for
+all $i$. Therefore, we can conclude that
+$\left(\bigcup_{i=1}^\infty A_i \right)^c \subseteq \bigcap_{i=1}^\infty A_i^c$.
+
+If $x \in A^c \cap B^c$, then $x \in A_i^c$ for all $i$, which implies that
+$x \notin A_i$ for all $i$. Since $x$ is not an element of any of the $A_i$,
+$x \notin \bigcup_{i=1}^\infty A_i$. Therefore,
+$x \in \left( \bigcup_{i=1}^\infty A_i \right)^c$, and we can conclude that
+$\left(\bigcup_{i=1}^\infty A_i \right)^c \supseteq \bigcap_{i=1}^\infty A_i^c$.
+
+Since we have inclusion in both directions, we have shown that
+$\left(\bigcup_{i=1}^\infty A_i \right)^c = \bigcap_{i=1}^\infty A_i^c$.
 
 -------------------------------------------------------------------------------
