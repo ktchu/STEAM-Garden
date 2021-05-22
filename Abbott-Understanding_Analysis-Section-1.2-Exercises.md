@@ -135,7 +135,7 @@ __Solution__. Let $P = \{ p_1, p_2, \ldots \}$ be the set of prime numbers
 ordered so that $p_i < p_{i+1}$. Define $A_1 = \{1\}$ and
 
 \[
-  A_{n+1} = \{k p_n : k \in \mathbb{N} \} - \bigcup_{i = 1}^{n} A_i.
+  A_{n+1} = \{k p_n : k \in \mathbb{N} \} - \bigcup_{i = 1}^n A_i.
 \]
 
 That is, $A_{n+1}$ contains the multiples of the $n$-th prime number that are
@@ -507,21 +507,32 @@ not.
 __Problem__. Two real numbers satisfy $a < b$ if and only if $a < b + \epsilon$
 for every $\epsilon > 0$.
 
-__Solution__. TODO
+__Solution__. The statement is false. If $a < b$, then clearly
+$a < b + \epsilon$ for any positive value of $\epsilon$. However, the converse
+statement is false. As a counterexample, consider the case $a = b$. The
+addition any positive number to $b$ yields a value strictly greater than $a$.
+So, $a < b + \epsilon$ for every $\epsilon > 0$, but $a \nless b$.
 
 #### 1.2.10.b.
 
 __Problem__. Two real numbers satisfy $a < b$ if $a < b + \epsilon$ for every
 $\epsilon > 0$.
 
-__Solution__. TODO
+__Solution__. The statement is false. The counterexample is the same as the
+one provided in the solution to Problem 1.2.10.a.
 
 #### 1.2.10.c.
 
 __Problem__. Two real numbers satisfy $a \le b$ if and only if
 $a < b + \epsilon$ for every $\epsilon > 0$.
 
-__Solution__. TODO
+__Solution__. The statement is true. If $a \le b$, then clearly
+$a < b + \epsilon$ for any positive value of $\epsilon$. To prove the converse
+statement, we show that the contrapositive of the converse statement is true.
+Suppose that $a > b$. Taking $\epsilon = (a - b) / 2$ yields a positive value
+of $\epsilon$ such that $b + \epsilon = b + (a - b) / 2 = (a + b) / 2 < a$,
+where the last inequality follows because $a > b$. In other words, there exists
+an $\epsilon > 0$ such that $a \nless b + \epsilon$.
 
 -------------------------------------------------------------------------------
 ### 1.2.11.
@@ -537,40 +548,71 @@ the claim or its negation is the true statement.
 __Problem__. For all real numbers satisfying $a < b$, there exists an
 $n \in \mathbb{N}$ such that $a + 1/n < b$.
 
-__Solution__. TODO
+__Solution__. A negation of the statement is:
+
+There exist real numbers satisfying $a < b$ such that for all
+$n \in \mathbb{N}$, $a + 1 / n \ge b$.
+
+Conjecture: this statement is false.
 
 #### 1.2.11.b.
 
 __Problem__. There exists a real number $x > 0$ such that $x < 1/n$ for all
 $n \in \mathbb{N}$.
 
-__Solution__. TODO
+__Solution__. A negation of the statement is:
+
+For all real numbers $x > 0$, there exists an $n \in \mathbb{N}$ such that
+$1 / n \le x$.
+
+Conjecture: this statement is true.
 
 #### 1.2.11.c.
 
 __Problem__. Between every two distinct real numbers, there is a rational
 number.
 
-__Solution__. TODO
+__Solution__. A negation of the statement is:
+
+There exist real numbers $a$ and $b$ such that all real numbers $x \in [a, b]$
+are irrational.
+
+Conjecture: this statement is not true.
 
 -------------------------------------------------------------------------------
 ### 1.2.12.
 
-Let $y_1 = 6$ and foreach $n \in \mathbb{N}$ define $y_{n+1} = (2 y_n - 6) / 3$.
+Let $y_1 = 6$ and for each $n \in \mathbb{N}$ define
+$y_{n+1} = (2 y_n - 6) / 3$.
 
 #### 1.2.12.a.
 
 __Problem__. Use induction to prove that the sequence satisfies $y_n > -6$
 for all $n \in \mathbb{N}$.
 
-__Solution__. TODO
+__Solution__. The statement is true for $n = 1$: $y_1 = 6 > -6$. Suppose
+$y_n > -6$. Since $y_{n+1} = (2 y_n - 6) / 3$,
+
+\[
+  y_{n+1} > (2 (-6) - 6) / 3 = -18 / 3 = -6.
+\]
+
+Therefore, by induction, $y_n > -6$ for all $n \in \mathbb{N}$.
 
 #### 1.2.12.b.
 
 __Problem__. Use another induction argument to show the sequence
 $(y_1, y_2, y_3, \ldots)$ is decreasing.
 
-__Solution__. TODO
+__Solution__. $y_1 = 6$ and $y_2 = (2 (6) - 6) / 3 = 2$, so $y_2 < y_1$.
+Suppose that that $y_{n+1} < y_n$. Then
+
+\[
+  y_{n+2} = (2 y_{n+1} - 6) / 3 < (2 y_n - 6) / 3 = y_{n+1}.
+\]
+
+Therefore, by induction, we can conclude that $y_{n+2} < y_{n+1}$ for all
+$n$. In other words, $(y_1, y_2, y_3, \ldots)$ is a decreasing sequence.
 
 -------------------------------------------------------------------------------
 ### 1.2.13.
@@ -598,14 +640,23 @@ __Problem__. It is tempting to appeal to induction to conclude
   \left( \bigcup_{i=1}^\infty A_i \right)^c = \bigcap_{i=1}^\infty A_i^c,
 \]
 
-but induction does not apply here. Indcution is used to prove that a particular
+but induction does not apply here. Induction is used to prove that a particular
 statement holds for every value of $n \in \mathbb{N}$, but this does not imply
 the validity of the infinite case. To illustrate this point, find an example
 of a collection of sets $B_1, B_2, B_3, \ldots$ where
 $\bigcap_{i=1}^n B_i \ne \emptyset$ is true for every $n \in \mathbb{N}$, but
-$\bigcap_{i=1}^\infty B_i \ne \emptyset$ failes.
+$\bigcap_{i=1}^\infty B_i \ne \emptyset$ fails.
 
-__Solution__. TODO
+__Solution__. Consider the collection of sets defined by
+
+\[
+  B_i = (0, 1 / i]
+\]
+
+Then $\bigcap_{i=1}^n B_i = (0, 1 / n] \ne \emptyset$ for all
+$n \in \mathbb{N}$. However, $\bigcap_{i=1}^\infty B_i = \emptyset$ because
+the upper bound of $\bigcap_{i=1}^n B_i$ tends towards 0, but 0 is excluded
+from all of the $B_i$.
 
 #### 1.2.13.c.
 
