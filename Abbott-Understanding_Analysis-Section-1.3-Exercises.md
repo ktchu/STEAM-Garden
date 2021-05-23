@@ -62,21 +62,17 @@ $\sup B = \inf A$.
 
 __Solution__. First, $\inf A \ge b$ for all $b \in B$ because $\inf A$ is
 greater than or equal to all lower bounds for $A$. In other words, $\inf A$ is
-an upper bound for $B$. Therefore, $\sup B \ge \inf A$ because $\sup B$ is
-greater than or equal to all upper bounds for $B$.
+an upper bound for $B$. Therefore, $\sup B \le \inf A$ because $\sup B$ is
+less than or equal to all upper bounds for $B$.
 
-To show the reverse inequality $\sup B \le \inf A$, we prove that $\sup B$ is
-a lower bound for $A$. Suppose that $\sup B$ is not a lower bound for $A$. Then
-there exists $a \in A$ such that $\sup B > a$. Consider $x = (\sup B + a) / 2$.
-Observe that $x$ is an upper bound for $B$ because $x > a$ and $a > b$ for all
-$b \in B$ (by the definition of $B$). As an upper bound for $B$, $x \ge \sup B$.
-However, this relationship between $x$ and $\sup B$ contradicts the definition
-of $x$ as the arithmetic average of $a$ and $\sup B$ (which implies that
-$x < \sup B$). Therefore, we conclude that $\sup B$ is a lower bound for $A$,
-which implies that $\sup B \le \inf A$.
+To prove the reverse inequality $\sup B \ge \inf A$, consider
+$x = \sup B + \epsilon$ for any value of $\epsilon > 0$. If $x < \inf A$, then
+$x$ is a lower bound for $A$. In other words, $x \in B$, which implies that
+$x = \sup B + \epsilon \le \sup B$, a contradiction. Therefore, we conclude
+that $\sup B + \epsilon \ge \inf A$ for every $\epsilon > 0$, which implies
+that $\sup B \ge \inf A$.
 
-Taking the inequalities together, we arrive at the desired result:
-$\sup B = \inf A$.
+Taken toegher, the inequalities yield the desired result: $\sup B = \inf A$.
 
 #### 1.3.3.b.
 
