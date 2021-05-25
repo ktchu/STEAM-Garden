@@ -99,14 +99,31 @@ bounded above.
 __Problem__. Find a formula for $\sup(A_1 \cup A_2)$. Extend this to
 $\sup\left( \bigcup_{k=1}^n A_k \right)$.
 
-__Solution__. TODO
+__Solution__. $\sup(A_1 \cup A_2) = \max( \sup A_1, \sup A_2 )$.
+$\sup\left( \bigcup_{k=1}^n A_k \right) = \max_{k \in \mathbb{N}} \sup A_k$.
 
 #### 1.3.4.b.
 
 __Problem__. Consider $\sup\left( \bigcup_{k=1}^n A_k \right)$. Does the
 formula in (a) extend to the infinite case?
 
-__Solution__. TODO
+__Solution__. No the formula in part (a) does not extend to the infinite case
+$\max_{k \in \mathbb{N}} A_k$ is not guaranteed to exist. However, relpacing
+$\max$ with $\sup$ eliminates this problem. The formula in part (a) can be
+generalized to $\sup \left( \bigcup_{k=1}^\infty A_k \right) = \sup_k \sup A_k$.
+
+To see that this formula is correct, let $S = \sup_k \sup A_k$. Observe that
+$S > \sup A_n$ for all $n \in \mathbb{N}$, which implies that $S$ is an upper
+bound for all $A_k$. Therefore, $S$ is an upper bound for
+$\bigcup_{k=1}^\infty A_k$, so we can conclude that
+$S \ge \sup \left( \bigcup_{k=1}^\infty A_k \right)$. To prove the reverse
+inequality, note that $\sup \left( \bigcup_{k=1}^\infty A_k \right)$ implies
+that $\sup \left( \bigcup_{k=1}^\infty A_k \right) \ge \sup A_k$ for all
+$k \in \mathbb{N}$. Otherwise, there would be some $A_k$ that contains elements
+strictly greater than $\sup \left( \bigcup_{k=1}^\infty A_k \right)$. Therefore,
+$\sup \left( \bigcup_{k=1}^\infty A_k \right) \ge \sup_k \sup A_k = S$. The
+desired result follows by combining the two inequalities relating $S$ and
+$\sup \left( \bigcup_{k=1}^\infty A_k \right)$.
 
 -------------------------------------------------------------------------------
 ### 1.3.5.
@@ -144,7 +161,7 @@ __Solution__. TODO
 
 #### 1.3.6.b.
 
-__Problem__. Now let $u$ be an arbitrary upper bound for $A + B4, and
+__Problem__. Now let $u$ be an arbitrary upper bound for $A + B4$, and
 temporarily fix $a \in A$. Show $t \le u - a$.
 
 __Solution__. TODO
