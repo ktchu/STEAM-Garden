@@ -69,7 +69,7 @@ $$
 (\mathbf{u} \wedge \mathbf{v}) \wedge \mathbf{w}
 = \left(
     (u_3 v_2 - u_2 v_3) (\mathbf{e}_3 \wedge \mathbf{e}_2) +
-    (u_1 v_3 - u_3 v_1) (\mathbf{e}_1 \wedge \mathbf{e}_3) +
+    (u_1 v_3 - u_3 v_1) (\mathbf{e}_1 \wedge \mathbf{e}_3) + \\
     (u_2 v_1 - u_1 v_2) (\mathbf{e}_2 \wedge \mathbf{e}_1)
   \right) \wedge
 (w_1 \mathbf{e}_1 + w_2 \mathbf{e}_2 + w_3 \mathbf{e}_3)
