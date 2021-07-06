@@ -21,12 +21,12 @@ another oriented area in the same plane. Show that $\mathbf{C}$ is a scalar
 multiple of $\mathbf{B}$.
 
 __Solution__. Let $b = |\mathbf{B}| \ne 0$ and $c = |\mathbf{C}|$. Then
-$(c / b) \mathbf{B}$ is an oriented area area parallel to $\mathbf{B}$ with
-norm equal to $(c / b) b = c$. Therefore, $(c / b) \mathbf{B}$ and
-$\mathbf{C}$ are parallel and have the same norm. If $\mathbf{B}$ and
-$\mathbf{C}$ have the same orientation, then $(c / b) \mathbf{B} = \mathbf{C}$.
-If they have opposite orientations, then $-(c / b) \mathbf{B} = \mathbf{C}$.
-In either case, $\mathbf{C}$ is scalar multiple of $\mathbf{B}$.
+$(c / b) \mathbf{B}$ is an oriented area parallel to $\mathbf{B}$ with norm
+equal to $(c / b) b = c$. Therefore, $(c / b) \mathbf{B}$ and $\mathbf{C}$ are
+parallel and have the same norm. If $\mathbf{B}$ and $\mathbf{C}$ have the
+same orientation, then $(c / b) \mathbf{B} = \mathbf{C}$. If they have opposite
+orientations, then $-(c / b) \mathbf{B} = \mathbf{C}$. In either case,
+$\mathbf{C}$ is scalar multiple of $\mathbf{B}$.
 
 ### 5.3.
 
