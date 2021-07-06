@@ -130,6 +130,54 @@ $$
 \mathbf{e}_1 \cdot (\mathbf{e}_2 \wedge \mathbf{e}_3) = 0
 $$
 
-__Solution__. TODO
+__Solution__. Using the same extension to the geometric product defined in the
+solution of Problem 5.3.4, we can express
+$\mathbf{e}_1 \cdot (\mathbf{e}_2 \wedge \mathbf{e}_3)$ as the difference
+
+$$
+\mathbf{e}_1 \cdot (\mathbf{e}_2 \wedge \mathbf{e}_3)
+=   \mathbf{e}_1 (\mathbf{e}_2 \wedge \mathbf{e}_3)
+  - \mathbf{e}_1 \wedge (\mathbf{e}_2 \wedge \mathbf{e}_3)
+$$
+
+Note that $\mathbf{e}_2 \wedge \mathbf{e}_3 = \mathbf{e}_2 \mathbf{e}_3$
+because $\mathbf{e}_2 \perp \mathbf{e}_3$, so
+$$
+\mathbf{e}_1 \cdot (\mathbf{e}_2 \wedge \mathbf{e}_3)
+=   \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3
+  - \mathbf{e}_1 \wedge \mathbf{e}_2 \wedge \mathbf{e}_3
+$$
+
+To complete the problem, we need to extend the relationship
+$\mathbf{u} \wedge \mathbf{v} = \mathbf{u} \mathbf{v}$ when
+$\mathbf{u} \perp \mathbf{v}$ to more than two vectors. Using the Gram-Schmidt
+orthogonalization procedure, we can define
+
+$$
+\mathbf{u} \wedge \mathbf{v} \wedge \mathbf{w} =
+\mathbf{b}_1 \mathbf{b}_2 \mathbf{b}_3
+$$
+
+where $\{ \mathbf{b}_1, \mathbf{b}_2, \mathbf{b}_3 \}$ is an orthogonal basis
+obtained from the Gram-Schmidt orthogonalization process. For
+$\mathbf{e}_1 \wedge \mathbf{e}_2 \wedge \mathbf{e}_3$, Gram-Schmidt
+orthogonalization yields the basis
+$\{ \mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3 \}$, so
+
+$$
+\mathbf{e}_1 \wedge \mathbf{e}_2 \wedge \mathbf{e}_3
+= \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3.
+$$
+
+Combining these results, we find that
+
+$$
+\mathbf{e}_1 \cdot (\mathbf{e}_2 \wedge \mathbf{e}_3)
+=   \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3
+  - \mathbf{e}_1 \wedge \mathbf{e}_2 \wedge \mathbf{e}_3
+=   \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3
+  - \mathbf{e}_1 \mathbf{e}_2 \mathbf{e}_3
+= 0.
+$$
 
 -------------------------------------------------------------------------------
