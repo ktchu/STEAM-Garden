@@ -6,11 +6,13 @@ _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 _Last Updated_: 2021-09-18
 
 -------------------------------------------------------------------------------
+
 References
 ----------
 * S. Axler. "Linear Algebra Done Right". (2015)
 
 -------------------------------------------------------------------------------
+
 ## 1. Vector Spaces
 
 __Key Concepts__
@@ -125,6 +127,7 @@ scalar multiplication operations defined satisfying the following properties.
     union of disjoint sets in set theory.
 
 -------------------------------------------------------------------------------
+
 ## 2. Finite-Dimensional Vector Spaces
 
 __Key Concepts__
@@ -251,5 +254,193 @@ __Key Concepts__
   \[
     \dim (U_1 + U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)
   \]
+
+-------------------------------------------------------------------------------
+
+## 3. Finite-Dimensional Vector Spaces
+
+__Key Concepts__
+
+* Fundamental Theorem of Linear Maps
+
+* matrix representation of a linear map
+
+* isomorphic vector spaces
+
+* product spaces
+
+* quotient spaces
+
+* dual spaces
+
+### 3.1. Linear Maps
+
+* (Definition) __Linear Map__. A linear map from $V$ to $W$ is a function
+  $T: V \rightarrow W$ with the following properties.
+
+  * _Addivity_: $T(u + v) = Tu + Tv$ for all $u, v \in V$
+
+  * _Homogeneity_: $T(\lambda v) = \lambda (Tv)$ for all $v \in V$ and
+    $\lambda \in F$.
+
+* (Lemma) __Vector Space of Linear Maps__. The set of all linear maps from $V$
+  to $W$ is a vector space. It is denoted $\mathcal{L}(V, W)$.
+
+* (Lemma) __Linear Maps are Uniquely Defined by Images of Basis Vectors__.
+  Let $v_1, \ldots, v_n$ be a basis for $V$ and $w_1, \ldots, w_n \in W$.
+  There exists a unique linear map $T: V \rightarrow W$ such that $T v_j = w_j$
+  for all $j$.
+
+* (Definition) __Product of Linear Maps__. Let $T \in \mathcal{L}(U, V)$ and
+  $S \in \mathcal{L}(V, W)$. The _product_ $ST$ is defined by $(ST)(u) = S(Tu)$
+
+  * (Remark) For the product of two linear maps to be well-defined, the
+    codomain of the first map must be the same as the domain of the second map.
+
+  * (Lemma) $ST$ is an element of $\mathcal{L}(U, W)$.
+
+  * (Remark) The product of linear maps posesses the following algebraic
+    properties. Note: taken together with additive properties of linear maps,
+    these multiplicative properties imply that the space of linear maps has a
+    _ring_ structure.
+
+    * _Associativity_: $(T_1 T_2) T_3 = T_1 (T_2 T_3)$ whenever the product
+      is well-defined (i.e., domains and codomains are compatible).
+
+    * _Identity_: $TI = IT = T$ where $I$ is the identity map (defined on
+      the appropriate vector space depending on where $I$ appears in the
+      equation).
+
+    * _Distributive Properties_
+
+      \[
+      (S_1 + S_2) T = S_1 T + S_2 T \\
+      S (T_1 + T_2) = S T_1 + S T_2,
+      \]
+
+      where $S, S_1, S_2 \in \mathcal{L}(V, W)$ and
+      $T, T_1, T_2 \in \mathcal{L}(U, V)$.
+
+### 3.2. Null Spaces and Ranges
+
+* (Definition) __Null Space__. The _null space_ of a linear map
+  $T \in \mathcal{L}(V, W)$ is the set of vectors $v \in V$ that map to 0:
+
+  \[
+    \operatorname{null} T = \{v \in V | Tv = 0\}
+  \]
+
+* (Definition) __Range__. The _range_ of a linear map $T \in \mathcal{L}(V, W)$
+  is the set of vectors $w \in W$ that are mapped to by some $v \in V$:
+
+  \[
+    \operatorname{range} T = \{Tv | v \in V \}
+  \]
+
+* (Definition) __Injective__. A function $T: V \rightarrow W$ is _injective_
+  if $T(u) = T(v)$ implies that $u = v$.
+
+* (Definition) __Surjective__. A function $T: V \rightarrow W$ is _surjective_
+  if its range equals $W$.
+
+* (Lemma) __Null Space and Range are Subspaces__.
+
+  * The null space of a linear map is a subspace of $V$.
+
+  * The range of a linear map is a subspace of $W$.
+
+* (Lemma) __Null Space of Injective Linear Maps is $\{0\}$__. A linear map is
+  injective if and only if $\operatorname{null} T = \{ 0 \}$.
+
+* (Theorem) __Fundamental Theorem of Linear Maps__.
+
+  If $V$ be a finite-dimensional vector space and $T \in \mathcal{L}(V, W)$,
+
+  \[
+    \dim V = \dim \operatorname{null} T + \dim \operatorname{range} T
+  \]
+
+  * (Corollary) If $\dim V > \dim W$, $T$ is not injective.
+
+    * (Application) A homogeneous system of linear equations has more than one
+      solution if there are more variables than equations.
+
+  * (Corollary) If $\dim V < \dim W$, $T$ is not surjective.
+
+    * (Application) An inhomogeneous system of linear equations has no solution
+      for some constant terms if there are more equations than variables.
+
+### 3.3. Matrix Representations
+
+* (Definition) __Matrix__. An _$m \times n$ matrix_ is a rectangular array
+  of elements of a field $F$ with $m$ rows and $n$ columns:
+
+  \[
+    A =
+      \left[ \begin{array}{ccc}
+        A_{1,1} & \cdots & A_{1,n} \\
+          \vdots &        &   \vdots \\
+        A_{m,1} & \cdots & A_{m,n}
+      \end{array} \right]
+  \]
+
+  * (Notation) $F^{m,n}$ (with $m, n$ positive) denotes the set of all
+    $m \times n$ matrices with entries in $F$.
+
+  * (Lemma) $F^{m,n}$ is a vector space with dimension $mn$.
+
+* (Definition) __Matrix of a Linear Map__. Let $T \in \mathcal{L}(V, W)$,
+  $\{v_1, \ldots, v_n\}$ be a basis for $V$, and $\{w_1, \ldots, w_m\}$ be a
+  basis for $W$. The _matrix representation_ of $T$ with respect to these bases
+  is the $m \times n$ matrix $\mathcal{M}(T)$ with entries $A_{i,j}$ defined
+  by
+
+  \[
+    T v_j
+    = A_{1,j} w_1 + \cdots + A_{m,j} w_m
+    = \sum_{i=1}^m A_{i,j} w_i
+  \]
+
+* (Definition) __Matrix Product__. Let $A$ be an $m \times n$ matrix and $B$
+  be an $n \times p$ matrix. The matrix product $AC$ is defined to be the
+  $m \times p$ matrix with entries given by
+
+  \[
+    (AC)_{i,j} = \sum_{k=1}^n A_{i,k} C_{k,j}.
+  \]
+
+* (Lemma) __Equivalence of Matrix and Linear Map Operations__. With appropriate
+  choices for the definition of matrix addition, scalar multiplication for
+  matrices, and matrix multiplication, the matrix representation of the result
+  of an operation on linear maps is equal to the equivalent operation applied
+  to the matrix representations of the linear maps.
+
+  * _Sums of linear maps_:
+      $\mathcal{M}(S + T) = \mathcal{M}(S) + \mathcal{M}(T)$
+
+  * _Scalar multiplication of linear maps_:
+      $\mathcal{M}(\lambda S) = \lambda \mathcal{M}(S)$
+
+  * _Product of linear maps_:
+      $\mathcal{M}(ST) = \mathcal{M}(S) \mathcal{M}(T)$
+
+* (Lemma) __Expressions for Matrix Product Entries__
+
+  * _Dot Product of Row and Column_. $(AC)_{i,j}$ is equal to the dot product
+    of the $i$-th row of $A$ with the $j$-th column of $C$.
+
+  * _Matrix Product with Column_. The $j$-th column of $AC$ is equal to the
+    matrix product of the matrix $A$ with the $j$-th column of $C$.
+
+  * _Matrix Product with Row_. The $i$-th row of $AC$ is equal to the
+    matrix product of the $i$-th row of $A$ with the matrix $C$.
+
+  * _Linear Combination of Columns_. The $j$-th column of $AC$ is equal to
+    the linear combination of the columns of $A$ with the $j$-th column of
+    $C$ as the coefficients in the linear combination.
+
+  * _Linear Combination of Rows_. The $i$-th row of $AC$ is equal to
+    the linear combination of the rows of $C$ with the $i$-th row of
+    $A$ as the coefficients in the linear combination.
 
 -------------------------------------------------------------------------------
