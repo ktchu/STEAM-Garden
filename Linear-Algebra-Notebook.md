@@ -3,7 +3,7 @@ Linear Algebra Notes
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2021-09-18
+_Last Updated_: 2021-09-28
 
 -------------------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ __Key Concepts__
 
 * sums and direct sums of subspaces
 
-### 1.1. Definition of a Vector Space
+### 1.B. Definition of a Vector Space
 
 (Definition) A vector space over a field $F$ is a set $V$ with addition and
 scalar multiplication operations defined satisfying the following properties.
@@ -56,7 +56,7 @@ scalar multiplication operations defined satisfying the following properties.
 
   * $(a +b) u = au + bu$ for all $u \in V$ and $a, b \in F$.
 
-### 1.2. Subspaces
+### 1.C. Subspaces
 
 * (Lemma) __Conditions for a Subspace__. Let $V$ be a vector space.
   $U \subset V$ is a vector space if and only if $U$ satisfies the following
@@ -140,7 +140,7 @@ __Key Concepts__
 
 * dimension
 
-### 2.1. Span and Linear Independence
+### 2.A. Span and Linear Independence
 
 * (Definition) __Linear Combination__. A linear combination of a set of vectors
   $v_1, \ldots, v_n \in V$ over a field $F$ is a sum of the form
@@ -198,7 +198,7 @@ __Key Concepts__
   set of vectors is less than or equal to the size of every spanning set
   of vectors.
 
-### 2.2. Basis
+### 2.B. Bases
 
 * (Definition) __Basis__. A set of vectors $v_1, \ldots, v_n \in V$ is a
   _basis_ for $V$ if (1) it is linearly independent and (2) it spans $V$.
@@ -228,7 +228,7 @@ __Key Concepts__
   * (Remark) This result can be proven for infinite-dimensional vector spaces
     using more advanced mathematical machinery.
 
-### 2.3. Dimension
+### 2.C. Dimension
 
 * (Lemma) __All bases for $V$ have the same number of vectors__. Every basis
   for a finite-dimensional vector space $V$ contains the same number of
@@ -273,7 +273,7 @@ __Key Concepts__
 
 * dual spaces
 
-### 3.1. Linear Maps
+### 3.A. Linear Maps
 
 * (Definition) __Linear Map__. A linear map from $V$ to $W$ is a function
   $T: V \rightarrow W$ with the following properties.
@@ -321,7 +321,7 @@ __Key Concepts__
       where $S, S_1, S_2 \in \mathcal{L}(V, W)$ and
       $T, T_1, T_2 \in \mathcal{L}(U, V)$.
 
-### 3.2. Null Spaces and Ranges
+### 3.B. Null Spaces and Ranges
 
 * (Definition) __Null Space__. The _null space_ of a linear map
   $T \in \mathcal{L}(V, W)$ is the set of vectors $v \in V$ that map to 0:
@@ -370,7 +370,7 @@ __Key Concepts__
     * (Application) An inhomogeneous system of linear equations has no solution
       for some constant terms if there are more equations than variables.
 
-### 3.3. Matrix Representations
+### 3.C. Matrices
 
 * (Definition) __Matrix__. An _$m \times n$ matrix_ is a rectangular array
   of elements of a field $F$ with $m$ rows and $n$ columns:
@@ -442,5 +442,84 @@ __Key Concepts__
   * _Linear Combination of Rows_. The $i$-th row of $AC$ is equal to
     the linear combination of the rows of $C$ with the $i$-th row of
     $A$ as the coefficients in the linear combination.
+
+### 3.D. Invertibility and Isomorphic Vector Spaces
+
+* (Definition) __Invertible, Inverse__
+
+  * A linear map $T \in \mathcal{L}(V, W)$ is called _invertible_ if there
+    exists a linear map $S \in \mathcal{L}(W, V)$ such that $ST = I$
+    and $TS = I$. Note that the vector space that $I$ is the identity maps on
+    is clear from the context.
+
+  * A linear map $S$ satisfying $ST = I$ and $TS = I$ is called the _inverse_
+    of $T$.
+
+* (Lemma) __Unique Inverses__. If a linear map is invertible, it's inverse is
+  unique.
+
+  * (Notation) The inverse of an invertible map $T$ is denoted by $T^{-1}$.
+
+* (Lemma) __Invertibility $\Leftrightarrow$ injectivity and surjectivity__.
+  A linear map is invertible if and only if it is injective and surjective.
+
+* (Definition) __Isomophism, Isomorphic__
+
+  * An _isomorphism_ is an invertible linear map.
+
+  * Two vector spaces are _isomorphic_ if there exists an isomorphism between
+    them.
+
+* (Lemma) __Isomorphic finite vector spaces have the same dimension__.
+  Two finite-dimensional vector spaces are isomorphic if and only if they have
+  the same dimension.
+
+* (Lemma) __$\mathcal{L}(V, W) and F^{m, n}$ are isomorphic__.
+
+  * (Corollary) $\dim \mathcal{L}(V, W) = (\dim V)(\dim W)$
+
+* (Definition) __Matrix of a Vector__. Let $\{v_1, \ldots, v_n\}$ be a basis
+  for $V$. The _matrix representation of_ $v$ with respect to this basis is
+  the $n \times 1$ matrix
+
+  \[
+    \mathcal{M}(v)
+    = \left[ \begin{array}{c}
+      c_1 \\
+      \vdots \\
+      c_n
+      \end{array} \right]
+  \]
+
+  where $c_1, \ldots, c_n$ are defined by $v = c_1 v_1 + \cdots + c_n v_n$.
+
+  * (Corollary) $\mathcal{M}(T)_{\cdot, k} = \mathcal{M} (T v_k)$
+
+* (Lemma) __Matrix-Vector Multiplication = Linear Map Acting on Vector__.
+  Let $T \in \mathcal{L}(V, W)$ and $v \in V$. If $\mathcal{M}$ is defined
+  with respect to bases $V$ and $W$, then
+
+  \[
+    \mathcal{M}(Tv) = \mathcal{M}(T) \mathcal{M}(v).
+  \]
+
+* (Definition) __Operator__: a linear map from a vector space to itself.
+
+  * (Notation) $\mathcal{V}$ denotes the set of all operators on $V$.
+
+  * (Remark) Operators are an important part of linear algebra.
+
+* (Lemma) __Operators in Finite Spaces: Injectivity = Surjectivity__.
+  Let $V$ is finite-dimensional and $T \in \mathcal{L}(V)$. The following
+  three statements are equivalent:
+
+  * $T$ is invertible;
+
+  * $T$ is injective;
+
+  * $T$ is surjective.
+
+  * (Remark) Injectivity and surjectivity are not equivalent for operators on
+    infinite-dimensional vector spaces.
 
 -------------------------------------------------------------------------------
