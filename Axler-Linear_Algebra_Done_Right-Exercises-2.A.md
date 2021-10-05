@@ -150,7 +150,31 @@ is a linearly independent list of vectors in $V$, then
 
 is linearly independent.
 
-__Solution__. TODO
+__Solution__. The list of vectors
+
+\[
+  5 v_1 - 4 v_2, v_2, v_3, \ldots, v_m
+\]
+
+is linearly independent. Let a linear combination of this list of vectors be
+equal to 0:
+
+\[
+  0
+  = c_1 (5 v_1 - 4 v_2) + c_2 v_2 + c_3 v_3 + \cdots + c_m v_m \\
+  = 5 c_1 v_1 + (c_2 - 4 c_1) v_2 + c_3 v_3 + \cdots + c_m v_m
+\]
+
+Since $v_1, v_2, \ldots, v_m$ are linearly independent,
+
+\[
+  5 c_1 = 0 \\
+  c_2 - 4 c_1 = 0 \\
+  c_3 = c_4 = \cdots = c_m = 0.
+\]
+
+The solution to the first two equations is $c_1 = 0 = c_2$, which yields the
+desired conclusion.
 
 -------------------------------------------------------------------------------
 ### 8.
@@ -160,7 +184,24 @@ is a linearly independent list of vectors in $V$ and $\lambda \in \mathbb{F}$
 with $\lambda \ne 0$, then $\lambda v_1, \lambda v_2, \ldots, \lambda v_m$
 is linearly independent.
 
-__Solution__. TODO
+__Solution__. The list of vectors
+
+\[
+  \lambda v_1, \lambda v_2, \ldots, \lambda v_m
+\]
+
+is linearly independent. Let a linear combination of this list of vectors be
+equal to 0:
+
+\[
+  0
+  = c_1 (\lambda v_1) + c_2 (\lambda v_2) + \cdots + c_m (\lambda v_m) \\
+  = \lambda (c_1 v_1 + c_2 v_2 + \cdots + c_m v_m),
+\]
+
+which implies that $c_1 v_1 + c_2 v_2 + \cdots + c_m v_m = 0$. Since
+$v_1, v_2, \ldots, v_m$ are linearly independent, $c_1 = \cdots = c_m = 0$,
+which yields the desired conclusion.
 
 -------------------------------------------------------------------------------
 ### 9.
@@ -169,16 +210,43 @@ __Problem__. Prove or give a counterexample: If $v_1, v_2, v_3, \ldots, v_m$
 and $w_1, w_2, w_3, \ldots, w_m$ are linearly independent lists of vectors in
 $V$, then $v_1 + w_1, v_2 + w_2, \ldots, v_m + w_m$ is linearly independent.
 
-__Solution__. TODO
+__Solution__. The list of vectors
+
+\[
+  v_1 + w_1, v_2 + w_2, \ldots, v_m + w_m
+\]
+
+is not necessarily linearly independent. As a counterexample, let
+$v_1, v_2, v_3, \ldots, v_m$ be linearly independent and $w_i = -v_i$
+for all $i$. Then $w_1, w_2, w_3, \ldots, w_m$ are linearly independent.
+However, $v_i + w_i = 0$ for all $i$, so the set of $v_i + w_i$ are not
+linearly independent.
 
 -------------------------------------------------------------------------------
 ### 10.
 
 __Problem__. Suppose that $v_1, v_2, v_3, \ldots, v_m$ is linearly independent
 in $V$ and $w \in V$. Prove that if $v_1 + w, v_2 + w, \ldots, v_m + w$ is
-linearly independent, then $w \in \operatorname{span}(v_1, \ldots, v_m)$.
+linearly dependent, then $w \in \operatorname{span}(v_1, \ldots, v_m)$.
 
-__Solution__. TODO
+__Solution__. Since $v_1 + w, v_2 + w, \ldots, v_m + w$ is linearly dependent,
+there exist $c_1, c_2, \ldots, c_m$ not all zero such that
+
+\[
+  c_1 (v_1 + w) + c_2 (v_2 + w) + \cdots c_m (v_m + w) = 0.
+\]
+
+Rearranging this equations, we can express $w$ in terms of $v_1, \ldots, v_m$:
+
+\[
+  w
+  = -\frac{c_1 v_1 + \cdots + c_m v_m}{c_1 + \cdots + c_m} \\
+  = -\sum \left(\frac{c_i}{c_1 + \cdots + c_m}\right) v_i,
+\]
+
+where we are guaranteed that the denominator is nonzero because at least one
+of the $c_i$ is nonzero. Therefore, $w$ is equal to linear combination of the
+$v_i$, which implies that $w \in \operatorname{span}(v_1, \ldots, v_m)$.
 
 -------------------------------------------------------------------------------
 ### 11.
@@ -187,7 +255,45 @@ __Problem__. Suppose that $v_1, v_2, v_3, \ldots, v_m$ is linearly independent
 in $V$ and $w \in V$. Show that $v_1, v_2, \ldots, v_m, w$ is linearly
 independent if and only if $w \notin \operatorname{span}(v_1, \ldots, v_m)$.
 
-__Solution__. TODO
+__Solution__.
+
+$(\Rightarrow)$ We prove the contrapositive. Suppose that
+$w \in \operatorname{span}(v_1, \ldots, v_m)$. Then $w$ is a linear
+combination of the $v_i$:
+
+\[
+  w = c_1 v_1 + \cdots c_m v_m,
+\]
+
+where at least one $c_i$ is nonzero. Rearranging this equation, we find a
+nontrivial linear combination of the $v_1, \ldots, v_m, w$ that sum to zero,
+which implies tht $v_1, v_2, \ldots, v_m, w$ is not linearly independent.
+
+$(\Leftarrow)$ We prove the contrapositive. If $w = 0$, then clearly,
+$w \in \operatorname{span}(v_1, \ldots, v_m)$. If $w \ne 0$ and
+$v_1, v_2, \ldots, v_m, w$ is linearly dependent, then there exist
+$c_1, \ldots, c_m, c_w$ not all zero such that
+
+\[
+  0 = c_1 v_1 + \ldots + c_m v_m + c_w w
+\]
+
+Note that the linear independence of $v_1, \ldots, v_m$ implies that $c_w$
+cannot be zero - otherwise all of the $c_i$ would be forced to be zero.
+Since $c_w \ne 0$, we can solve for $w$ as
+
+\[
+  w =
+  -\frac{1}{c_w} (c_1 v_1 + \ldots + c_m v_m) \\
+  =   \left(\frac{-c_1}{c_w}\right) v_1 + \ldots
+    + \left(\frac{-c_m}{c_w}\right) v_m
+\]
+
+where at least one of $c_i \ne 0$ because $w \ne 0$. Therefore, $w$ is a
+linear combination of $v_1, \ldots, v_m$, so we can conclude that
+$w \in \operatorname{span}(v_1, \ldots, v_m)$.
+
+
 
 -------------------------------------------------------------------------------
 ### 12.
