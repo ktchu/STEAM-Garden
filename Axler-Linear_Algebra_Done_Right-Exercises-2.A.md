@@ -301,7 +301,12 @@ $w \in \operatorname{span}(v_1, \ldots, v_m)$.
 __Problem__. Explain why there does not exist a list of six polynomials that is
 linearly independent in $\mathcal{P}_4 (\mathbb{F})$.
 
-__Solution__. TODO
+__Solution__. The list of polynomials $1, x, x^2, x^3, x^4$ spans the vector
+space $\mathcal{P}_4 (\mathbb{F})$. Therefore, any list of linearly independent
+polynomials in $\mathcal{P}_4 (\mathbb{F})$ must at most 5 elements because
+the length of any list of linearly independent vectors in a vector space is
+bounded above by the length of any list of spanning vectors for the vector
+space.
 
 -------------------------------------------------------------------------------
 ### 13.
@@ -309,7 +314,12 @@ __Solution__. TODO
 __Problem__. Explain why no list of four polynomials spans
 $\mathcal{P}_4 (\mathbb{F})$.
 
-__Solution__. TODO
+__Solution__. The list of polynomials $1, x, x^2, x^3, x^4$ is linearly
+independent in $\mathcal{P}_4 (\mathbb{F})$. Therefore, any list of polynomials
+that spans $\mathcal{P}_4 (\mathbb{F})$ must contain at least 5 elements
+because the length of any list of spanning vectors in a vector space is bounded
+below by the length of any list of linearly independent vectors for the vector
+space.
 
 -------------------------------------------------------------------------------
 ### 14.
@@ -318,14 +328,28 @@ __Problem__. Prove that $V$ is infinite-dimensional if and only if there is a
 sequence $v_1, v_2, \ldots$ of vectors in $V$ such that $v_1, v_2, \ldots, v_m$
 is linearly independent for every positive integer $m$.
 
-__Solution__. TODO
+__Solution__.
+
+$(\Rightarrow)$ We prove the contrapositive. TODO
+
+$(\Leftarrow)$ We prove the contrapositive. If $V$ is finite-dimensional, then
+there exists a finite list of vectors $w_1, w_2, \ldots, w_n$ that spans $V$.
+Since the length of any list of linearly independent vectors in $V$ is bounded
+above by $n$, any sequence of vectors $v_1, v_2, \ldots, v_m$ with $m > n$
+must be linearly dependent. Therefore, there cannot exist a sequence
+$v_1, v_2, \ldots$ in $V$ such that $v_1, \ldots, v_m$ in $V$ is linearly
+independent for every positive integer $m$.
 
 -------------------------------------------------------------------------------
 ### 15.
 
 __Problem__. Prove that $\mathbb{F}^\infty$ is infinite-dimensional.
 
-__Solution__. TODO
+__Solution__. Let $v_i \in \mathbb{F}^\infty$ be the infinite sequence
+consisting of 0s except for a single 1 at the $i$-th position. The infinite
+sequence of vectors $v_1, v_2, \ldots$ satisfies the property that
+$v_1, \ldots, v_m$ is linearly independent for every positive $m$. Therefore,
+by Problem #14, $\mathbb{F}^\infty$ is infinite-dimensional.
 
 -------------------------------------------------------------------------------
 ### 16.
