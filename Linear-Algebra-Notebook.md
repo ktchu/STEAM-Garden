@@ -83,7 +83,7 @@ scalar multiplication operations defined satisfying the following properties.
     If $U_1, \ldots, U_n$ be subspaces of a vector space $V$,
     $U = U_1 + \cdots + U_n$ possesses the following properties.
 
-    * $U$ a subspace.
+    * $U$ is a subspace.
 
     * $U$ is the smallest subspace containing $U_1, \ldots, U_n$.
 
@@ -278,7 +278,7 @@ __Key Concepts__
 * (Definition) __Linear Map__. A linear map from $V$ to $W$ is a function
   $T: V \rightarrow W$ with the following properties.
 
-  * _Addivity_: $T(u + v) = Tu + Tv$ for all $u, v \in V$
+  * _Additivity_: $T(u + v) = Tu + Tv$ for all $u, v \in V$
 
   * _Homogeneity_: $T(\lambda v) = \lambda (Tv)$ for all $v \in V$ and
     $\lambda \in F$.
