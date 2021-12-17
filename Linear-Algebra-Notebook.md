@@ -25,36 +25,36 @@ __Key Concepts__
 
 ### 1.B. Definition of a Vector Space
 
-(Definition) A vector space over a field $F$ is a set $V$ with addition and
-scalar multiplication operations defined satisfying the following properties.
+* (Definition) A vector space over a field $F$ is a set $V$ with addition and
+  scalar multiplication operations defined satisfying the following properties.
 
-* _Closure properties_
+  * __Closure properties__
 
-  * $u + v \in V$ for all $u, v \in V$.
+    * $u + v \in V$ for all $u, v \in V$.
 
-  * $au \in V$ for all $u \in V$ and $a \in F$.
+    * $au \in V$ for all $u \in V$ and $a \in F$.
 
-* _Associative properties_
+  * __Associative properties__
 
-  * $(u + v) + w = u + (v + w)$ for all $u, v, w \in V$.
+    * $(u + v) + w = u + (v + w)$ for all $u, v, w \in V$.
 
-  * $a(bu) = (ab)u$ for all $u \in V$ and $a, b \in F$.
+    * $a(bu) = (ab)u$ for all $u \in V$ and $a, b \in F$.
 
-* _Commutativity under Addition_: $u + v = v + u$ for all $u, v \in V$.
+  * __Commutativity under Addition__: $u + v = v + u$ for all $u, v \in V$.
 
-* _Additive identity_: there exists and element $0 \in V$ where $v + 0 = v$
-  for all $v \in V$.
+  * __Additive identity__: there exists and element $0 \in V$ where $v + 0 = v$
+    for all $v \in V$.
 
-* _Additive inverses_: for every $v \in V$, there exists a $w \in V$ such that
-  $u + w = 0$.
+  * __Additive inverses__: for every $v \in V$, there exists a $w \in V$ such
+    that $u + w = 0$.
 
-* _Multiplicative Identity_: $1v = v$ for all $v \in V$.
+  * __Multiplicative Identity__: $1v = v$ for all $v \in V$.
 
-* _Distributive Properties_
+  * __Distributive Properties__
 
-  * $a(u + v) = au + av$ for all $u, v \in V$ and $a \in F$.
+    * $a(u + v) = au + av$ for all $u, v \in V$ and $a \in F$.
 
-  * $(a +b) u = au + bu$ for all $u \in V$ and $a, b \in F$.
+    * $(a +b) u = au + bu$ for all $u \in V$ and $a, b \in F$.
 
 ### 1.C. Subspaces
 
@@ -291,8 +291,10 @@ __Key Concepts__
   There exists a unique linear map $T: V \rightarrow W$ such that $T v_j = w_j$
   for all $j$.
 
-* (Definition) __Product of Linear Maps__. Let $T \in \mathcal{L}(U, V)$ and
-  $S \in \mathcal{L}(V, W)$. The _product_ $ST$ is defined by $(ST)(u) = S(Tu)$
+* (Definition) __Product of Linear Maps__
+
+  Let $T \in \mathcal{L}(U, V)$ and $S \in \mathcal{L}(V, W)$. The _product_
+  $ST$ is defined by $(ST)(u) = S(Tu)$
 
   * (Remark) For the product of two linear maps to be well-defined, the
     codomain of the first map must be the same as the domain of the second map.
@@ -455,13 +457,13 @@ __Key Concepts__
   * A linear map $S$ satisfying $ST = I$ and $TS = I$ is called the _inverse_
     of $T$.
 
-* (Lemma) __Unique Inverses__. If a linear map is invertible, it's inverse is
-  unique.
+  * (Lemma) __Unique Inverses__. If a linear map is invertible, it's inverse is
+    unique.
 
-  * (Notation) The inverse of an invertible map $T$ is denoted by $T^{-1}$.
+    * (Notation) The inverse of an invertible map $T$ is denoted by $T^{-1}$.
 
-* (Lemma) __Invertibility $\Leftrightarrow$ injectivity and surjectivity__.
-  A linear map is invertible if and only if it is injective and surjective.
+  * (Lemma) __Invertibility $\Leftrightarrow$ injectivity and surjectivity__.
+    A linear map is invertible if and only if it is injective and surjective.
 
 * (Definition) __Isomophism, Isomorphic__
 
@@ -470,13 +472,13 @@ __Key Concepts__
   * Two vector spaces are _isomorphic_ if there exists an isomorphism between
     them.
 
-* (Lemma) __Isomorphic finite vector spaces have the same dimension__.
-  Two finite-dimensional vector spaces are isomorphic if and only if they have
-  the same dimension.
+  * (Lemma) __Isomorphic finite vector spaces have the same dimension__.
+    Two finite-dimensional vector spaces are isomorphic if and only if they
+    have the same dimension.
 
-* (Lemma) __$\mathcal{L}(V, W)$ and $F^{m, n}$ are isomorphic__.
+  * (Lemma) __$\mathcal{L}(V, W)$ and $F^{m, n}$ are isomorphic__.
 
-  * (Corollary) $\dim \mathcal{L}(V, W) = (\dim V)(\dim W)$
+    * (Corollary) $\dim \mathcal{L}(V, W) = (\dim V)(\dim W)$
 
 * (Definition) __Matrix of a Vector__. Let $\{v_1, \ldots, v_n\}$ be a basis
   for $V$. The _matrix representation of_ $v$ with respect to this basis is
@@ -509,24 +511,24 @@ __Key Concepts__
 
   * (Remark) Operators are an important part of linear algebra.
 
-* (Lemma) __Operators in Finite Spaces: Injectivity = Surjectivity__.
-  Let $V$ is finite-dimensional and $T \in \mathcal{L}(V)$. The following
-  three statements are equivalent:
+  * (Lemma) __Operators in Finite Spaces: Injectivity = Surjectivity__.
+    Let $V$ is finite-dimensional and $T \in \mathcal{L}(V)$. The following
+    three statements are equivalent:
 
-  * $T$ is invertible;
+    * $T$ is invertible;
 
-  * $T$ is injective;
+    * $T$ is injective;
 
-  * $T$ is surjective.
+    * $T$ is surjective.
 
-  * (Remark) Injectivity and surjectivity are not equivalent for operators on
-    infinite-dimensional vector spaces.
+    * (Remark) Injectivity and surjectivity are not equivalent for operators
+      on infinite-dimensional vector spaces.
 
 ### 3.E. Products and Quotients of Vector Spaces
 
 * (Definition) __Product of Vector Spaces__
 
-  Let $V_1, \ldots, V_m$ be vectors spaces over $\mathbb{F}$.
+  Let $V_1, \ldots, V_m$ be vectors spaces over $F$.
 
   * The _product space_ $V_1 \times \cdots \times V_m$ is defined by
 
@@ -547,8 +549,8 @@ __Key Concepts__
     \lambda (v_1, \ldots, v_m) = (\lambda v_1, \ldots, \lambda v_m).
     \]
 
-  * (Lemma) __Product of vector spaces is a vector space__. The product
-    space $V_1 \times \cdots \times V_m$ is a vector space over $\mathbb{F}$.
+  * (Lemma) __Product of vector spaces is a vector space__. The product space
+    $V_1 \times \cdots \times V_m$ is a vector space over $F$.
 
   * (Lemma) __Dimension of product space is sum of dimensions__. If
     $V_1, \ldots, V_m$ are finite-dimensional vector spaces, then
@@ -559,24 +561,24 @@ __Key Concepts__
       \dim(V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m.
     \]
 
-* (Application) __Characterization of Direct Sums__
+  * (Application) __Characterization of Direct Sums__
 
-  * (Lemma) Define the linear map
+    * (Lemma) Define the linear map
 
-    \[
-      \Gamma: U_1 \times \cdots \times U_m \rightarrow U_1 + \cdots + U_m
-    \]
+      \[
+        \Gamma: U_1 \times \cdots \times U_m \rightarrow U_1 + \cdots + U_m
+      \]
 
-    by $\Gamma(u_1, \ldots, u_m) = u_1 + \cdots + u_m$.
+      by $\Gamma(u_1, \ldots, u_m) = u_1 + \cdots + u_m$.
 
-    $U_1 + \cdots + U_m$ is a direct sum if and only if $\Gamma$ is injective
-    (which implies that $\Gamma$ is invertible).
+      $U_1 + \cdots + U_m$ is a direct sum if and only if $\Gamma$ is injective
+      (which implies that $\Gamma$ is invertible).
 
-  * (Lemma) $U_1 + \cdots U_m$ is a direct sum if and only if
+    * (Lemma) $U_1 + \cdots U_m$ is a direct sum if and only if
 
-    \[
-      \dim(U_1 + \cdots U_m) = \dim U_1 + \cdots + \dim U_m.
-    \]
+      \[
+        \dim(U_1 + \cdots U_m) = \dim U_1 + \cdots + \dim U_m.
+      \]
 
 * (Definition) __Quotient of Vector Spaces__
 
@@ -588,30 +590,30 @@ __Key Concepts__
   * __Quotient Space $V/U$__. The _quotient space_ $V/U$ is the set of all
     affine subsets of $V$ parallel to $U$: $\{ v + U | v \in V \}$.
 
-* (Theorem) __Quotient Spaces are Vector Spaces__
+  * (Theorem) __Quotient Spaces are Vector Spaces__
 
-  * (Lemma) __Parallel Affine Subsets are Equal or Disjoint__. If $v, w \in V$,
-    the following are equivalent:
+    * (Lemma) __Parallel Affine Subsets are Equal or Disjoint__.
+      If $v, w \in V$, the following are equivalent:
 
-    * $v - w \in U$;
+      * $v - w \in U$;
 
-    * $v + U = w + U$;
+      * $v + U = w + U$;
 
-    * $(v + U) \cap (w + U) \ne \emptyset$.
+      * $(v + U) \cap (w + U) \ne \emptyset$.
 
-  * (Corollary) Addition and scalar multiplication for affine subsets are
-    well-defined operations.
+    * (Corollary) Addition and scalar multiplication for affine subsets are
+      well-defined operations.
 
-    * _Addition_: $(v + U) + (w + U) = (v + w) + U$
+      * _Addition_: $(v + U) + (w + U) = (v + w) + U$
 
-    * _Scalar Mulitplication_: $\lambda (v + U) = (\lambda v) + U$
-
-* (Definition) __Quotient Map__. The quotient map $\pi: V \rightarrow V/U$ is
-  defined by $\pi(v) = v + U$.
-
-  * (Lemma) The quotient map is a linear map.
+      * _Scalar Mulitplication_: $\lambda (v + U) = (\lambda v) + U$
 
 * (Lemma) __$\dim V/U = \dim V - \dim U$__.
+
+  * (Definition) __Quotient Map__. The quotient map $\pi: V \rightarrow V/U$ is
+    defined by $\pi(v) = v + U$.
+
+  * (Lemma) The quotient map is a linear map.
 
 * (Theorem) __$V / (\operatorname{null} T)$ is isomorphic to
   $\operatorname{range} T$__
@@ -632,5 +634,154 @@ __Key Concepts__
 
   * (Lemma) $\tilde{T}$ is an isomorphism from $V / (\operatorname{null} T)$
     to $\operatorname{range} T$.
+
+### 3.F. Duality
+
+* (Definition) __Linear Functional__. A _linear functional_ on $V$ is a
+  linear map from $V$ to the scalar field $F$. In other words, a linear
+  function is an element of $\mathcal{L}(V, F)$.
+
+* (Definition) __Dual Space__. The _dual space_ of $V$, denoted $V'$, is
+  the vector space of all linear functionals of $V$. In other words,
+  $V' = \mathcal{L}(V, F)$.
+
+  * (Lemma) __$\dim V = \dim V'$__.
+
+* (Definition) __Dual Basis__. Let $v_1, \ldots, v_n$ be a basis for $V$.
+  The _dual basis_ of $v_1, \ldots, v_n$ is the collection of elements
+  $\phi_1, \ldots, \phi_n \in V'$ defined as follows:
+
+  \[
+    \phi_j(v_k) = \delta_{jk},
+  \]
+
+  where $\delta_{jk}$ is the Kronecker delta.
+
+  * (Lemma) __The dual basis is a basis__. If $\phi_1, \ldots, \phi_n \in V'$
+    is the dual basis of a basis $v_1, \ldots, v_n \in V$, then
+    $\phi_1, \ldots, \phi_n$ is a basis for $V'$.
+
+* (Definition) __Dual Map__. Let $T \in \mathcal{L}(V, W)$. The _dual map_ of
+  $T$ is the linear map $T' \in \mathcal{L}(W', V')$ defined by
+
+  \[
+    T'(\phi) = \phi \circ T
+  \]
+
+  for $\phi \in W'$.
+
+  * (Remark) Observe that $'$ is a map from linear maps to their dual maps.
+
+    \[
+      ': \mathcal{L}(V, W) \rightarrow \mathcal{L}(W', V').
+    \]
+
+  * (Lemma) __Algebraic Properties of $'$__
+
+    * (Lemma) $'$ is a linear map.
+
+      * $(S + T)' = S' + T'$ for all $S, T \in \mathcal{L}(V, W)$.
+
+      * $(\lambda S)' = \lambda S'$ for all $\lambda \in F$ and
+        $S \in \mathcal{L}(V, W)$.
+
+    * (Lemma) $(ST)' = T' S'$ for all $S \in \mathcal{L}(U, V)$ and
+      $T \in \mathcal{L}(V, W)$.
+
+* (Definition) __Annihilator, $U^0$__. Let $U \subset V$. The _annihilator_ of
+  $U$, denoted by $U^0$, is defined by
+
+  \[
+    U^0 = \{ \phi \in V' | \phi(u) = 0 \textrm{ for all } u \in U \}.
+  \]
+
+  * (Remark) $U^0$ is a function of the vector space $V$.
+
+  * (Lemma) If $U = V$, then $U^0 = \{ 0 \}$.
+
+  * (Lemma) $U^0$ is a subspace of $V'$.
+
+  * (Lemma) If $U$ is s subspace of $V$, $\dim V = \dim U^0 + \dim U$.
+
+    * _Proof 1_. Let $u_1, \ldots, u_m$ be a basis for $U$. Construct a basis
+      for $V$ by extending this list with $u_{m+1}, \ldots, u_n$. Suppose
+      $\phi \in U^0$:
+
+      \[
+        \phi = c_1 \phi_1 + \cdots + c_n \phi_n
+      \]
+
+      where $\phi_1, \ldots, \phi_n$ is the dual basis for $u_1, \ldots, u_n$.
+
+      Observe that $\phi(u_j) = c_j$ by the definition of the dual basis.
+      Therefore, $\phi \in U^0$ implies that $c_j = 0$ if $j \le m$ so that
+      $\phi$ is a linear combination of $\phi_{m+1}, \ldots, \phi_n$. In other
+      words, $\dim U^0 = n - m = \dim V - \dim U$, which yields the desired
+      result.
+
+    * _Proof 2_. Define the _inclusion map_ $i \in \mathcal{L}(U, V)$ by
+      $i(u) = u$. Since $i$ is a linear map, $i'$ is a linear map from $V'$ to
+      $U'$. The Fundamental Theorem of Linear Maps implies that
+
+      \[
+        \dim V' = \dim \operatorname{null} i' + \operatorname{range} i'.
+      \]
+
+      The null space of $i'$ consists of the linear functionals $\phi \in V$
+      where $i'(\phi) = 0$, which is equivalent to
+      $i'(\phi)(u) = \phi \circ i(u) = 0$ for all $u \in U$. In other words,
+      $\operatorname{null} i' = U^0$.
+
+      Next, let $\phi \in U'$. Observe that $\phi$ can be extended to a linear
+      functional $\psi$ on $V'$ such that $\psi(u) = \phi(u)$ for all $u \in U$.
+      By the definition of $i'$,
+
+      \[
+        i'(\psi)(u) = \psi \circ i(u) = \psi(u) = \phi(u)
+      \]
+
+      for all $u \in U$. Therefore, $\phi \in \operatorname{range} i'$.
+
+      Combining these results with the fact that the dimension of a vector
+      space and its dual are equal, we find that
+
+      \[
+        \dim V = \dim V' = \dim U^0 + \dim U' = \dim U^0 + \dim U.
+      \]
+
+* __Null Space of $T'$__
+
+  Let $T \in \mathcal{L}(V, W)$.
+
+  * (Lemma) $\operatorname{null} T' = (\operatorname{range} T)^0$
+
+    * _Proof_. If $\phi$ is in the null space of $T'$, then $T'(\phi) = 0$,
+      which implies that $T'(\phi)(v) = \phi(T(v)) = 0$ for all $v \in V$. In
+      other words, $\phi(w) = 0$ for all $w \in \operatorname{range} T$.
+      Therefore, $\operatorname{null} T' \subset (\operatorname{range} T)^0$.
+
+      If $\phi$ is in the annihilator for the range of $T$, then $\phi(w) = 0$
+      for all $w \in \operatorname{range} T$, which implies that
+      $T'(\phi)(v) = \phi(T(v)) = 0$ for all $v \in V$. Therefore,
+      $T'(\phi) = 0$ so that
+      $(\operatorname{range} T)^0 \subset \operatorname{null} T'$.
+
+    * (Remark). This result holds for infinite-dimensional vector spaces.
+
+  * (Lemma)
+    $\dim \operatorname{null} T' = \dim \operatorname{null} T + \dim W - \dim V$
+
+    * _Proof_.
+
+      \[
+        \dim \operatorname{null} T' = \dim (\operatorname{range} T)^0
+        = \dim W - \dim \operatorname{range} T \\
+        = \dim W - (\dim V - \dim \operatorname{null} T)
+        = \dim \operatorname{null} T + \dim W - \dim V.
+      \]
+
+* __Range of $T'$__. TODO
+
+  * (Lemma) $\operatorname{range} T' = (\operatorname{null} T)^0$
 
 -------------------------------------------------------------------------------
