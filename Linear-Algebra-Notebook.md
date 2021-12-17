@@ -474,7 +474,7 @@ __Key Concepts__
   Two finite-dimensional vector spaces are isomorphic if and only if they have
   the same dimension.
 
-* (Lemma) __$\mathcal{L}(V, W) and F^{m, n}$ are isomorphic__.
+* (Lemma) __$\mathcal{L}(V, W)$ and $F^{m, n}$ are isomorphic__.
 
   * (Corollary) $\dim \mathcal{L}(V, W) = (\dim V)(\dim W)$
 
@@ -521,5 +521,116 @@ __Key Concepts__
 
   * (Remark) Injectivity and surjectivity are not equivalent for operators on
     infinite-dimensional vector spaces.
+
+### 3.E. Products and Quotients of Vector Spaces
+
+* (Definition) __Product of Vector Spaces__
+
+  Let $V_1, \ldots, V_m$ be vectors spaces over $\mathbb{F}$.
+
+  * The _product space_ $V_1 \times \cdots \times V_m$ is defined by
+
+    \[
+    V_1 \times \cdots \times V_m
+    = \{(v_1, \ldots, v_m) | v_1 \in V_1, \ldots, v_m \in V_m \}
+    \]
+
+  * _Addition_ on $V_1 \times \cdots \times V_m$ is defined by
+
+    \[
+    (u_1, \ldots, u_m) + (v_1, \ldots, v_m) = (u_1 + v_1, \ldots, u_m + v_m).
+    \]
+
+  * _Scalar multiplication_ on $V_1 \times \cdots \times V_m$ is defined by
+
+    \[
+    \lambda (v_1, \ldots, v_m) = (\lambda v_1, \ldots, \lambda v_m).
+    \]
+
+  * (Lemma) __Product of vector spaces is a vector space__. The product
+    space $V_1 \times \cdots \times V_m$ is a vector space over $\mathbb{F}$.
+
+  * (Lemma) __Dimension of product space is sum of dimensions__. If
+    $V_1, \ldots, V_m$ are finite-dimensional vector spaces, then
+    $V_1 \times \cdots \times V_m$ is finite-dimensional with dimension equal
+    to
+
+    \[
+      \dim(V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m.
+    \]
+
+* (Application) __Characterization of Direct Sums__
+
+  * (Lemma) Define the linear map
+
+    \[
+      \Gamma: U_1 \times \cdots \times U_m \rightarrow U_1 + \cdots + U_m
+    \]
+
+    by $\Gamma(u_1, \ldots, u_m) = u_1 + \cdots + u_m$.
+
+    $U_1 + \cdots + U_m$ is a direct sum if and only if $\Gamma$ is injective
+    (which implies that $\Gamma$ is invertible).
+
+  * (Lemma) $U_1 + \cdots U_m$ is a direct sum if and only if
+
+    \[
+      \dim(U_1 + \cdots U_m) = \dim U_1 + \cdots + \dim U_m.
+    \]
+
+* (Definition) __Quotient of Vector Spaces__
+
+  Let $v \in V$ and $U$ be a subspace of $V$.
+
+  * __Affine Subset__. The _affine subspace_ $v + U$ is defined as the set
+    $\{ v + u | u \in U \}$. Affine of $U$ are said to be _parallel_ to $U$.
+
+  * __Quotient Space $V/U$__. The _quotient space_ $V/U$ is the set of all
+    affine subsets of $V$ parallel to $U$: $\{ v + U | v \in V \}$.
+
+* (Theorem) __Quotient Spaces are Vector Spaces__
+
+  * (Lemma) __Parallel Affine Subsets are Equal or Disjoint__. If $v, w \in V$,
+    the following are equivalent:
+
+    * $v - w \in U$;
+
+    * $v + U = w + U$;
+
+    * $(v + U) \cap (w + U) \ne \emptyset$.
+
+  * (Corollary) Addition and scalar multiplication for affine subsets are
+    well-defined operations.
+
+    * _Addition_: $(v + U) + (w + U) = (v + w) + U$
+
+    * _Scalar Mulitplication_: $\lambda (v + U) = (\lambda v) + U$
+
+* (Definition) __Quotient Map__. The quotient map $\pi: V \rightarrow V/U$ is
+  defined by $\pi(v) = v + U$.
+
+  * (Lemma) The quotient map is a linear map.
+
+* (Lemma) __$\dim V/U = \dim V - \dim U$__.
+
+* (Theorem) __$V / (\operatorname{null} T)$ is isomorphic to
+  $\operatorname{range} T$__
+
+  * (Definition) __Induced Map on Quotient Space $V/(\operatorname{null} T)$__.
+    Let $T \in \mathcal{L}(V, W)$. Define
+    $\tilde{T}: V / (\operatorname{null} T) \rightarrow W$ by
+
+    \[
+      \tilde{T}(v + \operatorname{null} T) = T(v).
+    \]
+
+  * (Lemma) $\tilde{T}$ is a linear map.
+
+  * (Lemma) $\tilde{T}$ is injective.
+
+  * (Lemma) $\operatorname{range} \tilde{T} = \operatorname{range} T$.
+
+  * (Lemma) $\tilde{T}$ is an isomorphism from $V / (\operatorname{null} T)$
+    to $\operatorname{range} T$.
 
 -------------------------------------------------------------------------------
