@@ -15,7 +15,7 @@ References
 
 ## 1. Vector Spaces
 
-__Key Concepts__
+### Key Concepts
 
 * vector spaces
 
@@ -130,7 +130,7 @@ __Key Concepts__
 
 ## 2. Finite-Dimensional Vector Spaces
 
-__Key Concepts__
+### Key Concepts
 
 * span
 
@@ -259,7 +259,7 @@ __Key Concepts__
 
 ## 3. Finite-Dimensional Vector Spaces
 
-__Key Concepts__
+### Key Concepts
 
 * Fundamental Theorem of Linear Maps
 
@@ -291,37 +291,38 @@ __Key Concepts__
   There exists a unique linear map $T: V \rightarrow W$ such that $T v_j = w_j$
   for all $j$.
 
-* (Definition) __Product of Linear Maps__
+#### Product of Linear Maps
 
-  Let $T \in \mathcal{L}(U, V)$ and $S \in \mathcal{L}(V, W)$. The _product_
-  $ST$ is defined by $(ST)(u) = S(Tu)$
+* (Definition) __Product of Linear Maps__. Let $T \in \mathcal{L}(U, V)$ and
+  $S \in \mathcal{L}(V, W)$. The _product_ $ST$ is defined by
+  $(ST)(u) = S(Tu)$.
 
-  * (Remark) For the product of two linear maps to be well-defined, the
-    codomain of the first map must be the same as the domain of the second map.
+* (Remark) For the product of two linear maps to be well-defined, the
+  codomain of the first map must be the same as the domain of the second map.
 
-  * (Lemma) $ST$ is an element of $\mathcal{L}(U, W)$.
+* (Lemma) $ST$ is an element of $\mathcal{L}(U, W)$.
 
-  * (Remark) The product of linear maps posesses the following algebraic
-    properties. Note: taken together with additive properties of linear maps,
-    these multiplicative properties imply that the space of linear maps has a
-    _ring_ structure.
+* (Remark) The product of linear maps posesses the following algebraic
+  properties. Note: taken together with additive properties of linear maps,
+  these multiplicative properties imply that the space of linear maps has a
+  _ring_ structure.
 
-    * _Associativity_: $(T_1 T_2) T_3 = T_1 (T_2 T_3)$ whenever the product
-      is well-defined (i.e., domains and codomains are compatible).
+  * _Associativity_: $(T_1 T_2) T_3 = T_1 (T_2 T_3)$ whenever the product
+    is well-defined (i.e., domains and codomains are compatible).
 
-    * _Identity_: $TI = IT = T$ where $I$ is the identity map (defined on
-      the appropriate vector space depending on where $I$ appears in the
-      equation).
+  * _Identity_: $TI = IT = T$ where $I$ is the identity map (defined on
+    the appropriate vector space depending on where $I$ appears in the
+    equation).
 
-    * _Distributive Properties_
+  * _Distributive Properties_
 
-      \[
-      (S_1 + S_2) T = S_1 T + S_2 T \\
-      S (T_1 + T_2) = S T_1 + S T_2,
-      \]
+    \[
+    (S_1 + S_2) T = S_1 T + S_2 T \\
+    S (T_1 + T_2) = S T_1 + S T_2,
+    \]
 
-      where $S, S_1, S_2 \in \mathcal{L}(V, W)$ and
-      $T, T_1, T_2 \in \mathcal{L}(U, V)$.
+    where $S, S_1, S_2 \in \mathcal{L}(V, W)$ and
+    $T, T_1, T_2 \in \mathcal{L}(U, V)$.
 
 ### 3.B. Null Spaces and Ranges
 
@@ -411,39 +412,40 @@ __Key Concepts__
     (AC)_{i,j} = \sum_{k=1}^n A_{i,k} C_{k,j}.
   \]
 
-* (Lemma) __Equivalence of Matrix and Linear Map Operations__. With appropriate
-  choices for the definition of matrix addition, scalar multiplication for
-  matrices, and matrix multiplication, the matrix representation of the result
-  of an operation on linear maps is equal to the equivalent operation applied
-  to the matrix representations of the linear maps.
+#### Equivalence of Matrix and Linear Map Operations
 
-  * _Sums of linear maps_:
-      $\mathcal{M}(S + T) = \mathcal{M}(S) + \mathcal{M}(T)$
+With appropriate choices for the definition of matrix addition, scalar
+multiplication for matrices, and matrix multiplication, the matrix
+representation of the result of an operation on linear maps is equal to the
+equivalent operation applied to the matrix representations of the linear maps.
 
-  * _Scalar multiplication of linear maps_:
-      $\mathcal{M}(\lambda S) = \lambda \mathcal{M}(S)$
+* _Sums of linear maps_:
+    $\mathcal{M}(S + T) = \mathcal{M}(S) + \mathcal{M}(T)$
 
-  * _Product of linear maps_:
-      $\mathcal{M}(ST) = \mathcal{M}(S) \mathcal{M}(T)$
+* _Scalar multiplication of linear maps_:
+    $\mathcal{M}(\lambda S) = \lambda \mathcal{M}(S)$
 
-* (Lemma) __Expressions for Matrix Product Entries__
+* _Product of linear maps_:
+    $\mathcal{M}(ST) = \mathcal{M}(S) \mathcal{M}(T)$
 
-  * _Dot Product of Row and Column_. $(AC)_{i,j}$ is equal to the dot product
-    of the $i$-th row of $A$ with the $j$-th column of $C$.
+#### Expressions for Matrix Product Entries
 
-  * _Matrix Product with Column_. The $j$-th column of $AC$ is equal to the
-    matrix product of the matrix $A$ with the $j$-th column of $C$.
+* _Dot Product of Row and Column_. $(AC)_{i,j}$ is equal to the dot product
+  of the $i$-th row of $A$ with the $j$-th column of $C$.
 
-  * _Matrix Product with Row_. The $i$-th row of $AC$ is equal to the
-    matrix product of the $i$-th row of $A$ with the matrix $C$.
+* _Matrix Product with Column_. The $j$-th column of $AC$ is equal to the
+  matrix product of the matrix $A$ with the $j$-th column of $C$.
 
-  * _Linear Combination of Columns_. The $j$-th column of $AC$ is equal to
-    the linear combination of the columns of $A$ with the $j$-th column of
-    $C$ as the coefficients in the linear combination.
+* _Matrix Product with Row_. The $i$-th row of $AC$ is equal to the
+  matrix product of the $i$-th row of $A$ with the matrix $C$.
 
-  * _Linear Combination of Rows_. The $i$-th row of $AC$ is equal to
-    the linear combination of the rows of $C$ with the $i$-th row of
-    $A$ as the coefficients in the linear combination.
+* _Linear Combination of Columns_. The $j$-th column of $AC$ is equal to
+  the linear combination of the columns of $A$ with the $j$-th column of
+  $C$ as the coefficients in the linear combination.
+
+* _Linear Combination of Rows_. The $i$-th row of $AC$ is equal to
+  the linear combination of the rows of $C$ with the $i$-th row of
+  $A$ as the coefficients in the linear combination.
 
 ### 3.D. Invertibility and Isomorphic Vector Spaces
 
@@ -526,87 +528,88 @@ __Key Concepts__
 
 ### 3.E. Products and Quotients of Vector Spaces
 
-* (Definition) __Product of Vector Spaces__
+#### Product of Vector Spaces
 
-  Let $V_1, \ldots, V_m$ be vectors spaces over $F$.
+Let $V_1, \ldots, V_m$ be vectors spaces over $F$.
 
-  * The _product space_ $V_1 \times \cdots \times V_m$ is defined by
+* (Definition) The _product space_ $V_1 \times \cdots \times V_m$ is defined by
 
-    \[
+  \[
     V_1 \times \cdots \times V_m
     = \{(v_1, \ldots, v_m) | v_1 \in V_1, \ldots, v_m \in V_m \}
-    \]
+  \]
 
   * _Addition_ on $V_1 \times \cdots \times V_m$ is defined by
 
     \[
-    (u_1, \ldots, u_m) + (v_1, \ldots, v_m) = (u_1 + v_1, \ldots, u_m + v_m).
+      (u_1, \ldots, u_m) + (v_1, \ldots, v_m) = (u_1 + v_1, \ldots, u_m + v_m).
     \]
 
   * _Scalar multiplication_ on $V_1 \times \cdots \times V_m$ is defined by
 
     \[
-    \lambda (v_1, \ldots, v_m) = (\lambda v_1, \ldots, \lambda v_m).
+      \lambda (v_1, \ldots, v_m) = (\lambda v_1, \ldots, \lambda v_m).
     \]
 
-  * (Lemma) __Product of vector spaces is a vector space__. The product space
-    $V_1 \times \cdots \times V_m$ is a vector space over $F$.
+* (Lemma) __Product of vector spaces is a vector space__. The product space
+  $V_1 \times \cdots \times V_m$ is a vector space over $F$.
 
-  * (Lemma) __Dimension of product space is sum of dimensions__. If
-    $V_1, \ldots, V_m$ are finite-dimensional vector spaces, then
-    $V_1 \times \cdots \times V_m$ is finite-dimensional with dimension equal
-    to
+* (Lemma) __Dimension of product space is sum of dimensions__. If
+  $V_1, \ldots, V_m$ are finite-dimensional vector spaces, then
+  $V_1 \times \cdots \times V_m$ is finite-dimensional with dimension equal
+  to
+
+  \[
+    \dim(V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m.
+  \]
+
+* (Application) __Characterization of Direct Sums__
+
+  * (Lemma) Define the linear map
 
     \[
-      \dim(V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m.
+      \Gamma: U_1 \times \cdots \times U_m \rightarrow U_1 + \cdots + U_m
     \]
 
-  * (Application) __Characterization of Direct Sums__
+    by $\Gamma(u_1, \ldots, u_m) = u_1 + \cdots + u_m$.
 
-    * (Lemma) Define the linear map
+    $U_1 + \cdots + U_m$ is a direct sum if and only if $\Gamma$ is injective
+    (which implies that $\Gamma$ is invertible).
 
-      \[
-        \Gamma: U_1 \times \cdots \times U_m \rightarrow U_1 + \cdots + U_m
-      \]
+  * (Lemma) $U_1 + \cdots U_m$ is a direct sum if and only if
 
-      by $\Gamma(u_1, \ldots, u_m) = u_1 + \cdots + u_m$.
+    \[
+      \dim(U_1 + \cdots U_m) = \dim U_1 + \cdots + \dim U_m.
+    \]
 
-      $U_1 + \cdots + U_m$ is a direct sum if and only if $\Gamma$ is injective
-      (which implies that $\Gamma$ is invertible).
+#### Quotient of Vector Spaces
 
-    * (Lemma) $U_1 + \cdots U_m$ is a direct sum if and only if
+Let $v \in V$ and $U$ be a subspace of $V$.
 
-      \[
-        \dim(U_1 + \cdots U_m) = \dim U_1 + \cdots + \dim U_m.
-      \]
+* (Definition) __Affine Subset__. The _affine subspace_ $v + U$ is defined
+  as the set $\{ v + u | u \in U \}$. Affine of $U$ are said to be
+  _parallel_ to $U$.
 
-* (Definition) __Quotient of Vector Spaces__
+* (Definition) __Quotient Space $V/U$__. The _quotient space_ $V/U$ is the
+  set of all affine subsets of $V$ parallel to $U$: $\{ v + U | v \in V \}$.
 
-  Let $v \in V$ and $U$ be a subspace of $V$.
+* (Theorem) __Quotient Spaces are Vector Spaces__
 
-  * __Affine Subset__. The _affine subspace_ $v + U$ is defined as the set
-    $\{ v + u | u \in U \}$. Affine of $U$ are said to be _parallel_ to $U$.
+  * (Lemma) __Parallel Affine Subsets are Equal or Disjoint__.
+    If $v, w \in V$, the following are equivalent:
 
-  * __Quotient Space $V/U$__. The _quotient space_ $V/U$ is the set of all
-    affine subsets of $V$ parallel to $U$: $\{ v + U | v \in V \}$.
+    * $v - w \in U$;
 
-  * (Theorem) __Quotient Spaces are Vector Spaces__
+    * $v + U = w + U$;
 
-    * (Lemma) __Parallel Affine Subsets are Equal or Disjoint__.
-      If $v, w \in V$, the following are equivalent:
+    * $(v + U) \cap (w + U) \ne \emptyset$.
 
-      * $v - w \in U$;
+  * (Corollary) Addition and scalar multiplication for affine subsets are
+    well-defined operations.
 
-      * $v + U = w + U$;
+    * _Addition_: $(v + U) + (w + U) = (v + w) + U$
 
-      * $(v + U) \cap (w + U) \ne \emptyset$.
-
-    * (Corollary) Addition and scalar multiplication for affine subsets are
-      well-defined operations.
-
-      * _Addition_: $(v + U) + (w + U) = (v + w) + U$
-
-      * _Scalar Mulitplication_: $\lambda (v + U) = (\lambda v) + U$
+    * _Scalar Mulitplication_: $\lambda (v + U) = (\lambda v) + U$
 
 * (Lemma) __$\dim V/U = \dim V - \dim U$__.
 
@@ -749,88 +752,88 @@ __Key Concepts__
         \dim V = \dim V' = \dim U^0 + \dim U' = \dim U^0 + \dim U.
       \]
 
-* __Null Space and Range of $T'$__
+#### Null Space and Range of $T'$
 
-  Let $T \in \mathcal{L}(V, W)$.
+Let $T \in \mathcal{L}(V, W)$.
 
-  * (Lemma) $\operatorname{null} T' = (\operatorname{range} T)^0$
+* (Lemma) $\operatorname{null} T' = (\operatorname{range} T)^0$
 
-    * _Proof_. If $\phi$ is in the null space of $T'$, then $T'(\phi) = 0$,
-      which implies that $T'(\phi)(v) = \phi(T(v)) = 0$ for all $v \in V$. In
-      other words, $\phi(w) = 0$ for all $w \in \operatorname{range} T$.
-      Therefore, $\operatorname{null} T' \subseteq (\operatorname{range} T)^0$.
+  * _Proof_. If $\phi$ is in the null space of $T'$, then $T'(\phi) = 0$,
+    which implies that $T'(\phi)(v) = \phi(T(v)) = 0$ for all $v \in V$. In
+    other words, $\phi(w) = 0$ for all $w \in \operatorname{range} T$.
+    Therefore, $\operatorname{null} T' \subseteq (\operatorname{range} T)^0$.
 
-      If $\phi$ is in the annihilator for the range of $T$, then $\phi(w) = 0$
-      for all $w \in \operatorname{range} T$, which implies that
-      $T'(\phi)(v) = \phi(T(v)) = 0$ for all $v \in V$. Therefore,
-      $T'(\phi) = 0$ so that
-      $(\operatorname{range} T)^0 \subseteq \operatorname{null} T'$.
+    If $\phi$ is in the annihilator for the range of $T$, then $\phi(w) = 0$
+    for all $w \in \operatorname{range} T$, which implies that
+    $T'(\phi)(v) = \phi(T(v)) = 0$ for all $v \in V$. Therefore,
+    $T'(\phi) = 0$ so that
+    $(\operatorname{range} T)^0 \subseteq \operatorname{null} T'$.
 
-    * (Remark). This result holds for infinite-dimensional vector spaces.
+  * (Remark). This result holds for infinite-dimensional vector spaces.
 
-  * (Lemma)
-    $\dim \operatorname{null} T' = \dim \operatorname{null} T + \dim W - \dim V$
+* (Lemma)
+  $\dim \operatorname{null} T' = \dim \operatorname{null} T + \dim W - \dim V$
 
-    * _Proof_.
+  * _Proof_.
 
-      \[
-        \dim \operatorname{null} T'
-        = \dim (\operatorname{range} T)^0
-        = \dim W - \dim \operatorname{range} T \\
-        = \dim W - (\dim V - \dim \operatorname{null} T)
-        = \dim \operatorname{null} T + \dim W - \dim V.
-      \]
+    \[
+      \dim \operatorname{null} T'
+      = \dim (\operatorname{range} T)^0
+      = \dim W - \dim \operatorname{range} T \\
+      = \dim W - (\dim V - \dim \operatorname{null} T)
+      = \dim \operatorname{null} T + \dim W - \dim V.
+    \]
 
-  * (Corollary) $\dim \operatorname{range} T' = \dim \operatorname{range} T$
+* (Corollary) $\dim \operatorname{range} T' = \dim \operatorname{range} T$
 
-    * _Proof_.
+  * _Proof_.
 
-      \[
-        \dim \operatorname{range} T'
-        = \dim W - \dim \operatorname{null} T'
-        = \dim V - \dim \operatorname{null} T
-        = \dim \operatorname{range} T.
-      \]
+    \[
+      \dim \operatorname{range} T'
+      = \dim W - \dim \operatorname{null} T'
+      = \dim V - \dim \operatorname{null} T
+      = \dim \operatorname{range} T.
+    \]
 
-    * (Remarks) The ranges of $T$ and $T'$ are the same dimension. Any
-      difference in the dimensions of $V$ and $W$ are absorbed by the null
-      spaces of $T$ and $T'$.
+  * (Remarks) The ranges of $T$ and $T'$ are the same dimension. Any
+    difference in the dimensions of $V$ and $W$ are absorbed by the null
+    spaces of $T$ and $T'$.
 
-  * (Lemma) $\operatorname{range} T' \subseteq (\operatorname{null} T)^0$
+* (Lemma) $\operatorname{range} T' \subseteq (\operatorname{null} T)^0$
 
-    * _Proof_. Let $\phi \in \operatorname{range} T'$. Observe that
-      $T'(\phi)(v) = \phi(T(v)) = \phi(0) = 0$ for all
-      $v \in \operatorname{null} T$, which yields the desired result.
+  * _Proof_. Let $\phi \in \operatorname{range} T'$. Observe that
+    $T'(\phi)(v) = \phi(T(v)) = \phi(0) = 0$ for all
+    $v \in \operatorname{null} T$, which yields the desired result.
 
-    * (Corollary) For finite-dimensional vector spaces,
-      $\operatorname{range} T' = (\operatorname{null} T)^0$.
+  * (Corollary) For finite-dimensional vector spaces,
+    $\operatorname{range} T' = (\operatorname{null} T)^0$.
 
-      * _Proof_. If $V$ and $W$ are finite-dimensional, equality of the two
-        vector space follows because
-        $\dim \operatorname{range} T' = \dim (\operatorname{null} T)^0$.
+    * _Proof_. If $V$ and $W$ are finite-dimensional, equality of the two
+      vector space follows because
+      $\dim \operatorname{range} T' = \dim (\operatorname{null} T)^0$.
 
-  * __Relationships between $T$ and $T'$__
+#### Relationships between $T$ and $T'$
 
-    * (Lemma) $T$ surjective is equivalent to $T'$ injective.
+* (Lemma) $T$ surjective is equivalent to $T'$ injective.
 
-      * _Proof_.
+  * _Proof_.
 
-        $T$ surjective
-        $\Leftrightarrow$ $\operatorname{range} T = W$
-        $\Leftrightarrow$ $(\operatorname{range} T)^0 = \{ 0 \}$
-        $\Leftrightarrow$ $\operatorname{null} T' = \{ 0 \}$
-        $\Leftrightarrow$ $T'$ injective
+    $T$ surjective
+    $\Leftrightarrow$ $\operatorname{range} T = W$
+    $\Leftrightarrow$ $(\operatorname{range} T)^0 = \{ 0 \}$
+    $\Leftrightarrow$ $\operatorname{null} T' = \{ 0 \}$
+    $\Leftrightarrow$ $T'$ injective
 
-      * (Remark). This result holds for both finite- and infinite-dimensional
-        vector spaces.
+  * (Remark). This result holds for both finite- and infinite-dimensional
+    vector spaces.
 
-    * (Lemma) For finite-dimensional vector spaces, $T$ injective is equivalent
-      to $T'$ surjective.
+* (Lemma) For finite-dimensional vector spaces, $T$ injective is equivalent
+  to $T'$ surjective.
 
-      * _Proof_. Analogous to above.
+  * _Proof_. Analogous to above.
 
-    * (Diagram) TODO: Insert drawing of relationship between
-      $V$, $W$, $\operatorname{range} T$, $\operatorname{null} T$,
-      $\operatorname{range} T'$, and $\operatorname{null} T'$
+* (Diagram) TODO: Insert drawing of relationship between
+  $V$, $W$, $\operatorname{range} T$, $\operatorname{null} T$,
+  $\operatorname{range} T'$, and $\operatorname{null} T'$
 
 -------------------------------------------------------------------------------
