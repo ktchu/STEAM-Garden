@@ -836,4 +836,51 @@ Let $T \in \mathcal{L}(V, W)$.
   $V$, $W$, $\operatorname{range} T$, $\operatorname{null} T$,
   $\operatorname{range} T'$, and $\operatorname{null} T'$
 
+#### The Matrix of the Dual of a Linear Map
+
+* (Definition) __Transpose of a Matrix__. The _transpose_ of a matrix $A$,
+  denoted $A^t$, is a matrix with rows and columns interchanged. The entries
+  of $A^t$ are given by $(A^t)_{i,j} = A_{j, i}$.
+
+  * (Lemma) _Properties of $A^t$_
+
+    * $(A+B)^t = A^t + B^t$
+
+    * $(\lambda A)^t = \lambda A^t$
+
+    * $(AB)^t = B^t A^t$
+
+* (Lemma) __Matrix of $T'$ is transpose of matrix of $T$__.
+  $\mathcal{M}(T') = (\mathcal{M}(T))^t$
+
+#### Rank of a Matrix
+
+* (Definition) __Row Rank, Column Rank__. Let $A$ be an $m$-by-$n$ matrix with
+  entries in $F$.
+
+  * The _row rank_ of $A$ is the dimension of the span of the rows of $A$ in
+    $F^{1,n}$.
+
+  * The _column rank_ of $A$ is the dimension of the span of the columns of
+    $A$ in $F^{m,1}$.
+
+* (Lemma) __Dimension of range of $T$__. If $V$ and $W$ are finite-dimensional
+  and $T \in \mathcal{L}(V, W)$, the dimension of $\operatorname{range} T$
+  equals the column rank of $\mathcal{M}(T)$.
+
+* (Theorem) __Row rank equals column rank__. If $A \in F^{m, n}$, then the
+  row and column rank of $A$ are equal.
+
+  * _Proof_. $\dim \operatorname{range} T = \dim \operatorname{range} T'$
+    implies that the column rank of $\mathcal{M}(T)$ equals the column rank of
+    $\mathcal{M}(T')$. Since $\mathcal{M}(T') = \mathcal{M}(T)'$, the
+    column rank of $\mathcal{M}(T')$ is equal to row rank of $\mathcal{M}(T)$.
+    Therefore, the column and row ranks of $\mathcal{M}(T)$ are equal.
+
+* (Definition) __Rank of a matrix__. The _rank_ of a matrix $A \in F^{m, n}$
+  is equal to the column rank of $A$.
+
+  * (Remark) The column and row rank of a matrix are equal, so the rank of a
+    matrix is well-defined.
+
 -------------------------------------------------------------------------------
