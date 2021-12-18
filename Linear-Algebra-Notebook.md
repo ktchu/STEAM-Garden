@@ -688,8 +688,8 @@ __Key Concepts__
     * (Lemma) $(ST)' = T' S'$ for all $S \in \mathcal{L}(U, V)$ and
       $T \in \mathcal{L}(V, W)$.
 
-* (Definition) __Annihilator, $U^0$__. Let $U \subset V$. The _annihilator_ of
-  $U$, denoted by $U^0$, is defined by
+* (Definition) __Annihilator, $U^0$__. Let $U \subseteq V$. The _annihilator_
+  of $U$, denoted by $U^0$, is defined by
 
   \[
     U^0 = \{ \phi \in V' | \phi(u) = 0 \textrm{ for all } u \in U \}.
@@ -749,7 +749,7 @@ __Key Concepts__
         \dim V = \dim V' = \dim U^0 + \dim U' = \dim U^0 + \dim U.
       \]
 
-* __Null Space of $T'$__
+* __Null Space and Range of $T'$__
 
   Let $T \in \mathcal{L}(V, W)$.
 
@@ -758,13 +758,13 @@ __Key Concepts__
     * _Proof_. If $\phi$ is in the null space of $T'$, then $T'(\phi) = 0$,
       which implies that $T'(\phi)(v) = \phi(T(v)) = 0$ for all $v \in V$. In
       other words, $\phi(w) = 0$ for all $w \in \operatorname{range} T$.
-      Therefore, $\operatorname{null} T' \subset (\operatorname{range} T)^0$.
+      Therefore, $\operatorname{null} T' \subseteq (\operatorname{range} T)^0$.
 
       If $\phi$ is in the annihilator for the range of $T$, then $\phi(w) = 0$
       for all $w \in \operatorname{range} T$, which implies that
       $T'(\phi)(v) = \phi(T(v)) = 0$ for all $v \in V$. Therefore,
       $T'(\phi) = 0$ so that
-      $(\operatorname{range} T)^0 \subset \operatorname{null} T'$.
+      $(\operatorname{range} T)^0 \subseteq \operatorname{null} T'$.
 
     * (Remark). This result holds for infinite-dimensional vector spaces.
 
@@ -774,14 +774,63 @@ __Key Concepts__
     * _Proof_.
 
       \[
-        \dim \operatorname{null} T' = \dim (\operatorname{range} T)^0
+        \dim \operatorname{null} T'
+        = \dim (\operatorname{range} T)^0
         = \dim W - \dim \operatorname{range} T \\
         = \dim W - (\dim V - \dim \operatorname{null} T)
         = \dim \operatorname{null} T + \dim W - \dim V.
       \]
 
-* __Range of $T'$__. TODO
+  * (Corollary) $\dim \operatorname{range} T' = \dim \operatorname{range} T$
 
-  * (Lemma) $\operatorname{range} T' = (\operatorname{null} T)^0$
+    * _Proof_.
+
+      \[
+        \dim \operatorname{range} T'
+        = \dim W - \dim \operatorname{null} T'
+        = \dim V - \dim \operatorname{null} T
+        = \dim \operatorname{range} T.
+      \]
+
+    * (Remarks) The ranges of $T$ and $T'$ are the same dimension. Any
+      difference in the dimensions of $V$ and $W$ are absorbed by the null
+      spaces of $T$ and $T'$.
+
+  * (Lemma) $\operatorname{range} T' \subseteq (\operatorname{null} T)^0$
+
+    * _Proof_. Let $\phi \in \operatorname{range} T'$. Observe that
+      $T'(\phi)(v) = \phi(T(v)) = \phi(0) = 0$ for all
+      $v \in \operatorname{null} T$, which yields the desired result.
+
+    * (Corollary) For finite-dimensional vector spaces,
+      $\operatorname{range} T' = (\operatorname{null} T)^0$.
+
+      * _Proof_. If $V$ and $W$ are finite-dimensional, equality of the two
+        vector space follows because
+        $\dim \operatorname{range} T' = \dim (\operatorname{null} T)^0$.
+
+  * __Relationships between $T$ and $T'$__
+
+    * (Lemma) $T$ surjective is equivalent to $T'$ injective.
+
+      * _Proof_.
+
+        $T$ surjective
+        $\Leftrightarrow$ $\operatorname{range} T = W$
+        $\Leftrightarrow$ $(\operatorname{range} T)^0 = \{ 0 \}$
+        $\Leftrightarrow$ $\operatorname{null} T' = \{ 0 \}$
+        $\Leftrightarrow$ $T'$ injective
+
+      * (Remark). This result holds for both finite- and infinite-dimensional
+        vector spaces.
+
+    * (Lemma) For finite-dimensional vector spaces, $T$ injective is equivalent
+      to $T'$ surjective.
+
+      * _Proof_. Analogous to above.
+
+    * (Diagram) TODO: Insert drawing of relationship between
+      $V$, $W$, $\operatorname{range} T$, $\operatorname{null} T$,
+      $\operatorname{range} T'$, and $\operatorname{null} T'$
 
 -------------------------------------------------------------------------------
