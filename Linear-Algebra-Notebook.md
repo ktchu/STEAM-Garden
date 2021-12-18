@@ -866,7 +866,10 @@ Let $T \in \mathcal{L}(V, W)$.
 
 * (Lemma) __Dimension of range of $T$__. If $V$ and $W$ are finite-dimensional
   and $T \in \mathcal{L}(V, W)$, the dimension of $\operatorname{range} T$
-  equals the column rank of $\mathcal{M}(T)$.
+  equals the column rank of $\mathcal{M}(T)$
+
+  * (Remark) This result does not depend on the choice of basis for either
+    $V$ or $W$.
 
 * (Theorem) __Row rank equals column rank__. If $A \in F^{m, n}$, then the
   row and column rank of $A$ are equal.
