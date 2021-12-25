@@ -357,7 +357,11 @@ by Problem #14, $\mathbb{F}^\infty$ is infinite-dimensional.
 __Problem__. Prove that the real vector space of all continuous real-valued
 functions on the interval $[0, 1]$ is infinite-dimensional.
 
-__Solution__. TODO
+__Solution__. Let $f_n(x)$ be equal to 0 for when $x \ne 1/n$ and equal to 1
+when $x = 1/n$. Then $f_1, f_2, \ldots$ is an infinite sequence of functions
+with the property that $f_1, \ldots, f_m$ is linearly independent for every
+positive $m$. Therefore, by Problem #14, $\mathbb{F}^\infty$ is
+infinite-dimensional.
 
 -------------------------------------------------------------------------------
 ### 17.
@@ -368,6 +372,25 @@ $p_0, p_1, \ldots, p_m$ is not linearly independent in
 $\mathcal{P}_m (\mathbb{F})$.
 
 
-__Solution__. TODO
+__Solution__. $p_j(2) = 0$ for each $j$ implies that each $p_j(x)$ can be
+expressed as a product $(x-2) q_j(x)$ where $q_j$ is a polynomial in
+$\mathcal{P}_{m-1} (\mathbb{F})$. Since the dimension of
+$\mathcal{P}_{m-1} (\mathbb{F})$ is $m$, the $m+1$ polynomials $q_j$ must be
+linearly dependent. Therefore, there exist $a_0, a_1, \ldots, a_m$ not all
+to zero such that
+
+\[
+  a_0 q_0(x) + a_1 q_1(x) + \cdots + a_m q_m(x) = 0.
+\]
+
+Multiplying this equation by $(x-2)$, we obtain a nontrivial linear combination
+of the $p_0, p_1, \ldots, p_m$ that equals zero:
+
+\[
+  (x-2) \left( a_0 q_0(x) + a_1 q_1(x) + \cdots + a_m q_m(x) \right)
+  = a_0 p_0(x) + a_1 p_1(x) + \cdots + a_m p_m(x) = 0,
+\]
+
+which yields the desired result.
 
 -------------------------------------------------------------------------------
