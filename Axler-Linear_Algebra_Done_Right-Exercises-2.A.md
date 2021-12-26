@@ -330,7 +330,19 @@ is linearly independent for every positive integer $m$.
 
 __Solution__.
 
-$(\Rightarrow)$ We prove the contrapositive. TODO
+$(\Rightarrow)$ Let $V$ be infinite-dimensional. We construct an infinite
+sequence satisfying the desired properties by induction. Let $v_1 \in V$.
+Clearly, $v_1$ is linearly independent. Now, suppose that $v_1, \ldots, v_k$
+are $k$ linearly independent vectors in $V$. Since $V$ is infinite-dimensional,
+$v_1, \ldots, v_k$ does not span $V$, so we can choose
+$v_{k+1} \in V - \operatorname{span}(v_1, \ldots, v_k)$. Observe that
+$v_1, \ldots, v_k, v_{k+1}$ must be linearly independent. Otherwise,
+the linear independence of $v_1, \ldots, v_k$ implies that $v_{k+1}$ can be
+expressed as a nontrivial linear combination of $v_1, \ldots, v_k$,
+contradicting the fact that $v_{k+1}$ is not in the span of $v_1, \ldots, v_k$.
+Continuing in this manner yields a sequence of vectors $v_1, v_2, \ldots$
+satisfying the desired property that $v_1, \ldots, v_m$ is linearly independent
+for every positive integer $m$.
 
 $(\Leftarrow)$ We prove the contrapositive. If $V$ is finite-dimensional, then
 there exists a finite list of vectors $w_1, w_2, \ldots, w_n$ that spans $V$.
