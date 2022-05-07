@@ -111,15 +111,15 @@ linear combination of $p_0, \ldots, p_4$ that is equal to 0:
   0 = a_0 p_0(x) + a_1 p_1(x) + a_2 p_2(x) + a_3 p_3(x) + a_4 p_4(x).
 \]
 
-Choosing $x = 6$, we see that $a_0 = 0$. which implies that
+Choosing $x = 6$, we see that $a_0 = 0$, which implies that
 
 \[
   0 = a_1 p_1(x) + a_2 p_2(x) + a_3 p_3(x) + a_4 p_4(x).
 \]
 
-Furthermore, $a_1 = a_2 = a_3 = a_4 = 0$ because $p_1, p_2, p_3, p_4$ are
-linearly independent. Therefore, we can conclude that $p_0, \ldots, p_4$
-are linearly independent, which implies that $p_0, \ldots, p_4$ is a basis for
+Therefore, $a_1 = a_2 = a_3 = a_4 = 0$ because $p_1, p_2, p_3, p_4$ are
+linearly independent. Thus, we can conclude that $p_0, \ldots, p_4$ are
+linearly independent, which implies that $p_0, \ldots, p_4$ is a basis for
 $\mathcal{P}_4(\mathbb{F})$ because the number of basis polynomials is equal
 to the dimension of $\mathcal{P}_4(\mathbb{F})$.
 
@@ -204,12 +204,12 @@ Differentiating twice and choosing $x = 6$, we see that $a_2 = 0$, which
 implies that
 
 \[
-  0 = a_0 p_0(x) a_1 p_1(x) + + a_3 p_3(x) + a_4 p_4(x).
+  0 = a_0 p_0(x) + a_1 p_1(x) + a_3 p_3(x) + a_4 p_4(x).
 \]
 
-Furthermore, $a_0 = a_1 = a_3 = a_4 = 0$ because $p_0, p_1, p_3, p_4$ are
-linearly independent. Therefore, we can conclude that $p_0, \ldots, p_4$
-are linearly independent, which implies that $p_0, \ldots, p_4$ is a basis for
+Therefore, $a_0 = a_1 = a_3 = a_4 = 0$ because $p_0, p_1, p_3, p_4$ are
+linearly independent. Thus, we can conclude that $p_0, \ldots, p_4$ are
+linearly independent, which implies that $p_0, \ldots, p_4$ is a basis for
 $\mathcal{P}_4(\mathbb{F})$ because the number of basis polynomials is equal
 to the dimension of $\mathcal{P}_4(\mathbb{F})$.
 
@@ -232,21 +232,103 @@ subspace having the desired property.
 __Problem__. Let $U = \{ p \in \mathcal{P}_4(\mathbb{F}) | p(2) = p(5) \}$.
 Find a basis of $U$.
 
-__Solution__. TODO
+__Solution__. Consider the set of polynomials
+
+\[
+  p_0(x) = 1 \\
+  p_2(x) = (x - 3.5)^2 \\
+  p_4(x) = (x - 3.5)^4 \\
+  p_{1,3}(x) = (x - 3.5) - \frac{4}{9} (x - 3.5)^3.
+\]
+
+First, we show that $p_0, p_2, p_4, p_1,3$ are linearly independent. Suppose
+that
+
+\[
+  0 = a_0 p_0(x) + a_2 p_2(x) + a_4 p_4(x) + a_{1,3} p_{1,3}(x),
+\]
+
+which can be rearranged to
+
+\[
+  a_0 p_0(x) + a_2 p_2(x) + a_4 p_4(x) = -a_{1,3} p_{1,3}(x).
+\]
+
+Observing that the left-hand side of the equation is even and the right-hand
+side of the equation is odd, we can conclude that both sides of the equation
+must equal zero because the only function that is both even and odd is the
+zero function. Clearly, the right-hand side of the equation being equal to
+zero implies that $a_{1,3} = 0$. The left-hand side of the equation being equal
+to zero implies that $a_0 = a_2 = a_4 = 0$ from the linear independence of
+$p_0, p_2, p_4$ (which follows because $p_0, p_2, p_4$ is a subset of the
+monomials). Therefore, $p_0, p_2, p_4, p_{1,3}$ are linearly independent.
+
+To show that $p_0, p_2, p_4, p_{1,3}$ span $U$, consider $p \in U$. Since
+$p \in \mathcal{P}_4$, we can express $p$ as a linear combination of the basis
+$1, (x - 3.5), (x - 3.5)^2, (x - 3.5)^3, (x - 3.5)^4$:
+
+\[
+  p(x) = a_0 + a_1 (x - 3.5) + a_2 (x - 3.5)^2
+       + a_3 (x - 3.5)^3 + a_4 (x - 3.5)^4.
+\]
+
+Applying the constraint $p(2) = p(5)$
+
+\[
+a_0 + a_1 (-1.5) + a_2 (-1.5)^2 + a_3 (-1.5)^3 + a_4 (-1.5)^4
+= a_0 + a_1 (1.5) + a_2 (1.5)^2 + a_3 (1.5)^3 + a_4 (1.5)^4,
+\]
+
+which implies that
+
+\[
+a_3 = -\frac{4}{9} a_1.
+\]
+
+Therefore, $p$ is a polynomial of the form
+
+\[
+  p(x) = a_0 + a_2 (x - 3.5)^2 + a_4 (x - 3.5)^4
+       + a_1 \left( (x - 3.5) - \frac{4}{9} (x - 3.5) \right)^3,
+\]
+
+which is a linear combination of $p_0, p_2, p_4, p_{1,3}$.
 
 #### 6.b.
 
 __Problem__. Extend the basis in part (a) to a basis of
 $\mathcal{P}_4(\mathbb{F})$.
 
-__Solution__. TODO
+__Solution__. Add $p_1(x) = (x - 3.5)$ to the basis in part (a). Suppose there
+exists a linear combination of $p_0, p_1, p_2, p_4, p_{1,3}$ that is equal to 0:
+
+\[
+  0 = a_0 p_0(x) + a_1 p_1(x) + a_2 p_2(x) + a_4 p_4(x) + a_{1,3} p_{1,3}(x).
+\]
+
+Differentiating this equation and choosing $x = 3.5$, we find that $a_1 = 0$,
+which implies that
+
+\[
+  0 = a_0 p_0(x) + a_2 p_2(x) + a_4 p_4(x) + a_{1,3} p_{1,3}(x)
+\]
+
+Therefore, $a_0 = a_2 = a_4 = a_{1,3} = 0$ because $p_0, p_2, p_4, p_{1,3}$ are
+linearly independent. Thus, we can conclude that $p_0, p_1, p_2, p_4, p_{1,3}$
+are linearly independent, which implies that $p_0, p_1, p_2, p_4, p_{1,3}$ is
+a basis for $\mathcal{P}_4(\mathbb{F})$ because the number of basis polynomials
+is equal to the dimension of $\mathcal{P}_4(\mathbb{F})$.
 
 #### 6.c.
 
 __Problem__. Find a subspace $W$ of $\mathcal{P}_4(\mathbb{F})$ such that
 $\mathcal{P}_4(\mathbb{F}) = U \oplus W$.
 
-__Solution__. TODO
+__Solution__. If $W$ is constructed as the span of any basis of vectors that
+extends a basis for $U$ to a basis for $\mathcal{P}_4(\mathbb{F})$, then
+$\mathcal{P}_4(\mathbb{F}) = U \oplus W$. Therefore,
+$W = \operatorname{span}(p_1)$, the subspace of multiples of $(x - 3.5)$, is a
+subspace having the desired property.
 
 -------------------------------------------------------------------------------
 ### 7.
@@ -326,7 +408,16 @@ __Problem__. Suppose that $U$ and $W$ are subspaces of $\mathbb{R}^8$ such that
 $\dim U = 3$, $\dim W = 5$, and $U + W = \mathbb{R}^8$. Prove that
 $\mathbb{R}^8 = U \oplus W$.
 
-__Solution__. TODO
+__Solution__. Since $U + W = \mathbb{R}^8$,
+
+\[
+8 = \dim \mathbb{R}^8
+= \dim (U + W) = \dim U + \dim W - \dim (U \cap W)
+= 3 + 5 - \dim (U \cap W) = 8 - \dim (U \cap W).
+\]
+
+which simplifes to $\dim (U \cap W) = 0$. Therefore, $U \cap W = \{ 0 \}$, 
+which implies that $U + W$ is a direct sum and yields the desired result.
 
 -------------------------------------------------------------------------------
 ### 12.
@@ -334,7 +425,16 @@ __Solution__. TODO
 __Problem__. Suppose that $U$ and $W$ are both five-dimensional subspaces of
 $\mathbb{R}^9$. Prove that $U \cap W \ne \{ 0 \}$.
 
-__Solution__. TODO
+__Solution__. Consider $U + W$. Observe that
+
+\[
+9 = \dim \mathbb{R}^9
+\ge \dim (U + W) = \dim U + \dim W - \dim (U \cap W)
+= 5 + 5 - \dim (U \cap W) = 10 - \dim (U \cap W),
+\]
+
+which implies that $\dim (U \cap W) \ge 1$. Therefore, $U \cap W$ must contain
+at least one nonzero vector, which yields the desired result.
 
 -------------------------------------------------------------------------------
 ### 13.
@@ -343,7 +443,16 @@ __Problem__. Suppose that $U$ and $W$ are both 4-dimensional subspaces of
 $\mathbb{C}^6$. Prove that there exist two vectors in $U \cap W$ such that
 neither of these vectors is a scalar multiple of the other.
 
-__Solution__. TODO
+__Solution__. Consider $U + W$. Observe that
+
+\[
+6 = \dim \mathbb{R}^6
+\ge \dim (U + W) = \dim U + \dim W - \dim (U \cap W)
+= 4 + 4 - \dim (U \cap W) = 8 - \dim (U \cap W),
+\]
+
+which implies that $\dim (U \cap W) \ge 2$. Therefore, $U \cap W$ must contain
+at least two nonzero vectors that are not scalar multiples of each other.
 
 -------------------------------------------------------------------------------
 ### 14.
@@ -352,7 +461,7 @@ __Problem__. Suppose that $U_1, \ldots, U_m$ are finite-dimensional subspaces
 of $V$. Prove that $U_1 + \cdots + U_m$ is finite dimensional and
 
 \[
-  \dim(U_1 + \cdots + U_m) \le \dim U_1 + \cdots + \dim U_m.
+  \dim (U_1 + \cdots + U_m) \le \dim U_1 + \cdots + \dim U_m.
 \]
 
 __Solution__. TODO
@@ -378,7 +487,7 @@ of $V$ such that $U_1 + \cdots + U_m$ is a direct sum. Prove that
 $U_1 \oplus \cdots \oplus U_m$ is finite-dimensional and
 
 \[
-  \dim(U_1 \oplus \cdots \oplus U_m) = \dim U_1 + \cdots + \dim U_m.
+  \dim (U_1 \oplus \cdots \oplus U_m) = \dim U_1 + \cdots + \dim U_m.
 \]
 
 __Solution__. TODO
@@ -391,7 +500,7 @@ elements in the union of three subsets of a finite set, that if $U_1, U_2, U_3$
 are subspaces of a finite-dimensional vector space, then
 
 \[
-  \dim(U_1 + U_2 + U_3)
+  \dim (U_1 + U_2 + U_3)
   = \dim U_1 + \dim U_2 + \dim U_3 \\
     - \dim (U_1 \cap U_2) - \dim (U_1 \cap U_3) - \dim (U_2 \cap U_3) \\
     + \dim (U_1 \cap U_2 \cap U_3).
