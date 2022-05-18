@@ -460,7 +460,7 @@ __Solution__. We prove the result by induction. Clearly, the result holds for
 $m = 0$ because $\mathcal{P}_0(\mathbb{F})$ is the space of constant functions
 and any constant value is a basis for this space.
 
-Now, assume that the result holds $m = M$ and suppose that there are $m = M+1$
+Assume that the result holds $m = M$ and suppose that there are $m = M+1$
 polynomials $p_0, \ldots, p_M$ satsifying the condition that each $p_j$ has
 degree $j$. Since $\dim \mathcal{P}_M(\mathbb{F}) = M+1$, it suffices to prove
 that $p_0, \ldots, p_M$ are linearly independent.
@@ -553,17 +553,17 @@ of $V$. Prove that $U_1 + \cdots + U_m$ is finite dimensional and
 \]
 
 __Solution__. We prove the result by induction. From result 2.43, the result
-holds for $m = 2$. Now, assume that the result holds for $m = M$ and suppose
-that $U_1, \ldots, U_{M+1}$ are finite-dimensional subspaces of $V$.
-Considering $U_1 + \cdots + U_M$ as the sum of
-$U_1 + \cdots + U_M$ and $U_{M+1}$, result 2.43 implies that
+holds for $m = 2$. Assume that the result holds for $m = M$ and suppose that
+$U_1, \ldots, U_{M+1}$ are finite-dimensional subspaces of $V$. Considering
+$U_1 + \cdots + U_M$ as the sum of $U_1 + \cdots + U_M$ and $U_{M+1}$,
+result 2.43 implies that
 
 \[
   \dim(U_1 + \cdots + U_M)
 = \dim\left( ( U_1 + \cdots + U_M) + U_{M+1} \right)
 = \dim(U_1 + \cdots + U_M) + \dim U_{M+1}
 - \dim \left( (U_1 + \cdots + U_M) \cap \dim U_{M+1} \right) \\
-\le \dim(U_1 + \cdots + U_M) + \dim U_{M+1}
+\le \dim(U_1 + \cdots + U_M) + \dim U_{M+1}.
 \]
 
 Invoking the inductive hypothesis
@@ -600,7 +600,37 @@ $U_1 \oplus \cdots \oplus U_m$ is finite-dimensional and
   \dim (U_1 \oplus \cdots \oplus U_m) = \dim U_1 + \cdots + \dim U_m.
 \]
 
-__Solution__. TODO
+__Solution__. We prove the result by induction. For $m = 2$, the result
+follows from result 2.43 because $U_1 \cap U_2 = \emptyset$ when $U_1 + U_2$
+is a direct sum.
+
+Assume that the result holds for $m = M$ and suppose that $U_1, \ldots, U_{M+1}$
+are finite-dimensional subspaces of $V$. Considering
+$U_1 \oplus \cdots \oplus U_M$ as the direct sum of
+$U_1 \oplus \cdots \oplus U_M$ and $U_{M+1}$, result 2.43 implies that
+
+\[
+  \dim(U_1 \oplus \cdots \oplus U_M)
+= \dim\left( ( U_1 \oplus \cdots \oplus U_M) \oplus U_{M+1} \right)
+= \dim(U_1 \oplus \cdots \oplus U_M) + \dim U_{M+1}
+- \dim \left( (U_1 \oplus \cdots \oplus U_M) \cap \dim U_{M+1} \right) \\
+= \dim(U_1 \oplus \cdots \oplus U_M) + \dim U_{M+1}.
+\]
+
+The last equality follows because $( U_1 \oplus \cdots \oplus U_M) + U_{M+1}$
+being a direct sum implies that
+$( U_1 \oplus \cdots \oplus U_M) \cap U_{M+1} = \emptyset$, which has dimension
+0.
+
+Invoking the inductive hypothesis
+$\dim(U_1 \oplus \cdots \oplus U_M) = \dim U_1 + \cdots + \dim U_M$ yields the
+desired result:
+
+\[
+  \dim(U_1 \oplus \cdots \oplus U_{M+1})
+= \dim U_1 + \cdots + \dim U_M + \dim U_{M+1}
+= \dim U_1 + \cdots + \dim U_{M+1}.
+\]
 
 -------------------------------------------------------------------------------
 ### 17.
