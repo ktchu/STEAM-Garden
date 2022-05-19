@@ -90,7 +90,7 @@ Therefore, taking expectations yields
 -------------------------------------------------------------------------------
 ### 0.0.5. The sum of binomial coefficients
 
-__Problem__.  Prove the inequalities.
+__Problem__. Prove the inequalities.
 
 \[
 \left( \frac{n}{m} \right)^m
@@ -137,5 +137,20 @@ which implies that
 = \left( \frac{n}{m} \right)^m e^m
 = \left( \frac{en}{m} \right)^m.
 \]
+
+-------------------------------------------------------------------------------
+### 0.0.6. Improved covering
+
+__Problem__. Check that, in Corollary 0.0.4,
+
+\[
+( C + C \epsilon^2 N)^{\lceil 1 / \epsilon^2 \rceil}
+\]
+
+Euclidean balls suffice. Here $C$ is a suitable absolute constant. (Note that
+this bound is slightly stronger than $N^{\lceil 1 / \epsilon^2 \rceil}$ for
+small $\epsilon$.)
+
+__Solution__. TODO
 
 -------------------------------------------------------------------------------
