@@ -1,7 +1,7 @@
 Linear Algebra Done Right (S. Axler): Exercises 2.C
 ===================================================
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 1.
 
 __Problem__. Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$
@@ -14,7 +14,7 @@ $\dim U = \dim V = n$, $v_1, \ldots, v_n$ is actually a basis for $V$, which
 implies that $V \subseteq \operatorname{span} (v_1, \ldots, v_n) = U$. Thus,
 we can conclude that $U = V$.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 2.
 
 __Problem__. Show that the subspaces of $\mathbb{R}^2$ are precisely $\{ 0 \}$,
@@ -35,7 +35,7 @@ direction defined by $v_1$.
 $\dim V = 2$. From Problem 1, $\dim V = \dim \mathbb{R}^2$ implies that
 $V = \mathbb{R}^2$.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 3.
 
 __Problem__. Show that the subspaces of $\mathbb{R}^3$ are precisely $\{ 0 \}$,
@@ -57,7 +57,7 @@ $v_2$ is not a scalar multiple of $v_1$ and vice versa). In other words, $V$ is
 a plane. More precisely, $V$ is the plane through the origin containing $v_1$
 and $v_2$.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 4.
 
 #### 4.a.
@@ -136,7 +136,7 @@ $\mathcal{P}_4(\mathbb{F}) = U \oplus W$. Therefore,
 $W = \operatorname{span}(p_0)$, the subspace of constant polynomials, is a
 subspace having the desired property.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 5.
 
 #### 5.a.
@@ -227,7 +227,7 @@ $\mathcal{P}_4(\mathbb{F}) = U \oplus W$. Therefore,
 $W = \operatorname{span}(p_2)$, the subspace of multiples of $(x - 6)^2$, is a
 subspace having the desired property.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 6.
 
 #### 6.a.
@@ -335,7 +335,7 @@ $\mathcal{P}_4(\mathbb{F}) = U \oplus W$. Therefore,
 $W = \operatorname{span}(p_1)$, the subspace of multiples of $(x - 3.5)$, is a
 subspace having the desired property.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 7.
 
 #### 7.a.
@@ -360,7 +360,7 @@ $\mathcal{P}_4(\mathbb{F}) = U \oplus W$.
 
 __Solution__. TODO
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 8.
 
 #### 8.a.
@@ -437,7 +437,7 @@ $\mathcal{P}_4(\mathbb{F}) = U \oplus W$. Therefore,
 $W = \operatorname{span}(p_0)$, the subspace of constant functions, is a
 subspace having the desired property.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 9.
 
 __Problem__. Suppose $v_1, \ldots, v_m$ is linearly independent in $V$ and
@@ -447,9 +447,41 @@ $w \in V$. Prove that
   \dim \operatorname{span} (v_1 + w, \ldots, v_m + w) \ge m - 1.
 \]
 
-__Solution__. TODO
+__Solution__. Let $U = \operatorname{span} (v_1 + w, \ldots, v_m + w)$ and $\dim U = k$.
+Clearly, the set $S$ of vectors $\{v_1 + w, \ldots, v_m + w\}$ span $U$, so it must contain
+a basis for $U$. Without loss of generality, let $\{v_1 + w, \ldots, v_k + w\}$ be a subset
+of $S$ that is a basis for $U$. If we assume that $k < m - 1$, then $(v_{m-1} + w)$ and
+$(v_m + w)$ are both linear combinations of the vectors in $S$:
 
--------------------------------------------------------------------------------
+\[
+  v_{m-1} + w = \sum_{i=1}^k a_i (v_i + w) = \sum_{i=1}^k a_i v_i + w \sum_{i=1}^k a_i \\
+  v_m + w = \sum_{i=1}^k b_i (v_i + w) = \sum_{i=1}^k b_i v_i + w \sum_{i=1}^k b_i.
+\]
+
+The linear independence of $v_1, \ldots, v_m$ guarantees that neither $\sum_{i=1}^k a_i$
+nor $\sum_{i=1}^k b_i$ equals 1 (otherwise the above equations would yield linear
+combinations of $v_1, \ldots, v_m$ equal to zero). Solving for $w$ in each of these
+equations, we obtain
+
+\[
+  w = \frac{v_{m-1} - \sum_{i=1}^k a_i v_i}{-1 + \sum_{i=1}^k a_i} \\
+  w = \frac{v_m - \sum_{i=1}^k b_i v_i}{-1 + \sum_{i=1}^k b_i}.
+\]
+
+Combining these equations and rearranging, we find that
+
+\[
+0 = \sum_{i=1}^k \left( \frac{a_i}{-1 + \sum_{i=1}^k a_i}
+                      - \frac{b_i}{-1 + \sum_{i=1}^k b_i}
+                 \right) v_i
+    - \frac{v_{m-1}}{-1 + \sum_{i=1}^k a_i}
+    + \frac{v_m}{-1 + \sum_{i=1}^k b_i},
+\]
+
+which contradicts the linear independence of $v_1, \ldots, v_m$. Therefore, our assumption
+that $k < m - 1$ must be invalid, which implies that $\dim U = k \ge m - 1$.
+
+--------------------------------------------------------------------------------------------
 ### 10.
 
 __Problem__. Suppose $p_0, p_1, \ldots, p_m \in \mathcal{P}(\mathbb{F})$ are
@@ -489,7 +521,7 @@ implying that $a_i = 0$ for $0 \le i \le M-1$. Therefore, we can conclude that
 $p_0, p_1, \ldots, p_M$ are linearly independent, which implies that
 $p_0, p_1, \ldots, p_M$ is a basis for $\mathcal{P}_M(\mathbb{F})$.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 11.
 
 __Problem__. Suppose that $U$ and $W$ are subspaces of $\mathbb{R}^8$ such that
@@ -507,7 +539,7 @@ __Solution__. Since $U + W = \mathbb{R}^8$,
 which simplifes to $\dim (U \cap W) = 0$. Therefore, $U \cap W = \{ 0 \}$,
 which implies that $U + W$ is a direct sum and yields the desired result.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 12.
 
 __Problem__. Suppose that $U$ and $W$ are both five-dimensional subspaces of
@@ -524,7 +556,7 @@ __Solution__. Consider $U + W$. Observe that
 which implies that $\dim (U \cap W) \ge 1$. Therefore, $U \cap W$ must contain
 at least one nonzero vector, which yields the desired result.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 13.
 
 __Problem__. Suppose that $U$ and $W$ are both 4-dimensional subspaces of
@@ -542,7 +574,7 @@ __Solution__. Consider $U + W$. Observe that
 which implies that $\dim (U \cap W) \ge 2$. Therefore, $U \cap W$ must contain
 at least two nonzero vectors that are not scalar multiples of each other.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 14.
 
 __Problem__. Suppose that $U_1, \ldots, U_m$ are finite-dimensional subspaces
@@ -560,7 +592,7 @@ result 2.43 implies that
 
 \[
   \dim(U_1 + \cdots + U_M)
-= \dim\left( ( U_1 + \cdots + U_M) + U_{M+1} \right)
+= \dim\left( ( U_1 + \cdots + U_M) + U_{M+1} \right) \\
 = \dim(U_1 + \cdots + U_M) + \dim U_{M+1}
 - \dim \left( (U_1 + \cdots + U_M) \cap \dim U_{M+1} \right) \\
 \le \dim(U_1 + \cdots + U_M) + \dim U_{M+1}.
@@ -576,7 +608,7 @@ result:
 = \dim U_1 + \cdots + \dim U_{M+1}.
 \]
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 15.
 
 __Problem__. Suppose that $V$ is finite-dimensional, with $\dim V = n \ge 1$.
@@ -587,9 +619,33 @@ that
   V = U_1 \oplus \cdots \oplus U_n.
 \]
 
-__Solution__. TODO
+__Solution__. We prove the result by induction on the dimension of $V$.
+Clearly, the result holds for $\dim V = 1$. Assume that the result holds for
+any vector space with dimension $n$ and suppose that $\dim V = n + 1$. Let
+$U_{n+1} = \operatorname{span}(u)$ where $u$ is an arbitrary nonzero vector in
+$V$ (such a $u$ exists because $n+1 \ge 1$). Note that, by construction,
+$U_{n+1}$ is a 1-dimensional subspace of $V$. From result 2.34, there exists a
+subspace $W$ such that $V = W \oplus U_{n+1}$. From result 2.43,
+$\dim W = \dim V - \dim U_{n+1} = n$. By the inductive hypothesis, there exist
+1-dimensional subspaces $U_1, \ldots, U_n$ of $W$ such that
 
--------------------------------------------------------------------------------
+\[
+  W = U_1 \oplus \cdots \oplus U_n.
+\]
+
+Therefore,
+
+\[
+  V
+= W \oplus U_{n+1}
+= U_1 \oplus \cdots \oplus U_n \oplus U_{n+1}
+= U_1 \oplus \cdots \oplus U_{n+1}.
+\]
+
+In other words, $V$ can be represented as the direct sum of 1-dimensional
+subspaces.
+
+--------------------------------------------------------------------------------------------
 ### 16.
 
 __Problem__. Suppose that $U_1, \ldots, U_m$ are finite-dimensional subspaces
@@ -611,7 +667,7 @@ $U_1 \oplus \cdots \oplus U_M$ and $U_{M+1}$, result 2.43 implies that
 
 \[
   \dim(U_1 \oplus \cdots \oplus U_M)
-= \dim\left( ( U_1 \oplus \cdots \oplus U_M) \oplus U_{M+1} \right)
+= \dim\left( ( U_1 \oplus \cdots \oplus U_M) \oplus U_{M+1} \right) \\
 = \dim(U_1 \oplus \cdots \oplus U_M) + \dim U_{M+1}
 - \dim \left( (U_1 \oplus \cdots \oplus U_M) \cap \dim U_{M+1} \right) \\
 = \dim(U_1 \oplus \cdots \oplus U_M) + \dim U_{M+1}.
@@ -632,7 +688,7 @@ desired result:
 = \dim U_1 + \cdots + \dim U_{M+1}.
 \]
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 ### 17.
 
 __Problem__. You might guess, by analogy with the formula for the number of
