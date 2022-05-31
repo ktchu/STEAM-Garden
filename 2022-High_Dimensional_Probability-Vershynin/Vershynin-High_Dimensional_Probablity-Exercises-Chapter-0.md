@@ -79,7 +79,7 @@ Therefore, taking expectations yields
   + \left\Vert \mathbb{E} Z \right\Vert_2^2
 = \mathbb{E} \left\Vert Z \right\Vert_2^2
   - 2 \mathbb{E} Z \cdot \mathbb{E} Z
-  + \left\Vert \mathbb{E} Z \right\Vert_2^2
+  + \left\Vert \mathbb{E} Z \right\Vert_2^2 \\
 = \mathbb{E} \left\Vert Z \right\Vert_2^2
   - 2 \left\Vert \mathbb{E} Z \right\Vert_2^2
   + \left\Vert \mathbb{E} Z \right\Vert_2^2
