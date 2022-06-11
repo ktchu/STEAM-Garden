@@ -1,11 +1,12 @@
 High-Dimensional Probability (Vershynin): Exercises - Chapter 1
 ===============================================================
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
 ### 1.2.2. Generalization of integral identity
 
-__Problem__. Prove the following extension of Lemma 1.2.1 which is valid for
-any random variable $X$ (not necessarily non-negative):
+__Problem__. Prove the following extension of Lemma 1.2.1 which is valid for any random
+variable $X$ (not necessarily non-negative):
 
 \[
 \mathbb{E} X
@@ -20,8 +21,8 @@ __Solution__. For all real $x$, we have the identity
     - \int_{-\infty}^0 \mathbf{1}_{\{t > x \}} dt.
 \]
 
-Substituting the random variable $X$ and taking expectation of both sides
-yields the desired result
+Substituting the random variable $X$ and taking expectation of both sides yields the
+desired result
 
 \[
   \mathbb{E} X
@@ -33,10 +34,10 @@ yields the desired result
 - \int_{-\infty}^0 \mathbb{P} \{t > X \} dt.
 \]
 
-Changing the order of expection and integration is justified by the
-Fubini-Tonelli theorem.
+Changing the order of expection and integration is justified by the Fubini-Tonelli theorem.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
 ### 1.2.3. $p$-th moment via the tail
 
 __Problem__. Let $X$ be a random varable and $p \in (0, \infty)$. Show that
@@ -62,7 +63,8 @@ Using the change of variables $s = t^p$ yields the desired result:
 = \int_0^\infty p t^{p-1} \mathbb{P}\{ |X| > t \} dt.
 \]
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+
 ### 1.2.6. Chebyshev's Inequality
 
 __Problem__. Deduce Chebyshev's inequality
@@ -86,8 +88,9 @@ __Solution__.
 where the inequality follows from Markov's inequality and the last equality
 follows from the definition of the variance.
 
--------------------------------------------------------------------------------
-### 1.3.3.
+--------------------------------------------------------------------------------------------
+
+### 1.3.3. Expected Deviation Between Sample and Population Mean is $O(1 / \sqrt{N})$
 
 __Problem__. Let $X_1, X_2, \ldots$ be a sequence of i.i.d. random varaibles
 with mean $\mu$ and finite variance. Show that
@@ -127,19 +130,19 @@ By the Central Limit Theorem,
 
 as $N \rightarrow \infty$.
 
-Therefore, the integral for the expectation (with constant factors suppressed
-to reduce clutter) becomes
+Therefore, in the limit of large $N$, the integral for the expectation (with constant
+factors suppressed to reduce clutter) tends towards
 
 \[
   \int_0^\infty \int_s^\infty e^{-x^2/2} dx ds
 = \int_0^\infty \int_0^x e^{-x^2/2} ds dx
 = \int_0^\infty e^{-x^2/2} \int_0^x ds dx
 = \int_0^\infty x e^{-x^2/2} dx
-= 1.
+= 1,
 \]
 
-where changing the order of integration leads to the first equality. Combining
-these results yields the desired result
+where changing the order of integration leads to the first equality. Combining these
+results yields the desired result
 
 \[
 \mathbb{E} \left| \frac{1}{N} \sum_{i=1}^N X_i - \mu \right|
@@ -149,4 +152,4 @@ these results yields the desired result
 
 as $N \rightarrow \infty$.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
