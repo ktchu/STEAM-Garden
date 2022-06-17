@@ -80,7 +80,7 @@ $T: \mathcal{P}(\mathbb{R}) \rightarrow \mathbb{R}^2$ by
 
 Show that $T$ is linear if and only if b = c = 0.
 
-__Solution__. TODO
+__Solution__.
 
 ($\Rightarrow$) If $T$ is linear, then
 
@@ -88,7 +88,7 @@ __Solution__. TODO
 \left(
   3 \lambda p(4) + 5 \lambda p'(6) + b (\lambda p(1)) (\lambda p(2)),
   \int_{-1}^2 x^3 \lambda p(x) dx + c \sin (\lambda p(0))
-\right)
+\right) \\
 = \lambda \left(
   3 p(4) + 5 p'(6) + b p(1) p(2),
   \int_{-1}^2 x^3 p(x) dx + c \sin p(0)
@@ -124,8 +124,9 @@ second component simplifies to
 c \sin (\lambda p(0)) = c \lambda \sin p(0)
 \]
 
-which implies that $c = 0$ we are free to choose $\lambda \ne 0$ and $p$ to
-be a polynomial that does not have 0 as a root (so that $\sin p(0) \ne 0$).
+Choosing $p$ to be a polynomial such that $p(0)$ is not a multiple of $\pi$(which implies
+that $\sin p(0) \ne 0$) and $\lambda$ such that $|\lambda \sin p(0)| > 1$ guarantees that
+$\sin (\lambda p(0)) \ne \lambda \sin p(0)$. Therefore, we can conclude that $c = 0$.
 
 ($\Leftarrow$) If $b = c = 0$, then
 
