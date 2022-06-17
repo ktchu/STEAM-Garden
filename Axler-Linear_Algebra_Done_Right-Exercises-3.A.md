@@ -465,7 +465,45 @@ vectors in $V$. Suppose also that $W \ne \{0\}$. Prove that there exist
 $w_1, \ldots, w_m \in W$ such that no $T \in \mathcal{L}(V, W)$ satisfies
 $T v_k = w_k$ for each $k = 1, \ldots, m$.
 
-__Solution__. TODO
+__Solution__. Since $v_1, \ldots, v_m$ is a set of linearly dependent vectors, repeated
+application of the Linear Dependence Lemma implies that it contains a subset of vectors
+$v_{i_1}, \ldots, v_{i_l}$ satsifying
+
+* $l < m$ and
+
+* the set $v_j, v_{i_1}, \ldots, v_{i_l}$ is linearly dependent for any
+  $j \notin \{i_1, \ldots, i_l\}$.
+
+Without loss of generality, let $v_1, \ldots, v_l$ be linearly independent subset of
+$v_1, \ldots, v_m$ satisfying the above properties. Then, there exist $a_1, \ldots, a_l$
+such that
+
+$$
+v_m = a_1 v_1 + \cdots + a_l v_l.
+$$
+
+Arbitrarily select $w_1, \ldots, w_{m-1}$ with $w_1 \ne 0$. Select $b_1 \ne a_1$ and define
+
+$$
+w_m = b_1 w_1 + a_2 w_2 + \cdots + a_l w_l.
+$$
+
+Suppose that there exists $T \in \maps{V}{W}$ where $T v_i = w_i$ for $1 \le i \le m$.
+Then
+
+$$
+T v_m
+= T (a_1 v_1 + a_2 v_2 + \cdots + a_l v_l)
+= a_1 (T v_1) + \cdots + a_l (T v_l)
+= a_1 w_1 + \cdots + a_l w_l \\
+\ne b_1 w_1 + \cdots + a_l w_l
+= w_m,
+$$
+
+contradicting our assumption that there exists a $T \in \maps{V}{W}$ such that
+$T v_i = w_i$ for $1 \le i \le m$.
+
+Therefore, we have constructed a set $w_1, \ldots, w_m$ satisfying the desired property.
 
 --------------------------------------------------------------------------------------------
 ### 14.
