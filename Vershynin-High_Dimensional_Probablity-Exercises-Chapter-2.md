@@ -5,7 +5,7 @@ High-Dimensional Probability (Vershynin): Exercises - Chapter 2
 
 ### Notation
 
-* $\newcommand{\R}[0]{\mathbb{R}}$
+* $\newcommand{\R}{\mathbb{R}}$
   The set of real numbers: $\R$
 
 * $\newcommand{\Pr}[1]{\mathbb{P}\left[{#1}\right]}$
@@ -123,7 +123,7 @@ $$
 $$
 
 To bound $\E{e^{\lambda (X_i - \mu_i)}}$, we use a symmetrization argument. Introducing
-an independent copy of $X_i$ to express $\mu_i$ and a Rademacher (symmetric Bernoulli)
+an independent copy of $X_i$ to express $\mu_i$ and a symmetric Bernoulli (Rademacher)
 variable $\varepsilon$,
 
 $$
