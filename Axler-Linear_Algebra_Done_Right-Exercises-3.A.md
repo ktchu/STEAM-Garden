@@ -370,13 +370,19 @@ itself is multiplication by some scalar. More precisely, prove that if
 $\dim V = 1$ and $T \in \mathcal{L} (V, V)$, then there exists
 $\lambda \in \mathbb{F}$ such that $T v = \lambda v$ for all $v \in V$.
 
-__Solution__. TODO
+__Solution__. Let $T \in \maps{V}{V}$ and $u \in V$. Since $\dim V = 1$, all vectors in $V$
+must be scalar multiples of $u$. In particular, $T u = \lambda u$. Consider an arbitrary
+vector $v = ku \in V$. Linearity of $T$ implies that
+
+$$
+T v = T (ku) = k (Tu) = k (\lambda u) = \lambda (ku) = \lambda v.
+$$
 
 --------------------------------------------------------------------------------------------
 ### 8.
 
-__Problem__. Give an example of a function
-$\varphi: \mathbb{R}^2 \rightarrow \mathbb{R}$ such that
+__Problem__. Give an example of a function $\varphi: \mathbb{R}^2 \rightarrow \mathbb{R}$
+such that
 
 $$
 \varphi(av) = a \varphi(v)
@@ -388,7 +394,15 @@ linear.
 [The exercise above and the next exercise show that neither homogeneity
 nor additivity alone is enough to imply that a function is a linear map.]
 
-__Solution__. TODO
+__Solution__. Define $\varphi(v) = \| v \|_2$. Then
+
+$$
+\varphi(av) = \| av \|_2 = a \| v \|_2 = a \varphi(v).
+$$
+
+To see that $\varphi$ is not linear, consider $u = (1, 0)$ and $v = (0, 1)$. Then
+$\varphi(u + v) = \| u + v \|_2 = \sqrt{2}$ but
+$\varphi(u) + \varphi(v) = \| u \|_2 + \| v \|_2 = 2$.
 
 --------------------------------------------------------------------------------------------
 ### 9.
@@ -427,17 +441,47 @@ $$
 
 Prove that $T$ is not a linear map on $V$.
 
-__Solution__. TODO
+__Solution__. Let $u \in U$ such that $Su \ne 0$. Since $U \ne V$, we there exists
+$v \notin U$.  Then $u + v \notin U$ (otherwise, $(u+v) - u = v \in U$), so $T(u+v) = 0$.
+Observe that $Tu + Tv = Su + 0 = Su \ne 0$. Therefore, $T(u+v) \ne Tu + Tv$, so $T$ is not
+a linear map.
 
 --------------------------------------------------------------------------------------------
 ### 11.
 
 __Problem__. Suppose $V$ is finite-dimensional. Prove that every linear map on
 a subspace of $V$ can be extended to a linear map on $V$. In other words,
-suhow that if $U$ is a subspace of $V$ and $S \in \mathcal{L} (U, W)$, then
+show that if $U$ is a subspace of $V$ and $S \in \mathcal{L} (U, W)$, then
 there exists $T \in \mathcal{L} (V, W)$ such that $T u = S u$ for all $u \in U$.
 
-__Solution__. TODO
+__Solution__. Let $B = \{u_1, \ldots, u_m\}$ be a basis for $U$ and let
+$\{v_1 = u_1, v_2 = u_2, \ldots v_m = um, v_{m+1}, \ldots, v_n\}$ be an extension of $B$
+to a basis for $V$. Define $w_1, \ldots, w_n$ as follows.
+
+* For $1 \le i \le m$, $w_i = S u_i$.
+
+* For $m +1 \le i \le n$, choose $w_i$ to be an arbitrary vector in $W$.
+
+Then exists a unique $T \in \maps{V}{W}$ such that $T v_i = w_i$.
+
+Now, consider $u \in U$. Expressing $u$ in terms of the basis $B$,
+
+$$
+u = a_1 u_1 + \cdots + a_m u_m.
+$$
+
+Applying the linear map $T$, we find that
+
+$$
+T u
+= a_1 T u_1 + \cdots + a_m T u_m
+= a_1 w_1 + \cdots + a_m w_m
+= a_1 S u_1 + \cdots + a_m S u_m
+= S (a_1 u_1 + \cdots + a_m u_m)
+= S u,
+$$
+
+which show that $T$ is an extension of the $S$ to a linear map on $V$.
 
 --------------------------------------------------------------------------------------------
 ### 12.
