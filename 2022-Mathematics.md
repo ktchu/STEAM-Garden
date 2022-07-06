@@ -130,6 +130,88 @@ TODO: compute distribution parameters
 
 --------------------------------------------------------------------------------------------
 
+2022-07-05: Useful Inequalities
+-------------------------------
+
+* For $0 \le x \le 1$,
+
+  $$
+  x - \frac{x^2}{2} \le \ln(1+x) \le x
+  $$
+
+  _Proof_. For $t \ge 0$, $1 + t \ge 1$, which implies that $1 \ge 1 / (1 + t)$.
+  Integration yields the upper bound on $\ln(1+x)$:
+
+  $$
+  x = \int_0^x 1 dt \ge \int_0^x \left( \frac{dt}{1+t} \right) dt = \ln(1+x).
+  $$
+
+  To prove the lower bound, observe that $0 \le t \le 1$ implies that $1 - t^2 \le 1$,
+  which can be rearranged to $1 - t \le 1 / (1 + t)$. Integration yields the lower bound:
+
+  $$
+  x - \frac{x^2}{2} = \int_0^x (1 - t) dt
+  \le \int_0^x \left( \frac{1}{1+t} \right) dt = \ln(1+x).
+  $$
+
+  __Corollary__. For $0 \le x \le 1$, $x/2 \le \ln(1+x)$.
+
+  _Proof_. The desired bound follows from the observation that
+  $x - x^2/2 \ge x - x / 2 = x/2$ for $0 \le x \le 1$.
+
+* For $0 < \delta \le 1$,
+
+  $$
+  e^x \le 1 + (1 + \delta) x
+  $$
+
+  for $0 \le x \le \delta/2$.
+
+  _Proof_. Define $f(x) = 1 + (1 + \delta) x - e^x$. Then $f'(x) = (1 + \delta) - e^x$ and
+  $f''(x) = -e^x$. Since $f(0) = 0$ and $f'(0) = \delta > 0$, there exists $\varepsilon > 0$
+  such that $f(x) > 0$ for $x \in (0, \varepsilon)$. Observing that $f''(x)$ is strictly
+  negative, we can conclude that $f'(x) = 0$ at only a single value of $x > 0$, which
+  implies that $f(x) = 0$ for only one positive value of $x$ (otherwise, the mean-value
+  theorem would imply that there are multiple values of $x > 0$ with $f'(x) = 0$).
+
+  Consider $x = \delta/2$.
+
+  $$
+  f(\delta/2)
+  = 1 + \frac{(1 + \delta) \delta}{2} - e^{\delta/2}
+  = \frac{3}{2} \left( \frac{\delta}{2} \right)^2
+    + \left( 1 + \frac{\delta}{2} + \frac{1}{2} \left( \frac{\delta}{2} \right)^2
+    - e^{\delta/2} \right).
+  $$
+
+  Since $x \ge 0$, we can use the bound $e^x - (1 + x + x^2/2) \le x^3 / (1 - x)$, which
+  yields
+
+  $$
+  f(\delta/2)
+  \ge \frac{3}{2} \left( \frac{\delta}{2} \right)^2
+  - \frac{\left( \delta/2 \right)^3}{1 - \delta/2}
+  = \left( \frac{\delta}{2} \right)^2
+    \left( \frac{3}{2} - \frac{\delta/2}{1 - \delta/2} \right).
+  $$
+
+  Note that $\delta \le 1$ implies that
+
+  $$
+  \frac{\delta/2}{1 - \delta/2} \le 1
+  $$
+
+  so that
+
+  $$
+  f(\delta/2) \ge \frac{1}{2} \left( \frac{\delta}{2} \right)^2 > 0.
+  $$
+
+  Therefore, we can conclude that that $f(x) > 0$ for $0 \le x \le \delta/2$, which
+  is equivalent to the desired bound.
+
+--------------------------------------------------------------------------------------------
+
 2022-06-16: Permutations with Fixed Points
 ------------------------------------------
 
@@ -498,34 +580,23 @@ have unit length, the lemma implies that $|\det A| \le 1$. Hadamard's inequality
 
 * For all $z \ge 0$, $|z-1| \ge \delta$ implies $|z^2-1| \ge \max(\delta, \delta^2)$.
 
-  _Proof_.  If $\delta > 1$, then $z+1 \ge \delta + 2$ so that $|z-1| \ge \delta$ implies
-  that $z - 1 \ge \delta$ or $1 - z \ge \delta$.
+  _Proof_.  $|z-1| \ge \delta$ implies that $z - 1 \ge \delta$ or $1 - z \ge \delta$.
 
-  For the case $z - 1 \ge \delta$, there are two cases to consider: $\delta \le 1$ and
-  $\delta > 1$. If $z - 1 \ge \delta$ and $\delta \le 1$, then $z \ge 1 + \delta$ so that
-
-  $$
-  |z^2 - 1| = z^2 - 1
-  \ge (1 + \delta)^2 - 1
-  = (1 + 2 \delta + \delta^2) - 1
-  = \delta + (\delta + \delta^2)
-  \ge \delta
-  = \max(\delta, \delta^2).
-  $$
-
-  If $z - 1 \ge \delta$ and $\delta > 1$, then $z+1 \ge \delta + 2$ so that
+  For the case $z - 1 \ge \delta$, observe that $z +1 \ge \delta + 2$, which implies that
 
   $$
   |z^2 - 1| = (z - 1) (z + 1)
   \ge \delta (\delta + 2)
-  \ge \delta^2 + 2 \delta
-  \ge \delta^2
-  = \max(\delta, \delta^2).
+  \ge \delta^2 + 2 \delta.
   $$
 
+  When $\delta \le 1$, $\max(\delta, \delta^2) = \delta \le \delta^2 + 2 \delta$. When
+  $\delta > 1$, $\max(\delta, \delta^2) = \delta^2 \le \delta^2 + 2 \delta$. In both cases,
+  $|z^2 - 1| \ge \max(\delta, \delta^2)$.
+
   For the case $1 - z \ge \delta$, we need only consider the case $\delta \le 1$ (because
-  $\delta > 1$ would imply that $z < 0$).  If $1 - z \ge \delta$ and $\delta \le 1$, then
-  $z \le 1 - \delta$ so that
+  $\delta > 1$ would imply that $z < 0$).  If $1 - z \ge \delta$, then $z \le 1 - \delta$
+  so that
 
   $$
   |z^2 - 1| = 1 - z^2
@@ -972,11 +1043,11 @@ for $|\lambda| \le 1/4$, which is equivalent to the desired inequality
 2022-05-24: Polynomial Bounds for $e^x$
 ---------------------------------------
 
-_Last Updated_: 2022-05-30
+_Last Updated_: 2022-07-06
 
 * For all $x$, $e^x \ge 1 + x$.
 
-* For $x > 0$, $e^x \ge \sum_{k = 0} \frac{x^k}{k!}$.
+* For $x \ge 0$, $e^x \ge \sum_{k = 0}^n \frac{x^k}{k!}$ for all integer $n$.
 
 * For $x < 0$, $e^x \le \sum_{k = 0}^n \frac{x^k}{k!}$ when $n$ is even.
 
@@ -994,16 +1065,56 @@ _Last Updated_: 2022-05-30
   $e < 3 = 1 + 2 \cdot 1$), we can conclude that $f(x) \le 0$ for $0 \le x \le 1$, which is
   equivalent to the desired result.
 
-  _Corollary_. For $-1 \le x \le 0$, $e^{-x} \le 1 - 2 x$.
+  __Corollary__. For $-1 \le x \le 0$, $e^{-x} \le 1 - 2 x$.
 
   * _Proof_. Let $y = -x$ so that $0 \le y \le 1$. The result follows from the inequality
     $e^{-x} = e^y \le 1 + 2 y = 1 - 2 x$.
 
 * For $0 \le x < 1$, $e^x \le \frac{1}{1 - x}$.
 
-  _Proof_. Let $f(x) = 1 - (1-x) e^x$. The desired inequality is equivalent to $f(x) \ge 0$
-  Differentiating $f$, we find that $f'(x) = x e^x$, which is non-negative on the interval
-  $0 \le x < 1$. Therefore, $f(x) \ge 0$ for $0 \le x < 1$ because $f(0) = 0$ and
+  _Proof_. Let $f(x) = 1 - (1-x) e^x$. The desired inequality is equivalent to $f(x) \ge 0$.
+  Differentiating $f(x)$, we find that $f'(x) = x e^x$, which is nonnegative on the
+  interval $0 \le x < 1$. Therefore, $f(x) \ge 0$ for $0 \le x < 1$ because $f(0) = 0$ and
+
+  $$
+  f(x) - f(0) = \int_0^x f'(s) ds \ge \int_0^x 0 ds = 0.
+  $$
+
+* If $n$ is a nonnegative integer and $0 \le x < 1$,
+
+  $$
+  e^x - \sum_{k=0}^n \frac{x^k}{k!} \le \frac{x^{n+1}}{1 - x}.
+  $$
+
+  _Proof_. Let
+
+  $$
+  f(x)
+  = x^{n+1} - (1-x) \left( e^x - \sum_{k=0}^n \frac{x^k}{k!} \right)
+  = x^{n+1} - (1-x) e^x + (1-x) \sum_{k=0}^n \frac{x^k}{k!}.
+  $$
+
+  The desired inequality is equivalent to $f(x) \ge 0$. Expanding and simplifying $f(x)$
+  yields
+
+  Differentiating $f(x)$, we find that
+
+  $$
+  f'(x)
+  = (n+1) x^n + x e^x
+    - \sum_{k=0}^n \frac{x^k}{k!} + (1-x) \sum_{k=0}^{n-1} \frac{x^k}{k!} \\
+  = (n+1) x^n + x e^x - \frac{x^n}{n!} - x \sum_{k=0}^{n-1} \frac{x^k}{k!} \\
+  = \left( n + 1 - \frac{1}{n!} \right) x^n + x e^x - x \sum_{k=0}^{n-1} \frac{x^k}{k!}.
+  $$
+
+  Since $e^x \ge \sum_{k=0}^{n} \frac{x^k}{k!}$ for $x \ge 0$,
+
+  $$
+  f'(x) \ge \left( n + 1 - \frac{1}{n!} \right) x^n,
+  $$
+
+  which is nonnegative on the interval $0 \le x < 1$ for all $n \ge 0$. Therefore,
+  $f(x) \ge 0$ for $0 \le x < 1$ because $f(0) = 0$ and
 
   $$
   f(x) - f(0) = \int_0^x f'(s) ds \ge \int_0^x 0 ds = 0.
