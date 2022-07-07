@@ -140,36 +140,27 @@ TODO: compute distribution parameters
 
 --------------------------------------------------------------------------------------------
 
-2022-07-05: Useful Inequalities
--------------------------------
+2022-07-05: Bounds for $e^x$
+----------------------------
 
-_Last Updated_: 2022-07-07
+### Linear Function Bounds for $e^x$
 
-* For $0 \le x \le 1$,
+* For $0 \le x \le 1$, $e^x \le 1 + 2 x$.
 
-  $$
-  x - \frac{x^2}{2} \le \ln(1+x) \le x
-  $$
+  _Proof_. Let $f(x) = e^x - (1 + 2x)$. Observe that $f(0) = 0$, $f'(0) = -1 < 0$, and
+  $f(x) \rightarrow \infty$ as $x \rightarrow \infty$, which implies that $f(x) \le 0$ for
+  $0 \le x \le x^*$, where $x^*$ fixed value of $x$. Since $f'(x) = e^x - 2$ and
+  $f''(x) = e^x$, the slope of $f$ strictly increases as $x$ increases. Therefore,
+  $f'(x) = 0$ at only a single value of $x = \ln 2 > 0$, which implies that $f(x) = 0$ for
+  only one positive value of $x$ (otherwise, the mean-value theorem would imply that there
+  are multiple values of $x > 0$ with $f'(x) = 0$). Noting that $f(1) < 0$ (because
+  $e < 3 = 1 + 2 \cdot 1$), we can conclude that $f(x) \le 0$ for $0 \le x \le 1$, which is
+  equivalent to the desired result.
 
-  _Proof_. For $t \ge 0$, $1 + t \ge 1$, which implies that $1 \ge 1 / (1 + t)$.
-  Integration yields the upper bound on $\ln(1+x)$:
+  __Corollary__. For $-1 \le x \le 0$, $e^{-x} \le 1 - 2 x$.
 
-  $$
-  x = \int_0^x 1 dt \ge \int_0^x \left( \frac{dt}{1+t} \right) dt = \ln(1+x).
-  $$
-
-  To prove the lower bound, observe that $0 \le t \le 1$ implies that $1 - t^2 \le 1$,
-  which can be rearranged to $1 - t \le 1 / (1 + t)$. Integration yields the lower bound:
-
-  $$
-  x - \frac{x^2}{2} = \int_0^x (1 - t) dt
-  \le \int_0^x \left( \frac{1}{1+t} \right) dt = \ln(1+x).
-  $$
-
-  __Corollary__. For $0 \le x \le 1$, $x/2 \le \ln(1+x)$.
-
-  _Proof_. The desired bound follows from the observation that
-  $x - x^2/2 \ge x - x / 2 = x/2$ for $0 \le x \le 1$.
+  * _Proof_. Let $y = -x$ so that $0 \le y \le 1$. The result follows from the inequality
+    $e^{-x} = e^y \le 1 + 2 y = 1 - 2 x$.
 
 * Let $0 \le \delta \le 1$. Then
 
@@ -222,6 +213,135 @@ _Last Updated_: 2022-07-07
 
   Therefore, we can conclude that that $f(x) > 0$ for $0 \le x \le \delta/2$, which
   is equivalent to the desired bound.
+
+  _Remark_. The previous proposition is a corollary of this proposition with $\delta = 1$.
+
+### Geometric Series Bounds for $e^x$
+
+* For $x < 1$, $e^x \le \frac{1}{1 - x}$.
+
+  _Proof_. Let $f(x) = 1 - (1-x) e^x$. The desired inequality is equivalent to $f(x) \ge 0$.
+  Differentiating $f(x)$, we find that $f'(x) = x e^x$.
+
+  For $0 < x < 1$, $f'(x)$ is nonnegative, so $f(x) \ge 0$ because $f(0) = 0$ and
+
+  $$
+  f(x) - f(0) = \int_0^x f'(s) ds \ge \int_0^x 0 ds = 0.
+  $$
+
+  For $x < 0$, $f'(x)$ is nonpositive, so $f(x) \ge 0$ because $f(0) = 0$ and
+
+  $$
+  f(0) - f(x) = \int_x^0 f'(s) ds \le \int_x^0 0 ds = 0.
+  $$
+
+  Finally, note that for $x = 0$, we have $f(0) = 0 \ge 0$. Therefore, $f(x) \ge 0$ for
+  $x < 1$, as desired.
+
+* __Tail Bounds for $e^x$__. Let $n$ be a nonnegative integer. For $x < 1$,
+
+  $$
+  e^x - \sum_{k=0}^n \frac{x^k}{k!} \le \frac{|x|^{n+1}}{1 - x}.
+  $$
+
+  _Proof_. Let
+
+  $$
+  f(x)
+  = x^{n+1} - (1-x) \left( e^x - \sum_{k=0}^n \frac{x^k}{k!} \right)
+  = x^{n+1} - (1-x) e^x + (1-x) \sum_{k=0}^n \frac{x^k}{k!}.
+  $$
+
+  The desired inequality is equivalent to
+
+  * $f(x) \ge 0$ when $x \ge 0$,
+
+  * $f(x) \ge 0$ when $x \le 0$ and $n$ is odd, and
+
+  * $f(x) \le 0$ when $x \le 0$ and $n$ is even.
+
+  Differentiating $f(x)$, we find that
+
+  $$
+  f'(x)
+  = (n+1) x^n + x e^x
+    - \sum_{k=0}^n \frac{x^k}{k!} + (1-x) \sum_{k=0}^{n-1} \frac{x^k}{k!} \\
+  = (n+1) x^n + x e^x - \frac{x^n}{n!} - x \sum_{k=0}^{n-1} \frac{x^k}{k!} \\
+  = \left( n + 1 - \frac{1}{n!} \right) x^n + x e^x - x \sum_{k=0}^{n-1} \frac{x^k}{k!}.
+  $$
+
+  For $0 < x < 1$, the bound $e^x \ge \sum_{k=0}^{n} \frac{x^k}{k!}$ (which is satisfied
+  for all $x \ge 0$) implies that
+
+  $$
+  f'(x) \ge \left( n + 1 - \frac{1}{n!} \right) x^n.
+  $$
+
+  Therefore, $f'(x)$ is nonnegative, so $f(x) \ge 0$ because $f(0) = 0$ and
+
+  $$
+  f(x) - f(0) = \int_0^x f'(s) ds \ge \int_0^x 0 ds = 0.
+  $$
+
+  For $x < 0$, we need to consider two cases separately: $n$ odd and $n$ even.
+
+  When $n$ is odd, $e^x \le \sum_{k=0}^{n-1} \frac{x^k}{k!}$ (because $n-1$ is even), so
+
+  $$
+  f'(x) \le \left( n + 1 - \frac{1}{n!} \right) x^n.
+  $$
+
+  Therefore, $f'(x)$ is nonpositive, so $f(x) \ge 0$ because $f(0) = 0$ and
+
+  $$
+  f(0) - f(x) = \int_x^0 f'(s) ds \le \int_x^0 0 ds = 0.
+  $$
+
+  When $n$ is even, $e^x \ge \sum_{k=0}^{n-1} \frac{x^k}{k!}$ (because $n-1$ is odd), so
+
+  $$
+  f'(x) \ge \left( n + 1 - \frac{1}{n!} \right) x^n.
+  $$
+
+  Therefore, $f'(x)$ is nonnegative, so $f(x) \le 0$ because $f(0) = 0$ and
+
+  $$
+  f(0) - f(x) = \int_x^0 f'(s) ds \ge \int_x^0 0 ds = 0.
+  $$
+
+  Finally, note that for $x = 0$, we have $f(0) = 0 \ge 0$. Combining the results for all
+  of these cases, we obtain the desired bound.
+
+--------------------------------------------------------------------------------------------
+
+2022-07-05: Bounds for $\ln(1+x)$
+---------------------------------
+
+* For $0 \le x \le 1$,
+
+  $$
+  x - \frac{x^2}{2} \le \ln(1+x) \le x
+  $$
+
+  _Proof_. For $t \ge 0$, $1 + t \ge 1$, which implies that $1 \ge 1 / (1 + t)$.
+  Integration yields the upper bound on $\ln(1+x)$:
+
+  $$
+  x = \int_0^x 1 dt \ge \int_0^x \left( \frac{dt}{1+t} \right) dt = \ln(1+x).
+  $$
+
+  To prove the lower bound, observe that $0 \le t \le 1$ implies that $1 - t^2 \le 1$,
+  which can be rearranged to $1 - t \le 1 / (1 + t)$. Integration yields the lower bound:
+
+  $$
+  x - \frac{x^2}{2} = \int_0^x (1 - t) dt
+  \le \int_0^x \left( \frac{1}{1+t} \right) dt = \ln(1+x).
+  $$
+
+  __Corollary__. For $0 \le x \le 1$, $x/2 \le \ln(1+x)$.
+
+  _Proof_. The desired bound follows from the observation that
+  $x - x^2/2 \ge x - x / 2 = x/2$ for $0 \le x \le 1$.
 
 --------------------------------------------------------------------------------------------
 
@@ -1056,8 +1176,6 @@ for $|\lambda| \le 1/4$, which is equivalent to the desired inequality
 2022-05-24: Polynomial Bounds for $e^x$
 ---------------------------------------
 
-_Last Updated_: 2022-07-07
-
 * For all $x \in \R$, $e^x \ge 1 + x$.
 
 * For $x \ge 0$, $e^x \ge \sum_{k = 0}^n \frac{x^k}{k!}$ for $n \in \Z$.
@@ -1065,73 +1183,6 @@ _Last Updated_: 2022-07-07
 * For $x < 0$, $e^x \le \sum_{k = 0}^n \frac{x^k}{k!}$ when $n$ is even.
 
 * For $x < 0$, $e^x \ge \sum_{k = 0}^n \frac{x^k}{k!}$ when $n$ is odd.
-
-* For $0 \le x \le 1$, $e^x \le 1 + 2 x$.
-
-  _Proof_. Let $f(x) = e^x - (1 + 2x)$. Observe that $f(0) = 0$, $f'(0) = -1 < 0$, and
-  $f(x) \rightarrow \infty$ as $x \rightarrow \infty$, which implies that $f(x) \le 0$ for
-  $0 \le x \le x^*$, where $x^*$ fixed value of $x$. Since $f'(x) = e^x - 2$ and
-  $f''(x) = e^x$, the slope of $f$ strictly increases as $x$ increases. Therefore,
-  $f'(x) = 0$ at only a single value of $x = \ln 2 > 0$, which implies that $f(x) = 0$ for
-  only one positive value of $x$ (otherwise, the mean-value theorem would imply that there
-  are multiple values of $x > 0$ with $f'(x) = 0$). Noting that $f(1) < 0$ (because
-  $e < 3 = 1 + 2 \cdot 1$), we can conclude that $f(x) \le 0$ for $0 \le x \le 1$, which is
-  equivalent to the desired result.
-
-  __Corollary__. For $-1 \le x \le 0$, $e^{-x} \le 1 - 2 x$.
-
-  * _Proof_. Let $y = -x$ so that $0 \le y \le 1$. The result follows from the inequality
-    $e^{-x} = e^y \le 1 + 2 y = 1 - 2 x$.
-
-* For $0 \le x < 1$, $e^x \le \frac{1}{1 - x}$.
-
-  _Proof_. Let $f(x) = 1 - (1-x) e^x$. The desired inequality is equivalent to $f(x) \ge 0$.
-  Differentiating $f(x)$, we find that $f'(x) = x e^x$, which is nonnegative on the
-  interval $0 \le x < 1$. Therefore, $f(x) \ge 0$ for $0 \le x < 1$ because $f(0) = 0$ and
-
-  $$
-  f(x) - f(0) = \int_0^x f'(s) ds \ge \int_0^x 0 ds = 0.
-  $$
-
-* If $n$ is a nonnegative integer and $0 \le x < 1$,
-
-  $$
-  e^x - \sum_{k=0}^n \frac{x^k}{k!} \le \frac{x^{n+1}}{1 - x}.
-  $$
-
-  _Proof_. Let
-
-  $$
-  f(x)
-  = x^{n+1} - (1-x) \left( e^x - \sum_{k=0}^n \frac{x^k}{k!} \right)
-  = x^{n+1} - (1-x) e^x + (1-x) \sum_{k=0}^n \frac{x^k}{k!}.
-  $$
-
-  The desired inequality is equivalent to $f(x) \ge 0$. Expanding and simplifying $f(x)$
-  yields
-
-  Differentiating $f(x)$, we find that
-
-  $$
-  f'(x)
-  = (n+1) x^n + x e^x
-    - \sum_{k=0}^n \frac{x^k}{k!} + (1-x) \sum_{k=0}^{n-1} \frac{x^k}{k!} \\
-  = (n+1) x^n + x e^x - \frac{x^n}{n!} - x \sum_{k=0}^{n-1} \frac{x^k}{k!} \\
-  = \left( n + 1 - \frac{1}{n!} \right) x^n + x e^x - x \sum_{k=0}^{n-1} \frac{x^k}{k!}.
-  $$
-
-  Since $e^x \ge \sum_{k=0}^{n} \frac{x^k}{k!}$ for $x \ge 0$,
-
-  $$
-  f'(x) \ge \left( n + 1 - \frac{1}{n!} \right) x^n,
-  $$
-
-  which is nonnegative on the interval $0 \le x < 1$ for all $n \ge 0$. Therefore,
-  $f(x) \ge 0$ for $0 \le x < 1$ because $f(0) = 0$ and
-
-  $$
-  f(x) - f(0) = \int_0^x f'(s) ds \ge \int_0^x 0 ds = 0.
-  $$
 
 ### References
 
