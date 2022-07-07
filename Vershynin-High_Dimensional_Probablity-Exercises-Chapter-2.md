@@ -23,6 +23,9 @@ High-Dimensional Probability (Vershynin): Exercises - Chapter 2
 * $\newcommand{\Esub}[2]{\mathbb{E}_{#1}\left[{#2}\right]}$
   Expected value of $XY$ with respect to $X$: $\Esub{X}{XY}$
 
+* $\newcommand{\Var}[1]{\operatorname{Var}{\left(#1\right)}}$
+  Variance of $X$: $\Var{X}$
+
 * $\newcommand{\normal}[2]{N\left({#1}, {#2}\right)}$
   Normal distribution with mean $\mu$ and variance $\sigma^2$: $\normal{\mu}{\sigma^2}$
 
@@ -171,6 +174,108 @@ $$
 \Pr{\sum_{i=1}^n (X_i - \mu_i) \ge t}
 \le \exp\left( -\frac{2 t^2}{\sum_{i=1}^n (M_i - m_i)^2} \right).
 $$
+
+--------------------------------------------------------------------------------------------
+
+### 2.2.8. (Boosting Randomized Algorithms)
+
+__Problem__. Imagine we have an algorithm for solving some decision problem (e.g., is a
+given number $p$ a prime?). Suppose that the algorithm makes a decision at random and
+returns the correct answer with probability $1/2 + \delta$, for some $\delta > 0$, which is
+just a bit better than a random guess. To improve the performance, we run the algorithm
+$N$ times and take the majority vote. Show that, for any $\varepsilon \in (0, 1)$, the
+answer is correct with probability at least $1 - \varepsilon$, as long as
+$N \ge (1/2) \delta^{-2} \ln(\varepsilon^{-1})$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+
+### 2.2.9. (Robust Estimation of the Mean)
+
+Suppose that we want to estimate the mean $\mu$ of a random variable $X$ from a sample
+$X_1, \ldots, X_N$ drawn independently from the distribution of $X$. We want an
+$\varepsilon$-accurate estimate, i.e., one that falls in the interval
+$(\mu - \varepsilon,\mu + \varepsilon)$.
+
+#### 2.2.9.a.
+
+__Problem__. Show that a sample of size $N = O(\sigma^2 / \varepsilon^2)$ is sufficient
+to compute an $\varepsilon$-accurate estimate with probability at least 3/4, where
+$\sigma^2 = \Var{X}$.
+
+__Solution__. TODO
+
+#### 2.2.9.b.
+
+__Problem__. Show that a sample of size
+$N = O\left( \log(\delta^{-1}) \sigma^2 / \varepsilon^2 \right)$ is sufficient to compute
+an $\varepsilon$-accurate estimate with probability at least $1 - \delta$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+
+### 2.2.10. (Small Ball Probabilities)
+
+Let $X_1, \ldots, X_N$ be _non-negative_ independent random variables with
+continuous distributions. Assume that the densities of $X_i$ are uniformly bounded by 1.
+
+#### 2.2.10.a.
+
+__Problem__. Show that the MGF of $X_i$ satisfies
+
+$$
+\E{\exp(-t X_i)} \le \frac{1}{t}
+$$
+
+for all $t > 0$.
+
+__Solution__. For $t > 0$,
+
+$$
+\E{\exp(-t X_i)}
+= \int_{-\infty}^\infty e^{-t x} \p{x} dx
+\le \int_{-\infty}^\infty e^{-t x} dx
+\le \left. -\frac{e^{-t x}}{t} \right|_{-\infty}^\infty
+= \frac{1}{t}
+$$
+
+#### 2.2.10.b.
+
+__Problem__. Deduce that, for any $\varepsilon > 0$, we have
+
+$$
+\Pr{\sum_{i=1}^N X_i \le \varepsilon N} \le (e \varepsilon)^N.
+$$
+
+__Solution__. For $t > 0$, consider
+
+$$
+\Pr{\sum_{i=1}^N X_i \le t} = \Pr{-\sum_{i=1}^N X_i \ge -t}.
+$$
+
+Multiplying by $\lambda > 0$, exponentiating, and applying Markov's inequality and
+independence of the $X_i$, we obtain
+
+$$
+\Pr{\sum_{i=1}^N X_i \le t} \le e^{\lambda t} \prod_{i=1}^N \E{e^{-\lambda X_i}}.
+$$
+
+Using the bound from part (a),
+
+$$
+\Pr{\sum_{i=1}^N X_i \le t} \le \frac{e^{\lambda t}}{\lambda^{N}}
+$$
+
+Choosing $\lambda = 1 / \varepsilon$ and substituting $t = \varepsilon N$ yields
+
+$$
+\Pr{\sum_{i=1}^N X_i \le \varepsilon N}
+\le e^{\varepsilon N / \varepsilon} \varepsilon^N
+= \left( e \varepsilon \right)^N.
+$$
+
 
 --------------------------------------------------------------------------------------------
 
