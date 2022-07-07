@@ -5,6 +5,16 @@ Mathematics (2022)
 
 --------------------------------------------------------------------------------------------
 
+### Notation
+
+* $\newcommand{\R}[0]{\mathbb{R}}$
+  The set of real numbers: $\R$
+
+* $\newcommand{\Z}[0]{\mathbb{Z}}$
+  The set of integers: $\Z$
+
+--------------------------------------------------------------------------------------------
+
 ## TODO: Common Useful Inequalities
 
 * HM-GM-AM-QM Inequalities
@@ -133,6 +143,8 @@ TODO: compute distribution parameters
 2022-07-05: Useful Inequalities
 -------------------------------
 
+_Last Updated_: 2022-07-07
+
 * For $0 \le x \le 1$,
 
   $$
@@ -159,7 +171,7 @@ TODO: compute distribution parameters
   _Proof_. The desired bound follows from the observation that
   $x - x^2/2 \ge x - x / 2 = x/2$ for $0 \le x \le 1$.
 
-* For $0 < \delta \le 1$,
+* Let $0 \le \delta \le 1$. Then
 
   $$
   e^x \le 1 + (1 + \delta) x
@@ -168,11 +180,12 @@ TODO: compute distribution parameters
   for $0 \le x \le \delta/2$.
 
   _Proof_. Define $f(x) = 1 + (1 + \delta) x - e^x$. Then $f'(x) = (1 + \delta) - e^x$ and
-  $f''(x) = -e^x$. Since $f(0) = 0$ and $f'(0) = \delta > 0$, there exists $\varepsilon > 0$
-  such that $f(x) > 0$ for $x \in (0, \varepsilon)$. Observing that $f''(x)$ is strictly
-  negative, we can conclude that $f'(x) = 0$ at only a single value of $x > 0$, which
-  implies that $f(x) = 0$ for only one positive value of $x$ (otherwise, the mean-value
-  theorem would imply that there are multiple values of $x > 0$ with $f'(x) = 0$).
+  $f''(x) = -e^x$. Since $f(0) = 0$ and $f'(0) = 1 + \delta > 0$, there exists
+  $\varepsilon > 0$ such that $f(x) > 0$ for $x \in (0, \varepsilon)$. Observing that
+  $f''(x)$ is strictly negative, we can conclude that $f'(x) = 0$ at only a single value
+  of $x > 0$, which implies that $f(x) = 0$ for only one positive value of $x$ (otherwise,
+  the mean-value theorem would imply that there are multiple values of $x > 0$ with
+  $f'(x) = 0$).
 
   Consider $x = \delta/2$.
 
@@ -184,8 +197,8 @@ TODO: compute distribution parameters
     - e^{\delta/2} \right).
   $$
 
-  Since $x \ge 0$, we can use the bound $e^x - (1 + x + x^2/2) \le x^3 / (1 - x)$, which
-  yields
+  Since $\delta / 2 \ge 0$, we can use the bound $e^x - (1 + x + x^2/2) \le x^3 / (1 - x)$,
+  which yields
 
   $$
   f(\delta/2)
@@ -1043,11 +1056,11 @@ for $|\lambda| \le 1/4$, which is equivalent to the desired inequality
 2022-05-24: Polynomial Bounds for $e^x$
 ---------------------------------------
 
-_Last Updated_: 2022-07-06
+_Last Updated_: 2022-07-07
 
-* For all $x$, $e^x \ge 1 + x$.
+* For all $x \in \R$, $e^x \ge 1 + x$.
 
-* For $x \ge 0$, $e^x \ge \sum_{k = 0}^n \frac{x^k}{k!}$ for all integer $n$.
+* For $x \ge 0$, $e^x \ge \sum_{k = 0}^n \frac{x^k}{k!}$ for $n \in \Z$.
 
 * For $x < 0$, $e^x \le \sum_{k = 0}^n \frac{x^k}{k!}$ when $n$ is even.
 
