@@ -187,7 +187,24 @@ $N$ times and take the majority vote. Show that, for any $\varepsilon \in (0, 1)
 answer is correct with probability at least $1 - \varepsilon$, as long as
 $N \ge (1/2) \delta^{-2} \ln(\varepsilon^{-1})$.
 
-__Solution__. TODO
+__Solution__. Let $X_i$ be Bernoulli random variables that take the value 0 if the $i$-th
+run of the algorithm is correct and 1 if the $i$-th run of the algorithm is incorrect.
+Define $S_N = \sum_{i=1}^N X_i$, the random variable equal to the number of runs of the
+algorithm that are incorrect. Note that $\E{S_N} = N(1/2 - \delta)$.
+
+Then Hoeffding's inequality for general bounded random variables implies that
+
+$$
+\Pr{S_N \ge N/2}
+= \Pr{S_N - N(1/2 - \delta) \ge N \delta}
+\le e^{-2 N^2 \delta^2 / N}
+= e^{-2 N \delta^2}.
+$$
+
+Therefore, if we choose $N \ge (1/2) \delta^{-2} \ln\left(\varepsilon^{-1}\right)$, the
+probability that the boosted algorithm is incorrect is less than $\varepsilon$, which
+implies that the probability that the boosted algorithm is correct is at least
+$1 - \varepsilon$.
 
 --------------------------------------------------------------------------------------------
 
@@ -235,9 +252,9 @@ __Solution__. For $t > 0$,
 
 $$
 \E{\exp(-t X_i)}
-= \int_{-\infty}^\infty e^{-t x} \p{x} dx
-\le \int_{-\infty}^\infty e^{-t x} dx
-\le \left. -\frac{e^{-t x}}{t} \right|_{-\infty}^\infty
+= \int_0^\infty e^{-t x} \p{x} dx
+\le \int_0^\infty e^{-t x} dx
+\le \left. -\frac{e^{-t x}}{t} \right|_{x=0}^{x=\infty}
 = \frac{1}{t}
 $$
 
