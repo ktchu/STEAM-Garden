@@ -250,7 +250,8 @@ TODO: compute distribution parameters
   Finally, note that for $x = 0$, we have $f(0) = 0 \ge 0$. Therefore, $f(x) \ge 0$ for
   $x < 1$, as desired.
 
-* __Tail Bounds for $e^x$__. Let $n$ be a positive integer. For $x < 1$,
+* __Bounds for Tail Series $\sum_{k=n}^\infty \frac{x^k}{k!}$__. Let $n$ be a positive
+  integer. For $x < 1$,
 
   $$
   \sum_{k=n}^\infty \frac{x^k}{k!} \le \frac{|x|^n}{1 - x}.
