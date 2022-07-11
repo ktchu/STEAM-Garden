@@ -192,11 +192,20 @@ run of the algorithm is correct and 1 if the $i$-th run of the algorithm is inco
 Define $S_N = \sum_{i=1}^N X_i$, the random variable equal to the number of runs of the
 algorithm that are incorrect. Note that $\E{S_N} = N(1/2 - \delta)$.
 
-Then Hoeffding's inequality for general bounded random variables implies that
+Observe that probability that the boosted algorithm is incorrect can be expressed as a tail
+probability
 
 $$
 \Pr{S_N \ge N/2}
 = \Pr{S_N - N(1/2 - \delta) \ge N \delta}
+= \Pr{S_N - \E{S_N} \ge N \delta}.
+$$
+
+Hoeffding's inequality for general bounded random variables yields an upper bound for the
+tail probability:
+
+$$
+\Pr{S_N \ge N/2}
 \le e^{-2 N^2 \delta^2 / N}
 = e^{-2 N \delta^2}.
 $$
@@ -221,7 +230,29 @@ __Problem__. Show that a sample of size $N = O(\sigma^2 / \varepsilon^2)$ is suf
 to compute an $\varepsilon$-accurate estimate with probability at least 3/4, where
 $\sigma^2 = \Var{X}$.
 
-__Solution__. TODO
+__Solution__. Let
+
+$$
+S_N = \frac{1}{N} \sum_{i=1}^N X_i.
+$$
+
+Then $\E{S_N} = \mu$ and $\Var{S_N} = \sigma^2 / N$. By Chebyshev's inequality,
+
+$$
+\Pr{|S_N - \mu| \ge t}
+\le \frac{1}{(t / \Var{S_N})^2}
+= \frac{\sigma^2}{N t^2}.
+$$
+
+Choosing $N \ge 4 \sigma^2 / \varepsilon^2 = O(\sigma^2 / \varepsilon^2)$ implies that
+
+$$
+\Pr{|S_N - \mu| \ge \varepsilon} \le 1/4.
+$$
+
+In other words, estimating the mean by computing $S_N$ using a sample of size
+$N = O(\sigma^2 / \varepsilon^2)$ yields an $\varepsilon$-accurate estimate with probability
+at least 3/4.
 
 #### 2.2.9.b.
 
@@ -229,7 +260,62 @@ __Problem__. Show that a sample of size
 $N = O\left( \log(\delta^{-1}) \sigma^2 / \varepsilon^2 \right)$ is sufficient to compute
 an $\varepsilon$-accurate estimate with probability at least $1 - \delta$.
 
-__Solution__. TODO
+__Solution__. Let $M > 0$ be an even integer equal to the number of times we draw $R$
+samples to estimate the mean $\mu$, let $S_{R,i}$ be the the arithmetic mean of the $i$-th
+set of $R$ samples, and let $T_M$ be the median of $\{ S_{R,1}, \ldots, S_{R,M} \}$.
+Using the same reasoning as in part (a), we can choose $R = O(\sigma^2 / \varepsilon^2)$ so
+that $S_R$ is $\varepsilon$-accurate with probability at least 7/8. Observe that if
+$T_M \ge \mu + \varepsilon$, then at least $M/2$ of the $S_{R,i}$ are greater than or equal
+to $\mu + \varepsilon$, which implies that
+
+$$
+\Pr{T_M \ge \mu + \varepsilon}
+\le \Pr{\textrm{at least $M/2$ of the $S_{R,i}$ are greater than or equal to
+        $\mu + \varepsilon$}} \\
+= \sum_{k=M/2}^M {M \choose k}
+  \Pr{S_R \ge \mu + \varepsilon}^k \Pr{S_R < \mu + \varepsilon}^{M-k}
+\le \sum_{k=M/2}^M {M \choose k} \Pr{|S_R - \mu| \ge \varepsilon}^k 1^{M-k} \\
+\le \sum_{k=M/2}^M {M \choose k} \left( \frac{1}{8} \right)^k
+\le {M \choose M/2}
+  \sum_{k=M/2}^\infty \left( \frac{1}{8} \right)^k
+= {M \choose M/2} \left(\frac{8}{7}\right) \left(\frac{1}{8}\right)^{M/2}.
+$$
+
+Using Stirling's approximation bounds,
+
+$$
+{M \choose M/2}
+\le \sqrt{\frac{2}{\pi M}} \exp\left( \frac{1}{12M} - \frac{2}{12(M/2) + 1} \right)
+  \left( \frac{M^M}{(M/2)^{M/2} (M/2)^{M/2}} \right)
+\le \left(\frac{e^{1/24}}{\sqrt{\pi}}\right) 2^M.
+$$
+
+Therefore,
+
+$$
+\Pr{T_M \ge \mu + \varepsilon}
+\le C \left( \frac{1}{2} \right)^{M/2},
+$$
+
+where $C = 8 e^{1/24} / 7 \sqrt{\pi}$.
+
+Similar reasoning leads to an analogous bound for the probability that
+$T_M \le \mu - \varepsilon$:
+
+$$
+\Pr{T_M \le \mu - \varepsilon}
+\le C \left( \frac{1}{2} \right)^{M/2}.
+$$
+
+Combining these results yields
+
+$$
+\Pr{|T_M - \mu| \ge \varepsilon} \le 2C \left(\frac{1}{2}\right)^{M/2}.
+$$
+
+By choosing $M \ge -(2 \log 2) \log (\delta / 2C) = O(\log(\delta^{-1}))$, we find that
+$T_M$ is a $\varepsilon$-accurate estimate for $\mu$ with probability at least $1 - \delta$
+that requires only $N = O(MR) = O(\log(\delta^{-1}) \sigma^2 / \varepsilon^2)$ samples.
 
 --------------------------------------------------------------------------------------------
 
@@ -293,6 +379,18 @@ $$
 = \left( e \varepsilon \right)^N.
 $$
 
+_Remark_. The above choice of $\lambda$ minimizes $e^{\lambda t} \lambda^{-N}$ when
+$t = \varepsilon N$. To see this, observe that to minimize
+$e^{\lambda t} \lambda^{-N} = e^{\lambda t - N \ln \lambda}$, it is sufficient to minimize
+the exponent. Setting the derivative of the exponent
+
+$$
+\frac{d}{d\lambda} \left( \lambda t - N \ln \lambda \right)
+= t - \frac{N}{\lambda}
+$$
+
+to zero, we find that $\lambda_{\min} = N / t$. Therefore, for $t = \varepsilon N$,
+$\lambda_{\min} = 1 / \varepsilon$.
 
 --------------------------------------------------------------------------------------------
 
