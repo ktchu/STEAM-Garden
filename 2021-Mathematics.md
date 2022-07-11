@@ -1064,7 +1064,7 @@ Substituting into the expression for the partial sum, we find that
 
   \[
     \frac{x^r}{r!}
-    \le e^x - \sum_{k=0}^r \frac{x^k}{k!} = \sum_{k=r}^\infty \frac{x^k}{k!}
+    \le e^x - \sum_{k=0}^{r-1} \frac{x^k}{k!} = \sum_{k=r}^\infty \frac{x^k}{k!}
     \le e^x \frac{x^r}{r!}
   \]
 
