@@ -140,6 +140,18 @@ TODO: compute distribution parameters
 
 --------------------------------------------------------------------------------------------
 
+2022-07-10: References for Laplace's Method and Watson's Lemma
+--------------------------------------------------------------
+
+### References
+
+* "The method of Laplace and Watson's lemma", _J. Concrete and Applicable Math_. 10 (2012).
+  [[pdf]](https://www.researchgate.net/publication/267127890_The_method_of_Laplace_and_Watson%27s_lemma)
+
+* [Approximating integrals with Laplace's method](https://francisbach.com/laplace-method/)
+
+--------------------------------------------------------------------------------------------
+
 2022-07-05: Bounds for $e^x$
 ----------------------------
 
@@ -238,43 +250,44 @@ TODO: compute distribution parameters
   Finally, note that for $x = 0$, we have $f(0) = 0 \ge 0$. Therefore, $f(x) \ge 0$ for
   $x < 1$, as desired.
 
-* __Tail Bounds for $e^x$__. Let $n$ be a nonnegative integer. For $x < 1$,
+* __Tail Bounds for $e^x$__. Let $n$ be a positive integer. For $x < 1$,
 
   $$
-  e^x - \sum_{k=0}^n \frac{x^k}{k!} \le \frac{|x|^{n+1}}{1 - x}.
+  \sum_{k=n}^\infty \frac{x^k}{k!} \le \frac{|x|^n}{1 - x}.
   $$
 
   _Proof_. Let
 
   $$
   f(x)
-  = x^{n+1} - (1-x) \left( e^x - \sum_{k=0}^n \frac{x^k}{k!} \right)
-  = x^{n+1} - (1-x) e^x + (1-x) \sum_{k=0}^n \frac{x^k}{k!}.
+  = x^n - (1 - x) \sum_{k=n}^\infty \frac{x^k}{k!}
+  = x^n - (1-x) \left( e^x - \sum_{k=0}^{n-1} \frac{x^k}{k!} \right)
+  = x^n - (1-x) e^x + (1-x) \sum_{k=0}^{n-1} \frac{x^k}{k!}.
   $$
 
   The desired inequality is equivalent to
 
   * $f(x) \ge 0$ when $x \ge 0$,
 
-  * $f(x) \ge 0$ when $x \le 0$ and $n$ is odd, and
+  * $f(x) \ge 0$ when $x \le 0$ and $n$ is even, and
 
-  * $f(x) \le 0$ when $x \le 0$ and $n$ is even.
+  * $f(x) \le 0$ when $x \le 0$ and $n$ is odd.
 
   Differentiating $f(x)$, we find that
 
   $$
   f'(x)
-  = (n+1) x^n + x e^x
-    - \sum_{k=0}^n \frac{x^k}{k!} + (1-x) \sum_{k=0}^{n-1} \frac{x^k}{k!} \\
-  = (n+1) x^n + x e^x - \frac{x^n}{n!} - x \sum_{k=0}^{n-1} \frac{x^k}{k!} \\
-  = \left( n + 1 - \frac{1}{n!} \right) x^n + x e^x - x \sum_{k=0}^{n-1} \frac{x^k}{k!}.
+  = n x^{n-1} + x e^x
+    - \sum_{k=0}^{n-1} \frac{x^k}{k!} + (1-x) \sum_{k=0}^{n-2} \frac{x^k}{k!} \\
+  = n x^{n-1} + x e^x - \frac{x^{n-1}}{(n-1)!} - x \sum_{k=0}^{n-2} \frac{x^k}{k!} \\
+  = \left( n - \frac{1}{(n-1)!} \right) x^{n-1} + x e^x - x \sum_{k=0}^{n-2} \frac{x^k}{k!}.
   $$
 
   For $0 < x < 1$, the bound $e^x \ge \sum_{k=0}^{n} \frac{x^k}{k!}$ (which is satisfied
   for all $x \ge 0$) implies that
 
   $$
-  f'(x) \ge \left( n + 1 - \frac{1}{n!} \right) x^n.
+  f'(x) \ge \left( n - \frac{1}{(n-1)!} \right) x^{n-1}.
   $$
 
   Therefore, $f'(x)$ is nonnegative, so $f(x) \ge 0$ because $f(0) = 0$ and
@@ -283,12 +296,12 @@ TODO: compute distribution parameters
   f(x) - f(0) = \int_0^x f'(s) ds \ge \int_0^x 0 ds = 0.
   $$
 
-  For $x < 0$, we need to consider two cases separately: $n$ odd and $n$ even.
+  For $x < 0$, we need to consider two cases separately: $n$ even and $n$ odd.
 
-  When $n$ is odd, $e^x \le \sum_{k=0}^{n-1} \frac{x^k}{k!}$ (because $n-1$ is even), so
+  When $n$ is even, $e^x \le \sum_{k=0}^{n-2} \frac{x^k}{k!}$ (because $n-2$ is even), so
 
   $$
-  f'(x) \le \left( n + 1 - \frac{1}{n!} \right) x^n.
+  f'(x) \le \left( n - \frac{1}{(n-1)!} \right) x^{n-1}.
   $$
 
   Therefore, $f'(x)$ is nonpositive, so $f(x) \ge 0$ because $f(0) = 0$ and
@@ -297,10 +310,10 @@ TODO: compute distribution parameters
   f(0) - f(x) = \int_x^0 f'(s) ds \le \int_x^0 0 ds = 0.
   $$
 
-  When $n$ is even, $e^x \ge \sum_{k=0}^{n-1} \frac{x^k}{k!}$ (because $n-1$ is odd), so
+  When $n$ is odd, $e^x \ge \sum_{k=0}^{n-2} \frac{x^k}{k!}$ (because $n-2$ is odd), so
 
   $$
-  f'(x) \ge \left( n + 1 - \frac{1}{n!} \right) x^n.
+  f'(x) \ge \left( n - \frac{1}{(n-1)!} \right) x^{n-1}.
   $$
 
   Therefore, $f'(x)$ is nonnegative, so $f(x) \le 0$ because $f(0) = 0$ and
