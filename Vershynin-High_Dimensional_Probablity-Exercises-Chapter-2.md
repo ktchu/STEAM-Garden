@@ -34,6 +34,10 @@ High-Dimensional Probability (Vershynin): Exercises - Chapter 2
 
 --------------------------------------------------------------------------------------------
 
+## 2.1. Why Concentration Inequalities?
+
+--------------------------------------------------------------------------------------------
+
 ### 2.1.4. Truncated Normal Distribution
 
 __Problem__. Let $g \sim N(0, 1)$. Show that, for all $t \ge 1$, we have
@@ -71,6 +75,10 @@ $$
 = \frac{1}{\sqrt{2 \pi}} t e^{-t^2/2} + \Pr{g > t}
 \le \left( t + \frac{1}{t} \right) \frac{1}{\sqrt{2 \pi}} e^{-t^2/2}.
 $$
+
+--------------------------------------------------------------------------------------------
+
+## 2.2. Hoeffding's Inequality
 
 --------------------------------------------------------------------------------------------
 
@@ -394,6 +402,10 @@ $\lambda_{\min} = 1 / \varepsilon$.
 
 --------------------------------------------------------------------------------------------
 
+## 2.3. Chernoff's Inequality
+
+--------------------------------------------------------------------------------------------
+
 ### 2.3.2. (Chernoff's Inequality - Lower Tails)
 
 __Problem__. Modify the proof of Theorem 2.3.1 to obtain the following bound on the lower
@@ -606,5 +618,84 @@ $$
 \frac{X - \lambda}{\sqrt{\lambda}} \rightarrow \normal{0}{1}
 \textrm{ in distribution}.
 $$
+
+--------------------------------------------------------------------------------------------
+
+## 2.4. Application: Degrees of Random Graphs
+
+--------------------------------------------------------------------------------------------
+
+### 2.4.2. (Bounding the degrees of sparse graphs)
+
+__Problem__. Consider a random graph $G \sim G(n, p)$ with expected degrees $d = O(\log n)$.
+Show that with high probability (say , 0.9), all the vertices of $G$ have degree
+$O(\log n)$.
+
+__Solution__. Let $d_i$ be the degree of vertex $i$. Then $d_i$ is the sum of $n - 1$
+independent Bernoulli random variables (the indicators of the edges incident to $i$).
+By Chernoff's inequality,
+
+$$
+\Pr{d_i \ge t} \le e^{-d} \left( \frac{e d}{t} \right)^t.
+$$
+
+Taking the union bound over all vertices,
+
+$$
+\Pr{\exists \ i \le n : d_i \ge t}
+\le \sum_{i=1}^n \Pr{d_i \ge t}
+\le n e^{-d} \left( \frac{e d}{t} \right)^t.
+$$
+
+Letting $t = C d$, we obtain the bound
+
+$$
+\Pr{\exists \ i \le n : d_i \ge C d}
+\le n e^{-d} \left( \frac{e}{C} \right)^{C d}
+= n \exp\left(-d (C \ln C - C + 1) \right).
+$$
+
+If $C$ is sufficiently large, the right-hand side of the inequality is bounded above by
+0.1. Therefore, the complementary event that all vertices have degree less than
+$Cd = O(\log n)$ occurs high probability (i.e., probability greater than 0.9).
+
+--------------------------------------------------------------------------------------------
+
+### 2.4.3. (Bounding the degrees of very sparse graphs)
+
+__Problem__. Consider a random graph $G \sim G(n, p)$ with expected degrees $d = O(1)$.
+Show that with high probability (say, 0.9), all the vertices of $G$ have degree
+
+$$
+O\left( \frac{\log n}{\log \log n} \right).
+$$
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+
+### 2.4.4. (Sparse graphs are not almost regular)
+
+__Problem__. Consider a random graph $G \sim G(n, p)$ with expected degrees $d = o(\log n)$.
+Show that, with high probability (say, 0.9), $G$ has a vertex with degree $10d$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+
+### 2.4.5. (Very sparse graphs are far from being regular)
+
+__Problem__. Consider a random graph $G \sim G(n, p)$ with expected degrees $d = O(1)$. Show
+that, with high probability (say, 0.9), $G$ has a vertex whose degree is at least order
+
+$$
+\frac{\log n}{\log \log n}.
+$$
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+
+## 2.5. Sub-Gaussian Distributions
 
 --------------------------------------------------------------------------------------------
