@@ -2,6 +2,7 @@ High-Dimensional Probability (Vershynin): Exercises - Chapter 0
 ===============================================================
 
 -------------------------------------------------------------------------------
+
 ### 0.0.3.
 
 Check the following variance identities.

@@ -3,6 +3,10 @@ High-Dimensional Probability (Vershynin): Exercises - Chapter 1
 
 --------------------------------------------------------------------------------------------
 
+## 1.2. Some Classical Inequalities
+
+--------------------------------------------------------------------------------------------
+
 ### 1.2.2. Generalization of integral identity
 
 __Problem__. Prove the following extension of Lemma 1.2.1 which is valid for any random
@@ -87,6 +91,10 @@ __Solution__.
 
 where the inequality follows from Markov's inequality and the last equality
 follows from the definition of the variance.
+
+--------------------------------------------------------------------------------------------
+
+## 1.3. Limit Theorems
 
 --------------------------------------------------------------------------------------------
 
