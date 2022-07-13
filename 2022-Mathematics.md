@@ -140,6 +140,17 @@ TODO: compute distribution parameters
 
 --------------------------------------------------------------------------------------------
 
+2022-07-11: Order Statistics
+----------------------------
+
+TODO
+
+* Cumulative Distribution
+
+* Density
+
+--------------------------------------------------------------------------------------------
+
 2022-07-10: References for Laplace's Method and Watson's Lemma
 --------------------------------------------------------------
 
@@ -226,7 +237,7 @@ TODO: compute distribution parameters
   Therefore, we can conclude that that $f(x) > 0$ for $0 \le x \le \delta/2$, which
   is equivalent to the desired bound.
 
-  _Remark_. The previous proposition is a corollary of this proposition with $\delta = 1$.
+  __Remark__. The previous proposition is a corollary of this proposition with $\delta = 1$.
 
 ### Geometric Series Bounds for $e^x$
 
@@ -815,7 +826,7 @@ _Last Updated_: 2022-06-08
   * the projection of $u$ onto any blade formed as the outer product of $s < \frac{n}{2}$
     standard basis vectors that include $e_i$ is greater than $\sqrt{1 - \varepsilon^2}$.
 
-  Then
+  Then the magnitude of the projection of $u$ onto $e_i$ is bounded from below:
 
   $$
   |u_i|^2
@@ -868,7 +879,7 @@ _Last Updated_: 2022-06-08
   \ge 1 - \left( 1 + \frac{2s}{n} \right) \varepsilon^2.
   $$
 
-  The last inequality follows from the observation that
+  The last inequality follows because
 
   $$
   \frac{m-k}{n-k} \le \frac{m}{n}
