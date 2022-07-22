@@ -13,6 +13,9 @@ Linear Algebra Done Right (S. Axler): Exercises 3.B
 * $\newcommand{\F}{\mathbb{F}}$
   An arbitrary scalar field:$\F$
 
+* $\newcommand{\span}[1]{\operatorname{span}\left({#1}\right)}$
+  The span of $u, v, w$: $\span{u, v, w}$
+
 * $\newcommand{\null}{\operatorname{null}}$
   The null space of $T$: $\null T$
 
@@ -33,7 +36,45 @@ Linear Algebra Done Right (S. Axler): Exercises 3.B
 __Problem__. Give an example of a linear map $T$ such that $\dim \null T = 3$ and
 $\dim \range T = 2$.
 
-__Solution__. TODO
+__Solution__. Consider $T: \R^5 \rightarrow \R^5$ by
+
+$
+T e_1 = 0 \\
+T e_2 = 0 \\
+T e_3 = 0 \\
+T e_4 = e_4 \\
+T e_5 = e_5.
+$
+
+If $v \in \null T$, then
+
+$$
+0
+= T(a_1 e_1 + a_2 e_2 + a_3 e_3 + a_4 e_4 + a_5 e_5)
+= a_1 T e_1 + a_2 T e_2 + a_3 T e_3 + a_4 T e_4 + a_5 T e_5
+= a_4 e_4 + a_5 e_5,
+$$
+
+which implies that $a_4 = 0 = a_5$ because linearly independent. Therefore,
+$\null T = \span{e_1, e_2, e_3}$ and $\dim \null T = 3$.
+
+Observe that for any $v = a_1 e_1 + a_2 e_2 + a_3 e_3 + a_4 e_4 + a_5 e_5 \in \R^5$,
+
+$$
+Tv = T(a_1 e_1 + a_2 e_2 + a_3 e_3 + a_4 e_4 + a_5 e_5)
+= a_1 T e_1 + a_2 T e_2 + a_3 T e_3 + a_4 T e_4 + a_5 T e_5
+= a_4 e_4 + a_5 e_5,
+$$
+
+which implies the following.
+
+* Any $w \in \range T$ can be expressed as a linear combination of $e_4$ and $e_5$, so
+  $\range T \subseteq \span{e_4, e_5}$.
+
+* Any $w \in \span{e_4, e_5}$ is the image of the vector $v = w$, so
+  $\span{e_4, e_5} \subseteq \range T$.
+
+Therefore, $\range T = \span{e_4, e_5}$, which implies that $\dim \range T = 2$.
 
 --------------------------------------------------------------------------------------------
 ### 2.
@@ -46,7 +87,15 @@ $$
 
 Prove that $(ST)^2 = 0$.
 
-__Solution__. TODO
+__Solution__. Let $u \in V$, $v = Tu$, and $w = Sv$. Then
+
+$$
+(ST)^2 u = (ST)(ST) u = STS (Tu) = ST (Sv) = S (Tw) = S (0) = 0.
+$$
+
+where the second to last equality follows because $w \in \range S$, which implies
+$w \in \null T$. Therefore, we can conclude that $(ST)^2 = 0$ because $u$ is an arbitrary
+vector in $V$.
 
 --------------------------------------------------------------------------------------------
 ### 3.
@@ -62,14 +111,14 @@ $$
 
 __Problem__. What property of $T$ corresponds to $v_1, \ldots, v_m$ spanning $V$?
 
-__Solution__. TODO
+__Solution__. If $\span{v_1, \ldots, v_m} = V$, then $\range T = V$.
 
 #### 3.b.
 
 __Problem__. What property of $T$ corresponds to $v_1, \ldots, v_m$ being linearly
 independent?
 
-__Solution__. TODO
+__Solution__. If $v_1, \ldots, v_m$ are linearly independent, then $\null T = \{0\}$.
 
 --------------------------------------------------------------------------------------------
 ### 4.
@@ -82,7 +131,36 @@ $$
 
 is not a subspace of $\maps{\R^5}{\R^4}$.
 
-__Solution__. TODO
+__Solution__. Consider the following two linear maps.
+
+$$
+T_1 e_1 = 0 \\
+T_1 e_2 = 0 \\
+T_1 e_3 = 0 \\
+T_1 e_4 = e_4 \\
+T_1 e_5 = e_5
+$$
+
+and
+
+$$
+T_2 e_1 = e_1 \\
+T_2 e_2 = e_2 \\
+T_2 e_3 = 0 \\
+T_2 e_4 = 0 \\
+T_2 e_5 = 0
+$$
+
+Observe that $\dim \null T_1 = 3 = \dim \null T_2$. However,
+$\dim \null (T_1 + T_2) = 1 \le 2$ because
+
+$$
+(T_1 + T_2) e_1 = e_1 \\
+(T_1 + T_2) e_2 = e_2 \\
+(T_1 + T_2) e_3 = 0 \\
+(T_1 + T_2) e_4 = e_4 \\
+(T_1 + T_2) e_5 = e_5.
+$$
 
 --------------------------------------------------------------------------------------------
 ### 5.
@@ -93,7 +171,28 @@ $$
 \range T = \null T.
 $$
 
-__Solution__. TODO
+__Solution__. Consider $T$ defined by the following:
+
+$$
+T e_1 = 0 \\
+T e_2 = 0 \\
+T e_3 = e_1 \\
+T e_4 = e_2.
+$$
+
+Clearly, $\null T = \span{e_1, e_2}$.
+
+Consider $v = a_1 e_1 + a_2 e_2 + a_3 e_3 + a_4 e_4 \in V$. Then
+
+$$
+Tv = T(a_1 e_1 + a_2 e_2 + a_3 e_3 + a_4 e_4)
+= a_1 T e_1 + a_2 T e_2 + a_3 T e_3 + a_4 T e_4
+= a_3 e_1 + a_4 e_2,
+$$
+
+which implies that $\range T = \span{e_1, e_2}$.
+
+Therefore, $\range T = \null T$, as desired.
 
 --------------------------------------------------------------------------------------------
 ### 6.
@@ -105,7 +204,12 @@ $$
 \range T = \null T.
 $$
 
-__Solution__. TODO
+__Solution__. Suppose there exists a linear map satisfying the conditions. If
+$\range T = \null T$, then $\dim \range T = \dim \null T$, which implies that
+$\dim \null T + \dim \range T$ is even. However, the Fundamental Theorem of Linear Maps
+implies that $\dim \null T + \dim \range T = 5$, which is odd. We have arrived at a
+contradiction, so our assumption that a linear map exists with the required conditions
+is false.
 
 --------------------------------------------------------------------------------------------
 ### 7.
@@ -131,7 +235,12 @@ __Solution__. TODO
 __Problem__. Suppose $v_1, \ldots, v_n$ spans $V$ and $T \in \maps{V}{W}$. Prove that the
 list $T v_1, \ldots, T v_n$ spans $\range T$.
 
-__Solution__. TODO
+__Solution__. Since $v_1, \ldots, v_n$ spans $V$, it contains a basis for $V$. Without
+loss of generality, let $v_1, \ldots, v_m$ with $m \le n$ be a basis $V$. Then $T$ is
+uniquely defined by $T v_1, \ldots, T v_m$, which implies that
+$\range T = \span{T v_1, \ldots, T v_m}$. Therefore, any superset of
+$T v_1, \ldots, T v_m$ spans $\range T$ - in particular, $T v_1, \ldots, T v_n$ spans
+$\range T$.
 
 --------------------------------------------------------------------------------------------
 ### 11.
@@ -139,7 +248,11 @@ __Solution__. TODO
 __Problem__. Suppose $S_1, \ldots, S_n$ are injective linear maps such that
 $S_1 S_2 \cdots S_n$ makes sense. Prove that $S_1 S_2 \cdots S_n$ is injective.
 
-__Solution__. TODO
+__Solution__. Let $u$ and $v$ be vectors such that
+$(S_1 S_2 \cdots S_n) u = (S_1 S_2 \cdots S_n) v$. Then
+$S_1 (S_2 \cdots S_n u) = S_1 (S_2 \cdots S_n v)$. Since $S_1$ is injective,
+$S_2 \cdots S_n u = S_2 \cdots S_n v$. Continuing in this manner, we arrive at the
+conclusion $u = v$, which implies that $S_1 S_2 \cdots S_n$ is injective.
 
 --------------------------------------------------------------------------------------------
 ### 12.
@@ -148,7 +261,21 @@ __Problem__. Suppose that $V$ is finite-dimensional and that $T \in \maps{V}{W}$
 that there exists a subspace $U$ of $V$ such that $U \cap \null T = \{0\}$ and
 $\range T = \{Tu : u \in U\}$.
 
-__Solution__. TODO
+__Solution__. Because $\null T$ is a subspace of $V$, there exists a subspace $U$ such
+that $V$ is the direct sum of $U$ and $\null T$: $V = U \oplus \null T$. By definition,
+$U \cap \null T = \{0\}$.
+
+Consider $\range T$. Clearly, $\range T \supseteq \{Tu : u \in U\}$. Now, suppose that
+$w \in \range T$. Then there exists $v \in V$ such that $w = Tv$. Since
+$V = U \oplus \null T$, $v$ is equal to a unique sum of $u \in U$ and $u^0 \in \null T$
+so that
+
+$$
+w = Tv = T(u + u^0) = Tu + T u^0 = Tu + 0 = Tu.
+$$
+
+In other words, $w$ is the image of a vector $u \in U$, which implies that
+$\range T \subseteq \{Tu : u \in U\}$. Therefore, $\range T = \{Tu : u \in U\}$.
 
 --------------------------------------------------------------------------------------------
 ### 13.
@@ -169,7 +296,17 @@ __Solution__. TODO
 __Problem__. Suppose $U$ is a 3-dimensional subspace of $\R^8$ and that $T$ is a linear map
 from $\R^8$ to $\R^5$ such that $\null T = U$. Prove that $T$ is surjective.
 
-__Solution__. TODO
+__Solution__. By the Fundamental Theorem of Linear Maps,
+
+$$
+8 = \dim \R^8
+= \dim \null T + \dim \range T
+= \dim U + \dim \range T
+= 3 + \dim \range T.
+$$
+
+Simple algebra yields $\dim \range T = 5$, which implies that $\range T = \R^5$ (because
+$\range T \subseteq \R^5$). Therefore, $T$ is surjective.
 
 --------------------------------------------------------------------------------------------
 ### 15.
@@ -181,7 +318,18 @@ $$
 \{ (x_1, x_2, x_3, x_4, x_5) \in \F^5 : x_1 = 3 x_2, x_3 = x_4 = x_5 \}.
 $$
 
-__Solution__. TODO
+__Solution__. Suppose there exists a linear map $T: \F^5 \rightarrow \F^2$ satisfying the
+desired conditions. Then
+
+$$
+5 = \dim \F^5 = \dim \null T + \dim \range T
+\le \dim \null T + \dim \F^2 = \dim \null T + 2.
+$$
+
+by the Fundamental Theorem of Linear Maps. Therefore, $\dim \null T \ge 3$. Observing that
+$\dim \{ (x_1, x_2, x_3, x_4, x_5) \in \F^5 : x_1 = 3 x_2, x_3 = x_4 = x_5 \} = 2$, we
+have a contradiction, so our assumption that a linear map exists with the required
+conditions is false.
 
 --------------------------------------------------------------------------------------------
 ### 16.
@@ -189,7 +337,9 @@ __Solution__. TODO
 __Problem__. Suppose there exists a linear map on $V$ whose null space and range are both
 finite-dimensional. Prove that $V$ is finite-dimensional.
 
-__Solution__. TODO
+__Solution__. Let $T$ be a linear map with finite-dimensional null space and range. By the
+Fundamental Theorem of Linear Maps, $\dim V = \dim \null T + \dim \range T < \infty$, which
+yields the desired result.
 
 --------------------------------------------------------------------------------------------
 ### 17.
@@ -197,7 +347,35 @@ __Solution__. TODO
 __Problem__. Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an
 injective linear map from $V$ to $W$ if and only if $\dim V \le \dim W$.
 
-__Solution__. TODO
+__Solution__
+
+($\Rightarrow$) Let $T$ be an injective linear map from $V$ to $W$. Then $\null T = \{0\}$.
+The Fundamental Theorem of Linear Maps implies that
+
+$$
+\dim V
+= \dim \null T + \dim \range T
+= \dim \range T
+\le \dim W.
+$$
+
+where the inequality follows because $\range T$ is a subspace of $W$.
+
+($\Leftarrow$) Let $v_1, \ldots, v_n$ and $w_1, \ldots, w_m$ be bases for $V$ and $W$,
+respectively, where $n = \dim V$ and $m = \dim W$. Since $\dim V \le \dim W$, we can
+define a linear map $T: V \rightarrow W$ by $T v_i = w_i$ for all $1 \le i \le n$.
+Consider $v = \sum_{i=1}^n a_i v_i \in \null T$. Then
+
+$$
+0 = T v
+= T \left( \sum_{i=1}^n a_i v_i \right)
+= \sum_{i=1}^n a_i T v_i
+= \sum_{i=1}^n a_i w_i,
+$$
+
+which implies $a_i = 0$ for $1 \le i \le n$ because $w_1, \ldots, w_n$ are linearly
+independent. Therefore, $v = 0$, so we can conclude that $\null T = \{0\}$. In other
+words, $T$ is injective.
 
 --------------------------------------------------------------------------------------------
 ### 18.
@@ -205,7 +383,40 @@ __Solution__. TODO
 __Problem__. Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an
 surjective linear map from $V$ to $W$ if and only if $\dim V \ge \dim W$.
 
-__Solution__. TODO
+__Solution__
+
+($\Rightarrow$) Let $T$ be an surjective linear map from $V$ to $W$. Then $\range T = W$.
+The Fundamental Theorem of Linear Maps implies that
+
+$$
+\dim V
+= \dim \null T + \dim \range T
+= \dim \null T + \dim W
+\ge \dim W
+$$
+
+where the inequality follows because $\dim \null T \ge 0$.
+
+($\Leftarrow$) Let $v_1, \ldots, v_n$ and $w_1, \ldots, w_m$ be bases for $V$ and $W$,
+respectively, where $n = \dim V$ and $m = \dim W$. Since $\dim V \ge \dim W$, we can
+define a linear map $T: V \rightarrow W$ with
+
+$$
+T v_i = w_i \textrm{ for $1 \le i \le m$} \\
+T v_i = 0 \textrm{ for $m < i \le n$}.
+$$
+
+Consider $w = \sum_{i=1}^m a_i w_i\in W$. Then $T$ maps $v = \sum_{i=1}^m a_i v_i$ to $w$:
+
+$$
+T v
+= T \left( \sum_{i=1}^m a_i v_i \right)
+= \sum_{i=1}^m a_i T v_i
+= \sum_{i=1}^m a_i w_i
+= w.
+$$
+
+Therefore $w \in \range T$, which implies that $T$ is surjective.
 
 --------------------------------------------------------------------------------------------
 ### 19.
@@ -214,7 +425,53 @@ __Problem__. Suppose $V$ and $W$ are both finite-dimensional and that $U$ is a s
 $V$. Prove that there exists $T \in \maps{V}{W}$ such that $\null T = U$ if and only if
 $\dim U \ge \dim V - \dim W$.
 
-__Solution__. TODO
+__Solution__
+
+($\Rightarrow$) If $\null T = U$, then
+
+$$
+\dim V
+= \dim \null T + \dim \range T
+= \dim U + \dim \range T
+$$
+
+by the Fundamental Theorem of Linear Maps. Rearranging,
+
+$$
+\dim U
+= \dim V - \dim \range T
+\ge \dim V - \dim W
+$$
+
+where the inequality follows because $\range T \subseteq W$.
+
+($\Leftarrow$) Because $U$ is a subspace of $V$, there exists a subspace $U^r$ such
+that $V$ is the direct sum of $U$ and $U^r$: $V = U \oplus U^r$. Let $u_1, \ldots, u_n$
+and $u^r_1, \ldots, u^r_p$ be bases for $U$ and $U^r$, respectively with $n = \dim U$ and
+$p = \dim U^r$. Let $w_1, \ldots, w_m$ be a basis for $W$. Observe that $p \le m$ because
+$\dim U \ge \dim V - \dim W$. Therefore, we can define a linear map $T: V \rightarrow W$
+by
+
+$$
+T u_i = 0 \\
+T u^r_i = w_i \textrm{ for $1 \le i \le p$}
+$$
+
+By definition, $U \subseteq \null T$. Now, suppose that
+$v = \sum_{i=1}^n a_i u_i + \sum_{i=1}^p b_i u^r_i \in \null T$. Then
+
+$$
+0
+= T v
+= T \left( \sum_{i=1}^n a_i u_i + \sum_{i=1}^p b_i u^r_i \right)
+= \sum_{i=1}^n a_i T u_i + \sum_{i=1}^p b_i T u^r_i
+= \sum_{i=1}^p b_i w_i,
+$$
+
+which implies that $b_i = 0$ for $1 \le i \le p$ because the $w_i$ are linearly independent.
+In other words, $v \in U$, which implies that $\null T \subseteq U$. Combining these
+results, we have demonstrated, by construction, the existence of a linear map with
+$\null T = U$.
 
 --------------------------------------------------------------------------------------------
 ### 20.
