@@ -647,17 +647,51 @@ $$
 \le n e^{-d} \left( \frac{e d}{t} \right)^t.
 $$
 
-Letting $t = C d$, we obtain the bound
+Letting $t = C \ln n$, we obtain the bound
 
 $$
-\Pr{\exists \ i \le n : d_i \ge C d}
-\le n e^{-d} \left( \frac{e}{C} \right)^{C d}
-= n \exp\left(-d (C \ln C - C + 1) \right).
+\Pr{\exists \ i \le n : d_i \ge C \ln n}
+\le n e^{-d} \left( \frac{e d}{C \ln n} \right)^{C \ln n}
+= n e^{-d} \exp\left( (C \ln n) (1 + \ln d - \ln (C \ln n)) \right) \\
+\le n^{1 + C (1 + \ln d - \ln (C \ln n))}
 $$
 
-If $C$ is sufficiently large, the right-hand side of the inequality is bounded above by
-0.1. Therefore, the complementary event that all vertices have degree less than
-$Cd = O(\log n)$ occurs high probability (i.e., probability greater than 0.9).
+Since $d = O(\ln n)$, there exists $D$ and $n_0$ such that
+
+$$
+d \le D \ln n
+$$
+
+for $n \ge n_0$. Assuming $n \ge n_0$,
+
+$$
+\ln d - \ln (C \ln n)
+\le \ln (D \ln n) - \ln (C \ln n)
+\le \ln D - \ln C.
+$$
+
+Let $p$ be the desired lower bound for the probability that all vertices have degree
+less than $C \ln n$. Choosing $C$ sufficiently that large so that
+$1 + C (1 + \ln D) - C \ln C \le \frac{\ln (1-p)}{\ln 2}$ (which is independent of $n$)
+implies that
+
+$$
+n^{1 + C (1 + \ln d - \ln (C \ln n))}
+\le n^{1 + C (1 + \ln D - \ln C)}
+\le 2^{1 + C (1 + \ln D - \ln C)}
+\le 1 - p.
+$$
+
+because $n \ge 2$ and $1 + C (1 + \ln D - \ln C) < 0$.
+
+Therefore, we have the bound
+
+$$
+\Pr{\exists \ i \le n : d_i \ge C \ln n} \le 1 - p,
+$$
+
+which shows that the complementary event that all vertices have degree less than
+$C \ln n = O(\log n)$ occurs with high probability (i.e., probability greater than $p$).
 
 --------------------------------------------------------------------------------------------
 
@@ -670,7 +704,45 @@ $$
 O\left( \frac{\log n}{\log \log n} \right).
 $$
 
-__Solution__. TODO
+__Solution__. Following same initial reasoning from Problem 2.4.2, we have the bound
+
+$$
+\Pr{\exists \ i \le n : d_i \ge t}
+\le \sum_{i=1}^n \Pr{d_i \ge t}
+\le n e^{-d} \left( \frac{e d}{t} \right)^t
+= n \left( C t \right)^{-t}
+= n \exp \left( -t \ln (D t) \right)
+$$
+
+where $D$ is a constant and the second to last equality follows because $d = O(1)$.
+
+Letting $t = \frac{C \ln n}{\ln \ln n}$, we obtain the bound
+
+$$
+\Pr{\exists \ i \le n : d_i \ge \frac{C \ln n}{\ln \ln n}}
+\le n \exp \left( -\frac{C \ln n \ln \left(D \frac{C \ln n}{\ln \ln n} \right)}
+                        {\ln \ln n} \right)
+= n^{1 - \frac{C \ln \left(D \frac{C \ln n}{\ln \ln n} \right)}{\ln \ln n} } \\
+\le n^{1 - \frac{C \ln \left(D C \ln n \right)}{\ln \ln n} }
+= n^{1 - C \left( 1 + \frac{\ln D C}{\ln \ln n} \right) }
+\le n^{1-C}.
+$$
+
+Let $p$ be the desired lower bound for the probability that all vertices have degree
+less than $\frac{C \ln n}{\ln \ln n}$. Choosing $C \ge 1 - \frac{\ln(1-p)}{\ln 2}$
+(which is independent of $n$) implies that $2^{1 - C} \le 1 - p$. Since $n \ge 2$ and
+$1 - C < 0$, we arrive at the bound
+
+$$
+\Pr{ \exists \ i \le n : d_i \ge \frac{C \ln n}{\ln \ln n} }
+\le n^{1-C}
+\le 2^{1-C}
+\le 1 - p.
+$$
+
+Therefore, the complementary event that all vertices have degree less than
+$\frac{C \ln n}{\ln \ln n} = O\left( \frac{\log n}{\log \log n} \right)$ occurs with
+high probability (i.e., probability greater than $p$).
 
 --------------------------------------------------------------------------------------------
 
