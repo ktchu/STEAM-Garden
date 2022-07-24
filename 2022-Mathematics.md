@@ -151,6 +151,69 @@ TODO
 
 --------------------------------------------------------------------------------------------
 
+2022-07-23: Miscellaneous Identities and Bounds
+-----------------------------------------------
+
+* $a^{b \ln c} = c^{b \ln a}$
+
+  _Proof_. Note that $x = e^{\ln x}$ for all $x > 0$. Therefore,
+
+  $$
+  a^{b \ln c}
+  = \left( e^{\ln a} \right)^{b \ln c}
+  = e^{\ln a (b \ln c)}
+  = e^{\ln c (b \ln a)}
+  = \left( e^{\ln c} \right)^{b \ln a}
+  = c^{b \ln a}
+  $$
+
+* $x \ln x - x \ge -1$ for $x > 0$
+
+  _Proof_. Let $f(x) = x \ln x - x$. Then $f'(x) = \ln x$ and $f''(x) = 1/x$. For $x > 0$,
+  $f''(x) > 0$, so $f$ is convex. $f'(x) = 0$ at $x = 1$, so the minimum of $f$ is $-1$.
+
+* For all positive integers $n$, $x \ge (\ln x)^n$ for sufficienty large $x$.
+
+  _Proof_. Consider the ratio $\frac{(\ln x)^n}{x}$. By L'Hopital's,
+
+  $$
+  \lim_{x \rightarrow \infty} \frac{(\ln x)^n}{x}
+  = \lim_{x \rightarrow \infty} \frac{n (\ln x)^{n-1}}{x}
+  = \cdots
+  = \lim_{x \rightarrow \infty} \frac{n (n-1) \cdots (2) (\ln x)}{x}
+  = \lim_{x \rightarrow \infty} \frac{n!}{x}
+  = 0.
+  $$
+
+  Therefore, by the definition of the limit, there exists $x_0$ such that
+
+  $$
+  \frac{(\ln x)^n}{x} \le 1
+  $$
+
+  for $x \ge x_0$. Rearranging this bound yields the desired inequality.
+
+  __Remarks__
+
+  * The value of $x_0$ required for the inequality to hold grows large very quickly as a
+    function of $n$.
+
+  * For $n = 2$, the inequality holds for $x_0 = 1$.
+
+    _Proof_. Consider the function $f(x) = x - (\ln x)^2$. The derivatives of $f$ are
+
+    $$
+    f'(x) = 1 - \frac{2 \ln x}{x} \\
+    f''(x) = \frac{2 (\ln x - 1)}{x^2} \\
+    f^{(3)}(x) = \frac{6 - 4 \ln x}{x^3}.
+    $$
+
+    Observe that $f'(e)$ is a global minimum for $f'$ because $f''(x)$ has a single zero
+    at $x = e$ and $f^{(3)}(e) > 0$. Therefore, $f'(x) > 0$ for all $x$, so we can conclude
+    that $f(x) > 0$ because $f(1) = 1$ and $f(x) = f(1) + \int_1^x f'(x) dx$.
+
+--------------------------------------------------------------------------------------------
+
 2022-07-10: References for Laplace's Method and Watson's Lemma
 --------------------------------------------------------------
 
@@ -819,12 +882,9 @@ _Last Updated_: 2022-06-08
   is a generalization of Hadamard's inequality to blades of arbitrary grade in terms of
   their outer product decompositions into blades of arbitrary grade.
 
-* Let $u = (u_1, \ldots, u_n)$ be a unit vector in $\R^n$ having the following properties:
-
-  * $|u_i| \ge |u_k|$ for all $k \ne i$ and
-
-  * the projection of $u$ onto any blade formed as the outer product of $s < \frac{n}{2}$
-    standard basis vectors that include $e_i$ is greater than $\sqrt{1 - \varepsilon^2}$.
+* Let $u = (u_1, \ldots, u_n)$ be a unit vector in $\R^n$ having the property that the
+  projection of $u$ onto any blade formed as the outer product of $s < \frac{n}{2}$
+  standard basis vectors that include $e_i$ is greater than $\sqrt{1 - \varepsilon^2}$.
 
   Then the magnitude of the projection of $u$ onto $e_i$ is bounded from below:
 
