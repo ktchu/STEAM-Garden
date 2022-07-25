@@ -3,7 +3,7 @@ Probability and Statistics: Toolbox
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
-__Last Updated__: 2022-06-15
+__Last Updated__: 2022-07-24
 
 --------------------------------------------------------------------------------------------
 
@@ -146,14 +146,9 @@ where the approximation error is $O\left( \E{(X - \mu)^3} \right)$.
 
 ## 2. References
 
-1. S.M. Ross. "Introduction to Probability and Statistics for Engineers and
-   Scientists" (2004).
+1. R. Vershynin. "High-Dimensional Probability". (2018)
 
-2. R. Vershynin. "High-Dimensional Probability". (2018)
-
-3. M.J. Wainwright. "High-Dimensional Statistics: A Non-Asymptotic Viewpoint". (2019)
-
-4. H.M. Taylor and S. Karlin. "An Introduction to Stochastic Modeling". (1998)
+2. M.J. Wainwright. "High-Dimensional Statistics: A Non-Asymptotic Viewpoint". (2019)
 
 --------------------------------------------------------------------------------------------
 

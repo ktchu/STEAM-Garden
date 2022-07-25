@@ -1,9 +1,9 @@
-High-Dimensional Probability and Statistics Notes
-=================================================
+Probability and Statistics: High-Dimensional Contexts
+=====================================================
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-06-11
+_Last Updated_: 2022-07-24
 
 --------------------------------------------------------------------------------------------
 
