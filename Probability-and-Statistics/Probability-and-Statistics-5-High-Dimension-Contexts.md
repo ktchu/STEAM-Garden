@@ -1,5 +1,5 @@
-Probability and Statistics: High-Dimensional Contexts
-=====================================================
+Probability and Statistics: High-Dimension Contexts
+===================================================
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
