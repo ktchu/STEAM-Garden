@@ -1,5 +1,5 @@
-Probability and Statistics: Advanced Concepts
-=============================================
+Probability and Statistics: Special Topics
+==========================================
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
