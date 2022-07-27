@@ -19,6 +19,9 @@ An Introduction to Stochastic Modeling (Taylor and Karlin): Problems 1.2
 * $\newcommand{\Var}[1]{{\operatorname{Var}}{\left(#1\right)}}$
   Variance of $X$: $\Var{X}$
 
+* $\newcommand{\Cov}[1]{{\operatorname{Cov}}{\left(#1\right)}}$
+  Covariance of $X$: $\Cov{X}$
+
 --------------------------------------------------------------------------------------------
 ### 2.1.
 
@@ -47,12 +50,65 @@ __Problem__. Let $N$ cards carry the distinct numbers $x_1, \ldots, x_N$. If two
 are drawn at random without replacement, show that the correlation coefficient $\rho$
 between the numbers appearing on the two cards is $-1/(N-1)$.
 
-__Solution__. TODO
+__Solution__.  Let $Y$ and $Z$ be random variables for the outcomes first and second
+drawn cards, respectively. $\rho = \sigma_{YZ} / \sigma_Y \sigma_Z$. Calculating the
+quantities required to compute $\rho$:
+
+* $$
+  \mu_Y
+  = \E{Y}
+  = \sum_{i=1}^N \Pr{Y = x_i} x_i
+  = \sum_{i=1}^N \left(\frac{1}{N}\right) x_i
+  = \frac{\sum_{i=1}^N x_i}{N}
+  $$
+
+* $$
+  \mu_Z
+  = \E{Z}
+  = \sum_{i=1}^N \Pr{Y = x_i} \sum_{j=1}^N \Pr{Z = x_j | Y = x_i} x_j \\
+  = \sum_{i=1}^N \left(\frac{1}{N}\right)
+    \sum_{j=1, j\ne i}^N \left(\frac{1}{N-1}\right) x_j
+  = \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_j
+  = \frac{\sum_{i=1}^N x_i}{N}
+  = \mu_Y
+  $$
+
+* $$
+  \E{Y^2}
+  = \sum_{i=1}^N \Pr{Y = x_i} x_i^2
+  = \sum_{i=1}^N \left(\frac{1}{N}\right) x_i^2
+  = \frac{\sum_{i=1}^N x_i^2}{N}
+  $$
+
+* $$
+  \E{Z^2}
+  = \sum_{i=1}^N \Pr{Y = x_i} \sum_{j=1}^N \Pr{Z = x_j | Y = x_i} x_j^2 \\
+  = \sum_{i=1}^N \left(\frac{1}{N}\right)
+    \sum_{j=1, j\ne i}^N \left(\frac{1}{N-1}\right) x_j^2
+  = \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_j^2
+  = \frac{\sum_{i=1}^N x_i^2}{N}
+  = \E{Y^2}
+  $$
+
+* $$
+  \Cov{YZ}
+  = \sum_{i=1}^N \sum_{j=1}^N \Pr{Y = x_i, Z = x_j} x_i x_j
+  = \sum_{i=1}^N \sum_{j=1, j\ne i}^N \left(\frac{1}{N(N-1)}\right) x_i x_j \\
+  = \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_i x_j
+  $$
+
+* TODO
+
+* $$
+  \sigma_{YZ}
+  = \Cov{YZ} - \mu_Y \mu_Z
+  = \E{XY} - \mu_X \mu_Y
+  $$
 
 --------------------------------------------------------------------------------------------
 ### 2.3.
 
-__Problem__. A population having $N$ distinct elements is samples with replacement. Because
+__Problem__. A population having $N$ distinct elements is sampled with replacement. Because
 of repetitions, a random sample of size $r$ may contain fewer than $r$ distinct elements.
 Let $S_r$ be the sample size necessary to get $r$ distinct elements. Show that
 
@@ -60,7 +116,33 @@ $$
 \E{S_r} = N \left( \frac{1}{N} + \frac{1}{N-1} + \cdots + \frac{1}{N - r + 1} \right).
 $$
 
-__Solution__. TODO
+__Solution__. Since the first sample always yields a 1 distinct element, $S_1 = 1 = N/N$.
+For $r \ge 2$, consider a sequence of samples drawn from the population. Let $X_i$ be the
+number of samples between the appearance of the $(i-1)$-th and the $i$-th distinct elements
+in the sequence (not including either of them). Then $S_r = 1 + \sum_{i=2}^r (1 + X_i)$.
+
+Consider the sequence of samples after the appearance of the $(i-1)$-th distinct element.
+Let $A_k$ be the event that all of the elements before or on the $k$-th sample are repeats
+of the first $i-1$ distinct elements. Observe that $X_i = \sum_{k=1}^\infty \1{A_k}$, so
+
+$$
+\E{X_i}
+= \sum_{k=1}^\infty \E{\1{A_k}}
+= \sum_{k=1}^\infty \Pr{A_k}
+= \sum_{k=1}^\infty \left(\frac{i-1}{N}\right)^k
+= \left(\frac{i}{N}\right) \left(\frac{1}{1 - (i-1) / N}\right)
+= \frac{i-1}{N-i+1}.
+$$
+
+Taking the expectation of $S_r$, we obtain the desired result
+
+$$
+\E{S_r}
+= 1 + \sum_{i=2}^r (1 + \E{X_i})
+= 1 + \sum_{i=2}^r \left( 1 + \frac{i-1}{N-i+1} \right)
+= \frac{N}{N} + \sum_{i=2}^r \frac{N}{N-i+1}
+= N \sum_{i=1}^r \frac{1}{N-i+1}.
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.4.
