@@ -154,14 +154,59 @@ Let $N$ be the number of tosses required.
 
 __Problem__. Determine the probability mass function for $N$.
 
-__Solution__. TODO
+__Solution__. Let $q_N$ be the probability that the same side does not appear twice in
+succession within the first $N$ tosses. Then $q_N$ satisfies the recurrence relation
+
+$$
+q_N = q_{N-1} \times \Pr{\textrm{the $N$-th toss is different from the $(N-1)$-st toss}}
+$$
+
+for $N > 2$ and initial condition $q_2 = 1/2$. The solution to this recurrence is
+$q_N = 2^{-(N-1)}$. Therefore, the probability mass function for $N$ is
+
+$$
+p_N
+= q_{N-1} \times \Pr{\textrm{the $N$-th toss is the same as the $(N-1)$-st toss}}
+= q_{N-1} \times \frac{1}{2}
+= 2^{-(N-1)}
+$$
+
+for $N \ge 2$ and $p_1 = 0$.
+
 
 #### 2.4.b.
 
 __Problem__. Let $A$ be the event that $N$ is even and $B$ be the event that $N \le 6$.
 Evaluate $\Pr{A}$, $\Pr{B}$, and $\Pr{AB}$.
 
-__Solution__. TODO
+__Solution__.
+
+$$
+\Pr{\textrm{$N$ is even}}
+= \sum_{N=2}^\infty 2^{-N+1}
+= 2 \sum_{N=2}^\infty 2^{-N}
+= 2 \sum_{k=1}^\infty 2^{-2k}
+= 2 \sum_{k=1}^\infty 4^{-k}
+= 2 \left( \frac{1/4}{1 - 1/4} \right)
+= \frac{2}{3}
+$$
+
+$$
+\Pr{\textrm{$N \le 6$}}
+= \sum_{N=2}^6 2^{-N+1}
+= 2 \sum_{N=2}^6 2^{-N}
+= 2 \left( \frac{1/4 - (1/2)^7}{1 - 1/2} \right)
+= 2 ( 2^{-1} - 2^{-6} )
+= 1 - 2^{-5}
+$$
+
+$$
+\Pr{\textrm{$N$ is even and $N \le 6$}}
+= \sum_{k=1}^3 2^{-2k+1}
+= 2 \sum_{k=1}^3 4^{-k}
+= 2 \left( \frac{1/4 - (1/4)^4}{1 - 1/4} \right)
+= \frac{2}{3} ( 1 - 4^{-3} )
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.5.
