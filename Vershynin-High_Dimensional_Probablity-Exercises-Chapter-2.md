@@ -771,3 +771,140 @@ __Solution__. TODO
 ## 2.5. Sub-Gaussian Distributions
 
 --------------------------------------------------------------------------------------------
+
+### Tail Bound for the Standard Normal Distribution (Inequality 2.10)
+
+__Problem__. Verify the following tail bound for the standard normal distribution.
+
+$$
+\Pr{|X| \ge t} \le 2 e^{-t^2/2}
+$$
+
+for all $t \ge 0$.
+
+__Solution 1__. We consider the two cases $t \ge 1 / \sqrt{2 \pi}$ and
+$t < 1 / \sqrt{2 \pi}$ separately. For the first case, the bound
+
+$$
+\Pr{X \ge t} \le \frac{1}{t \sqrt{2 \pi}} e^{-t^2/2}
+$$
+
+(which holds for all $t \ge 0$) implies that
+
+$$
+\Pr{X \ge t} \le e^{-t^2/2}
+$$
+
+for $t \ge 1 / \sqrt{2 \pi}$. Therefore, symmetry of the standard normal distribution about
+$X = 0$ implies that $\Pr{|X| \ge t} \le 2 e^{-t^2/2}$.
+
+For the case $t < 1 / \sqrt{2 \pi}$, observe that
+
+$$
+\Pr{|X| \ge t}
+= 1 - \frac{1}{\sqrt{2 \pi}} \int_{-t}^t e^{-s^2/2} ds
+\le 1 - \frac{2t e^{-t^2/2}}{\sqrt{2 \pi}}
+\le \exp\left( -\frac{2t e^{-t^2/2}}{\sqrt{2 \pi}} \right)
+$$
+
+where the first inequality follows because $e^{-t^2/2}$ is the minimum of $e^{-s^2/2}$ on
+the interval $[0, t]$ and the second inequality follows because $1 + x \le e^x$. We can
+further bound the $\Pr{|X| \ge t}$ by observing that
+
+$$
+\frac{t^2}{2} - \alpha t \le 0
+$$
+
+when $0 \le t \le 2 \alpha$, which implies that
+
+$$
+-\frac{t^2}{2} \ge -t \sqrt{\frac{2}{\pi e}}
+$$
+
+when $0 \le t \le \sqrt{8 / \pi e}$. Therefore,
+
+$$
+\Pr{|X| \ge t}
+\le \exp\left( -t e^{-t^2/2}\sqrt{\frac{2}{\pi}} \right)
+\le \exp\left( -t e^{-1/2}\sqrt{\frac{2}{\pi}} \right)
+= \exp\left( -t \sqrt{\frac{2}{\pi e}} \right)
+\le e^{-t^2/2}
+\le 2 e^{-t^2/2}
+$$
+
+when $0 \le t \le 1 / \sqrt{2 \pi} < \sqrt{8 / \pi e}$.
+
+__Solution 2__. We consider the two cases $t \ge 1$ and $t < 1$ separately. For the first
+case, the bound
+
+$$
+\Pr{X \ge t} \le \frac{1}{t \sqrt{2 \pi}} e^{-t^2/2}
+$$
+
+(which holds for all $t \ge 0$) implies that
+
+$$
+\Pr{X \ge t}
+\le \frac{1}{\sqrt{2 \pi}} e^{-t^2/2}
+\le e^{-t^2/2}
+$$
+
+for $t \ge 1$. Therefore, symmetry of the standard normal distribution about $X = 0$
+implies that $\Pr{|X| \ge t} \le 2 e^{-t^2/2}$.
+
+For the case $t < 1$, observe that $1 \le 2 e^{-1/2}$, which implies the desired result
+because
+
+$$
+\Pr{|X| \ge t}
+\le 1
+\le 2 e^{-1/2}
+\le 2 e^{-t^2/2}.
+$$
+
+--------------------------------------------------------------------------------------------
+
+### 2.5.1. (Moments of the normal distribution)
+
+__Problem__. Show that, for each $p \ge 1$, the random variable $X \sim \normal{0}{1}$
+satisfies
+
+$$
+\Vert X \Vert_{L^p} = \left( \E{|X|^p} \right)^{1/p}
+= \sqrt{2} \left( \frac{\Gamma((1+p) / 2)}{\Gamma(1/2)} \right)^{1/p}
+$$
+
+__Solution__. Observe that
+
+$$
+\E{|X|^p}
+= \int_{-\infty}^\infty |x|^p \frac{1}{\sqrt{2 \pi}} e^{-x^2/2} dx
+= \frac{\sqrt{2}}{\sqrt{\pi}} \int_0^\infty x^p e^{-x^2/2} dx
+= \frac{\sqrt{2}}{\Gamma(1/2)} \int_0^\infty x^p e^{-x^2/2} dx.
+$$
+
+Using the change variables $s = x^2 / 2$,
+
+$$
+\int_0^\infty x^p e^{-x^2/2} dx
+= 2^{(p-1) / 2} \int_0^\infty s^{p/2 - 1/2} e^{-s} ds
+= 2^{(p-1) / 2} \Gamma((1+p) / 2).
+$$
+
+Combining these results, we obtain
+
+$$
+\E{|X|^p}
+= \left( \frac{\sqrt{2}}{\Gamma(1/2)} \right) 2^{(p-1) / 2} \Gamma((1+p) / 2)
+= \frac{2^{p/2} \Gamma((1+p) / 2)}{\Gamma(1/2)},
+$$
+
+which implies that
+
+$$
+\Vert X \Vert_{L^p}
+= \left( \E{|X|^p} \right)^{1/p}
+= \sqrt{2} \left( \frac{\Gamma((1+p) / 2)}{\Gamma(1/2)} \right)^{1/p}.
+$$
+
+--------------------------------------------------------------------------------------------
