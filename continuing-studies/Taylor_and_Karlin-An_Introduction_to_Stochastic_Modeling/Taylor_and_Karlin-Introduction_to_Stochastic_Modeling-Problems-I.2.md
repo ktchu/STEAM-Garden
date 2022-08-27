@@ -219,13 +219,50 @@ play are $p$ for $A$ and $q$ for $B$, and successive plays are independent.
 
 __Problem__. Determine the probability that $A$ wins the contest given that $A$ plays first.
 
-__Solution__. TODO
+__Solution__. Let $P_n$ be the probability that player $A$ wins the game after $n$ rounds.
+Clearly, $P_1 = p$. For $n \ge 2$, the probability that neither player has won the game
+after playing $(n-1)$ rounds is $((1-p) (1-q))^{n-1}$, so $P_n = p ((1-p) (1-q))^{n-1}$.
+Note that the expression for $P_n$ when $n \ge 2$ also holds when $n = 1$.
+
+To compute the probability that player $A$ wins the game, we sum $P_n$ over all possible
+values of $n$:
+
+$$
+\Pr{\textrm{player $A$ wins}}
+= \sum_{n=1}^\infty p ((1 - p) (1 - q))^{n-1}
+= p \sum_{n=0}^\infty ((1 - p) (1 - q))^n
+= \frac{p}{1 - (1 - p) (1 - q)}
+$$
 
 #### 2.5.b.
 
 __Problem__. Determine the mean number of plays required, given that $A$ wins.
 
-__Solution__. TODO
+__Solution__. Let $P_A = p / (1 - (1 - p)(1 - q))$ be the probability that $A$ wins. Then
+given that $A$ wins, the game requires $n$ rounds of play with probability
+
+$$
+\frac{p ((1-p)(1-q))^{n-1}}{P_A}.
+$$
+
+Therefore, the expected number of rounds of play given that $A$ wins is equal to
+
+$$
+\sum_{n=1}^\infty n \frac{p ((1 - p) (1 - q))^{n-1}}{P_A}
+= \left(\frac{p}{P_A}\right) \sum_{n=1}^\infty n ((1 - p) (1 - q))^{n-1}
+= \left(\frac{p}{P_A}\right)
+  \sum_{n=1}^\infty \left. \frac{d}{dx} x^n \right|_{x = (1- p)(1-q)} \\
+= \left(\frac{p}{P_A}\right) \left.
+    \frac{d}{dx} \left( \sum_{n=1}^\infty x^n \right)
+  \right|_{x = (1- p)(1-q)}
+= \left(\frac{p}{P_A}\right)
+  \left. \frac{d}{dx} \left(\frac{x}{1-x}\right) \right|_{x = (1- p)(1-q)} \\
+= \left(\frac{p}{P_A}\right)
+  \left. \frac{d}{dx} \left(1 - \frac{1}{1-x}\right) \right|_{x = (1- p)(1-q)}
+= \left(\frac{p}{P_A}\right) \left. \frac{1}{(1-x)^2} \right|_{x = (1- p)(1-q)} \\
+= \left(\frac{p}{P_A}\right) \frac{1}{(1 - (1-p)(1-q))^2}
+= \frac{1}{1 - (1-p)(1-q)}.
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.6.
@@ -234,7 +271,26 @@ __Problem__. A pair of dice is tossed. If the two outcomes are equal, the dice a
 again, and the process repeated. If the dice are unequal, their sum is recorded. Determine
 the probability mass function for the sum.
 
-__Solution__. TODO
+__Solution__. Since rolls where the two dice are equal are ignored, the total number
+of outcomes for the pair of dice is 30 (= 36 - 6) and the possible values for the sum are
+3, 4, 5, 6, 7, 8, 9, 10, and 11. Counting the possible ways for each of these value
+can occur yields the frequency table for the sum $S$:
+
+$$
+\begin{array}{lccccccccc}
+\textrm{S}         & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+\textrm{frequency} & 2 & 2 & 4 & 4 & 6 & 4 & 4 &  2 &  2
+\end{array}
+$$
+
+Therefore, the probability mass function for $S$ is
+
+$$
+\begin{array}{lccccccccc}
+\textrm{S}    &    3 &    4 &    5 &    6 &   7 &    8 &    9 &   10 &   11 \\
+\textrm{P(S)} & 1/15 & 1/15 & 2/15 & 2/15 & 1/5 & 2/15 & 2/15 & 1/15 & 1/15
+\end{array}
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.7.
@@ -243,21 +299,42 @@ __Problem__. Let $U$ and $W$ be jointly distributed random variables. Show that 
 are independent if
 
 $$
-\Pr{U > u \textrm{ and } W > w} = \Pr{U > u} \Pr{W > w}
+\Pr{\textrm{$U > u$ and $W > w$}} = \Pr{U > u} \Pr{W > w}
 $$
 
 for all $u, w$.
 
-__Solution__. TODO
+__Solution__. Observe that
+
+$$
+\Pr{\textrm{$U \le u$ and $W \le w$}}
+= 1 - \Pr{\textrm{$U > u$ or $W > w$}} \\
+= 1 - (\Pr{U > u} + \Pr{W > w} - \Pr{\textrm{$U > u$ and $W > w$}}) \\
+= 1 - (\Pr{U > u} + \Pr{W > w} - \Pr{U > u} \Pr{W > w}) \\
+= (1 - \Pr{U > u})(1 - \Pr{W > w})
+= \Pr{U \le u} \Pr{W \le w},
+$$
+
+which implies that $U$ and $W$ are independent.
 
 --------------------------------------------------------------------------------------------
 ### 2.8.
 
 __Problem__. Suppose $X$ is a random variable with finite mean $\mu$ and variance
-$\sigma^2$, and $Y = a + bX$ for certain constantys $a, b \ne 0$. Determine the mean and
+$\sigma^2$, and $Y = a + bX$ for certain constants $a, b \ne 0$. Determine the mean and
 variance for $Y$.
 
-__Solution__. TODO
+__Solution__. By linearity of expectation,
+
+$$
+\E{Y} = a + b \E{X} = a + b \mu
+$$
+
+and
+
+$$
+\Var{Y} = \Var{a} + b^2 \Var{X} = 0 + b^2 \sigma^2 = b^2 \sigma^2.
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.9.
@@ -270,7 +347,33 @@ $$
 
 for $k = 1, 2, \ldots, n$.
 
-__Solution__. TODO
+__Solution__. The mean of $k$ is
+
+$$
+\E{k}
+= \sum_{k=1}^n \frac{2 k (n-k)}{n (n-1)}
+= \frac{2}{n (n-1)} \sum_{k=1}^n k n - k^2 \\
+= \frac{2}{n (n-1)} \left( \frac{n^2(n+1)}{2} - \frac{n (n+1) (2n + 1)}{6} \right)
+= \frac{n+1}{3}
+$$
+
+The second-moment of $k$ is
+
+$$
+\E{k^2}
+= \sum_{k=1}^n \frac{2 k^2 (n-k)}{n (n-1)}
+= \frac{2}{n (n-1)} \sum_{k=1}^n k^2 n - k^3 \\
+= \frac{2}{n (n-1)} \left( \frac{n^2 (n+1) (2n + 1)}{6} - \frac{n^2 (n+1)^2}{4}\right) \\
+= \frac{n(n+1)}{6}
+$$
+
+Therefore, the variance of $k$ is
+
+$$
+\Var{k} = \E{k^2} - \E{k}^2
+= \frac{n(n+1)}{6} - \frac{(n+1)^2}{9}
+= \frac{(n+1)(n-2)}{18}
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.10.
@@ -290,7 +393,26 @@ $$
 
 Determine the probability mass function of the sum $Z = X + Y$.
 
-__Solution__. TODO
+__Solution__. Observe that each possible ordered pair $(X, Y)$ yields a unique value for
+$Z$. Therefore, the probability mass function of $Z$ is given by
+
+$$
+p_Z(z) = p_X(x) p_Y(y)
+$$
+
+because $X$ and $Y$ are independent. Enumerating the ordered pairs $(X, Y)$ and computing
+$Z = X + Y$, we find that
+
+$$
+\begin{array}{ll}
+(0, 1): & p_Z(1) = 1/12 \\
+(0, 2): & p_Z(2) = 1/6 \\
+(0, 3): & p_Z(3) = 1/4 \\
+(3, 1): & p_Z(4) = 1/4 \\
+(3, 2): & p_Z(5) = 1/4 \\
+(3, 3): & p_Z(6) = 1/4
+\end{array}
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.11.
