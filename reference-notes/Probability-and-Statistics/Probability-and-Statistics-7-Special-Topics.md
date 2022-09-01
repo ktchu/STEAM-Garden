@@ -39,8 +39,8 @@ Table of Contents
 * $\newcommand{\sd}[1]{\sigma{\left(#1\right)}}$
   Standard deviation of $X$: $\sd{X}$
 
-* $\newcommand{\cov}[1]{{\operatorname{cov}}{\left(#1\right)}}$
-  Covariance of $X$: $\cov{X}$
+* $\newcommand{\Cov}[1]{{\operatorname{Cov}}{\left(#1\right)}}$
+  Covariance of $X$: $\Cov{X}$
 
 --------------------------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ Table of Contents
 
   * $\Var{X} = \Vert X \Vert_{L^2}^2$
 
-  * $\cov{X} = \langle X - \E{X}, Y - \E{Y} \rangle_{L^2}$
+  * $\Cov{X} = \langle X - \E{X}, Y - \E{Y} \rangle_{L^2}$
 
   * Minkowski's inequality
 

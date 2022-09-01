@@ -10,29 +10,37 @@ __Last Updated__: 2022-07-24
 Table of Contents
 -----------------
 
-1. [Binomial and Related Distributions][#1]
+1. [Bernoulli Distributions][#1]
 
    1.1. [Bernoulli Distribution][#1.1]
 
-   1.2. [Binomial Distribution][#1.2]
+   1.2. [Symmetric Bernoulli Distribution][#1.2]
 
-   1.3. [Geometric Distribution][#1.3]
+2. [Binomial and Related Distributions][#2]
 
-2. [Poisson Distribution][#2]
+   2.1. [Binomial Distribution][#2.1]
 
-3. [Gaussian and Related Distributions][#3]
+   2.2. [Geometric Distribution][#2.2]
 
-   3.1 [Gaussian Distribution][#3.1]
+   2.3. [Negative Binomial Distribution][#2.3]
 
-   3.2 [Chi-Squared Distribution][#3.2]
+3. [Poisson Distribution][#3]
 
-4. [Exponential Distribution][#4]
+4. [Gaussian and Related Distributions][#4]
 
-5. [Gamma Distribution][#5]
+   4.1 [Gaussian Distribution][#4.1]
 
-6. [Additional Distributions][#6]
+   4.2 [Chi-Squared Distribution][#4.2]
 
-7. [References][#7]
+   4.3 [Multivariate Gaussian Distribution][#4.3]
+
+5. [Exponential Distribution][#5]
+
+6. [Gamma Distribution][#6]
+
+7. [Additional Distributions][#7]
+
+8. [References][#8]
 
 --------------------------------------------------------------------------------------------
 
@@ -59,32 +67,46 @@ Table of Contents
 * $\newcommand{\sd}[1]{\sigma{\left(#1\right)}}$
   Standard deviation of $X$: $\sd{X}$
 
-* $\newcommand{\cov}[1]{{\operatorname{cov}}{\left(#1\right)}}$
-  Covariance of $X$: $\cov{X}$
+* $\newcommand{\Cov}[1]{{\operatorname{Cov}}{\left(#1\right)}}$
+  Covariance of $X$: $\Cov{X}$
 
 --------------------------------------------------------------------------------------------
 
-## 1. Binomial and Related Distributions
+## 1. Bernoulli Distributions
 
 ### 1.1. Bernoulli Distribution
 
 TODO
 
-### 1.2. Binomial Distribution
-
-TODO
-
-### 1.3. Geometric Distribution
+### 1.2. Symmetric Bernoulli Distribution
 
 TODO
 
 --------------------------------------------------------------------------------------------
 
-## 2. Poisson Distribution
+## 2. Binomial and Related Distributions
+
+### 2.1. Binomial Distribution
+
+TODO
+
+### 2.2. Geometric Distribution
+
+TODO
+
+### 2.3. Negative Binomial Distribution
+
+TODO
+
+--------------------------------------------------------------------------------------------
+
+## 3. Poisson Distribution
 
 ### Key Ideas
 
 * Basic model for "event counting".
+
+* TODO: Law of rare events
 
 ### Parameters
 
@@ -122,9 +144,9 @@ TODO
 
 --------------------------------------------------------------------------------------------
 
-## 3. Gaussian and Related Distributions
+## 4. Gaussian and Related Distributions
 
-### 3.1. Gaussian Distribution
+### 4.1. Gaussian Distribution
 
 #### Key Ideas
 
@@ -172,13 +194,17 @@ TODO
         \right)
     \]
 
-### 3.2. Chi-Squared Distribution
+### 4.2. Chi-Squared Distribution
+
+TODO
+
+### 4.3. Multivariate Gaussian Distribution
 
 TODO
 
 --------------------------------------------------------------------------------------------
 
-## 4. Exponential Distribution
+## 5. Exponential Distribution
 
 ### Key Ideas
 
@@ -240,7 +266,7 @@ TODO
 
 --------------------------------------------------------------------------------------------
 
-## 5. Gamma Distribution
+## 6. Gamma Distribution
 
 ### Key Ideas
 
@@ -294,15 +320,23 @@ TODO
 
 --------------------------------------------------------------------------------------------
 
-## 6. Additional Distributions
+## 7. Additional Distributions
+
+### Discrete
 
 * Hypergeometric distribution
+
+### Continuous
+
+* Uniform distribution
+
+* Beta distribution
 
 * Logistic distribution
 
 --------------------------------------------------------------------------------------------
 
-## 7. References
+## 8. References
 
 1. S.M. Ross. "Introduction to Probability and Statistics for Engineers and
    Scientists" (2004).
@@ -313,23 +347,28 @@ TODO
 
 [----------------------------------- INTERNAL LINKS -----------------------------------]: #
 
-[#1]: #1-binomial-and-related-distributions
+[#1]: #1-bernoulli-distributions
 [#1.1]: #11-bernoulli-distribution
-[#1.2]: #12-binomial-distribution
-[#1.3]: #13-geometric-distribution
+[#1.2]: #12-symmetric-bernoulli-distribution
 
-[#2]: #2-poisson-distribution
+[#2]: #2-binomial-and-related-distributions
+[#2.1]: #21-binomial-distribution
+[#2.2]: #22-geometric-distribution
+[#2.3]: #23-negative-binomial-distribution
 
-[#3]: #3-gaussian-and-related-distributions
-[#3.1]: #31-gaussian-distribution
-[#3.2]: #32-chi-squared-distribution
+[#3]: #3-poisson-distribution
 
-[#4]: #4-exponential-distribution
+[#4]: #4-gaussian-and-related-distributions
+[#4.1]: #41-gaussian-distribution
+[#4.2]: #42-chi-squared-distribution
+[#4.3]: #43-multivariate-gaussian-distribution
 
-[#5]: #5-gamma-distribution
+[#5]: #5-exponential-distribution
 
-[#6]: #6-additional-distributions
+[#6]: #6-gamma-distribution
 
-[#7]: #7-references
+[#7]: #7-additional-distributions
+
+[#8]: #8-references
 
 [----------------------------------- EXTERNAL LINKS -----------------------------------]: #

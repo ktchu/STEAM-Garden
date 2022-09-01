@@ -43,8 +43,8 @@ Table of Contents
 * $\newcommand{\sd}[1]{\sigma{\left(#1\right)}}$
   Standard deviation of $X$: $\sd{X}$
 
-* $\newcommand{\cov}[1]{{\operatorname{cov}}{\left(#1\right)}}$
-  Covariance of $X$: $\cov{X}$
+* $\newcommand{\Cov}[1]{{\operatorname{Cov}}{\left(#1\right)}}$
+  Covariance of $X$: $\Cov{X}$
 
 --------------------------------------------------------------------------------------------
 
