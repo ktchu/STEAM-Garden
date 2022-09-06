@@ -174,10 +174,12 @@ __Solution__. Applying the general addition law for two events to the events $A$
 $B \cup C$ yields
 
 $$
+\begin{align}
 \Pr{A \cup B \cup C}
-= \Pr{A \cup (B \cup C)}
-= \Pr{A} + \Pr{B \cup C} - \Pr{A(B \cup C)} \\
-= \Pr{A} + \Pr{B \cup C} - \Pr{(AB) \cup (AC)}.
+&= \Pr{A \cup (B \cup C)} \\
+&= \Pr{A} + \Pr{B \cup C} - \Pr{A(B \cup C)} \\
+&= \Pr{A} + \Pr{B \cup C} - \Pr{(AB) \cup (AC)}.
+\end{align}
 $$
 
 Applying the addition law again to $\Pr{B \cup C}$ and $\Pr{(AB) \cup (AC)}$, we find that
@@ -198,9 +200,11 @@ where the last equality follows because the event $ABAC$ is the same as the even
 Combining these observations yields the desired result
 
 $$
+\begin{align}
 \Pr{A \cup B \cup C}
-= \Pr{A} + \Pr{B} + \Pr{C} - \Pr{BC} - (\Pr{AB} + \Pr{AC} - \Pr{ABC}) \\
-= \Pr{A} + \Pr{B} + \Pr{C} - \Pr{AB} - \Pr{AC} - \Pr{BC} + \Pr{ABC}).
+&= \Pr{A} + \Pr{B} + \Pr{C} - \Pr{BC} - (\Pr{AB} + \Pr{AC} - \Pr{ABC}) \\
+&= \Pr{A} + \Pr{B} + \Pr{C} - \Pr{AB} - \Pr{AC} - \Pr{BC} + \Pr{ABC}).
+\end{align}
 $$
 
 --------------------------------------------------------------------------------------------
@@ -217,11 +221,13 @@ $F_Z(z) = F_X(z) F_Y(z)$ for all $z$.
 __Solution__
 
 $$
+\begin{align}
 F_Z(z)
-= \Pr{Z \le z}
-= \Pr{\max(X, Y) \le z} \\
-= \Pr{\textrm{$X \le z$ and $Y \le z$}}
-= F_X(z) F_Y(z)
+&= \Pr{Z \le z} \\
+&= \Pr{\max(X, Y) \le z} \\
+&= \Pr{\textrm{$X \le z$ and $Y \le z$}} \\
+&= F_X(z) F_Y(z)
+\end{align}
 $$
 
 #### 2.6.b.
@@ -232,12 +238,14 @@ $F_W(w) = 1 - (1 - F_X(w)) (1 - F_Y(w))$ for all $w$.
 __Solution__
 
 $$
+\begin{align}
 F_Z(z)
-= \Pr{Z \le z}
-= \Pr{\min(X, Y) \le z}
-= 1 - \Pr{\min(X, Y) \ge z} \\
-= 1 - \Pr{\textrm{$X \ge z$ and $Y \ge z$}}
-= 1 - (1 - F_X(z)) (1 - F_Y(z))
+&= \Pr{Z \le z} \\
+&= \Pr{\min(X, Y) \le z} \\
+&= 1 - \Pr{\min(X, Y) \ge z} \\
+&= 1 - \Pr{\textrm{$X \ge z$ and $Y \ge z$}} \\
+&= 1 - (1 - F_X(z)) (1 - F_Y(z))
+\end{align}
 $$
 
 --------------------------------------------------------------------------------------------
@@ -360,27 +368,29 @@ $$
 We can confirm these results directly as follows. For the mean, we have
 
 $$
+\begin{align}
 \E{V}
-= \int_0^1 t \left( A(1 - t)^{A-1} \right) dt
-=   \int_0^1 (1 - (1 - t)) \left( A(1 - t)^{A-1} \right) dt \\
-=   \int_0^1 A(1 - t)^{A-1} dt
-  - \int_0^1 (1 - t) \left( A(1 - t)^{A-1} \right) dt
-= 1 - \frac{A}{A+1}
-= \frac{1}{A+1}
+&= \int_0^1 t \left( A(1 - t)^{A-1} \right) dt \\
+&= \int_0^1 (1 - (1 - t)) \left( A(1 - t)^{A-1} \right) dt \\
+&= \int_0^1 A(1 - t)^{A-1} dt - \int_0^1 (1 - t) \left( A(1 - t)^{A-1} \right) dt \\
+&= 1 - \frac{A}{A+1} \\
+&= \frac{1}{A+1}
+\end{align}
 $$
 
 For $\E{X^2}$, we have
 
 $$
+\begin{align}
 \E{V^2}
-= \int_0^1 t^2 \left( A(1 - t)^{A-1} \right) dt
-=   \int_0^1 ((1 - t)^2 + 2t - 1) \left( A(1 - t)^{A-1} \right) dt \\
-=   \int_0^1 A(1 - t)^{A+1} dt
-  + 2 \int_0^1 t \left( A(1 - t)^{A-1} \right) dt
-  - \int_0^1 \left( A(1 - t)^{A-1} \right) dt
-= \frac{A}{A+2} + 2 \E{V} - 1 \\
-= \frac{A}{A+2} + \frac{2}{A+1} - 1
-= \frac{2}{A+1} - \frac{2}{A+2},
+&= \int_0^1 t^2 \left( A(1 - t)^{A-1} \right) dt \\
+&= \int_0^1 ((1 - t)^2 + 2t - 1) \left( A(1 - t)^{A-1} \right) dt \\
+&= \int_0^1 A(1 - t)^{A+1} dt + 2 \int_0^1 t \left( A(1 - t)^{A-1} \right) dt
+  - \int_0^1 \left( A(1 - t)^{A-1} \right) dt \\
+&= \frac{A}{A+2} + 2 \E{V} - 1 \\
+&= \frac{A}{A+2} + \frac{2}{A+1} - 1 \\
+&= \frac{2}{A+1} - \frac{2}{A+2}, \\
+\end{align}
 $$
 
 which implies that
@@ -430,21 +440,25 @@ $$
 By symmetry, the mean of $X$ is 1, which can be confirmed by direct computation
 
 $$
+\begin{align}
 \E{X}
-= \int_0^1 x^2 dx + \int_1^2 x (2-x) dx
-= \int_0^1 x^2 dx + \int_1^2 2x - x^2 dx \\
-= \frac{1}{3} + 3 - \frac{8}{3} + \frac{1}{3}
+&= \int_0^1 x^2 dx + \int_1^2 x (2-x) dx \\
+&= \int_0^1 x^2 dx + \int_1^2 2x - x^2 dx \\
+&= \frac{1}{3} + 3 - \frac{8}{3} + \frac{1}{3}
 = 1.
+\end{align}
 $$
 
 The second moment of $X$ is equal to
 
 $$
+\begin{align}
 \E{X^2}
-= \int_0^1 x^3 dx + \int_1^2 x^2 (2-x) dx
-= \int_0^1 x^3 dx + \int_1^2 2x^2 - x^3 dx \\
-= \frac{1}{4} + \frac{16}{3} - \frac{2}{3} - 4 + \frac{1}{4}
+&= \int_0^1 x^3 dx + \int_1^2 x^2 (2-x) dx \\
+&= \int_0^1 x^3 dx + \int_1^2 2x^2 - x^3 dx \\
+&= \frac{1}{4} + \frac{16}{3} - \frac{2}{3} - 4 + \frac{1}{4}
 = \frac{7}{6},
+\end{align}
 $$
 
 which implies that
