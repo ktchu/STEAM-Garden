@@ -1,12 +1,12 @@
 2022-08-31: Random Walk Models for Iterative Probabilistic Algorithms
-=====================================================================
+---------------------------------------------------------------------
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
 _Last Updated_: 2022-09-07
 
 --------------------------------------------------------------------------------------------
-## Summary
+### Summary
 
 For a two-state random walk model, the time that the spent in each state is proportional to
 the probability of transitioning into that state from the other state. In the context of
@@ -16,7 +16,7 @@ its time in that state as long as the probability of transitioning into that sta
 too low.
 
 --------------------------------------------------------------------------------------------
-## Observations
+### Observations
 
 * For iterative algorithms where the behavior at each iteration is non-deterministic, a
   random walk perspective may be useful for analyzing the behavior of the algorithm.
@@ -28,7 +28,7 @@ too low.
 * Markov chain models are useful for modeling the random walk on states.
 
 --------------------------------------------------------------------------------------------
-## Notation
+### Notation
 
 * $P_{i,j} = \Pr{\textrm{next state is } j | \textrm{current state is } i}$
 
@@ -38,7 +38,7 @@ too low.
     distribution (row vector) by the transition matrix _on the right_.
 
 --------------------------------------------------------------------------------------------
-## Two-State Model
+### Two-State Model
 
 * __Model__. There are two states $A$ and $B$ with transition matrix is given by
 
@@ -100,7 +100,7 @@ too low.
   (or more precisely, $\varepsilon \ll P_{A,B}$).
 
 --------------------------------------------------------------------------------------------
-## Random Walk Model
+### Random Walk Model
 
 * __Model__. There is a starting state $0$ and a chain of states $1, \ldots, n$. The
   only allowed transitions are between neighboring states, which implies that the
@@ -141,7 +141,7 @@ too low.
     algorithm to reach state 0?
 
 --------------------------------------------------------------------------------------------
-## References
+### References
 
 1. Taylor H.M. and Karlin S. "An Introduction to Stochastic Modeling" (1998).
 
