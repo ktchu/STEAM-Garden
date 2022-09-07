@@ -1,11 +1,17 @@
-## 2022-09-03: Bounds on Blades Formed From Nearly Orthgonal Vectors
+---
+tags: geometric-algebra
+---
+
+--------------------------------------------------------------------------------------------
+
+2022-09-03: Bounds on Blades Formed From Nearly Orthogonal Vectors
+------------------------------------------------------------------
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
 _Last Updated_: 2022-09-06
 
 --------------------------------------------------------------------------------------------
-
 ### Summary
 
 In this note, we derive bounds on the norm of blades formed from any nearly orthogonal set
@@ -16,7 +22,6 @@ appropriate projections onto the orthonomal basis vectors (e.g.,
 $v_{ij} = v_i \cdot b_j$ where $b_j$ is the $j$-th basis vector).
 
 --------------------------------------------------------------------------------------------
-
 ### Notation
 
 * $n$ is the dimension of the vector space
@@ -44,7 +49,6 @@ $v_{ij} = v_i \cdot b_j$ where $b_j$ is the $j$-th basis vector).
     $\newcommand{\rej}[2]{\perp_{#1}\left(#2\right)}$
 
 --------------------------------------------------------------------------------------------
-
 ### Assumptions
 
 * $\{v_1, \ldots, v_n\}$ is a set of vectors that is nearly orthogonal in the sense that
@@ -291,7 +295,6 @@ $v_{ij} = v_i \cdot b_j$ where $b_j$ is the $j$-th basis vector).
   _Proof_: TODO
 
 --------------------------------------------------------------------------------------------
-
 ### References
 
 1. R.P. Brent, J.H. Osborn, W.D. Smith. "Note on best possible bounds for determinants of
