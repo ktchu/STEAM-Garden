@@ -1,5 +1,5 @@
 ---
-tags: geometric-algebra
+tags: geometric-algebra, linear-algebra
 ---
 
 --------------------------------------------------------------------------------------------
@@ -16,6 +16,16 @@ _Last Updated_: 2022-09-09
 
 If $B$ and $C$ are linear spaces and $A$ is subspace of $B$, then the angle formed between
 $A$ and $C$ is no greater than the angle formed between $B$ and $C$.
+
+* In terms of cosines of the angles, $\cos \theta_{AC} \ge \cos \theta_{BC}$, where
+  $\theta_{AC}$ and $\theta_{BC}$ are the angles between $A$ and $C$ and between $B$ and
+  $C$, respectively.
+
+* In terms of blade projections,
+
+  $$
+  \frac{\norm{\proj{C}{A}}}{\norm{A}} \ge \frac{\norm{\proj{C}{B}}}{\norm{B}}.
+  $$
 
 --------------------------------------------------------------------------------------------
 ### Notation
@@ -36,9 +46,10 @@ Let $B$ and $C$ be blades.
 
 ### Proposition
 
-Let $B$ and $C$ be blades with $\grade{B} \le \grade{C}$ and let $\theta$ be the angle
-between them. If $A \subseteq B$ and $\theta_A$ is the defined as the angle between $A$
-and $C$, then $\cos \theta_A \ge \cos \theta$. In other words, $\theta_A \le \theta$.
+Let $B$ and $C$ be blades with $\grade{B} \le \grade{C}$ and let $\theta_{BC}$ be the angle
+between them. If $A \subseteq B$ and $\theta_{AC}$ is the defined as the angle between $A$
+and $C$, then $\cos \theta_{AC} \ge \cos \theta_{BC}$. In other words,
+$\theta_{AC} \le \theta_{BC}$.
 
 _Proof_. Without loss of generality, assume that $\norm{C} = 1$. Let $k = \grade{B}$.
 Choose $\{a_1, \ldots, a_j\}$ to be an orthonormal basis for $A$. Extend this orthonormal
@@ -57,7 +68,7 @@ $$
 and
 
 $$
-\cos \theta
+\cos \theta_{BC}
 = \frac{\norm{\proj{C}{B}}}{\norm{B} \norm{C}}
 = \norm{\proj{C}{B}}
 $$
@@ -84,12 +95,12 @@ construction and projection can only decrease the norm of a blade.
 Expressing norms of projections in terms of cosines of angles yields the desired result:
 
 $$
-\cos \theta
+\cos \theta_{BC}
 = \frac{\norm{\proj{C}{B}}}{\norm{B} \norm{C}}
 = \norm{\proj{C}{B}}
 \le \norm{\proj{C}{A}}
 = \frac{\norm{\proj{C}{A}}}{\norm{A} \norm{C}}
-= \cos \theta_A.
+= \cos \theta_{AC}.
 $$
 
 --------------------------------------------------------------------------------------------
