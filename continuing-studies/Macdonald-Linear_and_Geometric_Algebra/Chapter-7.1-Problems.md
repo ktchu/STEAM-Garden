@@ -14,7 +14,7 @@ Linear and Geometric Algebra (Macdonald): Problems 7.1
   Norm of multivector $M$: $\norm{M}$
 
 * $\newcommand{\B}[1]{\mathbf{#1}}$
-  A blade $A$: $\B{A}$
+  A blade: $\B{B}$
 
 * $\newcommand{\I}{\B{I}}$
   The pseudoscalar for the geometric algebra: $\I$
