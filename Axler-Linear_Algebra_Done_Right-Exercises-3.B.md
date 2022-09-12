@@ -477,16 +477,63 @@ $\null T = U$.
 ### 20.
 
 __Problem__. Suppose $V$ and $W$ are both finite-dimensional and that $T \in \maps{V}{W}$.
-Prove that $T$ is injective if and only if there exists $S \in \maps{V}{W}$ such that
+Prove that $T$ is injective if and only if there exists $S \in \maps{W}{V}$ such that
 $ST$ is the identity map on $V$.
 
-__Solution__. TODO
+__Solution__.
+
+($\Rightarrow$) Let $U$ be the subspace of $W$ such that $W = U \oplus \range T$. Then each
+$w \in W$ can be expressed as a unique sum $w = u + w^r$ where $u \in U$ and
+$w^r \in \range T$. Define $S: W \rightarrow V$ by $Sw = v$ where $Tv = w^r$. Note that
+$S$ is well-defined because $T$ is injective, which guarantees that for each
+$w^r \in \range T$, there exists a unique $v \in V$ such that $Tv = w^r$.
+
+Consider $w_1, w_2 \in W$ and define $v_i$ such that $T v_i = w^r_i$ where
+$w_i = u_i + w^r_i$ with $u_i \in U$ and $w^r_i \in \range T$. The following two
+observations lead to the conclusion that $S$ is a linear map.
+
+* $T(v_1 + v_2) = T v_1 + T v_2 = w^r_1 + w^r_2$ implies that
+
+  $$
+  S(w_1 + w_2)
+  = S(u_1 + w^r_1 + u_2 + w^r_2)
+  = S(u_1 + u_2 + w^r_1 + w^r_2)
+  = v_1 + v_2
+  = S w_1 + S w_2.
+  $$
+
+* $T(\lambda v_1) = \lambda T v_1 = \lambda w^r_1$, implies that
+
+  $$
+  S(\lambda w_1)
+  = S(\lambda(u_1 + w^r_1))
+  = S(\lambda u_1 + \lambda w^r_1)
+  = \lambda v_1
+  = \lambda (S w_1).
+  $$
+
+Finally, we show that $ST$ is the identity map on $V$. Let $v \in V$ and $w = Tv$, then
+
+$$
+ST(v) = S(Tv) = Sw = v
+$$
+
+where the last equality follows from the definition of $S$ because $w \in \range T$. Since
+$ST(v) = v$ for all $v \in V$, $ST$ is the identity on $V$.
+
+($\Leftarrow$) Let $v_1, v_2 \in V$ such that $T v_1 = T v_2$, then
+
+$$
+v_1 = (ST) v_1 = S (T v_1) = S (T v_2) = (ST) v_2 = v_2.
+$$
+
+Therefore, $T$ is injective.
 
 --------------------------------------------------------------------------------------------
 ### 21.
 
 __Problem__. Suppose $V$ and $W$ are both finite-dimensional and that $T \in \maps{V}{W}$.
-Prove that $T$ is surjective if and only if there exists $S \in \maps{V}{W}$ such that
+Prove that $T$ is surjective if and only if there exists $S \in \maps{W}{V}$ such that
 $TS$ is the identity map on $W$.
 
 __Solution__. TODO
