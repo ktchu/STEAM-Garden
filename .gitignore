@@ -2,3 +2,11 @@
 
 # Microsoft Office
 ~*.pptx
+
+# vim
+*.swp
+
+# --- Miscellaneous
+
+# macOS
+.DS_Store*
