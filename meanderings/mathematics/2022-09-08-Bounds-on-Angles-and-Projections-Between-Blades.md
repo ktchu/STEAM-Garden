@@ -370,9 +370,8 @@ $$
 \ge \frac{\pi}{2} - \theta_{BC}.
 $$
 
-_Proof_. Dividing the inequality in Proposition 2 and the previous corollary by
-$\norm{\B{B}}$ and recalling the definition of the cosine of the angle between blades
-yields
+_Proof_. Dividing the inequalities from Proposition 2 by $\norm{\B{B}}$ and using the
+definition of the cosine of the angle between blades, we find that
 
 $$
 \cos \theta_{B\dual{C}}
@@ -380,7 +379,8 @@ $$
 \le \sin \theta_{BC} = \cos \left( \frac{\pi}{2} - \theta_{BC} \right),
 $$
 
-which is equivalent to the desired result.
+where the second inequality follows because $(\sin \theta)^k \le \sin \theta$. Taking
+inverse cosines yields the desired result.
 
 #### Proposition 3: $\norm{\B{A}} \cos \theta_{B\dual{C}} \le \norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{BC}$
 
@@ -395,7 +395,7 @@ $$
 _Proof_. The lower bound follows from Proposition 1 with $\dual{\B{C}}$ in the place of
 $\B{C}$.
 
-To prove the upper bound, observe that Proposition 1 with $\B{A}$ in the place of $\B{B}$
+To prove the upper bound, observe that Proposition 2 with $\B{A}$ in the place of $\B{B}$
 implies that $\norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{AC}$. Since
 $\theta_{AC} \le \theta_{BC}$ by corollary of Proposition 1,
 $\sin \theta_{AC} \le \sin \theta_{BC}$, which yields the desired upper bound.
