@@ -9,7 +9,7 @@ tags: geometric-algebra, linear-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-13
+_Last Updated_: 2022-09-14
 
 --------------------------------------------------------------------------------------------
 ### Notation
@@ -111,19 +111,22 @@ __Relationships Between Subspaces of $\B{B}$ and $\dual{\B{C}}$__
   \le \norm{\B{A}} \sin \theta_{BC}.
   $$
 
-### Remark
+### Remarks
 
-* The bounds gives a sense how different life is in high-dimension vector spaces. If we are
-  not careful, our intution from planar geometry might lead us astray.
+Thes bounds gives a sense how different life is in high-dimension vector spaces. If we are
+not careful, our intution from planar geometry might lead us astray. A few interesting
+examples include:
 
-  For example, the angle between $\B{B}$ and the orthogonal complement of $\B{C}$ must be
-  closer to $\pi/2$ than any subspace of $\B{B}$ is to $\B{C}$. In other words, if any
-  subspace of $\B{B}$ is close to lying in $\B{C}$, $\B{B}$ must make a large angle with
-  and have a very small projection onto $\dual{\B{C}}$.
+* The angle between $\B{B}$ and the orthogonal complement of $\B{C}$ must be closer to
+  $\pi/2$ than any subspace of $\B{B}$ is to $\B{C}$. In other words, if any subspace of
+  $\B{B}$ is close to lying in $\B{C}$, $\B{B}$ must make a large angle with and have a
+  very small projection onto $\dual{\B{C}}$.
 
-* An interesting consequence of the lower bound on $\theta_{B\dual{C}}$ is that it is easy
+* A consequence of the lower bound on $\theta_{B\dual{C}}$ is that it is easy
   for blades with high grades to simultaneously form large angles with both a subspace and
-  its orthogonal complement.
+  its orthogonal complement. In low-dimensional spaces, blades that are far from a subspace
+  (in the sense of forming a large angle with the subspace) cannot be that far from the
+  subspace's orthogonal complement.
 
 --------------------------------------------------------------------------------------------
 ### Additional Notation
