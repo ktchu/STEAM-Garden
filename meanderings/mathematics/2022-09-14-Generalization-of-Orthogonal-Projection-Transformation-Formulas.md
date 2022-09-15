@@ -27,8 +27,6 @@ _Last Updated_: 2022-09-15
   The orthogonal projection of blade $\B{A}$ onto the subspace represented by $\B{B}$:
   $\proj{\B{B}}{\B{A}}$
 
-* The angle between blades $\B{A}$ and $\B{B}$: $\theta_{AB}$
-
 --------------------------------------------------------------------------------------------
 ### Summary
 
@@ -73,16 +71,16 @@ $$
 where $\B{U}$ and $\B{V}$ are blades representing the subspaces $U$ and $V$, respectively,
 and $\B{x}$ is an arbitrary vector. While the transformation retains its simple linear form,
 the simple equations relating the magnitudes of the projections onto $U$ and $V$ to the
-angle $\theta_{UV}$ between $U$ and $V$ is lost.
+angle $\theta$ between $U$ and $V$ is lost.
 
 When $U$ and $V$ have the same dimension, we do, however, still have
 _simple inequality relationships_ between the magnitudes of the projections and
-$\theta_{UV}$:
+$\theta$:
 
 $$
 \left[\begin{array}{cc}
-    \cos \theta_{UV} & -1               \\
-    -1               & \cos \theta_{UV} \\
+    \cos \theta & -1          \\
+    -1          & \cos \theta \\
 \end{array}\right]
 \left[\begin{array}{c}
   \norm{\proj{\B{U}}{\B{x}}} \\
@@ -95,8 +93,8 @@ $$
     \end{array}\right]
 
 \le \left[\begin{array}{cc}
-      1                & \sin \theta_{UV} \\
-      \sin \theta_{UV} & 1                \\
+      1           & \sin \theta \\
+      \sin \theta & 1           \\
     \end{array}\right]
     \left[\begin{array}{c}
       \norm{\proj{\B{U}}{\B{x}}} \\
@@ -116,14 +114,12 @@ $\dual{\B{U}}$:
 
 $$
 \proj{\B{V}}{\B{x}}
-= \proj{\B{V}}{\proj{\B{U}}{\B{x}}}
-+ \proj{\B{V}}{\proj{\dual{\B{U}}}{\B{x}}}
+= \proj{\B{V}}{\proj{\B{U}}{\B{x}}} + \proj{\B{V}}{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
 $$
 \proj{\dual{\B{V}}}{\B{x}}
-= \proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}}
- + \proj{\dual{\B{V}}}{\proj{\dual{\B{U}}}{\B{x}}}
+= \proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}} + \proj{\dual{\B{V}}}{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
 which can be expressed as a block matrix equation:
@@ -168,16 +164,16 @@ $$
 #### Proposition 2: Upper Bounds on Orthogonal Projections
 
 Let $\B{U}$ and $\B{V}$ be blades that represent subspaces of the same dimension and
-let $\theta_{UV}$ be the angle between $\B{U}$ and $\B{V}$. Then
+let $\theta$ be the angle between $\B{U}$ and $\B{V}$. Then
 
 $$
 \norm{\proj{\B{V}}{\B{x}}}
-\le \norm{\proj{\B{U}}{\B{x}}} + \sin \theta_{UV} \norm{\proj{\dual{\B{U}}}{\B{x}}}
+\le \norm{\proj{\B{U}}{\B{x}}} + \sin \theta \norm{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
 $$
 \norm{\proj{\dual{\B{V}}}{\B{x}}}
-\le \sin \theta_{UV} \norm{\proj{\B{U}}{\B{x}}} + \norm{\proj{\dual{\B{U}}}{\B{x}}}
+\le \sin \theta \norm{\proj{\B{U}}{\B{x}}} + \norm{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
 which can be expressed in matrix form as
@@ -188,8 +184,8 @@ $$
   \norm{\proj{\dual{\B{V}}}{\B{x}}}
 \end{array}\right]
 \le \left[\begin{array}{cc}
-    1                & \sin \theta_{UV} \\
-    \sin \theta_{UV} & 1                \\
+    1           & \sin \theta \\
+    \sin \theta & 1           \\
 \end{array}\right]
 \left[\begin{array}{c}
   \norm{\proj{\B{U}}{\B{x}}} \\
@@ -218,14 +214,12 @@ $\norm{\proj{\dual{\B{V}}}{\proj{\dual{\B{U}}}{\B{x}}}}
 
 $$
 \norm{\proj{\B{V}}{\B{x}}}
-\le \norm{\proj{\B{U}}{\B{x}}}
-    + \norm{\proj{\B{V}}{\proj{\dual{\B{U}}}{\B{x}}}}
+\le \norm{\proj{\B{U}}{\B{x}}} + \norm{\proj{\B{V}}{\proj{\dual{\B{U}}}{\B{x}}}}
 $$
 
 $$
 \norm{\proj{\dual{\B{V}}}{\B{x}}}
-\le \norm{\proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}}}
-    + \norm{\proj{\dual{\B{U}}}{\B{x}}}.
+\le \norm{\proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}}} + \norm{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
 Next, observe that
@@ -237,38 +231,36 @@ $$
 
 $$
 \norm{\proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}}}
-\le \norm{\proj{\B{U}}{\B{x}}} \sin \theta_{UV}.
+\le \norm{\proj{\B{U}}{\B{x}}} \sin \theta.
 $$
 
 from the bounds on the projections between blades [1]. Finally, incorporating these bounds
-and recalling that $\theta_{UV} = \theta_{\dual{U}\dual{V}}$ when the dimension of the
+and recalling that $\theta = \theta_{\dual{U}\dual{V}}$ when the dimension of the
 subspaces represented by $\B{U}$ and $\B{V}$ are equal, we arrive at the desired results:
 
 $$
 \norm{\proj{\B{V}}{\B{x}}}
-\le \norm{\proj{\B{U}}{\B{x}}}
-    + \sin \theta_{UV} \norm{\proj{\dual{\B{U}}}{\B{x}}}
+\le \norm{\proj{\B{U}}{\B{x}}} + \sin \theta \norm{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
 $$
 \norm{\proj{\dual{\B{V}}}{\B{x}}}
-\le \sin \theta_{UV} \norm{\proj{\B{U}}{\B{x}}}
-    + \norm{\proj{\dual{\B{U}}}{\B{x}}}.
+\le \sin \theta \norm{\proj{\B{U}}{\B{x}}} + \norm{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
 #### Proposition 3: Lower Bounds on Orthogonal Projections
 
 Let $\B{U}$ and $\B{V}$ be blades that represent subspaces of the same dimension and
-let $\theta_{UV}$ be the angle between $\B{U}$ and $\B{V}$. Then
+let $\theta$ be the angle between $\B{U}$ and $\B{V}$. Then
 
 $$
 \norm{\proj{\B{V}}{\B{x}}}
-\ge \cos \theta_{UV} \norm{\proj{\B{U}}{\B{x}}} - \norm{\proj{\dual{\B{U}}}{\B{x}}}
+\ge \cos \theta \norm{\proj{\B{U}}{\B{x}}} - \norm{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
 $$
 \norm{\proj{\dual{\B{V}}}{\B{x}}}
-\ge -\norm{\proj{\B{U}}{\B{x}}} + \cos \theta_{UV} \norm{\proj{\dual{\B{U}}}{\B{x}}}
+\ge -\norm{\proj{\B{U}}{\B{x}}} + \cos \theta \norm{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
 which can be expressed in matrix form as
@@ -279,8 +271,8 @@ $$
   \norm{\proj{\dual{\B{V}}}{\B{x}}}
 \end{array}\right]
 \ge \left[\begin{array}{cc}
-    \cos \theta_{UV} & -1               \\
-    -1               & \cos \theta_{UV} \\
+    \cos \theta & -1          \\
+    -1          & \cos \theta \\
 \end{array}\right]
 \left[\begin{array}{c}
   \norm{\proj{\B{U}}{\B{x}}} \\
@@ -320,15 +312,14 @@ We continue by following a similar approach to the proof of Proposition 2.
   $$
 
   $$
-  \norm{\proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}}}
-  \le \norm{\proj{\B{U}}{\B{x}}}.
+  \norm{\proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}}} \le \norm{\proj{\B{U}}{\B{x}}}.
   $$
 
 * Lower bounds on projections between blades [1] imply
 
   $$
   \norm{\proj{\B{V}}{\proj{\B{U}}{\B{x}}}}
-  \ge \norm{\proj{\B{U}}{\B{x}}} \cos \theta_{UV}
+  \ge \norm{\proj{\B{U}}{\B{x}}} \cos \theta
   $$
 
   $$
@@ -337,19 +328,17 @@ We continue by following a similar approach to the proof of Proposition 2.
   $$
 
 Finally, combining these inequalities and recalling that
-$\theta_{UV} = \theta_{\dual{U}\dual{V}}$ (because the dimension of the subspaces
+$\theta = \theta_{\dual{U}\dual{V}}$ (because the dimension of the subspaces
 represented by $\B{U}$ and $\B{V}$ are equal), we arrive at the desired results:
 
 $$
 \norm{\proj{\B{V}}{\B{x}}}
-\ge \cos \theta_{UV} \norm{\proj{\B{U}}{\B{x}}}
-    - \norm{\proj{\dual{\B{U}}}{\B{x}}}
+\ge \cos \theta \norm{\proj{\B{U}}{\B{x}}} - \norm{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
 $$
 \norm{\proj{\dual{\B{V}}}{\B{x}}}
-\ge -\norm{\proj{\B{U}}{\B{x}}}
-    + \cos \theta_{UV} \norm{\proj{\dual{\B{U}}}{\B{x}}}.
+\ge -\norm{\proj{\B{U}}{\B{x}}} + \cos \theta \norm{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
 
