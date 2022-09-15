@@ -52,7 +52,7 @@ angles between and projections of blades related to $\B{B}$ and $\B{C}$ satisfy 
 following inequalities involving $\theta_{BC}$ (where all angles are taken to lie within
 the interval $[0, \pi/2]$).
 
-__Relationships Between Subspaces of $\B{B}$ and $\B{C}$__
+__Relationships Between $\B{C}$ and Subspaces of $\B{B}$__
 
 * If $\B{A}$ is a subspace of $\B{B}$, then the angle $\theta_{AC}$ between $\B{A}$ and
   $\B{C}$ is bounded from above:
@@ -69,7 +69,7 @@ __Relationships Between Subspaces of $\B{B}$ and $\B{C}$__
   \ge \norm{\B{A}} \cos \theta_{BC}.
   $$
 
-__Relationships Between $\B{B}$ and $\dual{\B{C}}$__
+__Relationships Between $\dual{\B{C}}$ and $\B{B}$__
 
 * If $\B{B}$ is a $k$-blade, then the angle $\theta_{B\dual{C}}$ between $\B{B}$ and
   $\dual{\B{C}}$ is bounded from below:
@@ -89,7 +89,7 @@ __Relationships Between $\B{B}$ and $\dual{\B{C}}$__
   \le \norm{\B{B}} \sin \theta_{BC}
   $$
 
-__Relationships Between Subspaces of $\B{B}$ and $\dual{\B{C}}$__
+__Relationships Between $\dual{\B{C}}$ and Subspaces of $\B{B}$__
 
 * If $\B{A}$ is a subspace of $\B{B}$, then the angle $\theta_{A\dual{C}}$ between $\B{A}$
   and $\dual{\B{C}}$ is bounded from above and below by expressions involving
