@@ -51,10 +51,12 @@ are drawn at random without replacement, show that the correlation coefficient $
 between the numbers appearing on the two cards is $-1/(N-1)$.
 
 __Solution__.  Let $Y$ and $Z$ be random variables for the outcomes first and second
-drawn cards, respectively. $\rho = \sigma_{YZ} / \sigma_Y \sigma_Z$. Calculating the
-quantities required to compute $\rho$:
+drawn cards, respectively. $\rho = \sigma_{YZ} / \sigma_Y \sigma_Z$. We begin by
+calculating the quantities required to compute $\rho$.
 
-* $$
+* $\mu_Y$:
+
+  $$
   \mu_Y
   = \E{Y}
   = \sum_{i=1}^N \Pr{Y = x_i} x_i
@@ -62,48 +64,119 @@ quantities required to compute $\rho$:
   = \frac{\sum_{i=1}^N x_i}{N}
   $$
 
-* $$
+* $\mu_Z$:
+
+  $$
+  \begin{align}
   \mu_Z
-  = \E{Z}
+  &= \E{Z}
   = \sum_{i=1}^N \Pr{Y = x_i} \sum_{j=1}^N \Pr{Z = x_j | Y = x_i} x_j \\
-  = \sum_{i=1}^N \left(\frac{1}{N}\right)
-    \sum_{j=1, j\ne i}^N \left(\frac{1}{N-1}\right) x_j
-  = \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_j
-  = \frac{\sum_{i=1}^N x_i}{N}
-  = \mu_Y
+  &= \sum_{i=1}^N \left(\frac{1}{N}\right)
+    \sum_{j=1, j\ne i}^N \left(\frac{1}{N-1}\right) x_j \\
+  &= \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_j \\
+  &= \frac{\sum_{i=1}^N x_i}{N} \\
+  &= \mu_Y
+  \end{align}
   $$
 
-* $$
+* $\E{Y^2}$:
+
+  $$
   \E{Y^2}
   = \sum_{i=1}^N \Pr{Y = x_i} x_i^2
   = \sum_{i=1}^N \left(\frac{1}{N}\right) x_i^2
   = \frac{\sum_{i=1}^N x_i^2}{N}
   $$
 
-* $$
+* $\E{Z^2}$:
+
+  $$
+  \begin{align}
   \E{Z^2}
-  = \sum_{i=1}^N \Pr{Y = x_i} \sum_{j=1}^N \Pr{Z = x_j | Y = x_i} x_j^2 \\
-  = \sum_{i=1}^N \left(\frac{1}{N}\right)
-    \sum_{j=1, j\ne i}^N \left(\frac{1}{N-1}\right) x_j^2
-  = \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_j^2
-  = \frac{\sum_{i=1}^N x_i^2}{N}
-  = \E{Y^2}
+  &= \sum_{i=1}^N \Pr{Y = x_i} \sum_{j=1}^N \Pr{Z = x_j | Y = x_i} x_j^2 \\
+  &= \sum_{i=1}^N \left(\frac{1}{N}\right)
+    \sum_{j=1, j\ne i}^N \left(\frac{1}{N-1}\right) x_j^2 \\
+  &= \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_j^2 \\
+  &= \frac{\sum_{i=1}^N x_i^2}{N} \\
+  &= \E{Y^2}
+  \end{align}
   $$
 
-* $$
-  \Cov{YZ}
-  = \sum_{i=1}^N \sum_{j=1}^N \Pr{Y = x_i, Z = x_j} x_i x_j
-  = \sum_{i=1}^N \sum_{j=1, j\ne i}^N \left(\frac{1}{N(N-1)}\right) x_i x_j \\
-  = \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_i x_j
+* $\Var{Y} = \sigma_Y^2$:
+
+  $$
+  \begin{align}
+  \Var{Y}
+  &= \E{Y^2} - \mu_Y^2 \\
+  &= \frac{\sum_{i=1}^N x_i^2}{N} - \frac{\left(\sum_{i=1}^N x_i\right)^2}{N^2} \\
+  &= \frac{1}{N^2}
+     \left[
+       (N-1) \sum_{i=1}^N x_i^2 - \sum_{i=1}^N \sum_{j=1,j \ne i}^N x_i x_j
+     \right]
+  \end{align}
   $$
 
-* TODO
+* $\Var{Z} = \sigma_Z^2$:
 
-* $$
+  $$
+  \begin{align}
+  \Var{Z}
+  &= \E{Z^2} - \mu_Z^2 \\
+  &= \E{Y^2} - \mu_Y^2 \\
+  &= \frac{1}{N^2}
+     \left[
+       (N-1) \sum_{i=1}^N x_i^2 - \sum_{i=1}^N \sum_{j=1,j \ne i}^N x_i x_j
+     \right]
+  \end{align}
+  $$
+
+* $\E{YZ}$:
+
+  $$
+  \begin{align}
+  \E{YZ}
+  &= \sum_{i=1}^N \sum_{j=1}^N \Pr{Y = x_i, Z = x_j} x_i x_j \\
+  &= \sum_{i=1}^N \sum_{j=1, j\ne i}^N \left(\frac{1}{N(N-1)}\right) x_i x_j \\
+  &= \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_i x_j \\
+  \end{align}
+  $$
+
+* $\Cov{YZ} = \sigma_{YZ}$:
+
+  $$
+  \begin{align}
   \sigma_{YZ}
-  = \Cov{YZ} - \mu_Y \mu_Z
-  = \E{XY} - \mu_X \mu_Y
+  &= \E{XY} - \mu_X \mu_Y \\
+  &= \frac{1}{N(N-1)} \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_i x_j
+     - \frac{\left(\sum_{i=1}^N x_i\right)^2}{N^2} \\
+  &= \frac{1}{N^2(N-1)}
+     \left[
+     N \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_i x_j
+     - (N-1) \left(\sum_{i=1}^N x_i\right)^2
+     \right] \\
+  &= \frac{1}{N^2(N-1)}
+     \left[
+     N \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_i x_j
+     - (N-1) \left(
+       \sum_{i=1}^N x_i^2
+       + \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_i x_j
+       \right)
+     \right] \\
+  &= -\frac{1}{N^2(N-1)}
+     \left[
+     (N-1) \sum_{i=1}^N x_i^2
+     - \sum_{i=1}^N \sum_{j=1, j\ne i}^N x_i x_j
+     \right]
+  \end{align}
   $$
+
+Comparing $\sigma_{YZ}$, $\sigma_Y$, and $\sigma_Z$, we see that
+
+$$
+\sigma_Y^2 = \sigma_Z^2 = -(N-1) \sigma_{YZ},
+$$
+
+which implies that $\rho = \sigma_{YZ} / \sigma_Y \sigma_Z = -1/(N-1)$.
 
 --------------------------------------------------------------------------------------------
 ### 2.3.
@@ -248,20 +321,22 @@ $$
 Therefore, the expected number of rounds of play given that $A$ wins is equal to
 
 $$
+\begin{align}
 \sum_{n=1}^\infty n \frac{p ((1 - p) (1 - q))^{n-1}}{P_A}
-= \left(\frac{p}{P_A}\right) \sum_{n=1}^\infty n ((1 - p) (1 - q))^{n-1}
-= \left(\frac{p}{P_A}\right)
+&= \left(\frac{p}{P_A}\right) \sum_{n=1}^\infty n ((1 - p) (1 - q))^{n-1} \\
+&= \left(\frac{p}{P_A}\right)
   \sum_{n=1}^\infty \left. \frac{d}{dx} x^n \right|_{x = (1- p)(1-q)} \\
-= \left(\frac{p}{P_A}\right) \left.
+&= \left(\frac{p}{P_A}\right) \left.
     \frac{d}{dx} \left( \sum_{n=1}^\infty x^n \right)
-  \right|_{x = (1- p)(1-q)}
-= \left(\frac{p}{P_A}\right)
+  \right|_{x = (1- p)(1-q)} \\
+&= \left(\frac{p}{P_A}\right)
   \left. \frac{d}{dx} \left(\frac{x}{1-x}\right) \right|_{x = (1- p)(1-q)} \\
-= \left(\frac{p}{P_A}\right)
-  \left. \frac{d}{dx} \left(1 - \frac{1}{1-x}\right) \right|_{x = (1- p)(1-q)}
-= \left(\frac{p}{P_A}\right) \left. \frac{1}{(1-x)^2} \right|_{x = (1- p)(1-q)} \\
-= \left(\frac{p}{P_A}\right) \frac{1}{(1 - (1-p)(1-q))^2}
-= \frac{1}{1 - (1-p)(1-q)}.
+&= \left(\frac{p}{P_A}\right)
+  \left. \frac{d}{dx} \left(1 - \frac{1}{1-x}\right) \right|_{x = (1- p)(1-q)} \\
+&= \left(\frac{p}{P_A}\right) \left. \frac{1}{(1-x)^2} \right|_{x = (1- p)(1-q)} \\
+&= \left(\frac{p}{P_A}\right) \frac{1}{(1 - (1-p)(1-q))^2} \\
+&= \frac{1}{1 - (1-p)(1-q)}.
+\end{align}
 $$
 
 --------------------------------------------------------------------------------------------
@@ -307,12 +382,14 @@ for all $u, w$.
 __Solution__. Observe that
 
 $$
+\begin{align}
 \Pr{\textrm{$U \le u$ and $W \le w$}}
-= 1 - \Pr{\textrm{$U > u$ or $W > w$}} \\
-= 1 - (\Pr{U > u} + \Pr{W > w} - \Pr{\textrm{$U > u$ and $W > w$}}) \\
-= 1 - (\Pr{U > u} + \Pr{W > w} - \Pr{U > u} \Pr{W > w}) \\
-= (1 - \Pr{U > u})(1 - \Pr{W > w})
-= \Pr{U \le u} \Pr{W \le w},
+&= 1 - \Pr{\textrm{$U > u$ or $W > w$}} \\
+&= 1 - (\Pr{U > u} + \Pr{W > w} - \Pr{\textrm{$U > u$ and $W > w$}}) \\
+&= 1 - (\Pr{U > u} + \Pr{W > w} - \Pr{U > u} \Pr{W > w}) \\
+&= (1 - \Pr{U > u})(1 - \Pr{W > w}) \\
+&= \Pr{U \le u} \Pr{W \le w},
+\end{align}
 $$
 
 which implies that $U$ and $W$ are independent.
@@ -350,21 +427,25 @@ for $k = 1, 2, \ldots, n$.
 __Solution__. The mean of $k$ is
 
 $$
+\begin{align}
 \E{k}
-= \sum_{k=1}^n \frac{2 k (n-k)}{n (n-1)}
-= \frac{2}{n (n-1)} \sum_{k=1}^n k n - k^2 \\
-= \frac{2}{n (n-1)} \left( \frac{n^2(n+1)}{2} - \frac{n (n+1) (2n + 1)}{6} \right)
-= \frac{n+1}{3}
+&= \sum_{k=1}^n \frac{2 k (n-k)}{n (n-1)} \\
+&= \frac{2}{n (n-1)} \sum_{k=1}^n k n - k^2 \\
+&= \frac{2}{n (n-1)} \left( \frac{n^2(n+1)}{2} - \frac{n (n+1) (2n + 1)}{6} \right) \\
+&= \frac{n+1}{3}
+\end{align}
 $$
 
 The second-moment of $k$ is
 
 $$
+\begin{align}
 \E{k^2}
-= \sum_{k=1}^n \frac{2 k^2 (n-k)}{n (n-1)}
-= \frac{2}{n (n-1)} \sum_{k=1}^n k^2 n - k^3 \\
-= \frac{2}{n (n-1)} \left( \frac{n^2 (n+1) (2n + 1)}{6} - \frac{n^2 (n+1)^2}{4}\right) \\
-= \frac{n(n+1)}{6}
+&= \sum_{k=1}^n \frac{2 k^2 (n-k)}{n (n-1)} \\
+&= \frac{2}{n (n-1)} \sum_{k=1}^n k^2 n - k^3 \\
+&= \frac{2}{n (n-1)} \left( \frac{n^2 (n+1) (2n + 1)}{6} - \frac{n^2 (n+1)^2}{4}\right) \\
+&= \frac{n(n+1)}{6}
+\end{align}
 $$
 
 Therefore, the variance of $k$ is
@@ -382,13 +463,20 @@ __Problem__. Random variables $X$ and $Y$ are independent and have the probabili
 functions
 
 $$
-p_X(0) = \frac{1}{2}, p_X(3) = \frac{1}{2},
+\begin{align}
+p_X(0) &= \frac{1}{2} \\
+p_X(3) &= \frac{1}{2},
+\end{align}
 $$
 
 and
 
 $$
-p_Y(1) = \frac{1}{6}, p_Y(2) = \frac{1}{3},  p_Y(3) = \frac{1}{2}.
+\begin{align}
+p_Y(1) &= \frac{1}{6} \\
+p_Y(2) &= \frac{1}{3} \\
+p_Y(3) &= \frac{1}{2}.
+\end{align}
 $$
 
 Determine the probability mass function of the sum $Z = X + Y$.
@@ -400,8 +488,8 @@ $$
 p_Z(z) = p_X(x) p_Y(y)
 $$
 
-because $X$ and $Y$ are independent. Enumerating the ordered pairs $(X, Y)$ and computing
-$Z = X + Y$, we find that
+because $X$ and $Y$ are independent. Enumerating the ordered pairs of values $(x, y)$ and
+computing $z = y + y$, we find that
 
 $$
 \begin{array}{ll}
@@ -421,18 +509,38 @@ __Problem__. Random variables $U$ and $V$ are independent and have the probabili
 functions
 
 $$
-p_U(0) = \frac{1}{3}, p_U(1) = \frac{1}{3}, p_U(2) = \frac{1}{3}
+\begin{align}
+p_U(0) &= \frac{1}{3} \\
+p_U(1) &= \frac{1}{3} \\
+p_U(2) &= \frac{1}{3}
+\end{align}
 $$
 
 and
 
 $$
-p_V(1) = \frac{1}{2}, p_V(2) = \frac{1}{2}.
+\begin{align}
+p_V(1) &= \frac{1}{2} \\
+p_V(2) &= \frac{1}{2}.
+\end{align}
 $$
 
 Determine the probability mass function of the sum $W = U + V$.
 
-__Solution__. TODO
+__Solution__. Observe that there are 4 possible values for $W$: 1, 2, 3, and 4. For each
+value $w$, the probability value that $W = w$ is the sum of probabilities of the possibe
+assignments of $U$ and $V$ that sum to $w$.
+
+Enumerating the ordered pairs $(u, v)$ associated with each value of $w$, we find that
+
+$$
+\begin{array}{lll}
+w = 1: & (0, 1)         & p_W(1) = 1/6 \\
+w = 2: & (0, 2), (1, 1) & p_W(2) = 1/6 + 1/6 = 1/3 \\
+w = 3: & (1, 2), (2, 1) & p_W(3) = 1/6 + 1/6 = 1/3 \\
+w = 4: & (2, 2)         & p_W(4) = 1/6 \\
+\end{array}
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.12.
@@ -440,7 +548,41 @@ __Solution__. TODO
 __Problem__. Let $U$, $V$, and $W$ be independent random variables with equal variances
 $\sigma^2$. Define $X = U + W$ and $Y = V - W$. Find the covariance between $X$ and $Y$.
 
-__Solution__. TODO
+__Solution__. Calculating the quantities needed to compute $\Cov{XY}$, we have
+
+* $\mu_X$: $\mu_X = \mu_U + \mu_W$
+
+* $\mu_Y$: $\mu_Y = \mu_V - \mu_W$
+
+* $\E{XY}$:
+
+  $$
+  \begin{align}
+  \E{XY}
+  &= \E{(U + W)(V - W)} \\
+  &= \E{UV - UW + VW + W^2} \\
+  &= \E{UV} - \E{UW} + \E{VW} + \E{W^2} \\
+  &= \mu_U \mu_V - \mu_U \mu_W + \mu_V \mu_W - \E{W^2} \\
+  \end{align}
+  $$
+
+  where the expectations for $UV$, $UW$, and $VW$ follow from the independence of $U$, $V$,
+  and $W$.
+
+Therefore,
+
+$$
+\begin{align}
+\Cov{XY}
+&= \E{XY} - \mu_X \mu_Y \\
+&= (\mu_U \mu_V - \mu_U \mu_W + \mu_V \mu_W - \E{W^2})
+   - (\mu_U + \mu_W) (\mu_V - \mu_W) \\
+&= (\mu_U \mu_V - \mu_U \mu_W + \mu_V \mu_W - \E{W^2})
+   - (\mu_U \mu_V - \mu_U \mu_W + \mu_V \mu_W - \mu_W^2) \\
+&= -\E{W^2} + \mu_W^2 \\
+&= -\sigma^2
+\end{align}
+$$
 
 --------------------------------------------------------------------------------------------
 ### 2.13.
@@ -457,16 +599,72 @@ f(x) = \left\{
 \right.
 $$
 
-Find thye joint probability density function of $U$ and $V$, where $U = \max(X, Y)$ and
+Find the joint probability density function of $U$ and $V$, where $U = \max(X, Y)$ and
 $V= \min(X, Y)$.
 
-__Solution__. TODO
+__Solution__. We can proceed by first computing the joint distribution functions for $U$
+and $V$.
 
---------------------------------------------------------------------------------------------
-### 2.x.
+$$
+\begin{align}
+F_U(u)
+&= \Pr{\max(X,Y) \le u} \\
+&= \Pr{X \le u \textrm{ and } Y \le u} \\
+&= \Pr{X \le u} \Pr{Y \le u} \\
+&= \left\{
+     \begin{array}{ll}
+     0 & \textrm{for $u \le 0$} \\
+     u^2 & \textrm{for $0 < u < 1$} \\
+     1 & \textrm{for $u \ge 1$}.
+     \end{array}
+     \right.
+\end{align}
+$$
 
-__Problem__. TODO
+Note that the third equality follows from the independence of $X$ and $Y$.
 
-__Solution__. TODO
+$$
+\begin{align}
+F_V(v)
+&= \Pr{\min(X,Y) \le v} \\
+&= \Pr{X \le u \textrm{ or } Y \le u} \\
+&= 1 - \Pr{X \ge u \textrm{ and } Y \ge u} \\
+&= 1 - \Pr{X \ge u} \Pr{Y \ge u} \\
+&= 1 - (1 - \Pr{X \le u})(1 - \Pr{Y \le u}) \\
+&= \Pr{X \le u} + \Pr{Y \le u} - \Pr{X \le u} \Pr{Y \le u} \\
+&= \left\{
+     \begin{array}{ll}
+     0 & \textrm{for $u \le 0$} \\
+     2u - u^2 & \textrm{for $0 < u < 1$} \\
+     1 & \textrm{for $u \ge 1$}.
+     \end{array}
+     \right.
+\end{align}
+$$
+
+Note that the fourth equality follows from the independence of $X$ and $Y$.
+
+To obtain the joint probability density functions, we take the derivative of the joint
+distribution functions:
+
+$$
+f_U(u)
+= \left\{
+    \begin{array}{ll}
+    2 u & \textrm{for $0 < u < 1$} \\
+    0 & \textrm{elsewhere}
+    \end{array}
+    \right.
+$$
+
+$$
+f_V(v)
+= \left\{
+    \begin{array}{ll}
+    2 - 2 u & \textrm{for $0 < u < 1$} \\
+    0 & \textrm{elsewhere}
+    \end{array}
+    \right.
+$$
 
 --------------------------------------------------------------------------------------------
