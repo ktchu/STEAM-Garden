@@ -99,8 +99,10 @@ $$
     \left[\begin{array}{c}
       \norm{\proj{\B{U}}{\B{x}}} \\
       \norm{\proj{\dual{\B{U}}}{\B{x}}}
-    \end{array}\right].
+    \end{array}\right]
 $$
+
+where the matrix inequalities are element-wise.
 
 --------------------------------------------------------------------------------------------
 ### Propositions
