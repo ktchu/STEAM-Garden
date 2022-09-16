@@ -168,11 +168,11 @@ three conditions for a $V$ to be a subspace.
 __Problem__. Is $\mathbb{R}^2$ a subspace of the complex vector space
 $\mathbb{C}^2$?
 
-__Solution__. Yes. First, $\mathbb{R}^2 \subset \mathbb{C}^2$ because
-$\mathbb{R} \subset \mathbb{C}$. Second, the conditions for a subspace are
-automatically satisfied for $\mathbb{R}^2$ because $\mathbb{R}^2$ satisifes
-all of the conditions for a vector space, which are a superset of the
-conditions for a subspace.
+__Solution__. No. $\mathbb{R}^2$ is not a subspace of $\mathbb{C}^2$ because
+it is not closed under scalar multiplication by the scalar field over the
+$\mathbb{C}^2$, which is $\mathbb{C}$ by convention. As a counterexample,
+consider the vector $(1, 1) \in \mathbb{R}^2$ and the scalar $i$:
+$i (1, 1) = (i, i) \notin \mathbb{R}^2$.
 
 -------------------------------------------------------------------------------
 ### 6.
