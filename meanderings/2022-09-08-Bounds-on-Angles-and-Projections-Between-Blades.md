@@ -184,7 +184,7 @@ $$
 = \frac{\norm{\proj{\B{C}}{\B{B}}}}{\norm{\B{A}}}
 $$
 
-Since projection preserves outer products,
+Since projection preserves outer products [1],
 
 $$
 \proj{\B{C}}{\B{B}}
@@ -254,7 +254,7 @@ $$
 $$
 
 _Proof_. We start by expressing the projection of $\B{B}$ onto $\dual{\B{C}}$ in terms
-of dot products (left contractions) and the norms of $\B{B}$ and $\B{C}$:
+of inner products (left contractions) and the norms of $\B{B}$ and $\B{C}$:
 
 $$
 \frac{\norm{\proj{\dual{\B{C}}}{\B{B}}}}{\norm{\B{B}}}
@@ -262,7 +262,8 @@ $$
 = \frac{\norm{\B{B} \cdot \dual{\B{C}}}}{\norm{\B{B}} \norm{\B{C}}}.
 $$
 
-By (1) duality of the inner and outer products and (2) equality of the norms of dual blades,
+By (1) duality of the inner and outer products and (2) equality of the norms of dual blades
+[1],
 
 $$
 \norm{\B{B} \cdot \dual{\B{C}}}
@@ -418,5 +419,10 @@ $$
 $$
 
 which is equivalent to the desired result.
+
+--------------------------------------------------------------------------------------------
+### References
+
+1. A. Macdonald. "Linear and Geometric Algebra" (2010).
 
 --------------------------------------------------------------------------------------------
