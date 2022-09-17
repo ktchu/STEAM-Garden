@@ -9,7 +9,7 @@ tags: geometric-algebra, linear-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-15
+_Last Updated_: 2022-09-17
 
 --------------------------------------------------------------------------------------------
 ### Notation
@@ -54,7 +54,7 @@ where $\theta$ is the angle between the orthonormal bases.
 In higher dimensions, we have a similar linear transformation between the decomposition of
 a vector over $(U, U^\perp)$ and its decomposition over $(V, V^\perp)$, where $U$ and $V$
 are subspaces having the same dimension and $U^\perp$ and $V\perp$ are their respective
-orthogonal complements. The simple transformation in two dimensions generalizes to:
+orthogonal complements. The simple transformation in two dimensions generalizes to
 
 $$
 \begin{align}
@@ -107,7 +107,7 @@ where the matrix inequalities are element-wise.
 --------------------------------------------------------------------------------------------
 ### Propositions
 
-#### Lemma 1: Linear Transformation Formula
+#### Lemma 1. Linear Transformation Formula
 
 Let $\B{U}$ and $\B{V}$ be blades that represent subspaces with the same dimension. If
 $\B{x}$ is a vector, then the projections of $\B{x}$ onto $\B{V}$ and $\dual{\B{V}}$ can
@@ -124,7 +124,7 @@ $$
 = \proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}} + \proj{\dual{\B{V}}}{\proj{\dual{\B{U}}}{\B{x}}}
 $$
 
-which can be expressed as a block matrix equation:
+which can be expressed as the block matrix equation:
 
 $$
 \left[\begin{array}{c}
@@ -165,7 +165,7 @@ $$
   + \proj{\dual{\B{V}}}{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
-#### Proposition 2: Upper Bounds on Orthogonal Projections
+#### Proposition 2. Upper Bounds on Orthogonal Projections
 
 Let $\B{U}$ and $\B{V}$ be blades that represent subspaces of the same dimension and
 let $\theta$ be the angle between $\B{U}$ and $\B{V}$. Then
@@ -252,7 +252,7 @@ $$
 \le \sin \theta \norm{\proj{\B{U}}{\B{x}}} + \norm{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
-#### Proposition 3: Lower Bounds on Orthogonal Projections
+#### Proposition 3. Lower Bounds on Orthogonal Projections
 
 Let $\B{U}$ and $\B{V}$ be blades that represent subspaces of the same dimension and
 let $\theta$ be the angle between $\B{U}$ and $\B{V}$. Then

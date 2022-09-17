@@ -9,7 +9,7 @@ tags: geometric-algebra, linear-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-15
+_Last Updated_: 2022-09-17
 
 --------------------------------------------------------------------------------------------
 ### Notation
@@ -114,8 +114,8 @@ __Relationships Between $\dual{\B{C}}$ and Subspaces of $\B{B}$__
 ### Remarks
 
 Thes bounds gives a sense how different life is in high-dimension vector spaces. If we are
-not careful, our intution from planar geometry might lead us astray. A few interesting
-examples include:
+not careful, our intution from planar geometry might lead us astray. The following are a
+few interesting examples.
 
 * The angle between $\B{B}$ and the orthogonal complement of $\B{C}$ must be closer to
   $\pi/2$ than any subspace of $\B{B}$ is to $\B{C}$. In other words, if any subspace of
@@ -149,7 +149,7 @@ For all of the propositions, assume the following.
 
 * All angles are taken to lie within the interval $[0, \pi/2]$.
 
-#### Proposition 1: $\norm{\proj{\B{C}}{\B{A}}} \ge \norm{\B{A}} \cos \theta_{BC}$
+#### Proposition 1. $\norm{\proj{\B{C}}{\B{A}}} \ge \norm{\B{A}} \cos \theta_{BC}$
 
 If $\B{A} \subseteq \B{B}$, then
 
@@ -164,9 +164,8 @@ $$
 \B{A} = a_1 \cdots a_j = a_1 \wedge \cdots \wedge a_j.
 $$
 
-Extend this basis to an orthogonal basis for $\B{B}$:
-$\{a_1, \ldots, a_j, b_{j+1}, \ldots, b_k\}$ choosing $\norm{b_i} = 1$ for all
-$j+1 \le i \le k$. Then
+Extend this basis to an orthogonal basis $\{a_1, \ldots, a_j, b_{j+1}, \ldots, b_k\}$ for
+$\B{B}$ choosing $\norm{b_i} = 1$ for all $j+1 \le i \le k$. Then
 
 $$
 \B{B} = a_1 \cdots a_j b_{j+1} \cdots b_k
@@ -214,7 +213,7 @@ $$
 which is equivalent to the desired result.
 
 __Corollary__. If $\B{A} \subseteq \B{B}$, then the angle $\theta_{AC}$ between $\B{A}$ and
-$\B{C}$ satisfies the inequality:
+$\B{C}$ satisfies the inequality
 
 $$
 \theta_{AC} \le \theta_{BC}.
@@ -245,9 +244,9 @@ $$
 _Proof_. The result follows from the definition of the cosine of the angle between two
 blades.
 
-#### Proposition 2: $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} (\sin \theta_{BC})^k$
+#### Proposition 2. $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} (\sin \theta_{BC})^k$
 
-The norm of the projection of $\B{B}$ onto $\dual{\B{C}}$ satisfies the inequality:
+The norm of the projection of $\B{B}$ onto $\dual{\B{C}}$ satisfies the inequality
 
 $$
 \norm{\proj{\dual{\B{C}}}{\B{B}}}
@@ -351,7 +350,7 @@ which is equivalent to the desired result.
 
 __Corollary__
 
-The norm of the projection of $\B{B}$ onto $\dual{\B{C}}$ satisfies the inequality:
+The norm of the projection of $\B{B}$ onto $\dual{\B{C}}$ satisfies the inequality
 
 $$
 \norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} \sin \theta_{BC}.
@@ -362,7 +361,7 @@ _Proof_. The result follows because $(\sin \theta)^k \le \sin \theta$.
 __Corollary__
 
 The angle $\theta_{B\dual{C}}$ between $\B{B}$ and $\dual{\B{C}}$ satisfies the
-inequalities:
+inequalities
 
 $$
 \theta_{B\dual{C}}
@@ -382,7 +381,7 @@ $$
 where the second inequality follows because $(\sin \theta)^k \le \sin \theta$. Taking
 inverse cosines yields the desired result.
 
-#### Proposition 3: $\norm{\B{A}} \cos \theta_{B\dual{C}} \le \norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{BC}$
+#### Proposition 3. $\norm{\B{A}} \cos \theta_{B\dual{C}} \le \norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{BC}$
 
 If $\B{A} \subseteq \B{B}$, then
 
@@ -401,7 +400,7 @@ $\theta_{AC} \le \theta_{BC}$ by corollary of Proposition 1,
 $\sin \theta_{AC} \le \sin \theta_{BC}$, which yields the desired upper bound.
 
 __Corollary__. If $\B{A} \subseteq \B{B}$, then the angle $\theta_{A\dual{C}}$ between
-$\B{A}$ and $\dual{\B{C}}$ satisfies the inequalities:
+$\B{A}$ and $\dual{\B{C}}$ satisfies the inequalities
 
 $$
 \left( \frac{\pi}{2} - \theta_{BC} \right)
