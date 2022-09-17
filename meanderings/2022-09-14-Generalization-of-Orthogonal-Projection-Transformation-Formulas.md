@@ -17,13 +17,13 @@ _Last Updated_: 2022-09-15
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
 
-* $\newcommand{\dual}[1]{#1^\perp}$
+* $\newcommand{\dual}[1]{{#1}^\perp}$
   The orthogonal complement (i.e., dual) of blade $\B{B}$: $\dual{\B{B}}$
 
-* $\newcommand{\norm}[1]{\left\vert #1\right\vert}$
+* $\newcommand{\norm}[1]{\left\vert{#1}\right\vert}$
   The norm of multivector $M$: $\norm{M}$
 
-* $\newcommand{\proj}[2]{P_{#1}\left(#2\right)}$
+* $\newcommand{\proj}[2]{P_{#1}\left({#2}\right)}$
   The orthogonal projection of blade $\B{A}$ onto the subspace represented by $\B{B}$:
   $\proj{\B{B}}{\B{A}}$
 
@@ -153,14 +153,16 @@ $\proj{\B{V}}{\B{x}}$
 
 $$
 \proj{\B{V}}{\B{x}}
-= \proj{\B{V}}{\proj{\B{U}}{x}} + \proj{\B{V}}{\proj{\dual{\B{U}}}{x}}.
+= \proj{\B{V}}{\proj{\B{U}}{\B{x}}}
+  + \proj{\B{V}}{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
 Similiarly, projecting $\B{x}$ onto $\dual{\B{V}}$ yields the second equation:
 
 $$
 \proj{\dual{\B{V}}}{\B{x}}
-= \proj{\dual{\B{V}}}{\proj{\B{U}}{x}} + \proj{\dual{\B{V}}}{\proj{\dual{\B{U}}}{x}}.
+= \proj{\dual{\B{V}}}{\proj{\B{U}}{\B{x}}}
+  + \proj{\dual{\B{V}}}{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
 #### Proposition 2: Upper Bounds on Orthogonal Projections

@@ -17,13 +17,13 @@ _Last Updated_: 2022-09-15
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
 
-* $\newcommand{\norm}[1]{\left\vert #1\right\vert}$
+* $\newcommand{\norm}[1]{\left\vert{#1}\right\vert}$
   The norm of multivector $M$: $\norm{M}$
 
-* $\newcommand{\dual}[1]{#1^\perp}$
+* $\newcommand{\dual}[1]{{#1}^\perp}$
   The orthogonal complement (i.e., dual) of blade $\B{B}$: $\dual{\B{B}}$
 
-* $\newcommand{\proj}[2]{P_{#1}\left(#2\right)}$
+* $\newcommand{\proj}[2]{P_{#1}\left({#2}\right)}$
   The orthogonal projection of blade $\B{A}$ onto the subspace represented by $\B{B}$:
   $\proj{\B{B}}{\B{A}}$
 
@@ -131,7 +131,7 @@ examples include:
 --------------------------------------------------------------------------------------------
 ### Additional Notation
 
-* $\newcommand{\grade}[1]{\operatorname{grade}\left(#1\right)}$
+* $\newcommand{\grade}[1]{\operatorname{grade}\left({#1}\right)}$
   The grade of blade $\B{B}$: $\grade{\B{B}}$
 
 * $\B{A}$ is a subspace of $\B{B}$: $\B{A} \subseteq \B{B}$
