@@ -1,5 +1,5 @@
 ---
-tags: geometric-algebra
+tags: geometric-algebra, geometry
 ---
 
 --------------------------------------------------------------------------------------------
@@ -9,295 +9,498 @@ tags: geometric-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-06
+_Last Updated_: 2022-09-17
 
 --------------------------------------------------------------------------------------------
 ### Summary
 
-In this note, we derive bounds on the norm of blades formed from any nearly orthogonal set
-of vectors. Without loss of generality, we assume that the collection of vectors is _near_
-to the standard basis in $\mathbb{R}^n$. For vectors near an arbitrary orthonormal basis,
-we replace the vector components that appear in the following propositions with the
-appropriate projections onto the orthonomal basis vectors (e.g.,
-$v_{ij} = v_i \cdot b_j$ where $b_j$ is the $j$-th basis vector).
+In this note, we derive bounds on the norm of blades formed from sets of nearly orthogonal
+of vectors.
+
+TODO
 
 --------------------------------------------------------------------------------------------
 ### Notation
 
-* $n$ is the dimension of the vector space
+* $\newcommand{\R}{\mathbb{R}}$
+  $\newcommand{\e}{\mathbf{e}}$
+  The standard basis for $\R^n$: $\{ \e_1, \ldots, \e_n \}$
 
-* $\{e_1, \ldots, e_n\}$ is the standard basis for $\mathbb{R}^n$
+* $\newcommand{\sgn}[1]{\operatorname{sgn}\left({#1}\right)}$
+  Sign of $x$: $\sgn{x}$
 
-* Let $S$ be a subset of $\{1, \ldots, n\}$ and $B$ be a blade.
+* __Blades__
 
-  * $s = |S|$
+  * $\newcommand{\B}[1]{\mathbf{#1}}$
+    A blade: $\B{B}$ (uppercase, boldface)
 
-  * Define $\proj{S}{B}$ to be the projection of blade $B$ onto the subspace
-    $\bigwedge_{k \in S} e_k$.
-    $\newcommand{\proj}[2]{P_{#1}\left(#2\right)}$
+  * $\newcommand{\norm}[2][2]{\left\Vert{#2}\right\Vert_{#1}}$
+    The 2-norm of blade $\B{B}$: $\norm{\B{B}}$
 
-  * Define $\Vert B \Vert_S$ to be the 2-norm of $P_S(B)$:
-    $\Vert B \Vert_S = \Vert P_S(B) \Vert_2$.
+  * $\newcommand{\dual}[1]{{#1}^\perp}$
+    The orthogonal complement (i.e., dual) of blade $\B{B}$: $\dual{\B{B}}$
 
-* Let $C$ be a blade.
+  * $\newcommand{\proj}[2]{P_{#1}\left({#2}\right)}$
+    The orthogonal projection of blade $\B{A}$ onto the subspace represented by $\B{B}$:
+    $\proj{\B{B}}{\B{A}}$
 
-  * If $B$ is a blade, define $\proj{C}{B}$ to be the projection of blade $B$ onto the
-    subspace represented by $C$.
+* __Vectors__
 
-  * If $v$ is a vector, define $\rej{C}{v}$ to be the rejection of $v$ from the subspace
-    represented by $C$.
-    $\newcommand{\rej}[2]{\perp_{#1}\left(#2\right)}$
+  * A vector: $\B{v}$ (lowercase, boldface)
+
+  * The $i$-th component of vector $\B{v}$ with respect to the standard basis:
+    $v_i$ (lowercase, lightface)
+
+  * For indexed vector $\B{v}_i$, the $j$-th component of $\B{v}_i$: $v_{ij}$
+
+* $\newcommand{\rej}[2]{\perp_{#1}\left({#2}\right)}$
+  The rejection of vector $\B{v}$ from the subspace represented by $\B{B}$:
+  $\rej{\B{B}}{\B{v}}$
+
+* __Canonical Basis Blades__. Let $S$ be a subset of $\{1, \ldots, n\}$.
+
+  * $\newcommand{\card}[1]{\left|{#1}\right|}$
+    The cardinality of $S$: $\card{S}$
+
+  * $\newcommand{\E}{\B{E}}$
+    The blade formed by the standard basis vectors $\e_i$ with indices in $S$:
+    $\E_S = \bigwedge_{k \in S} \e_k$
+
+  * The projection of blade $\B{B}$ onto $\E_S$: $\proj{S}{\B{B}}$
+
+  * The 2-norm of projection of blade $\B{B}$ onto $\E_S$:
+    $\norm[S]{\B{B}} = \norm{\proj{S}{\B{B}}}$
+
+--------------------------------------------------------------------------------------------
+### Definitions
+
+* __$\epsilon$-Similar Vector Sets__. For $\epsilon > 0$, two sets of vectors
+  $\{\B{u}_1, \ldots, \B{u}_m\}$ and $\{\B{v}_1, \ldots, \B{v}_m\}$ are said to be
+  _$\epsilon$-similar_ to each other if there is a permutation $\sigma$ of
+  $\{1, \ldots, m\}$ so that
+
+  $$
+  \abs{ \left( \frac{\B{u}_{\sigma(i)}}{\norm{\B{u}_{\sigma(i)}}} \right) \cdot
+        \left( \frac{\B{v}_i}{\norm{\B{v}_i}} \right)
+      }
+  \ge \sqrt{1 - \epsilon^2}
+  $$
+
+  for $1 \le i \le m$. Intuitively, the vectors from the two sets can be paired up so
+  that the angles between paired vectors is small.
+
+* __Nearby Orthogonal Vectors__. A set of vectors $\{\B{v}_1, \ldots, \B{v}_m\}$ is said
+  to be _nearly orthogonal_ if it is $\epsilon$-similar to a set of orthonormal vectors
+  $\{\B{b}_1, \ldots, \B{b}_m\}$.
 
 --------------------------------------------------------------------------------------------
 ### Assumptions
 
-* $\{v_1, \ldots, v_n\}$ is a set of vectors that is nearly orthogonal in the sense that
+Throughout these notes, we assume the following:
 
-  $$
-  \left| \left( \frac{v_i}{\Vert v_i \Vert_2} \right) \cdot e_i \right|
-  \ge \sqrt{1 - \epsilon^2}
-  $$
+* $\{\B{v}_1, \ldots, \B{v}_n\}$ is $\epsilon$-similar to the standard basis for $\R^n$
+  under the identity permutation on the indices,
 
-  In terms of components, $|v_{ii}| / \Vert v_i \Vert_2 \ge \sqrt{1 - \epsilon^2}$.
+* $\phi_i$ is the angle formed between $\B{v}_i$ and $\e_i$,
 
+* $S$ is a subset of $\{1, \ldots n\}$, and
+
+* all angles between vectors and blades are taken to lie in the interval $[0, \pi/2]$.
+
+It is convenient to express the first and second assumptions in terms of the components
+(with respect to the standard basis) of the $\B{v}_i$:
+
+$$
+\cos \phi_i = \frac{\abs{v_{ii}}}{\norm{\B{v}_i}} \ge \sqrt{1 - \epsilon^2}
+$$
+
+for $1 \le i \le n$.
+
+#### Remark
+
+All results hold for the general case where $\{\B{v}_1, \ldots, \B{v}_n\}$ is
+$\epsilon$-similar to an arbitrary orthonormal basis $\{\B{b}_1, \ldots, \B{b}_n\}$ because
+we can use the following procedure to transform the general case into a scenario that
+satisfies the conditions of the first assumption.
+
+1. Map $\B{v}_i$ to $\B{v}_{\sigma(i)}$ so that after mapping $\B{v}_j$ matches with
+   $\B{b}_j$ for all $j$.
+
+2. Apply the orthogonal linear transformation that maps $\B{b}_i$ to $\e_i$ to the
+   vector space so that the orthonormal basis is the standard basis for $\R^n$.
+
+--------------------------------------------------------------------------------------------
 ### Propositions
 
-* If $i \in S$
+#### Lemma 1. Bounds on Angles $\B{v}_i$, $\proj{S}{\B{v}_i}$, and $\e_i$
 
-  $$
-  \sqrt{1 - \epsilon^2} \le \frac{|v_{ii}|}{\Vert v_i \Vert_S} \le 1.
-  $$
+If $i \in S$, then
 
-  _Proof_: The lower bound follows because $\Vert v_i \Vert_S \le \Vert v_i \Vert_2$, which
-  implies that
+* the angle between $\proj{S}{\B{v}_i}$ and $\e_i$ is no greater than the angle between
+  $\B{v}_i$ and $\e_i$;
 
-  $$
-  \frac{|v_{ii}|}{\Vert v_i \Vert_S}
-  \ge \frac{|v_{ii}|}{\Vert v_i \Vert_2}
-  \ge \sqrt{1 - \epsilon^2}.
-  $$
+* the angle between $\proj{S}{\B{v}_i}$ and $\B{v}_i$ is no greater than the angle between
+  $\B{v}_i$ and $\e_i$.
 
-  The upper bound follows because $v_{ii} \le \Vert v_i \Vert_S$ when $i \in S$.
+_Proof_. For the first bound, $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$ implies that
 
-* If $i, j \in S$ and $i \ne j$,
+$$
+\frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}}
+\ge \frac{\abs{v_{ii}}}{\norm{\B{v}_i}}
+= \cos \phi_i.
+$$
 
-  $$
-  \frac{|v_{ij}|}{\Vert v_i \Vert_S} \le \epsilon.
-  $$
+When $i \in S$, the expression on the left-hand side is equal to the cosine of the angle
+between $\proj{S}{\B{v}_i}$ and $\e_i$, which yields the desired result.
 
-  _Proof_: Since $i, j \in S$, we can expand $\Vert v_i \Vert_S^2$ as
+For the second bound, $\abs{v_{ii}} \le \norm[S]{\B{v}_i}$ when $i \in S$, so
 
-  $$
-  \Vert v_i \Vert_S^2
-  = v_{ii}^2 + v_{ik}^2 + \sum_{k \in S, k \ne i,j} v_{ij}^2.
-  $$
+$$
+\frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}}
+\ge \frac{\abs{v_{ii}}}{\norm{\B{v}_i}}
+= \cos \phi_i.
+$$
 
-  Solving this equation for $v_{ik}^2$ yields
+Observing that the expression on the left-hand side is equal to the cosine of the angle
+between $\proj{S}{\B{v}_i}$ and $\B{v}_i$ yields the desired result.
 
-  $$
-  \begin{align}
-  v_{ik}^2
-  &= \Vert v_i \Vert_S^2 - v_{ii}^2 - \sum_{k \in S, k \ne i,j} v_{ij}^2 \\
-  &\le \Vert v_i \Vert_S^2 - v_{ii}^2 \\
-  &= \Vert v_i \Vert_S^2 \left( 1 - \frac{v_{ii}^2}{\Vert v_i \Vert_S^2} \right) \\
-  &\le \epsilon^2 \Vert v_i \Vert_S^2.
-  \end{align}
-  $$
+__Corollary__. If $i \in S$, then
 
-  Rearranging and taking square roots yields the desired result.
+$$
+\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}} \le 1.
+$$
 
-  __Corollary__. If $i \ne j$, then
+and
 
-  $$
-  \frac{|v_{ij}|}{\Vert v_i \Vert_2} \le \epsilon.
-  $$
+$$
+\sqrt{1 - \epsilon^2} \le \frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}} \le 1
+$$
 
-  _Proof_: Taking $S = \{1, \ldots, n\}$ yields the desired result.
+_Proof_. The lower bounds follow from the assumption that
+$\cos \phi_i \ge \sqrt{1 - \epsilon^2}$. The upper bounds follow because cosine is never
+greater than 1. The upper bounds can also be directly verified from the observations that
 
-  __Corollary__. If $i \ne j$ and $\epsilon$ is sufficiently small ($\lesssim 0.78$), then
+* $v_{ii} \le \norm[S]{\B{v}_i}$ when $i \in S$
 
-  $$
-  \left| \frac{v_{ij}}{v_{ii}} \right| \le \epsilon (1 + \epsilon^2).
-  $$
+  and
 
-  _Proof_:
+* $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$.
 
-  $$
-  \left| \frac{v_{ij}}{v_{ii}} \right|
-  = \left( \frac{|v_{ij}|}{\Vert v_i \Vert_2} \right)
-    \left( \frac{\Vert v_i \Vert_2}{|v_{ii}|} \right)
-  \le \frac{\epsilon}{\sqrt{1 - \epsilon^2}}
-  \le \epsilon (1 + \epsilon^2),
-  $$
+#### Lemma 2. $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$
 
-  where the last inequality follows because it equivalent to inequality
+If $i, j \in S$ and $i \ne j$,
 
-  $$
-  f(x) = (1 - x^2) (1 + x^2)^2 - 1 \ge 0
-  $$
+$$
+\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon.
+$$
 
-  which can be shown to be true on the interval
-  $\left[0, \left( \frac{\sqrt{5} - 1}{2} \right)^{1/2} \right]$ through an analysis of
-  the roots of $f(x)$ and some calculus.
+_Proof_. Since $i, j \in S$, we can expand $\norm[S]{\B{v}_i}^2$ as
 
-* Let $B = \bigwedge_{i \in S} v_i$. If $s \epsilon \le 1$
-  then
+$$
+\norm[S]{\B{v}_i}^2
+= v_{ii}^2 + v_{ij}^2 + \sum_{k \in S, k \ne i,j} v_{ik}^2.
+$$
 
-  $$
-  \Vert B \Vert_S \ge (1 - s \epsilon) \prod_{i \in S} \Vert v_i \Vert_S
-  $$
+Solving this equation for $v_{ij}^2$ yields
 
-  _Proof_. Let $\hat{v}_i$ be the subvector of $v_i$ consisting of the components whose
-  indices are in $S$. We can express $\Vert B \Vert_S$ as the absolute value of the
-  determinant of a matrix with columns $\hat{v}_i$:
+$$
+\begin{align}
+v_{ij}^2
+&= \norm[S]{\B{v}_i}^2 - v_{ii}^2 - \sum_{k \in S, k \ne i,j} v_{ik}^2 \\
+&\le \norm[S]{\B{v}_i}^2 - v_{ii}^2 \\
+&= \norm[S]{\B{v}_i}^2 \left( 1 - \frac{v_{ii}^2}{\norm[S]{\B{v}_i}^2} \right) \\
+&\le \epsilon^2 \norm[S]{\B{v}_i}^2.
+\end{align}
+$$
 
-  $$
-  \left[ \begin{array}{c|c|c}
-    \hat{v}_1 & \cdots & \hat{v}_s
-  \end{array} \right].
-  $$
+Rearranging and taking square roots yields the desired result.
 
-  Factoring out $\newcommand{\sgn}[1]{\operatorname{sgn}\left(#1\right)}$
-  $\sgn{v_{ii}} \Vert v_i \Vert_S$ from each column,
+__Corollary__. If $i \ne j$, then
 
-  $$
-  \Vert B \Vert_S
-  = \left( \prod_{i \in S} \Vert v_i \Vert_S \right)
-    \left| \det \left[ \begin{array}{c|c|c}
-      \frac{\sgn{v_{11}} v_1}{\Vert v_1 \Vert_S}
+$$
+\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon.
+$$
+
+_Proof_. Taking $S = \{1, \ldots, n\}$ yields the desired result. Alternatively, the
+result follows because $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$ implies that
+$\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}}$.
+
+#### Lemma 3. $\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2)$
+
+If $i \ne j$ and $\epsilon$ is sufficiently small ($\lesssim 0.78$), then
+
+$$
+\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2).
+$$
+
+_Proof_.
+
+$$
+\abs{\frac{v_{ij}}{v_{ii}}}
+= \Biggl( \frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \Biggr)
+  \Biggl( \frac{\norm{\B{v}_i}}{\abs{v_{ii}}} \Biggr)
+\le \frac{\epsilon}{\sqrt{1 - \epsilon^2}}
+\le \epsilon (1 + \epsilon^2),
+$$
+
+where the last inequality follows because it is equivalent to the inequality
+
+$$
+f(x) = (1 - x^2) (1 + x^2)^2 - 1 \ge 0
+$$
+
+which can be shown to hold on the interval
+$\left[0, \left( \frac{\sqrt{5} - 1}{2} \right)^{1/2} \right]$ through an analysis of
+the roots of $f(x)$ and the sign of $f(x)$ between the roots.
+
+__Remark__. TODO
+
+* geometric interpetation as tangent of angle when $\B{v}_i$ is projected onto any
+  two-dimensional subspace formed from two standard basis vectors when one of them is
+  $\e_i$.
+
+#### Proposition 4. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
+
+Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$. If $s \epsilon \le 1$
+then
+
+$$
+\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}
+$$
+
+_Proof_. Let $\hat{\B{v}}_i$ be the subvector of $\B{v}_i$ consisting of the components
+whose indices are in $S$. We can express $\norm[S]{\B{V}}$ as the absolute value of the
+determinant of a matrix with columns $\hat{\B{v}}_i$:
+
+$$
+\norm[S]{\B{V}}
+= \biggl| \det
+    \left[ \begin{array}{c|c|c}
+      \hat{\B{v}}_1 & \cdots & \hat{\B{v}}_s
+    \end{array} \right]
+  \biggr|.
+$$
+
+Factoring out $\sgn{v_{ii}} \norm[S]{\B{v}_i}$ from each column,
+
+$$
+\norm[S]{\B{V}}
+= \left( \prod_{i \in S} \norm[S]{\B{v}_i} \right)
+  \Biggl|
+    \det \left[ \begin{array}{c|c|c}
+      \frac{\sgn{v_{11}} v_1}{\norm[S]{\B{v}_1}}
       & \cdots
-      & \frac{\sgn{v_{ss}} v_s}{\Vert v_s \Vert_S}
-    \end{array} \right] \right|.
-  $$
+      & \frac{\sgn{v_{ss}} v_s}{\norm[S]{\B{v}_s}}
+    \end{array} \right]
+  \Biggr|.
+$$
 
-  In this form, the matrix is close to the identity because
-  $|v_{ii}| / \Vert v_i \Vert_S \ge \sqrt{1 - \epsilon^2} \ge 1 - \epsilon$ and
-  $|v_{ij}| / \Vert v_i \Vert_S \le \epsilon$. Therefore, $s \epsilon \le 1$ implies that
-  the determinant in the expression for $\Vert B \Vert_S$ is bounded below by
-  $(1 - s \epsilon)$ [1], which yields the desired result.
+In this form, the matrix is close to the identity because
+$\frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}} \ge \sqrt{1 - \epsilon^2} \ge 1 - \epsilon$ and
+$\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$. Therefore, $s \epsilon \le 1$
+implies that the determinant in the expression for $\norm[S]{\B{V}}$ is bounded below by
+$(1 - s \epsilon)$ [1], which yields the desired result.
 
-  __Corollary__. If $B = \bigwedge_{i \in S} v_i$, then
+__Corollary__. If $\B{V} = \bigwedge_{i \in S} \B{v}_i$, then
 
-  $$
-  \Vert B \Vert_2 \ge (1 - s \epsilon) \prod_{i \in S} \Vert v_i \Vert_S.
-  $$
+$$
+\norm{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}.
+$$
 
-  _Proof_: The result follows because $\Vert B \Vert_2 \ge \Vert B \Vert_S$.
+_Proof_. The result follows because $\norm{\B{V}} \ge \norm[S]{\B{V}}$.
 
-* Let $B = \bigwedge_{i \in S} v_i$. If $s \epsilon \le 1$ and $(n-s) \epsilon \le 1$,
-  then
+#### Proposition 5. $\frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}$
 
-  $$
-  \frac{\Vert B \Vert_S}{\Vert B \Vert_2}
-  \ge (1 - s \epsilon) \left( 1 - (n-s) \epsilon^2 \right)^{s/2}.
-  $$
+Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$. If $s \epsilon \le 1$, then
 
-  _Proof_. Combining the lower bound on $\Vert B \Vert_S$ with Hadamard's inequality
+$$
+\frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}.
+$$
 
-  $$
-  \Vert B \Vert_2 \le \prod_{i \in S} \Vert v_i \Vert_2,
-  $$
+_Proof_. Combining the lower bound on $\norm[S]{\B{V}}$ with Hadamard's inequality
 
-  we find that
+$$
+\norm{\B{V}} \le \prod_{i \in S} \norm{\B{v}_i},
+$$
 
-  $$
-  \frac{\Vert B \Vert_S}{\Vert B \Vert_2}
-  \ge \frac{(1 - s \epsilon) \prod_{i \in S} \Vert v_i \Vert_S}
-           {\prod_{i \in S} \Vert v_i \Vert_2}
-  = (1 - s \epsilon) \prod_{i \in S} \frac{\Vert v_i \Vert_S}{\Vert v_i \Vert_2}.
-  $$
+we find that
 
-  Rearranging the identity
+$$
+\frac{\norm[S]{\B{V}}}{\norm{\B{V}}}
+\ge \frac{(1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}}
+         {\prod_{i \in S} \norm{\B{v}_i}}
+= (1 - s \epsilon) \prod_{i \in S} \frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}}
+\ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}
+$$
 
-  $$
-  \Vert v_i \Vert_2^2 = \Vert v_i \Vert_S^2 + \sum_{k \notin S} v_{ik}^2,
-  $$
+where we have used the corollary to Lemma 1 for the last inequality.
 
-  we can bound $\Vert v_i \Vert_S / \Vert v_i \Vert_2$ from below:
+__Corollary__. If $\theta$ is the angle between $\B{V}$ and the subspace $\E_S$, then
+$\cos \theta \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}$. A simpler but
+looser bound on $\cos \theta$ is $\cos \theta \ge (1 - s \epsilon)^2$.
 
-  $$
-  \left( \frac{\Vert v_i \Vert_S}{\Vert v_i \Vert_2} \right)^2
-  = 1 - \sum_{k \notin S} \frac{v_{ik}^2}{\Vert v_i \Vert_2^2}
-  \ge 1 - (n-s) \epsilon^2.
-  $$
+_Proof_. The result follows from the definition of $\cos \theta$:
 
-  Incorporating this result into our previous bound for
-  $\frac{\Vert B \Vert_S}{\Vert B \Vert_2}$ yields the desired result.
+$$
+\cos \theta
+= \frac{\norm{\proj{S}{\B{V}}}}{\norm{\B{V}}}
+= \frac{\norm[S]{\B{V}}}{\norm{\B{V}}}.
+$$
 
-  __Corollary__. If $\theta$ is the angle between $B$ and the subspace
-  $\bigwedge_{k \in S} e_k$, then
-  $\cos \theta \ge (1 - s \epsilon) \left( 1 - (n-s) \epsilon^2 \right)^{s/2}$.
+The looser bound follows from the observations that
 
-  _Proof_: The result follows from the definition of $\cos \theta$:
+* $\sqrt{1 - \epsilon^2} \ge 1 - \epsilon$
 
-  $$
-  \cos \theta
-  = \frac{\Vert \proj{S}{B} \Vert_2}{\Vert B \Vert_2}
-  = \frac{\Vert B \Vert_S}{\Vert B \Vert_2}.
-  $$
+  and
 
-  __Corollary__. If $i \notin S$, then
+* $(1 - \epsilon)^2 \ge 1 - s \epsilon$,
 
-  $$
-  \frac{\Vert B \Vert_S}{\Vert B \Vert_{S \cup \{i\}}}
-  \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}.
-  $$
+which toegher imply that
 
-  _Proof_: Treating $e_i \wedge \left( \bigwedge_{k \in S} e_k \right)$ as the vector
-  space for the previous proposition, we have $n = s + 1$ and
-  $\Vert B \Vert_{S \cup \{i\}} = \Vert B \Vert_2$, which yields the desired result.
+$$
+\left( 1 - \epsilon^2 \right)^{s/2}
+\le \left( 1 - \epsilon \right)^s
+\le 1 - s \epsilon.
+$$
 
-* Assume $i \notin S$. Let
 
-  * $B = \bigwedge_{k \in S} v_k$,
 
-  * $E_S = \bigwedge_{k \in S} e_k$,
+#### Proposition 6. $\norm{\rej{\B{V}}{\B{v}_i}} \ge \abs{v_{ii}} \left( 1  - \frac{\sin \theta}{\cos \phi_i} \right)$
 
-  * $E_S' = B \bigcap E_S$,
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $i \notin S$, then
 
-  * $e_S^* = E_S / E_S'$,
+$$
+\norm{\rej{\B{V}}{\B{v}_i}}
+\ge \abs{v_{ii}} \left( 1  - \frac{\sin \theta}{\cos \phi_i} \right)
+$$
 
-  * $b^* = B / E_S'$,
+where $\theta$ is the angle between $\B{V}$ and $\E_S$.
 
-  * $E_S^* = e_S^* \wedge e_i$, and
+_Proof_. Consider decompositions of $\R^n$ into direct sums of orthogonal subspaces:
+$\B{V} \oplus \dual{\B{V}}$ and $\E_S \oplus \dual{\E_S}$ [2,3]. Representing $\B{v}_i$
+in terms of these direct sums, we have
 
-  * $\theta$ be the angle between $B$ and $E_S$.
+$$
+\B{v}_i = \proj{\B{V}}{\B{v}_i} + \proj{\dual{\B{V}}}{\B{v}_i}
+$$
 
-  If $s \epsilon \le 1$ and $(n-s) \epsilon \le 1$, then
+and
 
-  $$
-  \frac{\rej{B}{v_i}}{\Vert \proj{M}{v_i} \Vert_2} \ge \cos \theta \sqrt{1 - \epsilon^2}
-  $$
+$$
+\B{v}_i = \proj{\B{\E_S}}{\B{v}_i} + \proj{\dual{\B{\E_S}}}{\B{v}_i}.
+$$
 
-  _Proof_: TODO
+Note $i \notin S$ implies that $\proj{\dual{\B{V}}}{\B{v}_i} \ne \B{0}$.
 
-  ![](figures/2022-09-03-E_S_star-theta-phi-opposite-sign.png)
+Using the inequality relationships between representations of vectors as orthogonal
+projections in different orthogonal subspace pairs of the same dimension [4], we have the
+following bound on the magnitudes of the projection of $\B{v}_i$ onto $\dual{\B{\E_S}}$:
 
-  ![](figures/2022-09-03-E_S_star-theta-phi-same-sign-theta-less-than-phi.png)
+$$
+\norm{\proj{\dual{\B{\E_S}}}{\B{v}_i}}
+\le \sin \theta \norm{\proj{\B{V}}{\B{v}_i}} + \norm{\proj{\dual{\B{V}}}{\B{v}_i}}
+$$
 
-  ![](figures/2022-09-03-E_S_star-theta-phi-same-sign-theta-greater-than-phi.png)
+where $\theta$ is the angle between $\B{V}$ and $\E_S$.
 
-  __Corollary__. TODO If $s \epsilon \le 1$ and $(n-s) \epsilon \le 1$, then
+Rearranging this inequality, identifying $\proj{\dual{\B{V}}}{\B{v}_i}$ with
+$\rej{\B{V}}{\B{v}_i}$, and observing that
+$\norm{\proj{\B{V}}{\B{v}_i}} \le \norm{\B{v}_i}$ and
+$\abs{v_{ii}} \le \norm{\proj{\dual{\B{\E_S}}}{\B{v}_i}}$
+yields the lower bound
 
-  $$
-  \rej{B}{v_i} \ge v_{ii} \cos \theta \sqrt{1 - \epsilon^2}
-  $$
+$$
+\begin{align}
+\norm{\rej{\B{V}}{\B{v}_i}}
+&\ge \abs{v_{ii}} - \sin \theta \norm{\B{v}_i} \\
+&= \abs{v_{ii}} \left( 1  - \sin \theta \frac{\norm{\B{v}_i}}{\abs{v_{ii}}} \right) \\
+&= \abs{v_{ii}} \left( 1  - \frac{\sin \theta}{\cos \phi_i} \right).
+\end{align}
+$$
 
-  _Proof_: TODO
+__Corollary__. If $s \epsilon \le 1$, then
 
-  __Corollary__. TODO If $s \epsilon \le 1$ and $(n-s) \epsilon \le 1$, then
+$$
+\norm{\rej{\B{V}}{\B{v}_i}}
+\ge \abs{v_{ii}}
+    \left[
+      1 - \left(
+            \frac{1 - (1 - s \epsilon)^2 \left(1 - \epsilon^2 \right)^s}{1 - \epsilon^2}
+          \right)^{1/2}
+   \right]
+$$
 
-  $$
-  \frac{\rej{B}{v_i}}{\Vert v_i \Vert_{(e_i \wedge E_S)}}
-  \ge \cos \theta \sqrt{1 - \epsilon^2}
-  $$
+Simpler but looser bounds for $\norm{\rej{\B{V}}{\B{v}_i}}$ are
 
-  _Proof_: TODO
+$$
+\begin{align}
+\norm{\rej{\B{V}}{\B{v}_i}}
+&\ge 1 - \left( 1 + \epsilon^2 \right) \left( 1 - (1 - s \epsilon)^4 \right)^{1/2} \\
+&\ge \abs{v_{ii}} \left( 1 - 2 \sqrt{s \epsilon} \left( 1 + \epsilon^2 \right) \right)
+\end{align}
+$$
+
+_Proof_. If $s \epsilon \le 1$, then corollary of Proposition 5 implies that
+
+$$
+\sin^2 \theta
+= 1 - \cos^2 \theta
+\le 1 - (1 - s \epsilon)^2 \left(1 - \epsilon^2 \right)^s.
+$$
+
+Combining this bound with the corollary to Lemma 1 leads to
+
+$$
+\frac{\sin^2 \theta}{\cos^2 \phi_i}
+\le \frac{1 - (1 - s \epsilon)^2 \left(1 - \epsilon^2 \right)^s}{1 - \epsilon^2}.
+$$
+
+Therefore,
+
+$$
+\begin{align}
+\norm{\rej{\B{V}}{\B{v}_i}}
+&\ge \abs{v_{ii}} \left( 1  - \frac{\sin \theta}{\cos \phi_i} \right) \\
+&\ge \abs{v_{ii}}
+     \left[
+       1 - \left(
+             \frac{1 - (1 - s \epsilon)^2 \left(1 - \epsilon^2 \right)^s}{1 - \epsilon^2}
+           \right)^{1/2}
+    \right]
+\end{align}
+$$
+
+The looser bounds follows because
+
+$$
+\begin{align}
+1  - \frac{\sin \theta}{\cos \phi_i}
+&\ge 1 - \left(
+          \frac{1 - (1 - s \epsilon)^4}{1 - \epsilon^2}
+        \right)^{1/2} \\
+&\ge 1 - \left( 1 + \epsilon^2 \right)
+         \left( 1 - (1 - s \epsilon)^4 \right)^{1/2} \\
+&\ge 1 - \left( 1 + \epsilon^2 \right)
+         \left( 1 - (1 - 4 s \epsilon) \right)^{1/2} \\
+&= 1 - 2 \sqrt{s \epsilon} \left( 1 + \epsilon^2 \right)
+\end{align}
+$$
+
+where the first inequality follows from the looser bound for $\cos \theta$ in the corollary
+to Proposition 5, the second inequality follows because
+$\left(1 - \epsilon^2\right)^{-1/2} \le 1 + \epsilon^2$, and the third inequality follows
+because $(1 - x)^n > 1 - nx$ for positive $x$ and $n$.
 
 --------------------------------------------------------------------------------------------
 ### References
 
 1. R.P. Brent, J.H. Osborn, W.D. Smith. "Note on best possible bounds for determinants of
    matrices close to the identity matrix" (2015).
+
+2. S. Axler. "Linear Algebra Done Right" (2015).
+
+3. A. Macdonald. "Linear and Geometric Algebra" (2010).
+
+4. [[2022-09-14-Generalization-of-Orthogonal-Projection-Transformation-Formulas]]
 
 --------------------------------------------------------------------------------------------
