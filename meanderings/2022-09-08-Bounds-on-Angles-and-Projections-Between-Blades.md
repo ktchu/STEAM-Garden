@@ -39,11 +39,11 @@ $\dual{U}$ and (2) the projection of $\B{v}$ onto $\dual{U}$:
 * the norm of the projection of $\B{v}$ onto $\dual{U}$ is equal to
   $\norm{\B{v}} \sin \theta$.
 
-For blades with grade greater than 1, geometry is more complicated. In particular, we no
-longer have simple equality relationships between the angle a blade $\B{B}$ makes with a
-subspace $U$ and other geometric quantities – instead , we have simple _inequality_
-relationships. In this note, we several bounds that are useful when examining the geometry
-of blade (and subspace) constructions.
+For blades with grade greater than 1, the geometry is more complicated. In particular, we
+no longer have simple equality relationships between the angle a blade $\B{B}$ makes with
+a subspace $U$ and other geometric quantities – instead , we have simple _inequality_
+relationships. In this note, we identify and prove several bounds that are useful when
+examining the geometry of blade (and subspace) constructions.
 
 #### Key Results
 
