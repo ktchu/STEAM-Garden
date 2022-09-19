@@ -9,7 +9,7 @@ tags: geometric-algebra, geometry
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-18
+_Last Updated_: 2022-09-19
 
 --------------------------------------------------------------------------------------------
 ### Notation
@@ -148,7 +148,7 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
   $$
   \left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right)
   \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
-  \le \cos \phi_i.
+  \le \frac{1}{\cos \phi_i}.
   $$
 
 --------------------------------------------------------------------------------------------
@@ -466,7 +466,7 @@ Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $i \notin S$, then
 $$
 \left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right)
 \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
-\le \cos \phi_i.
+\le \frac{1}{\cos \phi_i}.
 $$
 
 where $\theta_S$ is the angle between $\B{V}$ and $\E_S$.
