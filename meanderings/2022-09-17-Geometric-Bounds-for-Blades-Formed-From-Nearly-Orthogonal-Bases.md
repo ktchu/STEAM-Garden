@@ -142,8 +142,10 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
   \end{align}
   $$
 
-  The bounds on $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ can also be expressed
-  in terms of relevant angles:
+  Interestingly, _without_ assuming that $\{ \B{v}_1, \ldots, \B{v}_n \}$ is nearly
+  orthogonal, $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ can still be bounded in
+  terms of the angle $\phi_i$ between $\B{v}_i$ and $\e_i$ and the angle $\theta_S$
+  betweeen $\B{V}$ and $\E_S$:
 
   $$
   \left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right)
