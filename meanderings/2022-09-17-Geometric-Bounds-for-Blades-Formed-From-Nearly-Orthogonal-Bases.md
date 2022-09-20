@@ -18,12 +18,15 @@ _Last Updated_: 2022-09-20
   $\newcommand{\e}{\mathbf{e}}$
   The standard basis for $\R^n$: $\{ \e_1, \ldots, \e_n \}$
 
+* $\newcommand{\abs}[1]{\left\vert{#1}\right\vert}$
+  The absolute value of $x$: $\abs{x}$
+
 __Blades__
 
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
 
-* $\newcommand{\norm}[2][2]{\left\Vert{#2}\right\Vert_{#1}}$
+* $\newcommand{\norm}[2][2]{\bigl\Vert{#2}\bigr\Vert_{#1}}$
   The 2-norm of blade $\B{B}$: $\norm{\B{B}}$
 
 * $\newcommand{\dual}[1]{{#1}^\perp}$
