@@ -5,14 +5,14 @@ tags: geometric-algebra, linear-algebra
 --------------------------------------------------------------------------------------------
 
 2022-09-14: Generalizations of Orthogonal Projection Transformation Formulas
-----------------------------------------------------------------------------
+============================================================================
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
 _Last Updated_: 2022-09-17
 
 --------------------------------------------------------------------------------------------
-### Notation
+## Notation
 
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
@@ -28,7 +28,7 @@ _Last Updated_: 2022-09-17
   $\proj{\B{B}}{\B{A}}$
 
 --------------------------------------------------------------------------------------------
-### Summary
+## Summary
 
 In two dimensions, the coordinates of a vector represented in two different orthonormal
 bases are related by the simple transformation formula
@@ -105,9 +105,9 @@ $$
 where the matrix inequalities are element-wise.
 
 --------------------------------------------------------------------------------------------
-### Propositions
+## Propositions
 
-#### Lemma 1. Linear Transformation Formula
+### Lemma 1. Linear Transformation Formula
 
 Let $\B{U}$ and $\B{V}$ be blades that represent subspaces with the same dimension. If
 $\B{x}$ is a vector, then the projections of $\B{x}$ onto $\B{V}$ and $\dual{\B{V}}$ can
@@ -165,7 +165,7 @@ $$
   + \proj{\dual{\B{V}}}{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
-#### Proposition 2. Upper Bounds on Orthogonal Projections
+### Proposition 2. Upper Bounds on Orthogonal Projections
 
 Let $\B{U}$ and $\B{V}$ be blades that represent subspaces of the same dimension and
 let $\theta$ be the angle between $\B{U}$ and $\B{V}$. Then
@@ -252,7 +252,7 @@ $$
 \le \sin \theta \norm{\proj{\B{U}}{\B{x}}} + \norm{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
-#### Proposition 3. Lower Bounds on Orthogonal Projections
+### Proposition 3. Lower Bounds on Orthogonal Projections
 
 Let $\B{U}$ and $\B{V}$ be blades that represent subspaces of the same dimension and
 let $\theta$ be the angle between $\B{U}$ and $\B{V}$. Then
@@ -347,7 +347,7 @@ $$
 
 
 --------------------------------------------------------------------------------------------
-### References
+## References
 
 1. [[2022-09-08-Bounds-on-Angles-and-Projections-Between-Blades]]
 

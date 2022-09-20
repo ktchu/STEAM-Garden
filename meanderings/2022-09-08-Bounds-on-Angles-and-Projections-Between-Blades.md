@@ -5,14 +5,14 @@ tags: geometric-algebra, linear-algebra
 --------------------------------------------------------------------------------------------
 
 2022-09-08: Bounds on Angles and Projections Between Blades
------------------------------------------------------------
+===========================================================
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
 _Last Updated_: 2022-09-17
 
 --------------------------------------------------------------------------------------------
-### Notation
+## Notation
 
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
@@ -28,7 +28,7 @@ _Last Updated_: 2022-09-17
   $\proj{\B{B}}{\B{A}}$
 
 --------------------------------------------------------------------------------------------
-### Summary
+## Summary
 
 When $\B{v}$ is a vector and $U$ is a subspace of a vector space $V$, the angle
 $\theta$ between $\B{v}$ and $U$ completely determines (1) the angle between $\B{v}$ and
@@ -45,7 +45,7 @@ a subspace $U$ and other geometric quantities – instead , we have simple _ine
 relationships. In this note, we identify and prove several bounds that are useful when
 examining the geometry of blade (and subspace) constructions.
 
-#### Key Results
+### Key Results
 
 Let $\B{B}$ and $\B{C}$ be blades and $\theta_{BC}$ be the angle between them. Then the
 angles between and projections of blades related to $\B{B}$ and $\B{C}$ satisfy the
@@ -129,7 +129,7 @@ few interesting examples.
   subspace's orthogonal complement.
 
 --------------------------------------------------------------------------------------------
-### Additional Notation
+## Additional Notation
 
 * $\newcommand{\grade}[1]{\operatorname{grade}\left({#1}\right)}$
   The grade of blade $\B{B}$: $\grade{\B{B}}$
@@ -137,8 +137,7 @@ few interesting examples.
 * $\B{A}$ is a subspace of $\B{B}$: $\B{A} \subseteq \B{B}$
 
 --------------------------------------------------------------------------------------------
-
-### Propositions
+## Propositions
 
 For all of the propositions, assume the following.
 
@@ -149,7 +148,7 @@ For all of the propositions, assume the following.
 
 * All angles are taken to lie within the interval $[0, \pi/2]$.
 
-#### Proposition 1. $\norm{\proj{\B{C}}{\B{A}}} \ge \norm{\B{A}} \cos \theta_{BC}$
+### Proposition 1. $\norm{\proj{\B{C}}{\B{A}}} \ge \norm{\B{A}} \cos \theta_{BC}$
 
 If $\B{A} \subseteq \B{B}$, then
 
@@ -212,8 +211,10 @@ $$
 
 which is equivalent to the desired result.
 
-__Corollary__. If $\B{A} \subseteq \B{B}$, then the angle $\theta_{AC}$ between $\B{A}$ and
-$\B{C}$ satisfies the inequality
+#### Corollary. $\theta_{AC} \le \theta_{BC}$
+
+If $\B{A} \subseteq \B{B}$, then the angle $\theta_{AC}$ between $\B{A}$ and $\B{C}$
+satisfies the inequality
 
 $$
 \theta_{AC} \le \theta_{BC}.
@@ -234,7 +235,9 @@ $$
 which is equivalent to the desired result because cosine is a decreasing function on
 $[0, \pi/2]$.
 
-__Corollary__. If $\B{A} \subseteq \B{B}$, then
+#### Corollary. $\frac{\norm{\proj{\B{C}}{\B{A}}}}{\norm{\B{A}}} \ge \frac{\norm{\proj{\B{C}}{\B{B}}}}{\norm{\B{B}}}$
+
+If $\B{A} \subseteq \B{B}$, then
 
 $$
 \frac{\norm{\proj{\B{C}}{\B{A}}}}{\norm{\B{A}}}
@@ -244,7 +247,7 @@ $$
 _Proof_. The result follows from the definition of the cosine of the angle between two
 blades.
 
-#### Proposition 2. $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} (\sin \theta_{BC})^k$
+### Proposition 2. $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} (\sin \theta_{BC})^k$
 
 The norm of the projection of $\B{B}$ onto $\dual{\B{C}}$ satisfies the inequality
 
@@ -349,7 +352,7 @@ $$
 
 which is equivalent to the desired result.
 
-__Corollary__
+#### Corollary. $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} \sin \theta_{BC}$
 
 The norm of the projection of $\B{B}$ onto $\dual{\B{C}}$ satisfies the inequality
 
@@ -359,7 +362,7 @@ $$
 
 _Proof_. The result follows because $(\sin \theta)^k \le \sin \theta$.
 
-__Corollary__
+#### Corollary. $\theta_{B\dual{C}} \ge \cos^{-1} \left( (\sin \theta_{BC})^k \right) \ge \frac{\pi}{2} - \theta_{BC}$
 
 The angle $\theta_{B\dual{C}}$ between $\B{B}$ and $\dual{\B{C}}$ satisfies the
 inequalities
@@ -382,7 +385,7 @@ $$
 where the second inequality follows because $(\sin \theta)^k \le \sin \theta$. Taking
 inverse cosines yields the desired result.
 
-#### Proposition 3. $\norm{\B{A}} \cos \theta_{B\dual{C}} \le \norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{BC}$
+### Proposition 3. $\norm{\B{A}} \cos \theta_{B\dual{C}} \le \norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{BC}$
 
 If $\B{A} \subseteq \B{B}$, then
 
@@ -400,8 +403,10 @@ implies that $\norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{AC
 $\theta_{AC} \le \theta_{BC}$ by corollary of Proposition 1,
 $\sin \theta_{AC} \le \sin \theta_{BC}$, which yields the desired upper bound.
 
-__Corollary__. If $\B{A} \subseteq \B{B}$, then the angle $\theta_{A\dual{C}}$ between
-$\B{A}$ and $\dual{\B{C}}$ satisfies the inequalities
+#### Corollary. $\left( \frac{\pi}{2} - \theta_{BC} \right) \le \theta_{A\dual{C}} \le \theta_{B\dual{C}}$
+
+If $\B{A} \subseteq \B{B}$, then the angle $\theta_{A\dual{C}}$ between $\B{A}$ and
+$\dual{\B{C}}$ satisfies the inequalities
 
 $$
 \left( \frac{\pi}{2} - \theta_{BC} \right)
@@ -421,7 +426,7 @@ $$
 which is equivalent to the desired result.
 
 --------------------------------------------------------------------------------------------
-### References
+## References
 
 1. A. Macdonald. "Linear and Geometric Algebra" (2010).
 

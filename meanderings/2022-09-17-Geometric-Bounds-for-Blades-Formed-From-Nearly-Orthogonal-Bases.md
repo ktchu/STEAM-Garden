@@ -5,14 +5,14 @@ tags: geometric-algebra, geometry
 --------------------------------------------------------------------------------------------
 
 2022-09-17: Geometric Bounds for Blades Formed From Nearly Orthogonal Bases
----------------------------------------------------------------------------
+===========================================================================
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-19
+_Last Updated_: 2022-09-20
 
 --------------------------------------------------------------------------------------------
-### Notation
+## Notation
 
 * $\newcommand{\R}{\mathbb{R}}$
   $\newcommand{\e}{\mathbf{e}}$
@@ -58,7 +58,7 @@ __Canonical Basis Blades__. Let $S$ be a subset of $\{1, \ldots, n\}$.
   $\norm[S]{\B{B}} = \norm{\proj{S}{\B{B}}}$
 
 --------------------------------------------------------------------------------------------
-### Summary
+## Summary
 
 The utility of orthogonal bases for representating and analyzing vectors in inner product
 spaces cannot be overstated. Much of the power of orthogonal bases originates from the
@@ -69,7 +69,7 @@ of orthogonal bases are retained in an _approximate_ manner. In this note, we id
 and prove bounds that quantify the deviation of useful geometric quantities for nearly
 orthogonal bases.
 
-#### Key Results
+### Key Results
 
 Let $\{\B{v}_1, \ldots, \B{v}_n\}$ be a nearly orthogonal basis with the angle $\phi_i$
 formed between $\B{v}_i$ and $\e_i$ such that $\cos \phi_i \ge \sqrt{1 - \epsilon^2}$ for
@@ -154,7 +154,7 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
   $$
 
 --------------------------------------------------------------------------------------------
-### Additional Notation
+## Additional Notation
 
 * $\newcommand{\sgn}[1]{\operatorname{sgn}\left({#1}\right)}$
   Sign of $x$: $\sgn{x}$
@@ -163,7 +163,7 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
   The cardinality of a set $S$: $\card{S}$
 
 --------------------------------------------------------------------------------------------
-### Definitions
+## Definitions
 
 * __$\epsilon$-Similar Vector Sets__. For $\epsilon > 0$, two sets of vectors
   $\{\B{u}_1, \ldots, \B{u}_m\}$ and $\{\B{v}_1, \ldots, \B{v}_m\}$ are said to be
@@ -185,7 +185,7 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
   $\{\B{b}_1, \ldots, \B{b}_m\}$.
 
 --------------------------------------------------------------------------------------------
-### Assumptions
+## Assumptions
 
 Throughout these notes, we assume the following:
 
@@ -223,9 +223,9 @@ satisfies the conditions of the first assumption.
    vector space so that the orthonormal basis is the standard basis for $\R^n$.
 
 --------------------------------------------------------------------------------------------
-### Projections and Angles of Vectors (1-Blades)
+## Projections and Angles of Vectors (1-Blades)
 
-#### Lemma 1. Bounds for $\proj{S}{\B{v}_i}$
+### Lemma 1. Bounds for $\proj{S}{\B{v}_i}$
 
 If $i \in S$, then
 
@@ -257,7 +257,9 @@ $$
 Observing that the expression on the left-hand side is equal to the cosine of the angle
 between $\proj{S}{\B{v}_i}$ and $\B{v}_i$ yields the desired result.
 
-__Corollary__. If $i \in S$, then
+#### Corollary. $\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}}, \frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}} \le 1$
+
+If $i \in S$, then
 
 $$
 \sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}} \le 1.
@@ -279,7 +281,7 @@ greater than 1. The upper bounds can also be directly verified from the observat
 
 * $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$.
 
-#### Lemma 2. $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}}, \frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$
+### Lemma 2. $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}}, \frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$
 
 If $i, j \in S$ and $i \ne j$,
 
@@ -308,7 +310,9 @@ $$
 
 Rearranging and taking square roots yields the desired result.
 
-__Corollary__. If $i \ne j$, then
+#### Corollary. $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$
+
+If $i \ne j$, then
 
 $$
 \frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon.
@@ -318,7 +322,7 @@ _Proof_. Taking $S = \{1, \ldots, n\}$ yields the desired result. Alternatively,
 result follows because $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$ implies that
 $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}}$.
 
-#### Lemma 3. $\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2)$
+### Lemma 3. $\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2)$
 
 If $i \ne j$ and $\epsilon$ is sufficiently small ($\lesssim 0.78$), then
 
@@ -353,9 +357,9 @@ __Remark__.
   of the form $\e_i \wedge e_j$.
 
 --------------------------------------------------------------------------------------------
-### Propositions
+## Propositions
 
-#### Proposition 1. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
+### Proposition 1. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
 
 Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$. If $s \epsilon \le 1$
 then
@@ -397,7 +401,9 @@ $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$. Therefore, $s \epsilon \l
 implies that the determinant in the expression for $\norm[S]{\B{V}}$ is bounded below by
 $(1 - s \epsilon)$ [1], which yields the desired result.
 
-__Corollary__. If $\B{V} = \bigwedge_{i \in S} \B{v}_i$, then
+#### Corollary. $\norm{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
+
+If $\B{V} = \bigwedge_{i \in S} \B{v}_i$, then
 
 $$
 \norm{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}.
@@ -405,7 +411,7 @@ $$
 
 _Proof_. The result follows because $\norm{\B{V}} \ge \norm[S]{\B{V}}$.
 
-#### Proposition 2. $\cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
+### Proposition 2. $\cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
 
 Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$. If $s \epsilon \le 1$, then
 
@@ -449,7 +455,9 @@ $$
 
 where we have used the corollary to Lemma 1 for the last inequality.
 
-__Corollary__. If $\theta_S$ is the angle between $\B{V}$ and the subspace $\E_S$, then
+#### Corollary. $\cos \theta_S \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
+
+If $\theta_S$ is the angle between $\B{V}$ and the subspace $\E_S$, then
 $\cos \theta_S \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}$. A simpler but
 looser bound is $\cos \theta_S \ge (1 - s \epsilon)^2$.
 
@@ -461,7 +469,7 @@ $$
 = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}}.
 $$
 
-#### Proposition 3. $\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right) \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}} \le \frac{1}{\cos \phi_i}$ when $i \notin S$
+### Proposition 3. $\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right) \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}} \le \frac{1}{\cos \phi_i}$ when $i \notin S$
 
 Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $i \notin S$, then
 
@@ -526,7 +534,9 @@ $$
 
 which is equivalent to the desired result.
 
-__Corollary__. If $s \epsilon \le 1$, then
+#### Corollary. Bounds on $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ for Nearly Orthogonal Vectors
+
+If $s \epsilon \le 1$, then
 
 $$
 1 - \left(
@@ -606,7 +616,7 @@ $\left(1 - \epsilon^2\right)^{-1/2} \le 1 + \epsilon^2$, and the third inequalit
 because $(1 - x)^n > 1 - nx$ for positive $x$ and $n$.
 
 --------------------------------------------------------------------------------------------
-### References
+## References
 
 1. R.P. Brent, J.H. Osborn, W.D. Smith. "Note on best possible bounds for determinants of
    matrices close to the identity matrix" (2015).
