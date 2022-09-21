@@ -26,7 +26,7 @@ __Blades__
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
 
-* $\newcommand{\norm}[2][2]{\bigl\Vert{#2}\bigr\Vert_{#1}}$
+* $\newcommand{\norm}[2][2]{\left\Vert{#2}\right\Vert_{#1}}$
   The 2-norm of blade $\B{B}$: $\norm{\B{B}}$
 
 * $\newcommand{\dual}[1]{{#1}^\perp}$
