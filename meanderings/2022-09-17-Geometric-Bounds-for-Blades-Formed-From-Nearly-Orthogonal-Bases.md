@@ -155,7 +155,7 @@ Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$.
   \begin{align}
   \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
   &\ge 1 - \left( 1 + \epsilon^2 \right) \left( 1 - (1 - s \epsilon)^4 \right)^{1/2} \\
-  &\ge 1 - s \epsilon \left( 1 + \epsilon^2 \right).
+  &\ge 1 - 2 \sqrt{s \epsilon} \left( 1 + \epsilon^2 \right).
   \end{align}
   $$
 
@@ -575,14 +575,14 @@ of the indices of the vectors included into the outer product). As a consequence
 the form $\B{V} = \bigwedge_{k \in S} \B{v}_k$ are almost equal to their projections onto
 $\E_S$.
 
-#### Corollary 5.3. $\frac{\abs{\B{v}_i \cdot \B{V}}}{\norm{\B{v}_i} \norm{\B{V}}} \le \left( 1 - \left( 1 - (s+1) \epsilon \right)^4 \right)^{1/2} \le (s+1) \epsilon$
+#### Corollary 5.3. $\frac{\abs{\B{v}_i \cdot \B{V}}}{\norm{\B{v}_i} \norm{\B{V}}} \le \left( 1 - \left( 1 - (s+1) \epsilon \right)^4 \right)^{1/2} \le 2 \sqrt{(s+1) \epsilon}$
 
 Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $(s+1) \epsilon \le 1$. If $i \notin S$, then
 
 $$
 \frac{\abs{\B{v}_i \cdot \B{V}}}{\norm{\B{v}_i} \norm{\B{V}}}
 \le \left( 1 - \left( 1 - (s+1) \epsilon \right)^4 \right)^{1/2}
-\le (s+1) \epsilon
+\le 2 \sqrt{(s+1) \epsilon}
 $$
 
 _Proof_. Since $i \notin S$, we can decompose $\B{v}_i$ into its projection onto and
@@ -630,16 +630,16 @@ $$
 - \left( 1 - (s+1) \epsilon \right)^4
   \norm{\B{v}_i}^2 \norm{\B{V}}^2 \\
 &= \left( 1 - \left( 1 - (s+1) \epsilon \right)^4 \right) \norm{\B{v}_i}^2 \norm{\B{V}}^2 \\
-&\le \left( 1 - \left( 1 - (s+1)^2 \epsilon^2 \right) \right)
+&\le \left( 1 - \left( 1 - 4 (s+1) \epsilon \right) \right)
      \norm{\B{v}_i}^2 \norm{\B{V}}^2 \\
-&= (s+1)^2 \epsilon^2 \norm{\B{v}_i}^2 \norm{\B{V}}^2
+&= 4 (s+1) \epsilon \norm{\B{v}_i}^2 \norm{\B{V}}^2
 \end{align}
 $$
 
 where the first inequality follows from Corollary 5.1, the second inequality follows from
 Corollary 1.1, the third inequality follows from Hadamard's inequality, the fourth
 inequality follows from the same logic used for looser bound in Corollary 5.2, and the
-last inequality follows because $(1 - x)^4 \ge 1 - x^2$ when $0 \le x \le 1$.
+last inequality follows because $(1 - x)^n \ge 1 - nx$ when $x$ and $n$ are positive.
 
 Rearranging this inequality and taking square roots yields the desired result.
 
@@ -738,7 +738,7 @@ $$
 \begin{align}
 \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
 &\ge 1 - \left( 1 + \epsilon^2 \right) \left( 1 - (1 - s \epsilon)^4 \right)^{1/2} \\
-&\ge 1 - s \epsilon \left( 1 + \epsilon^2 \right)
+&\ge 1 - 2 \sqrt{s \epsilon} \left( 1 + \epsilon^2 \right)
 \end{align}
 $$
 
@@ -751,7 +751,7 @@ $$
 \le 1 + \epsilon^2.
 $$
 
-For the lower bound, then Corollary 6.1 implies that
+For the lower bound, then Corollary 5.2 implies that
 
 $$
 \sin^2 \theta_S
@@ -791,15 +791,15 @@ $$
 &\ge 1 - \left( 1 + \epsilon^2 \right)
          \left( 1 - (1 - s \epsilon)^4 \right)^{1/2} \\
 &\ge 1 - \left( 1 + \epsilon^2 \right)
-         \left( 1 - (1 - s^2 \epsilon^2) \right)^{1/2} \\
-&= 1 - s \epsilon \left( 1 + \epsilon^2 \right)
+         \left( 1 - (1 - 4 s \epsilon) \right)^{1/2} \\
+&= 1 - 2 \sqrt{s \epsilon} \left( 1 + \epsilon^2 \right)
 \end{align}
 $$
 
 where the first inequality follows from the looser lower bound for $\cos \theta_S$ in
-Corollary 6.1, the second inequality follows because
+Corollary 5.2, the second inequality follows because
 $\left(1 - \epsilon^2\right)^{-1/2} \le 1 + \epsilon^2$, and the third inequality follows
-because $(1 - x)^4 \ge 1 - x^2$ when $0 \le x \le 1$.
+because $(1 - x)^n \ge 1 - nx$ when $x$ and $n$ are positive.
 
 --------------------------------------------------------------------------------------------
 ## References
