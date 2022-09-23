@@ -9,7 +9,7 @@ tags: geometric-algebra, geometry
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-20
+_Last Updated_: 2022-09-22
 
 --------------------------------------------------------------------------------------------
 ## Notation
@@ -79,7 +79,7 @@ formed between $\B{v}_i$ and $\e_i$ such that $\cos \phi_i \ge \sqrt{1 - \epsilo
 all $i$. In addition, let $S$ be a subset of $\{1, \ldots n\}$ and define $\theta_S$ to be
 the angle formed between $\B{V}$ and $\E_S$.
 
-__Quantifying "Nearness" to Standard Basis__
+__Characterizing "Nearness" to the Standard Basis__
 
 _Angles_
 
@@ -98,11 +98,19 @@ _Projections_
 
   * $\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm{\B{v}_i}}, \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}} \le 1$
 
-  * $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}}, \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$ (when $i \ne j$)
+  * $\left( \sum_{k \in S, k \ne i} v_{ik}^2 \right)^{1/2} \le \epsilon \norm[S]{\B{v}_i}$
+
+  * $\left( \sum_{k \in S'} v_{ik}^2 \right)^{1/2} \le \epsilon \norm[S]{\B{v}_i}$ when
+    $S' \subset S$ such that $i \notin S'$
+
+  * $\left( \sum_{k \in S} v_{ik}^2 \right)^{1/2} \le \epsilon \norm{\B{v}_i}$ when
+    $i \notin S$
+
+  * $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}}, \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$ when $i \ne j$
 
   * $\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2)$
 
-__Approximate Orthogonality__
+__Approximate Orthogonality of $\{ \B{v}_1, \ldots \B{v}_n \}$__
 
 Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
 
@@ -168,7 +176,7 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
 --------------------------------------------------------------------------------------------
 ## Definitions
 
-* __$\epsilon$-Similar Vector Sets__. For $\epsilon > 0$, two sets of vectors
+* __$\epsilon$-Similar Vector Sets__. For $0 < \epsilon < 1$, two sets of vectors
   $\{\B{u}_1, \ldots, \B{u}_m\}$ and $\{\B{v}_1, \ldots, \B{v}_m\}$ are said to be
   _$\epsilon$-similar_ to each other if there is a permutation $\sigma$ of
   $\{1, \ldots, m\}$ so that
@@ -226,7 +234,7 @@ satisfies the conditions of the first assumption.
    vector space so that the orthonormal basis is the standard basis for $\R^n$.
 
 --------------------------------------------------------------------------------------------
-## Projections and Angles of Vectors (1-Blades)
+## Characterizing "Nearness" to the Standard Basis
 
 ### Lemma 1. Bounds for $\proj{S}{\B{v}_i}$
 
@@ -260,7 +268,7 @@ $$
 Observing that the expression on the left-hand side is equal to the cosine of the angle
 between $\proj{S}{\B{v}_i}$ and $\B{v}_i$ yields the desired result.
 
-#### Corollary. $\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}}, \frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}} \le 1$
+#### Corollary 1.1. $\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}}, \frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}} \le 1$
 
 If $i \in S$, then
 
@@ -284,7 +292,63 @@ greater than 1. The upper bounds can also be directly verified from the observat
 
 * $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$.
 
-### Lemma 2. $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}}, \frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$
+### Lemma 2. $\left( \sum_{k \in S, k \ne i} v_{ik}^2 \right)^{1/2} \le \epsilon \norm[S]{\B{v}_i}$
+
+If $i \in S$, then
+
+$$
+\left( \sum_{k \in S, k \ne i} v_{ik}^2 \right)^{1/2}
+\le \epsilon \norm[S]{\B{v}_i}.
+$$
+
+_Proof_. Since $i \in S$, we can expand $\norm[S]{\B{v}_i}^2$ as
+
+$$
+\norm[S]{\B{v}_i}^2
+= v_{ii}^2 + \sum_{k \in S, k \ne i} v_{ik}^2.
+$$
+
+Rearranging this equation and using the Corollary 1.1, we find that
+
+$$
+\begin{align}
+\sum_{k \in S, k \ne i} v_{ik}^2
+&= \norm[S]{\B{v}_i}^2 - v_{ii}^2  \\
+&= \norm[S]{\B{v}_i}^2 \left( 1 - \frac{v_{ii}^2}{\norm[S]{\B{v}_i}^2} \right) \\
+&\le \epsilon^2 \norm[S]{\B{v}_i}^2,
+\end{align}
+$$
+
+which is equivalent to the desire result upon taking square roots.
+
+#### Corollary 2.1. $\left( \sum_{k \in S'} v_{ik}^2 \right)^{1/2} \le \epsilon \norm[S]{\B{v}_i}$
+
+If $i \in S$ and $S' \subset S$ such that $i \notin S'$, then
+
+$$
+\left( \sum_{k \in S'} v_{ik}^2 \right)^{1/2}
+\le \epsilon \norm[S]{\B{v}_i}.
+$$
+
+_Proof_. The result follows from Lemma 2 because
+
+$$
+\sum_{k \in S'} v_{ik}^2 \le \sum_{k \in S, k \ne i} v_{ik}^2.
+$$
+
+#### Corollary 2.2. $\left( \sum_{k \in S} v_{ik}^2 \right)^{1/2} \le \epsilon \norm{\B{v}_i}$
+
+If $i \notin S$, then
+
+$$
+\left( \sum_{k \in S} v_{ik}^2 \right)^{1/2}
+\le \epsilon \norm{\B{v}_i}.
+$$
+
+_Proof_. The result follow from Corollary 2.1 by taking $S' = S$ and
+$S = \{ 1, \ldots n \}$.
+
+#### Corollary 2.3. $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$
 
 If $i, j \in S$ and $i \ne j$,
 
@@ -292,28 +356,9 @@ $$
 \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon.
 $$
 
-_Proof_. Since $i, j \in S$, we can expand $\norm[S]{\B{v}_i}^2$ as
+_Proof_. Taking $S' = \{j\}$ in Corollary 2.1 yields the desired result.
 
-$$
-\norm[S]{\B{v}_i}^2
-= v_{ii}^2 + v_{ij}^2 + \sum_{k \in S, k \ne i,j} v_{ik}^2.
-$$
-
-Solving this equation for $v_{ij}^2$ yields
-
-$$
-\begin{align}
-v_{ij}^2
-&= \norm[S]{\B{v}_i}^2 - v_{ii}^2 - \sum_{k \in S, k \ne i,j} v_{ik}^2 \\
-&\le \norm[S]{\B{v}_i}^2 - v_{ii}^2 \\
-&= \norm[S]{\B{v}_i}^2 \left( 1 - \frac{v_{ii}^2}{\norm[S]{\B{v}_i}^2} \right) \\
-&\le \epsilon^2 \norm[S]{\B{v}_i}^2.
-\end{align}
-$$
-
-Rearranging and taking square roots yields the desired result.
-
-#### Corollary. $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$
+#### Corollary 2.4. $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$
 
 If $i \ne j$, then
 
@@ -321,9 +366,9 @@ $$
 \frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon.
 $$
 
-_Proof_. Taking $S = \{1, \ldots, n\}$ yields the desired result. Alternatively, the
-result follows because $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$ implies that
-$\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}}$.
+_Proof_. Taking $S = \{1, \ldots, n\}$ in Corollary 2.3 yields the desired result.
+Alternatively, the result follows because $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$ implies
+that $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}}$.
 
 ### Lemma 3. $\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2)$
 
@@ -353,16 +398,71 @@ which can be shown to hold on the interval
 $\left[0, \left( \frac{\sqrt{5} - 1}{2} \right)^{1/2} \right]$ through an analysis of
 the roots of $f(x)$ and the sign of $f(x)$ between the roots.
 
-__Remark__.
-
-* The geometric interpretation of this lemma is that there is an upper bound on the tangent
-  of angle between $\e_i$ and the projection of $\B{v}_i$ onto any two-dimensional subspace
-  of the form $\e_i \wedge e_j$.
+__Remark__. The geometric interpretation of this lemma is that there is an upper bound on
+the tangent of angle between $\e_i$ and the projection of $\B{v}_i$ onto any two-dimensional
+subspace of the form $\e_i \wedge e_j$.
 
 --------------------------------------------------------------------------------------------
-## Propositions
+## Approximate Orthogonality of $\{ \B{v}_1, \ldots \B{v}_n \}$
 
-### Proposition 1. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
+### Proposition 4. Projections of $\{ \B{v}_1, \ldots \B{v}_n \}$ are Nearly Orthogonal
+
+Let $i \ne j$. If $i, j \in S$, then
+
+$$
+\frac{\abs{\proj{S}{\B{v}_i} \cdot \proj{S}{\B{v}_j}}}{\norm[S]{\B{v}_i} \norm[S]{\B{v}_j}}
+\le 3 \epsilon.
+$$
+
+_Proof_. Expressing the inner product of $\proj{S}{\B{v}_i}$ and $\proj{S}{\B{v}_j}$ over
+components
+
+$$
+\proj{S}{\B{v}_i} \cdot \proj{S}{\B{v}_j}
+= \sum_{k \in S} v_{ik} v_{jk}.
+$$
+
+If $i, j \in S$, then
+
+$$
+\begin{align}
+\abs{\proj{S}{\B{v}_i} \cdot \proj{S}{\B{v}_j}}
+&= \abs{ v_{ii} v_{ji} + v_{ij} v_{jj} + \sum_{k \in S, k \ne i, j} v_{ik} v_{jk} } \\
+&\le \abs{v_{ii}} \abs{v_{ji}} + \abs{v_{ij}} \abs{v_{jj}}
+     + \abs{ \sum_{k \in S, k \ne i, j} v_{ik} v_{jk} } \\
+&\le \abs{v_{ii}} \abs{v_{ji}} + \abs{v_{ij}} \abs{v_{jj}}
+     + \left( \sum_{k \in S, k \ne i, j} v_{ik}^2 \right)^{1/2}
+       \left( \sum_{k \in S, k \ne i, j} v_{jk}^2 \right)^{1/2} \\
+&\le 2 \epsilon \norm[S]{\B{v}_i} \norm[S]{\B{v}_j}
+     + \epsilon^2 \norm[S]{\B{v}_i} \norm[S]{\B{v}_j} \\
+&\le 3 \epsilon \norm[S]{\B{v}_i} \norm[S]{\B{v}_j}
+\end{align}
+$$
+
+where the second inequality follows from the triangle inequality, the third inequality
+follows from the Cauchy-Schwarz inequality, the fourth inequality follows from the
+assumption that the $\B{v}_i$ are $\epsilon$-similar to the standard basis and
+Corollary 2.1, and the last inequality follows because $\epsilon^2 < \epsilon$ when
+$\epsilon < 1$. Rearranging the last inequality yields the desired result.
+
+#### Corollary 4.1. $\frac{\abs{\B{v}_i \cdot \B{v}_j}}{\norm{\B{v}_i} \norm{\B{v}_j}} \le 3 \epsilon$
+
+If $i \ne j$, then
+
+$$
+\frac{\abs{\B{v}_i \cdot \B{v}_j}}{\norm{\B{v}_i} \norm{\B{v}_j}} \le 3 \epsilon.
+$$
+
+_Proof_. The result follows by taking $S = \{1, \ldots n\}$.
+
+__Remark__. The geometric interpretations of Proposition 4 and Corollary 4.1 are that
+
+* any two vectors $\B{v}_i$ and $\B{v}_j$ are nearly orthogonal (Corollary 4.1) and
+
+* the projections of $\B{v}_i$ and $\B{v}_j$ onto subspaces $E_S$ containing $e_i$ and
+  $e_j$ continue to remain nearly orthogonal (Proposition 4).
+
+### Proposition 5. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
 
 Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$. If $s \epsilon \le 1$
 then
@@ -404,7 +504,7 @@ $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$. Therefore, $s \epsilon \l
 implies that the determinant in the expression for $\norm[S]{\B{V}}$ is bounded below by
 $(1 - s \epsilon)$ [1], which yields the desired result.
 
-#### Corollary. $\norm{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
+#### Corollary 5.1. $\norm{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
 
 If $\B{V} = \bigwedge_{i \in S} \B{v}_i$, then
 
@@ -414,7 +514,7 @@ $$
 
 _Proof_. The result follows because $\norm{\B{V}} \ge \norm[S]{\B{V}}$.
 
-### Proposition 2. $\cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
+### Proposition 6. $\cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
 
 Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$. If $s \epsilon \le 1$, then
 
@@ -456,9 +556,15 @@ $$
 \le 1 - s \epsilon.
 $$
 
-where we have used the corollary to Lemma 1 for the last inequality.
+where we have used the Corollary 1.1 for the last inequality.
 
-#### Corollary. $\cos \theta_S \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
+__Remark__. The geometric interpretation of Proposition 6 is that any blade formed as the
+outer product of the $\B{v}_i$ almost lies completely within $\E_S$ (where $S$ is the set
+of the indices of the vectors included into the outer product). As a consequence, blades of
+the form $\B{V} = \bigwedge_{i \in S} \B{v}_i$ are almost equal to their projections onto
+$\E_S$.
+
+#### Corollary 6.1. $\cos \theta_S \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
 
 If $\theta_S$ is the angle between $\B{V}$ and the subspace $\E_S$, then
 $\cos \theta_S \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}$. A simpler but
@@ -472,7 +578,7 @@ $$
 = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}}.
 $$
 
-### Proposition 3. $\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right) \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}} \le \frac{1}{\cos \phi_i}$ when $i \notin S$
+### Proposition 7. $\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right) \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}} \le \frac{1}{\cos \phi_i}$ when $i \notin S$
 
 Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $i \notin S$, then
 
@@ -537,7 +643,16 @@ $$
 
 which is equivalent to the desired result.
 
-#### Corollary. Bounds on $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ for Nearly Orthogonal Vectors
+__Remark__.
+
+The geometric interpretation of Proposition 7 is that the magnitude of the orthogonal
+projection of $\B{v}_i$ onto the blade formed by any $\B{V}$ not containing $\B{v}_i$ is
+constrained by how close (1) $\B{v}_i$ is to $\e_i$ and (2) $\B{V}$ is to $\E_S$. When
+$\phi_i$ and $\theta_S$ are both small, the magnitude of the projection of $\B{v}_i$ onto
+$\B{V}$ is close to $\abs{v_{ii}}$ (the magnitude of the projection of $\B{v}_i$ onto
+$\e_i$).
+
+#### Corollary 7.1. Bounds on $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ for Nearly Orthogonal Vectors
 
 If $s \epsilon \le 1$, then
 
@@ -568,7 +683,7 @@ $$
 \le 1 + \epsilon^2.
 $$
 
-For the lower bound, then corollary of Proposition 2 implies that
+For the lower bound, then Corollary 6.1 implies that
 
 $$
 \sin^2 \theta_S
@@ -578,7 +693,7 @@ $$
 
 when $s \epsilon \le 1$.
 
-Combining this bound with the corollary to Lemma 1 leads to
+Combining this bound with the Corollary 1.1 leads to
 
 $$
 \frac{\sin^2 \theta_S}{\cos^2 \phi_i}
@@ -613,8 +728,8 @@ $$
 \end{align}
 $$
 
-where the first inequality follows from the looser lower bound for $\cos \theta_S$ in the
-corollary to Proposition 2, the second inequality follows because
+where the first inequality follows from the looser lower bound for $\cos \theta_S$ in
+Corollary 6.1, the second inequality follows because
 $\left(1 - \epsilon^2\right)^{-1/2} \le 1 + \epsilon^2$, and the third inequality follows
 because $(1 - x)^n > 1 - nx$ for positive $x$ and $n$.
 
