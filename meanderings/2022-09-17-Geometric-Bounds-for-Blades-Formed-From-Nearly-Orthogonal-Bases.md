@@ -9,7 +9,7 @@ tags: geometric-algebra, geometry
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-22
+_Last Updated_: 2022-09-23
 
 --------------------------------------------------------------------------------------------
 ## Notation
@@ -112,15 +112,19 @@ _Projections_
 
 __Approximate Orthogonality of $\{ \B{v}_1, \ldots \B{v}_n \}$__
 
-Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$.
+
+* For $i \ne j$, $\B{v}_i$ and $\B{v}_j$ are nearly orthogonal and remain nearly orthogonal
+  when projected onto any $\E_S$ containing $\e_i$ and $\e_j$.
 
 * The volume of $\proj{S}{\B{V}}$, the projection of $\B{V}$ onto $\E_S$, is nearly equal
-  to the product of the norms of the projections of $\B{v}_i$ onto $E_S$ (for $i \in S$):
+  to the product of the norms of the projections of $\B{v}_i$ onto any $\E_S$ containing
+  $\e_i$:
 
   $$
-  (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}
+  (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}
   \le \norm[S]{\B{V}}
-  \le \prod_{i \in S} \norm[S]{\B{v}_i}.
+  \le \prod_{k \in S} \norm[S]{\B{v}_k}.
   $$
 
 * The angle between $\proj{S}{\B{V}}$ and $\E_S$ is nearly 1:
@@ -131,6 +135,8 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
   \le \cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}}
   \le 1.
   $$
+
+* When $i \notin S$, $\B{v}_i$ is nearly orthogonal to $\B{V}$.
 
 * When $i \notin S$, the projection of $\B{v}_i$ onto the orthogonal complement of $\B{V}$
   is nearly equal to $\abs{v_{ii}}$:
@@ -149,7 +155,7 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
   \begin{align}
   \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
   &\ge 1 - \left( 1 + \epsilon^2 \right) \left( 1 - (1 - s \epsilon)^4 \right)^{1/2} \\
-  &\ge 1 - 2 \sqrt{s \epsilon} \left( 1 + \epsilon^2 \right).
+  &\ge 1 - s \epsilon \left( 1 + \epsilon^2 \right).
   \end{align}
   $$
 
@@ -462,18 +468,18 @@ __Remark__. The geometric interpretations of Proposition 4 and Corollary 4.1 are
 * the projections of $\B{v}_i$ and $\B{v}_j$ onto subspaces $E_S$ containing $e_i$ and
   $e_j$ continue to remain nearly orthogonal (Proposition 4).
 
-### Proposition 5. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
+### Proposition 5. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}$
 
-Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$. If $s \epsilon \le 1$
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $s \epsilon \le 1$
 then
 
 $$
-\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}
+\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}
 $$
 
-_Proof_. Let $\hat{\B{v}}_i$ be the subvector of $\B{v}_i$ consisting of the components
+_Proof_. Let $\hat{\B{v}}_k$ be the subvector of $\B{v}_k$ consisting of the components
 whose indices are in $S$. We can express $\norm[S]{\B{V}}$ as the absolute value of the
-determinant of a matrix with columns $\hat{\B{v}}_i$:
+determinant of a matrix with columns $\hat{\B{v}}_k$:
 
 $$
 \norm[S]{\B{V}}
@@ -484,11 +490,11 @@ $$
   \biggr|.
 $$
 
-Factoring out $\sgn{v_{ii}} \norm[S]{\B{v}_i}$ from each column,
+Factoring out $\sgn{v_{kk}} \norm[S]{\B{v}_k}$ from each column,
 
 $$
 \norm[S]{\B{V}}
-= \left( \prod_{i \in S} \norm[S]{\B{v}_i} \right)
+= \left( \prod_{k \in S} \norm[S]{\B{v}_k} \right)
   \Biggl|
     \det \left[ \begin{array}{c|c|c}
       \frac{\sgn{v_{11}} v_1}{\norm[S]{\B{v}_1}}
@@ -504,41 +510,46 @@ $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$. Therefore, $s \epsilon \l
 implies that the determinant in the expression for $\norm[S]{\B{V}}$ is bounded below by
 $(1 - s \epsilon)$ [1], which yields the desired result.
 
-#### Corollary 5.1. $\norm{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}$
+#### Corollary 5.1. $\norm{\B{V}} \ge (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}$
 
-If $\B{V} = \bigwedge_{i \in S} \B{v}_i$, then
+If $\B{V} = \bigwedge_{k \in S} \B{v}_k$, then
 
 $$
-\norm{\B{V}} \ge (1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}.
+\norm{\B{V}} \ge (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}.
 $$
 
 _Proof_. The result follows because $\norm{\B{V}} \ge \norm[S]{\B{V}}$.
 
-### Proposition 6. $\cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
+#### Corollary 5.2. $\cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
 
-Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$. If $s \epsilon \le 1$, then
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $s \epsilon \le 1$, then
 
 $$
-\frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}.
+\cos \theta_S
+= \frac{\norm[S]{\B{V}}}{\norm{\B{V}}}
+\ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}.
 $$
 
-A simpler but looser bound is $\frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon)^2$.
+A simpler but looser bound is
+$\cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon)^2$.
 
 _Proof_. Combining the lower bound on $\norm[S]{\B{V}}$ with Hadamard's inequality
 
 $$
-\norm{\B{V}} \le \prod_{i \in S} \norm{\B{v}_i},
+\norm{\B{V}} \le \prod_{k \in S} \norm{\B{v}_k},
 $$
 
 we find that
 
 $$
 \frac{\norm[S]{\B{V}}}{\norm{\B{V}}}
-\ge \frac{(1 - s \epsilon) \prod_{i \in S} \norm[S]{\B{v}_i}}
-         {\prod_{i \in S} \norm{\B{v}_i}}
-= (1 - s \epsilon) \prod_{i \in S} \frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}}
+\ge \frac{(1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}}
+         {\prod_{k \in S} \norm{\B{v}_k}}
+= (1 - s \epsilon) \prod_{k \in S} \frac{\norm[S]{\B{v}_k}}{\norm{\B{v}_k}}
 \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}
 $$
+
+where the last inequality follows from Corollary 1.1.
 
 The looser bound follows from the observations that
 
@@ -558,27 +569,84 @@ $$
 
 where we have used the Corollary 1.1 for the last inequality.
 
-__Remark__. The geometric interpretation of Proposition 6 is that any blade formed as the
+__Remark__. The geometric interpretation of Corollary 5.2 is that any blade formed as the
 outer product of the $\B{v}_i$ almost lies completely within $\E_S$ (where $S$ is the set
 of the indices of the vectors included into the outer product). As a consequence, blades of
-the form $\B{V} = \bigwedge_{i \in S} \B{v}_i$ are almost equal to their projections onto
+the form $\B{V} = \bigwedge_{k \in S} \B{v}_k$ are almost equal to their projections onto
 $\E_S$.
 
-#### Corollary 6.1. $\cos \theta_S \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
+#### Corollary 5.3. $\frac{\abs{\B{v}_i \cdot \B{V}}}{\norm{\B{v}_i} \norm{\B{V}}} \le \left( 1 - \left( 1 - (s+1) \epsilon \right)^4 \right)^{1/2} \le (s+1) \epsilon$
 
-If $\theta_S$ is the angle between $\B{V}$ and the subspace $\E_S$, then
-$\cos \theta_S \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2}$. A simpler but
-looser bound is $\cos \theta_S \ge (1 - s \epsilon)^2$.
-
-_Proof_. The result follows from the definition of $\cos \theta_S$:
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $(s+1) \epsilon \le 1$. If $i \notin S$, then
 
 $$
-\cos \theta_S
-= \frac{\norm{\proj{S}{\B{V}}}}{\norm{\B{V}}}
-= \frac{\norm[S]{\B{V}}}{\norm{\B{V}}}.
+\frac{\abs{\B{v}_i \cdot \B{V}}}{\norm{\B{v}_i} \norm{\B{V}}}
+\le \left( 1 - \left( 1 - (s+1) \epsilon \right)^4 \right)^{1/2}
+\le (s+1) \epsilon
 $$
 
-### Proposition 7. $\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right) \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}} \le \frac{1}{\cos \phi_i}$ when $i \notin S$
+_Proof_. Since $i \notin S$, we can decompose $\B{v}_i$ into its projection onto and
+rejection from the subspace represented by $\B{V}$:
+
+$$
+\begin{align}
+\B{v}_i
+&= \proj{\B{V}}{\B{v}_i} + \rej{\B{V}}{\B{v}_i} \\
+&= \left( \B{v}_i \cdot \B{V} \right) / \B{V}
+  + \left( \B{v}_i \wedge \B{V} \right) / \B{V}.
+\end{align}
+$$
+
+Since the projection and rejection are orthogonal, the norm of $\B{v}_i$ can expressed as
+
+$$
+\begin{align}
+\norm{\B{v}_i}^2
+&= \norm{\left( \B{v}_i \cdot \B{V} \right) / \B{V}}^2
+  + \norm{\left( \B{v}_i \wedge \B{V} \right) / \B{V}}^2 \\
+&= \frac{ \norm{\B{v}_i \cdot \B{V}}^2 }{ \norm{\B{V}}^2 }
+  + \frac{ \norm{\B{v}_i \wedge \B{V}}^2 }{ \norm{\B{V}}^2 }.
+\end{align}
+$$
+
+Solving this equation for $\norm{\B{v}_i \cdot \B{V}}^2$, we find that
+
+$$
+\begin{align}
+\norm{\B{v}_i \cdot \B{V}}^2
+&= \norm{\B{v}_i}^2 \norm{\B{V}}^2 - \norm{\B{v}_i \wedge \B{V}}^2 \\
+&\le \norm{\B{v}_i}^2 \norm{\B{V}}^2
+- \left( 1 - (s+1) \epsilon \right)^2
+  \norm[S \cup \{\B{v}_i\}]{\B{v}_i}^2
+  \prod_{k \in S} \norm[S \cup \{\B{v}_i\}]{\B{v}_k}^2 \\
+&\le \norm{\B{v}_i}^2 \norm{\B{V}}^2
+- \left( 1 - (s+1) \epsilon \right)^2 \left( 1 - \epsilon^2 \right)^{(s+1) / 2}
+  \norm{\B{v}_i}^2
+  \prod_{k \in S} \norm{\B{v}_k}^2 \\
+&\le \norm{\B{v}_i}^2 \norm{\B{V}}^2
+- \left( 1 - (s+1) \epsilon \right)^2 \left( 1 - \epsilon^2 \right)^{(s+1) / 2}
+  \norm{\B{v}_i}^2 \norm{\B{V}}^2 \\
+&\le \norm{\B{v}_i}^2 \norm{\B{V}}^2
+- \left( 1 - (s+1) \epsilon \right)^4
+  \norm{\B{v}_i}^2 \norm{\B{V}}^2 \\
+&= \left( 1 - \left( 1 - (s+1) \epsilon \right)^4 \right) \norm{\B{v}_i}^2 \norm{\B{V}}^2 \\
+&\le \left( 1 - \left( 1 - (s+1)^2 \epsilon^2 \right) \right)
+     \norm{\B{v}_i}^2 \norm{\B{V}}^2 \\
+&= (s+1)^2 \epsilon^2 \norm{\B{v}_i}^2 \norm{\B{V}}^2
+\end{align}
+$$
+
+where the first inequality follows from Corollary 5.1, the second inequality follows from
+Corollary 1.1, the third inequality follows from Hadamard's inequality, the fourth
+inequality follows from the same logic used for looser bound in Corollary 5.2, and the
+last inequality follows because $(1 - x)^4 > 1 - x^2$ when $0 \le x \le 1$.
+
+Rearranging this inequality and taking square roots yields the desired result.
+
+__Remark__. The geometric interpretation of Corollary 5.3 is that each $\B{v}_i$ is nearly
+orthogonal to the subspace spanned by any collection of the remaining $\B{v}_k$.
+
+### Proposition 6. $\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right) \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}} \le \frac{1}{\cos \phi_i}$ when $i \notin S$
 
 Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $i \notin S$, then
 
@@ -645,14 +713,14 @@ which is equivalent to the desired result.
 
 __Remark__.
 
-The geometric interpretation of Proposition 7 is that the magnitude of the orthogonal
+The geometric interpretation of Proposition 6 is that the magnitude of the orthogonal
 projection of $\B{v}_i$ onto the blade formed by any $\B{V}$ not containing $\B{v}_i$ is
 constrained by how close (1) $\B{v}_i$ is to $\e_i$ and (2) $\B{V}$ is to $\E_S$. When
 $\phi_i$ and $\theta_S$ are both small, the magnitude of the projection of $\B{v}_i$ onto
 $\B{V}$ is close to $\abs{v_{ii}}$ (the magnitude of the projection of $\B{v}_i$ onto
 $\e_i$).
 
-#### Corollary 7.1. Bounds on $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ for Nearly Orthogonal Vectors
+#### Corollary 6.1. Bounds on $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ for Nearly Orthogonal Vectors
 
 If $s \epsilon \le 1$, then
 
@@ -670,7 +738,7 @@ $$
 \begin{align}
 \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
 &\ge 1 - \left( 1 + \epsilon^2 \right) \left( 1 - (1 - s \epsilon)^4 \right)^{1/2} \\
-&\ge 1 - 2 \sqrt{s \epsilon} \left( 1 + \epsilon^2 \right)
+&\ge 1 - s \epsilon \left( 1 + \epsilon^2 \right)
 \end{align}
 $$
 
@@ -723,15 +791,15 @@ $$
 &\ge 1 - \left( 1 + \epsilon^2 \right)
          \left( 1 - (1 - s \epsilon)^4 \right)^{1/2} \\
 &\ge 1 - \left( 1 + \epsilon^2 \right)
-         \left( 1 - (1 - 4 s \epsilon) \right)^{1/2} \\
-&= 1 - 2 \sqrt{s \epsilon} \left( 1 + \epsilon^2 \right)
+         \left( 1 - (1 - s^2 \epsilon^2) \right)^{1/2} \\
+&= 1 - s \epsilon \left( 1 + \epsilon^2 \right)
 \end{align}
 $$
 
 where the first inequality follows from the looser lower bound for $\cos \theta_S$ in
 Corollary 6.1, the second inequality follows because
 $\left(1 - \epsilon^2\right)^{-1/2} \le 1 + \epsilon^2$, and the third inequality follows
-because $(1 - x)^n > 1 - nx$ for positive $x$ and $n$.
+because $(1 - x)^4 > 1 - x^2$ when $0 \le x \le 1$.
 
 --------------------------------------------------------------------------------------------
 ## References
