@@ -209,7 +209,7 @@ Throughout these notes, we assume the following.
 
 * $\theta_S$ is the angle formed between $\B{V}$ and $\E_S$.
 
-* All angles between vectors and blades are taken to lie in the interval $[0, \pi/2]$.
+* All angles are taken to lie in the interval $[0, \pi/2]$.
 
 It is convenient to express the first and second assumptions in terms of the components
 (with respect to the standard basis) of the $\B{v}_i$:
