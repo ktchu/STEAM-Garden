@@ -198,18 +198,18 @@ Let $\B{V} = \bigwedge_{i \in S} \B{v}_i$.
 --------------------------------------------------------------------------------------------
 ## Assumptions
 
-Throughout these notes, we assume the following:
+Throughout these notes, we assume the following.
 
 * $\{\B{v}_1, \ldots, \B{v}_n\}$ is $\epsilon$-similar to the standard basis for $\R^n$
-  under the identity permutation on the indices,
+  under the identity permutation on the indices.
 
-* $\phi_i$ is the angle formed between $\B{v}_i$ and $\e_i$,
+* $\phi_i$ is the angle formed between $\B{v}_i$ and $\e_i$.
 
-* $S$ is a subset of $\{1, \ldots n\}$,
+* $S$ is a subset of $\{1, \ldots n\}$.
 
-* $\theta_S$ is the angle formed between $\B{V}$ and $\E_S$, and
+* $\theta_S$ is the angle formed between $\B{V}$ and $\E_S$.
 
-* all angles between vectors and blades are taken to lie in the interval $[0, \pi/2]$.
+* All angles between vectors and blades are taken to lie in the interval $[0, \pi/2]$.
 
 It is convenient to express the first and second assumptions in terms of the components
 (with respect to the standard basis) of the $\B{v}_i$:
