@@ -639,7 +639,7 @@ $$
 where the first inequality follows from Corollary 5.1, the second inequality follows from
 Corollary 1.1, the third inequality follows from Hadamard's inequality, the fourth
 inequality follows from the same logic used for looser bound in Corollary 5.2, and the
-last inequality follows because $(1 - x)^4 > 1 - x^2$ when $0 \le x \le 1$.
+last inequality follows because $(1 - x)^4 \ge 1 - x^2$ when $0 \le x \le 1$.
 
 Rearranging this inequality and taking square roots yields the desired result.
 
@@ -799,7 +799,7 @@ $$
 where the first inequality follows from the looser lower bound for $\cos \theta_S$ in
 Corollary 6.1, the second inequality follows because
 $\left(1 - \epsilon^2\right)^{-1/2} \le 1 + \epsilon^2$, and the third inequality follows
-because $(1 - x)^4 > 1 - x^2$ when $0 \le x \le 1$.
+because $(1 - x)^4 \ge 1 - x^2$ when $0 \le x \le 1$.
 
 --------------------------------------------------------------------------------------------
 ## References
