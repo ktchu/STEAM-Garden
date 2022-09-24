@@ -481,7 +481,7 @@ __Remark__. The geometric interpretations of Proposition 4 and Corollary 4.1 are
 
 ### Proposition 5. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}$
 
-Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $s \epsilon \le 1$
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $s = \card{S}$. If $s \epsilon \le 1$
 then
 
 $$
@@ -523,7 +523,7 @@ $(1 - s \epsilon)$ [1], which yields the desired result.
 
 #### Corollary 5.1. $\norm{\B{V}} \ge (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}$
 
-If $\B{V} = \bigwedge_{k \in S} \B{v}_k$, then
+If $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $s = \card{S}$, then
 
 $$
 \norm{\B{V}} \ge (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}.
@@ -533,7 +533,7 @@ _Proof_. The result follows because $\norm{\B{V}} \ge \norm[S]{\B{V}}$.
 
 #### Corollary 5.2. $\cos \theta_S = \frac{\norm[S]{\B{V}}}{\norm{\B{V}}} \ge (1 - s \epsilon) \left( 1 - \epsilon^2 \right)^{s/2} \ge (1 - s \epsilon)^2$
 
-Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $s \epsilon \le 1$, then
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $s = \card{S}$. If $s \epsilon \le 1$, then
 
 $$
 \cos \theta_S
@@ -588,7 +588,8 @@ $\E_S$.
 
 #### Corollary 5.3. $\frac{\abs{\B{v}_i \cdot \B{V}}}{\norm{\B{v}_i} \norm{\B{V}}} \le \left( 1 - \left( 1 - (s+1) \epsilon \right)^4 \right)^{1/2} \le 2 \sqrt{(s+1) \epsilon}$
 
-Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $(s+1) \epsilon \le 1$. If $i \notin S$, then
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$, $s = \card{S}$, and $(s+1) \epsilon \le 1$. If
+$i \notin S$, then
 
 $$
 \frac{\abs{\B{v}_i \cdot \B{V}}}{\norm{\B{v}_i} \norm{\B{V}}}
@@ -733,7 +734,7 @@ $\e_i$).
 
 #### Corollary 6.1. Bounds on $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ for Nearly Orthogonal Vectors
 
-If $s \epsilon \le 1$, then
+If $s = \card{S}$ and $s \epsilon \le 1$, then
 
 $$
 1 - \left(
