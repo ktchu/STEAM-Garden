@@ -171,15 +171,6 @@ Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$.
   $$
 
 --------------------------------------------------------------------------------------------
-## Additional Notation
-
-* $\newcommand{\sgn}[1]{\operatorname{sgn}\left({#1}\right)}$
-  Sign of $x$: $\sgn{x}$
-
-* $\newcommand{\card}[1]{\left|{#1}\right|}$
-  The cardinality of a set $S$: $\card{S}$
-
---------------------------------------------------------------------------------------------
 ## Definitions
 
 * __$\epsilon$-Similar Vector Sets__. For $0 < \epsilon < 1$, two sets of vectors
@@ -238,6 +229,12 @@ satisfies the conditions of the first assumption.
 
 2. Apply the orthogonal linear transformation that maps $\B{b}_i$ to $\e_i$ to the
    vector space so that the orthonormal basis is the standard basis for $\R^n$.
+
+--------------------------------------------------------------------------------------------
+## Additional Notation
+
+* $\newcommand{\sgn}[1]{\operatorname{sgn}\left({#1}\right)}$
+  Sign of $x$: $\sgn{x}$
 
 --------------------------------------------------------------------------------------------
 ## Characterizing "Nearness" to the Standard Basis
