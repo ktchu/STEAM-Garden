@@ -17,7 +17,7 @@ _Last Updated_: 2022-09-17
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
 
-* $\newcommand{\norm}[1]{\left\vert{#1}\right\vert}$
+* $\newcommand{\norm}[1]{\vert{#1}\vert}$
   The norm of multivector $M$: $\norm{M}$
 
 * $\newcommand{\dual}[1]{{#1}^\perp}$

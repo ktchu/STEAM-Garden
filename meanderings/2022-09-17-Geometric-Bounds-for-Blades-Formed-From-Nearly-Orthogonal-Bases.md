@@ -18,7 +18,7 @@ _Last Updated_: 2022-09-24
   $\newcommand{\e}{\mathbf{e}}$
   The standard basis for $\R^n$: $\{ \e_1, \ldots, \e_n \}$
 
-* $\newcommand{\abs}[1]{\left\vert{#1}\right\vert}$
+* $\newcommand{\abs}[1]{\vert{#1}\vert}$
   The absolute value of $x$: $\abs{x}$
 
 __Blades__
@@ -26,7 +26,7 @@ __Blades__
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
 
-* $\newcommand{\norm}[2][2]{\left\Vert{#2}\right\Vert_{#1}}$
+* $\newcommand{\norm}[2][2]{\Vert{#2}\Vert_{#1}}$
   The 2-norm of blade $\B{B}$: $\norm{\B{B}}$
 
 * $\newcommand{\dual}[1]{{#1}^\perp}$
@@ -66,6 +66,11 @@ basis.
 * The angle formed between $\B{v}_i$ and $\e_i$: $\phi_i$
 
 * The angle formed between $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $\E_S$: $\theta_S$
+
+__Miscellaneous__
+
+* $\newcommand{\card}[1]{\vert{#1}\vert}$
+  The cardinality of set $S$: $\card{S}$
 
 --------------------------------------------------------------------------------------------
 ## Summary
@@ -117,8 +122,8 @@ _Projections_
 
 __Approximate Orthogonality of $\{ \B{v}_1, \ldots \B{v}_n \}$__
 
-Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $\theta_S$ be the angle formed between
-$\B{V}$ and $\E_S$.
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$, $s = \card{S}$, and $\theta_S$ be the angle
+formed between $\B{V}$ and $\E_S$.
 
 * For $i \ne j$, $\B{v}_i$ and $\B{v}_j$ are nearly orthogonal and remain nearly orthogonal
   when projected onto any $\E_S$ containing $\e_i$ and $\e_j$.

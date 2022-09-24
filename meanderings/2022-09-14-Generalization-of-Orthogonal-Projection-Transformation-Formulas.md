@@ -20,7 +20,7 @@ _Last Updated_: 2022-09-17
 * $\newcommand{\dual}[1]{{#1}^\perp}$
   The orthogonal complement (i.e., dual) of blade $\B{B}$: $\dual{\B{B}}$
 
-* $\newcommand{\norm}[1]{\left\vert{#1}\right\vert}$
+* $\newcommand{\norm}[1]{\vert{#1}\vert}$
   The norm of multivector $M$: $\norm{M}$
 
 * $\newcommand{\proj}[2]{P_{#1}\left({#2}\right)}$
