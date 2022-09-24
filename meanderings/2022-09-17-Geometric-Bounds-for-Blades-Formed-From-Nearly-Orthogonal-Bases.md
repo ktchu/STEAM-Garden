@@ -9,7 +9,7 @@ tags: geometric-algebra, geometry
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-23
+_Last Updated_: 2022-09-24
 
 --------------------------------------------------------------------------------------------
 ## Notation
@@ -102,19 +102,18 @@ _Projections_
 * The $\B{v}_i$ are close to (scalar multiples of) the standard basis in the following
   sense:
 
-  * $\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm{\B{v}_i}}, \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}} \le 1$
+  * $\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm{\B{v}_i}}, \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}} \le 1$ when $i \in S$
 
-  * $\left( \sum_{k \in S, k \ne i} v_{ik}^2 \right)^{1/2} \le \epsilon \norm[S]{\B{v}_i}$
+  * $\frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}} \le \epsilon$ when $i \notin S$
 
-  * $\left( \sum_{k \in S'} v_{ik}^2 \right)^{1/2} \le \epsilon \norm[S]{\B{v}_i}$ when
-    $S' \subset S$ such that $i \notin S'$
+  * $\frac{\norm[S']{\B{v}_i}}{\norm[S]{\B{v}_i}} \le \epsilon$ when $i \in S$ and
+    $S' \subset S$ that does not contain $i$
 
-  * $\left( \sum_{k \in S} v_{ik}^2 \right)^{1/2} \le \epsilon \norm{\B{v}_i}$ when
-    $i \notin S$
+  * $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$ when $i \ne j$
 
-  * $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}}, \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$ when $i \ne j$
+  * $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$ when $i \ne j$ and $i \in S$
 
-  * $\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2)$
+  * $\abs{\frac{v_{ij}}{v_{ii}}} \le \frac{\epsilon}{\sqrt{1 - \epsilon^2}} \le \epsilon (1 + \epsilon^2)$
 
 __Approximate Orthogonality of $\{ \B{v}_1, \ldots \B{v}_n \}$__
 
@@ -298,63 +297,53 @@ greater than 1. The upper bounds can also be directly verified from the observat
 
 * $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$.
 
-### Lemma 2. $\left( \sum_{k \in S, k \ne i} v_{ik}^2 \right)^{1/2} \le \epsilon \norm[S]{\B{v}_i}$
+### Lemma 2. $\frac{\norm[S']{\B{v}_i}}{\norm[S]{\B{v}_i}} \le \epsilon$
 
-If $i \in S$, then
-
-$$
-\left( \sum_{k \in S, k \ne i} v_{ik}^2 \right)^{1/2}
-\le \epsilon \norm[S]{\B{v}_i}.
-$$
-
-_Proof_. Since $i \in S$, we can expand $\norm[S]{\B{v}_i}^2$ as
+If $i \in S$ and $S' \subset S$ such that $i \notin S'$, then
 
 $$
+\frac{\norm[S']{\B{v}_i}}{\norm[S]{\B{v}_i}}
+\le \epsilon.
+$$
+
+_Proof_. Since $i \in S$ and $i \notin S'$, we can expand $\norm[S]{\B{v}_i}^2$ as
+
+$$
+\begin{align}
 \norm[S]{\B{v}_i}^2
-= v_{ii}^2 + \sum_{k \in S, k \ne i} v_{ik}^2.
+&= v_{ii}^2 + \sum_{k \in S, k \ne i} v_{ik}^2 \\
+&= v_{ii}^2 + \sum_{k \in S, k \in S'} v_{ik}^2
+   + \sum_{k \in S, k \notin S', k \ne i} v_{ik}^2.
+\end{align}
 $$
 
 Rearranging this equation and using the Corollary 1.1, we find that
 
 $$
 \begin{align}
-\sum_{k \in S, k \ne i} v_{ik}^2
-&= \norm[S]{\B{v}_i}^2 - v_{ii}^2  \\
+\sum_{k \in S, k \in S'} v_{ik}^2
+&= \norm[S]{\B{v}_i}^2 - v_{ii}^2 - \sum_{k \in S, k \notin S', k \ne i} v_{ik}^2 \\
+&\le \norm[S]{\B{v}_i}^2 - v_{ii}^2 \\
 &= \norm[S]{\B{v}_i}^2 \left( 1 - \frac{v_{ii}^2}{\norm[S]{\B{v}_i}^2} \right) \\
 &\le \epsilon^2 \norm[S]{\B{v}_i}^2,
 \end{align}
 $$
 
-which is equivalent to the desire result upon taking square roots.
+which is equivalent to the desire result upon dividing by $\norm[S]{\B{v}_i}$ and taking
+square roots.
 
-#### Corollary 2.1. $\left( \sum_{k \in S'} v_{ik}^2 \right)^{1/2} \le \epsilon \norm[S]{\B{v}_i}$
-
-If $i \in S$ and $S' \subset S$ such that $i \notin S'$, then
-
-$$
-\left( \sum_{k \in S'} v_{ik}^2 \right)^{1/2}
-\le \epsilon \norm[S]{\B{v}_i}.
-$$
-
-_Proof_. The result follows from Lemma 2 because
-
-$$
-\sum_{k \in S'} v_{ik}^2 \le \sum_{k \in S, k \ne i} v_{ik}^2.
-$$
-
-#### Corollary 2.2. $\left( \sum_{k \in S} v_{ik}^2 \right)^{1/2} \le \epsilon \norm{\B{v}_i}$
+#### Corollary 2.1. $\frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}} \le \epsilon$ if $i \notin S$
 
 If $i \notin S$, then
 
 $$
-\left( \sum_{k \in S} v_{ik}^2 \right)^{1/2}
-\le \epsilon \norm{\B{v}_i}.
+\frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}}
+\le \epsilon.
 $$
 
-_Proof_. The result follow from Corollary 2.1 by taking $S' = S$ and
-$S = \{ 1, \ldots n \}$.
+_Proof_.  The result follows from Lemma 2 by taking $S' = S$ and $S = \{ 1, \ldots n \}.$
 
-#### Corollary 2.3. $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$
+#### Corollary 2.2. $\frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon$
 
 If $i, j \in S$ and $i \ne j$,
 
@@ -362,9 +351,9 @@ $$
 \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}} \le \epsilon.
 $$
 
-_Proof_. Taking $S' = \{j\}$ in Corollary 2.1 yields the desired result.
+_Proof_. Taking $S' = \{j\}$ in Lemma 2 yields the desired result.
 
-#### Corollary 2.4. $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$
+#### Corollary 2.3. $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon$
 
 If $i \ne j$, then
 
@@ -372,16 +361,24 @@ $$
 \frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \epsilon.
 $$
 
-_Proof_. Taking $S = \{1, \ldots, n\}$ in Corollary 2.3 yields the desired result.
+_Proof_. Taking $S = \{1, \ldots, n\}$ in Corollary 2.2 yields the desired result.
 Alternatively, the result follows because $\norm[S]{\B{v}_i} \le \norm{\B{v}_i}$ implies
 that $\frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \le \frac{\abs{v_{ij}}}{\norm[S]{\B{v}_i}}$.
 
-### Lemma 3. $\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2)$
+### Lemma 3. $\abs{\frac{v_{ij}}{v_{ii}}} \le \frac{\epsilon}{\sqrt{1 - \epsilon^2}} \le \epsilon (1 + \epsilon^2)$
 
-If $i \ne j$ and $\epsilon$ is sufficiently small ($\lesssim 0.78$), then
+If $i \ne j$, then
 
 $$
-\abs{\frac{v_{ij}}{v_{ii}}} \le \epsilon (1 + \epsilon^2).
+\abs{\frac{v_{ij}}{v_{ii}}}
+\le \frac{\epsilon}{\sqrt{1 - \epsilon^2}}.
+$$
+
+In addition, if $\epsilon$ is sufficiently small ($\lesssim 0.78$), then
+
+$$
+\abs{\frac{v_{ij}}{v_{ii}}}
+\le \epsilon (1 + \epsilon^2).
 $$
 
 _Proof_.
@@ -390,14 +387,28 @@ $$
 \abs{\frac{v_{ij}}{v_{ii}}}
 = \Biggl( \frac{\abs{v_{ij}}}{\norm{\B{v}_i}} \Biggr)
   \Biggl( \frac{\norm{\B{v}_i}}{\abs{v_{ii}}} \Biggr)
-\le \frac{\epsilon}{\sqrt{1 - \epsilon^2}}
-\le \epsilon (1 + \epsilon^2),
+\le \frac{\epsilon}{\sqrt{1 - \epsilon^2}}.
 $$
 
-where the last inequality follows because it is equivalent to the inequality
+When $\epsilon \le \left( \frac{\sqrt{5} - 1}{2} \right)^{1/2}$, we have the simpler but
+looser bound
 
 $$
-f(x) = (1 - x^2) (1 + x^2)^2 - 1 \ge 0
+\abs{\frac{v_{ij}}{v_{ii}}}
+\le \epsilon (1 + \epsilon^2)
+$$
+
+because
+
+$$
+\frac{\epsilon}{\sqrt{1 - \epsilon^2}}
+\le \epsilon (1 + \epsilon^2)
+$$
+
+is equivalent to the inequality
+
+$$
+f(x) = (1 - x^2) (1 + x^2)^2 - 1 \ge 0,
 $$
 
 which can be shown to hold on the interval
@@ -445,11 +456,11 @@ $$
 \end{align}
 $$
 
-where the second inequality follows from the triangle inequality, the third inequality
-follows from the Cauchy-Schwarz inequality, the fourth inequality follows from the
-assumption that the $\B{v}_i$ are $\epsilon$-similar to the standard basis and
-Corollary 2.1, and the last inequality follows because $\epsilon^2 < \epsilon$ when
-$\epsilon < 1$. Rearranging the last inequality yields the desired result.
+where the first inequality follows from the triangle inequality, the second inequality
+follows from the Cauchy-Schwarz inequality, the third inequality follows from the
+assumption that the $\B{v}_i$ are $\epsilon$-similar to the standard basis and Lemma 2,
+and the last inequality follows because $\epsilon^2 < \epsilon$ when $\epsilon < 1$.
+Rearranging the last inequality yields the desired result.
 
 #### Corollary 4.1. $\frac{\abs{\B{v}_i \cdot \B{v}_j}}{\norm{\B{v}_i} \norm{\B{v}_j}} \le 3 \epsilon$
 
@@ -639,7 +650,7 @@ $$
 where the first inequality follows from Corollary 5.1, the second inequality follows from
 Corollary 1.1, the third inequality follows from Hadamard's inequality, the fourth
 inequality follows from the same logic used for looser bound in Corollary 5.2, and the
-last inequality follows because $(1 - x)^n \ge 1 - nx$ when $x$ and $n$ are positive.
+last inequality follows from Bernoulli's inequality.
 
 Rearranging this inequality and taking square roots yields the desired result.
 
@@ -799,7 +810,7 @@ $$
 where the first inequality follows from the looser lower bound for $\cos \theta_S$ in
 Corollary 5.2, the second inequality follows because
 $\left(1 - \epsilon^2\right)^{-1/2} \le 1 + \epsilon^2$, and the third inequality follows
-because $(1 - x)^n \ge 1 - nx$ when $x$ and $n$ are positive.
+from Bernoulli's inequality.
 
 --------------------------------------------------------------------------------------------
 ## References
