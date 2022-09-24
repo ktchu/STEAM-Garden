@@ -763,7 +763,7 @@ $$
 \le 1 + \epsilon^2.
 $$
 
-For the lower bound, then Corollary 5.2 implies that
+For the lower bound, Corollary 5.2 implies that
 
 $$
 \sin^2 \theta_S
