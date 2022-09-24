@@ -60,6 +60,13 @@ __Canonical Basis Blades__. Let $S$ be a subset of $\{1, \ldots, n\}$.
 * The 2-norm of projection of blade $\B{B}$ onto $\E_S$:
   $\norm[S]{\B{B}} = \norm{\proj{S}{\B{B}}}$
 
+__Nearly Orthogonal Basis__. Let $\{\B{v}_1, \ldots, \B{v}_n\}$ be a nearly orthogonal
+basis.
+
+* The angle formed between $\B{v}_i$ and $\e_i$: $\phi_i$
+
+* The angle formed between $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $\E_S$: $\theta_S$
+
 --------------------------------------------------------------------------------------------
 ## Summary
 
@@ -76,8 +83,7 @@ orthogonal bases.
 
 Let $\{\B{v}_1, \ldots, \B{v}_n\}$ be a nearly orthogonal basis with the angle $\phi_i$
 formed between $\B{v}_i$ and $\e_i$ such that $\cos \phi_i \ge \sqrt{1 - \epsilon^2}$ for
-all $i$. In addition, let $S$ be a subset of $\{1, \ldots n\}$ and define $\theta_S$ to be
-the angle formed between $\B{V}$ and $\E_S$.
+all $i$. In addition, let $S$ be a subset of $\{1, \ldots n\}$.
 
 __Characterizing "Nearness" to the Standard Basis__
 
@@ -112,7 +118,8 @@ _Projections_
 
 __Approximate Orthogonality of $\{ \B{v}_1, \ldots \B{v}_n \}$__
 
-Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$.
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$ and $\theta_S$ be the angle formed between
+$\B{V}$ and $\E_S$.
 
 * For $i \ne j$, $\B{v}_i$ and $\B{v}_j$ are nearly orthogonal and remain nearly orthogonal
   when projected onto any $\E_S$ containing $\e_i$ and $\e_j$.
@@ -200,16 +207,12 @@ Throughout these notes, we assume the following.
 * $\{\B{v}_1, \ldots, \B{v}_n\}$ is $\epsilon$-similar to the standard basis for $\R^n$
   under the identity permutation on the indices.
 
-* $\phi_i$ is the angle formed between $\B{v}_i$ and $\e_i$.
-
 * $S$ is a subset of $\{1, \ldots n\}$.
-
-* $\theta_S$ is the angle formed between $\B{V}$ and $\E_S$.
 
 * All angles are taken to lie in the interval $[0, \pi/2]$.
 
-It is convenient to express the first and second assumptions in terms of the components
-(with respect to the standard basis) of the $\B{v}_i$:
+It is convenient to express the first assumption in terms of the components (with respect
+to the standard basis) of the $\B{v}_i$:
 
 $$
 \cos \phi_i = \frac{\abs{v_{ii}}}{\norm{\B{v}_i}} \ge \sqrt{1 - \epsilon^2}
