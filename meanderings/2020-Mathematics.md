@@ -194,7 +194,7 @@ $$
 2020-06-22: Common Useful Inequalities
 --------------------------------------
 
-_Last Updated_: 2020-06-23
+_Last Updated_: 2022-09-24
 
 ### Bernoulli's Inequality
 
@@ -237,8 +237,10 @@ equality: $(1 + x)^r = 1 + rx$.
 
 ### Geometric Series Bound
 
+If $r \le 1/2$, then
+
 $$
-  (1 - r)^{-1} \le 1 + 2r
+(1 - r)^{-1} \le 1 + 2r.
 $$
 
 __Proof__
