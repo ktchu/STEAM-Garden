@@ -9,7 +9,7 @@ tags: geometric-algebra, linear-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-17
+_Last Updated_: 2022-09-24
 
 --------------------------------------------------------------------------------------------
 ## Notation
