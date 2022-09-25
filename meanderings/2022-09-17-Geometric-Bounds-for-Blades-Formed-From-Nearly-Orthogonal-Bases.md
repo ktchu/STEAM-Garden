@@ -674,12 +674,20 @@ $$
 \end{align}
 $$
 
-_Proof_. Proposition 6 is a direct application of Proposition 4 from [4] with
-$\B{V}$ formed as the outer product of a subset of $\{ \B{v}_1, \ldots \B{v}_n \}$ (not
-containing $\B{v}_i$ and $\B{u} = \B{v}_i$.
+_Proof_. Proposition 6 is a direct application of bounds relating the rejection of a vector
+$\B{u}$ from a subspace $V$ to (1) the projection of $\B{u}$ onto a standard basis vector
+$\e_i$, (2) the angle that $\B{u}$ forms with $\e_i$, and (3) the angle that subspace $V$
+forms with a subspace formed from standard basis vectors that do not include $\e_i$ [4].
+Taking $\B{u} = \B{v}_i$,
 
-The upper bound follows because the assumption that the $\B{v}_i$ are
-$\epsilon$-similar to the standard basis implies that
+$$
+\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right)
+\le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
+\le \frac{1}{\cos \phi_i}.
+$$
+
+The desired upper bound follows immediately from the assumption that the $\B{v}_i$ are
+$\epsilon$-similar to the standard basis:
 
 $$
 \frac{1}{\cos \phi_i}
@@ -687,17 +695,15 @@ $$
 \le 1 + \epsilon^2.
 $$
 
-For the lower bound, Corollary 5.2 implies that
+For the lower bound, observe that Corollary 5.2 implies that
 
 $$
 \sin^2 \theta_S
 = 1 - \cos^2 \theta_S
-\le 1 - (1 - s \epsilon)^2 \left(1 - \epsilon^2 \right)^s.
+\le 1 - (1 - s \epsilon)^2 \left(1 - \epsilon^2 \right)^s
 $$
 
-when $s \epsilon \le 1$.
-
-Combining this bound with the Corollary 1.1 leads to
+when $s \epsilon \le 1$. Combining this bound with the Corollary 1.1 leads to
 
 $$
 \frac{\sin^2 \theta_S}{\cos^2 \phi_i}
