@@ -9,7 +9,7 @@ tags: geometric-algebra, linear-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-24
+_Last Updated_: 2022-09-25
 
 --------------------------------------------------------------------------------------------
 ## Notation
@@ -37,8 +37,8 @@ __Linear and Geometry Algebra__
   The orthogonal rejection of vector $\B{v}$ from the subspace represented by $\B{B}$:
   $\rej{\B{B}}{\B{v}} = \B{v} - \proj{\B{B}}{\B{v}}$
 
-  * Note that this definition _only_ holds for vectors. It does not apply to higher-grade
-    blades.
+  ___Note___: this definition _only holds for vectors_. It does not apply to higher-grade
+  blades.
 
 * The $i$-th component of vector $\B{v}$ with respect to the standard basis:
   $v_i$ (lowercase, lightface)
