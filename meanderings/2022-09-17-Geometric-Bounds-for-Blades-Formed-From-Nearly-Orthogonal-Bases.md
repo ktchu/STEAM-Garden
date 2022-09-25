@@ -481,7 +481,7 @@ __Remark__. The geometric interpretations of Proposition 4 and Corollary 4.1 are
 
 * any two vectors $\B{v}_i$ and $\B{v}_j$ are nearly orthogonal (Corollary 4.1) and
 
-* the projections of $\B{v}_i$ and $\B{v}_j$ onto subspaces $E_S$ containing $e_i$ and
+* the projections of $\B{v}_i$ and $\B{v}_j$ onto subspaces $\E_S$ containing $e_i$ and
   $e_j$ continue to remain nearly orthogonal (Proposition 4).
 
 ### Proposition 5. $\norm[S]{\B{V}} \ge (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}$
@@ -663,66 +663,68 @@ Rearranging this inequality and taking square roots yields the desired result.
 __Remark__. The geometric interpretation of Corollary 5.3 is that each $\B{v}_i$ is nearly
 orthogonal to the subspace spanned by any collection of the remaining $\B{v}_k$.
 
-### Proposition 6. $\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right) \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}} \le \frac{1}{\cos \phi_i}$ when $i \notin S$
+### Proposition 6. $\left( 1  - \frac{\sin \theta_S}{\cos \psi} \right) \le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}} \le \frac{1}{\cos \psi}$ when $\B{u} \wedge \B{V} \ne 0$
 
-Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$. If $i \notin S$, then
+Let $\B{V} = \bigwedge_{k \in S} \B{v}_k$, $\B{u}$ be an arbitrary vector, and $\psi$ be
+the angle between $\B{u}$ and $\e_i$. If $\B{u} \wedge \B{V} \ne 0$ (i.e., $\B{u}$ does not
+lie in the subspace represented by $\B{V}$), then
 
 $$
-\left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right)
-\le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
-\le \frac{1}{\cos \phi_i}.
+\left( 1  - \frac{\sin \theta_S}{\cos \psi} \right)
+\le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}}
+\le \frac{1}{\cos \psi}.
 $$
 
 where $\theta_S$ is the angle between $\B{V}$ and $\E_S$.
 
 _Proof_. The upper bound follows from the observation that
-$\norm{\rej{\B{V}}{\B{v}_i}} \le \norm{\B{v}_i}$ and the definition of $\phi_i$:
+$\norm{\rej{\B{V}}{\B{u}}} \le \norm{\B{u}}$ and the definition of $\psi$:
 
 $$
-\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
-\le \frac{\norm{\B{v}_i}}{\abs{v_{ii}}}
-= \frac{1}{\cos \phi_i}.
+\frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}}
+\le \frac{\norm{\B{u}}}{\abs{u_i}}
+= \frac{1}{\cos \psi}.
 $$
 
 For the lower bound, consider decompositions of $\R^n$ into direct sums of orthogonal
 subspaces: $\B{V} \oplus \dual{\B{V}}$ and $\E_S \oplus \dual{\E_S}$ [2,3]. Representing
-$\B{v}_i$ in terms of these direct sums, we have
+$\B{u}$ in terms of these direct sums, we have
 
 $$
-\B{v}_i = \proj{\B{V}}{\B{v}_i} + \proj{\dual{\B{V}}}{\B{v}_i}
+\B{u} = \proj{\B{V}}{\B{v}} + \proj{\dual{\B{V}}}{\B{u}}
 $$
 
 and
 
 $$
-\B{v}_i = \proj{\B{\E_S}}{\B{v}_i} + \proj{\dual{\B{\E_S}}}{\B{v}_i}.
+\B{u} = \proj{\B{\E_S}}{\B{u}} + \proj{\dual{\B{\E_S}}}{\B{u}}.
 $$
 
-Note $i \notin S$ implies that $\proj{\dual{\B{V}}}{\B{v}_i} \ne \B{0}$.
+Note that $\proj{\dual{\B{V}}}{\B{u}} \ne \B{0}$ because $\B{u} \wedge \B{V} \ne 0$ .
 
 Using the inequality relationships between representations of vectors as orthogonal
 projections in different orthogonal subspace pairs of the same dimension [4], we obtain
-the following bound on the magnitudes of the projection of $\B{v}_i$ onto $\dual{\B{\E_S}}$:
+the following bound on the magnitudes of the projection of $\B{u}$ onto $\dual{\B{\E_S}}$:
 
 $$
-\norm{\proj{\dual{\B{\E_S}}}{\B{v}_i}}
-\le \sin \theta_S \norm{\proj{\B{V}}{\B{v}_i}} + \norm{\proj{\dual{\B{V}}}{\B{v}_i}}
+\norm{\proj{\dual{\B{\E_S}}}{\B{u}}}
+\le \sin \theta_S \norm{\proj{\B{V}}{\B{u}}} + \norm{\proj{\dual{\B{V}}}{\B{u}}}
 $$
 
 where $\theta_S$ is the angle between $\B{V}$ and $\E_S$.
 
-Rearranging this inequality, identifying $\proj{\dual{\B{V}}}{\B{v}_i}$ with
-$\rej{\B{V}}{\B{v}_i}$, and observing that
-$\norm{\proj{\B{V}}{\B{v}_i}} \le \norm{\B{v}_i}$ and
-$\abs{v_{ii}} \le \norm{\proj{\dual{\B{\E_S}}}{\B{v}_i}}$
+Rearranging this inequality, identifying $\proj{\dual{\B{V}}}{\B{u}}$ with
+$\rej{\B{V}}{\B{u}}$, and observing that
+$\norm{\proj{\B{V}}{\B{u}}} \le \norm{\B{u}}$ and
+$\abs{u_i} \le \norm{\proj{\dual{\B{\E_S}}}{\B{u}}}$
 yields the lower bound
 
 $$
 \begin{align}
-\norm{\rej{\B{V}}{\B{v}_i}}
-&\ge \abs{v_{ii}} - \sin \theta_S \norm{\B{v}_i} \\
-&= \abs{v_{ii}} \left( 1  - \sin \theta_S \frac{\norm{\B{v}_i}}{\abs{v_{ii}}} \right) \\
-&= \abs{v_{ii}} \left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right),
+\norm{\rej{\B{V}}{\B{u}}}
+&\ge \abs{u_i} - \sin \theta_S \norm{\B{u}} \\
+&= \abs{u_i} \left( 1  - \sin \theta_S \frac{\norm{\B{u}}}{\abs{u_i}} \right) \\
+&= \abs{u_i} \left( 1  - \frac{\sin \theta_S}{\cos \psi} \right),
 \end{align}
 $$
 
@@ -731,11 +733,10 @@ which is equivalent to the desired result.
 __Remark__.
 
 The geometric interpretation of Proposition 6 is that the magnitude of the orthogonal
-projection of $\B{v}_i$ onto the blade formed by any $\B{V}$ not containing $\B{v}_i$ is
-constrained by how close (1) $\B{v}_i$ is to $\e_i$ and (2) $\B{V}$ is to $\E_S$. When
-$\phi_i$ and $\theta_S$ are both small, the magnitude of the projection of $\B{v}_i$ onto
-$\B{V}$ is close to $\abs{v_{ii}}$ (the magnitude of the projection of $\B{v}_i$ onto
-$\e_i$).
+projection of $\B{u}$ onto the blade formed by any $\B{V}$ not containing $\B{u}$ is
+constrained by how close (1) $\B{u}$ is to $\e_i$ and (2) $\B{V}$ is to $\E_S$. When
+$\psi$ and $\theta_S$ are both small, the magnitude of the projection of $\B{u}$ onto
+$\B{V}$ is close to $\abs{u_i}$ (the magnitude of the projection of $\B{u}$ onto $\e_i$).
 
 #### Corollary 6.1. Bounds on $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ for Nearly Orthogonal Vectors
 
