@@ -136,11 +136,11 @@ where the matrix inequalities are element-wise.
 
 Given
 
-* $1 \le i \le n$,
+* $\e_i$ with $1 \le i \le n$,
 
-* a subset $S$ of $\{ 1, \ldots, n \}$ not containing $i$, and
+* $\E_S$ with $S$ a subset of $\{ 1, \ldots, n \}$ not containing $i$, and
 
-* a subspace of dimension $\card{S}$ represented by blade $\B{V}$,
+* a blade $\B{V}$ representing a subspace of dimension $\card{S}$,
 
 the magnitude of the rejection of a vector $\B{u}$ from $\B{V}$ is bounded in terms of
 
@@ -403,7 +403,7 @@ $$
 --------------------------------------------------------------------------------------------
 ## Application
 
-### Proposition 4. $\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right) \le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}} \le \frac{1}{\cos \phi}$ when $\B{u} \wedge \B{V} \ne 0$
+### Proposition 4. $\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right) \le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}} \le \frac{1}{\cos \phi}$ when $\B{u} \wedge \B{V} \ne 0$ and $\e_i \wedge \E_S \ne 0$
 
 Let $S$ be a subset of $\{ 1, \ldots n \}$ not containing $i$, $\B{V}$ be a blade, and
 $\B{u}$ be a vector. If $\B{u} \wedge \B{V} \ne 0$ (i.e., $\B{u}$ does not lie in the
