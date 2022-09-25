@@ -170,17 +170,6 @@ formed between $\B{V}$ and $\E_S$.
   \end{align}
   $$
 
-  Interestingly, _without_ assuming that $\{ \B{v}_1, \ldots, \B{v}_n \}$ is nearly
-  orthogonal, $\frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}$ can still be bounded in
-  terms of the angle $\phi_i$ between $\B{v}_i$ and $\e_i$ and the angle $\theta_S$
-  betweeen $\B{V}$ and $\E_S$:
-
-  $$
-  \left( 1  - \frac{\sin \theta_S}{\cos \phi_i} \right)
-  \le \frac{\norm{\rej{\B{V}}{\B{v}_i}}}{\abs{v_{ii}}}
-  \le \frac{1}{\cos \phi_i}.
-  $$
-
 --------------------------------------------------------------------------------------------
 ## Definitions
 
@@ -685,7 +674,11 @@ $$
 \end{align}
 $$
 
-_Proof_. The upper bound follows because the assumption that the $\B{v}_i$ are
+_Proof_. Proposition 6 is a direct application of Proposition 4 from [4] with
+$\B{V}$ formed as the outer product of a subset of $\{ \B{v}_1, \ldots \B{v}_n \}$ (not
+containing $\B{v}_i$ and $\B{u} = \B{v}_i$.
+
+The upper bound follows because the assumption that the $\B{v}_i$ are
 $\epsilon$-similar to the standard basis implies that
 
 $$

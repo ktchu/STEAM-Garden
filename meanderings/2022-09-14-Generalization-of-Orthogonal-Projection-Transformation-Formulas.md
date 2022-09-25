@@ -14,6 +14,12 @@ _Last Updated_: 2022-09-17
 --------------------------------------------------------------------------------------------
 ## Notation
 
+__Linear and Geometry Algebra__
+
+* $\newcommand{\R}{\mathbb{R}}$
+  $\newcommand{\e}{\mathbf{e}}$
+  The standard basis for $\R^n$: $\{ \e_1, \ldots, \e_n \}$
+
 * $\newcommand{\B}[1]{\mathbf{#1}}$
   A blade: $\B{B}$ (uppercase, boldface)
 
@@ -26,6 +32,28 @@ _Last Updated_: 2022-09-17
 * $\newcommand{\proj}[2]{P_{#1}\left({#2}\right)}$
   The orthogonal projection of blade $\B{A}$ onto the subspace represented by $\B{B}$:
   $\proj{\B{B}}{\B{A}}$
+
+* $\newcommand{\rej}[2]{R_{#1}\left({#2}\right)}$
+  The orthogonal rejection of vector $\B{v}$ from the subspace represented by $\B{B}$:
+  $\rej{\B{B}}{\B{v}} = \B{v} - \proj{\B{B}}{\B{v}}$
+
+  * Note that this definition _only_ holds for vectors. It does not apply to higher-grade
+    blades.
+
+* The $i$-th component of vector $\B{v}$ with respect to the standard basis:
+  $v_i$ (lowercase, lightface)
+
+* $\newcommand{\E}{\B{E}}$
+  The blade formed by the standard basis vectors $\e_i$ with indices in $S$:
+  $\E_S = \bigwedge_{k \in S} \e_k$
+
+__Miscellaneous__
+
+* $\newcommand{\abs}[1]{\vert{#1}\vert}$
+  The absolute value of $x$: $\abs{x}$
+
+* $\newcommand{\card}[1]{\vert{#1}\vert}$
+  The cardinality of set $S$: $\card{S}$
 
 --------------------------------------------------------------------------------------------
 ## Summary
@@ -103,6 +131,33 @@ $$
 $$
 
 where the matrix inequalities are element-wise.
+
+### Application
+
+Given
+
+* $1 \le i \le n$,
+
+* a subset $S$ of $\{ 1, \ldots, n \}$ not containing $i$, and
+
+* a subspace of dimension $\card{S}$ represented by blade $\B{V}$,
+
+the magnitude of the rejection of a vector $\B{u}$ from $\B{V}$ is bounded in terms of
+
+* $\abs{u_i}$ (the magnitude of the projection of $\B{u}$ onto $\e_i$),
+
+* the angle $\phi$ between $\B{u}$ and $\e_i$, and
+
+* the angle $\theta_S$ betweeen $\B{V}$ and $\E_S$:
+
+$$
+\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right)
+\le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}}
+\le \frac{1}{\cos \phi}.
+$$
+
+Note that this result holds for arbitrary orthonormal bases by defining $u_i$ with respect
+to the relevant orthonormal basis instead of the standard basis.
 
 --------------------------------------------------------------------------------------------
 ## Propositions
@@ -345,10 +400,98 @@ $$
 \ge -\norm{\proj{\B{U}}{\B{x}}} + \cos \theta \norm{\proj{\dual{\B{U}}}{\B{x}}}.
 $$
 
+--------------------------------------------------------------------------------------------
+## Application
+
+### Proposition 4. $\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right) \le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}} \le \frac{1}{\cos \phi}$ when $\B{u} \wedge \B{V} \ne 0$
+
+Let $S$ be a subset of $\{ 1, \ldots n \}$ not containing $i$, $\B{V}$ be a blade, and
+$\B{u}$ be a vector. If $\B{u} \wedge \B{V} \ne 0$ (i.e., $\B{u}$ does not lie in the
+subspace represented by $\B{V}$), then
+
+$$
+\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right)
+\le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}}
+\le \frac{1}{\cos \phi}.
+$$
+
+where $\theta_S$ is the angle between $\B{V}$ and $\E_S$ and $\phi$ is the angle between
+$\B{u}$ and $\e_i$.
+
+_Proof_. The upper bound follows from the observation that
+$\norm{\rej{\B{V}}{\B{u}}} \le \norm{\B{u}}$ and the definition of $\phi$:
+
+$$
+\frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}}
+\le \frac{\norm{\B{u}}}{\abs{u_i}}
+= \frac{1}{\cos \phi}.
+$$
+
+For the lower bound, consider decompositions of $\R^n$ into direct sums of orthogonal
+subspaces: $\B{V} \oplus \dual{\B{V}}$ and $\E_S \oplus \dual{\E_S}$ [2,3]. Representing
+$\B{u}$ in terms of these direct sums, we have
+
+$$
+\B{u} = \proj{\B{V}}{\B{v}} + \proj{\dual{\B{V}}}{\B{u}}
+$$
+
+and
+
+$$
+\B{u} = \proj{\B{\E_S}}{\B{u}} + \proj{\dual{\B{\E_S}}}{\B{u}}.
+$$
+
+Note that $\proj{\dual{\B{V}}}{\B{u}} \ne \B{0}$ because $\B{u} \wedge \B{V} \ne 0$ [3].
+
+Using Proposition 2, we obtain the following upper bound on the magnitudes of the
+projection of $\B{u}$ onto $\dual{\B{\E_S}}$:
+
+$$
+\norm{\proj{\dual{\B{\E_S}}}{\B{u}}}
+\le \sin \theta_S \norm{\proj{\B{V}}{\B{u}}} + \norm{\proj{\dual{\B{V}}}{\B{u}}}.
+$$
+
+Rearranging this inequality, identifying $\proj{\dual{\B{V}}}{\B{u}}$ with
+$\rej{\B{V}}{\B{u}}$, and observing that
+$\norm{\proj{\B{V}}{\B{u}}} \le \norm{\B{u}}$ and
+$\abs{u_i} \le \norm{\proj{\dual{\B{\E_S}}}{\B{u}}}$
+yields the lower bound
+
+$$
+\begin{align}
+\norm{\rej{\B{V}}{\B{u}}}
+&\ge \abs{u_i} - \sin \theta_S \norm{\B{u}} \\
+&= \abs{u_i} \left( 1  - \sin \theta_S \frac{\norm{\B{u}}}{\abs{u_i}} \right) \\
+&= \abs{u_i} \left( 1  - \frac{\sin \theta_S}{\cos \phi} \right),
+\end{align}
+$$
+
+which is equivalent to the desired result.
+
+__Remark__. The geometric interpretation of Proposition 4 is that the magnitude of the
+orthogonal projection of a vector $\B{u}$ onto any blade $\B{V}$ not containing $\B{u}$ is
+constrained by how close (1) $\B{u}$ is to $\e_i$ and (2) $\B{V}$ is to $\E_S$. When $\phi$
+and $\theta_S$ are both small, the magnitude of the rejection of $\B{u}$ from $\B{V}$ is
+close to $\abs{u_i}$ (the magnitude of the projection of $\B{u}$ onto $\e_i$).
+
+__Remark__. Proposition 4 holds for arbitrary orthonormal bases. For an arbitrary
+orthonormal basis $\{\B{b}_1, \ldots, \B{b}_n\},$
+
+* we transform the vector space using the orthogonal linear transformation that maps
+  $\B{b}_i$ to $\e_i$ so that the orthonormal basis becomes the standard basis for $\R^n$
+
+  and
+
+* define vector components by $u_i = \B{u} \cdot \B{b}_i$ (instead of
+  $u_i = \B{u} \cdot \e_i$).
 
 --------------------------------------------------------------------------------------------
 ## References
 
 1. [[2022-09-08-Bounds-on-Angles-and-Projections-Between-Blades]]
+
+2. S. Axler. "Linear Algebra Done Right" (2015).
+
+3. A. Macdonald. "Linear and Geometric Algebra" (2010).
 
 --------------------------------------------------------------------------------------------
