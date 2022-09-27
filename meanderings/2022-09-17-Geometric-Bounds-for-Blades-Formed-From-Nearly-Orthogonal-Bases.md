@@ -9,7 +9,7 @@ tags: geometric-algebra, geometry
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-24
+_Last Updated_: 2022-09-27
 
 --------------------------------------------------------------------------------------------
 ## Notation
@@ -107,7 +107,7 @@ _Projections_
 * The $\B{v}_i$ are close to (scalar multiples of) the standard basis in the following
   sense:
 
-  * $\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm{\B{v}_i}}, \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}} \le 1$ when $i \in S$
+  * $\sqrt{1 - \epsilon^2} \le \frac{\abs{v_{ii}}}{\norm[S]{\B{v}_i}}, \frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}} \le 1$ when $i \in S$
 
   * $\frac{\norm[S]{\B{v}_i}}{\norm{\B{v}_i}} \le \epsilon$ when $i \notin S$
 
