@@ -9,7 +9,7 @@ tags: geometric-algebra, linear-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-25
+_Last Updated_: 2022-09-27
 
 --------------------------------------------------------------------------------------------
 ## Notation
@@ -144,11 +144,20 @@ Given
 
 the magnitude of the rejection of a vector $\B{u}$ from $\B{V}$ is bounded in terms of
 
-* $\abs{u_i}$ (the magnitude of the projection of $\B{u}$ onto $\e_i$),
+* the norm of $\B{u}$,
 
 * the angle $\phi$ between $\B{u}$ and $\e_i$, and
 
 * the angle $\theta_S$ betweeen $\B{V}$ and $\E_S$:
+
+$$
+\left( \cos \phi - \sin \theta_S \right)
+\le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\norm{\B{u}}}
+\le 1.
+$$
+
+In terms of $\abs{u_i}$ (the magnitude of the projection of $\B{u}$ onto $\e_i$),
+$\norm{\rej{\B{V}}{\B{u}}}$ satisfies the bounds:
 
 $$
 \left( 1  - \frac{\sin \theta_S}{\cos \phi} \right)
@@ -403,33 +412,26 @@ $$
 --------------------------------------------------------------------------------------------
 ## Application
 
-### Proposition 4. $\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right) \le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}} \le \frac{1}{\cos \phi}$ when $\B{u} \wedge \B{V} \ne 0$ and $\e_i \wedge \E_S \ne 0$
+### Proposition 4. $( \cos \phi  - \sin \theta_S ) \le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\norm{\B{u}}} \le 1$ when $\B{u} \wedge \B{V} \ne 0$ and $\e_i \wedge \E_S \ne 0$
 
 Let $S$ be a subset of $\{ 1, \ldots n \}$ not containing $i$, $\B{V}$ be a blade, and
 $\B{u}$ be a vector. If $\B{u} \wedge \B{V} \ne 0$ (i.e., $\B{u}$ does not lie in the
 subspace represented by $\B{V}$), then
 
 $$
-\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right)
-\le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}}
-\le \frac{1}{\cos \phi}.
+( \cos \phi  - \sin \theta_S )
+\le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\norm{\B{u}}}
+\le 1
 $$
 
 where $\theta_S$ is the angle between $\B{V}$ and $\E_S$ and $\phi$ is the angle between
 $\B{u}$ and $\e_i$.
 
-_Proof_. The upper bound follows from the observation that
-$\norm{\rej{\B{V}}{\B{u}}} \le \norm{\B{u}}$ and the definition of $\phi$:
-
-$$
-\frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}}
-\le \frac{\norm{\B{u}}}{\abs{u_i}}
-= \frac{1}{\cos \phi}.
-$$
-
-For the lower bound, consider decompositions of $\R^n$ into direct sums of orthogonal
-subspaces: $\B{V} \oplus \dual{\B{V}}$ and $\E_S \oplus \dual{\E_S}$ [2,3]. Representing
-$\B{u}$ in terms of these direct sums, we have
+_Proof_. The upper bound follows immediately from the observation that
+$\norm{\rej{\B{V}}{\B{u}}} \le \norm{\B{u}}$. For the lower bound, consider decompositions
+of $\R^n$ into direct sums of orthogonal subspaces: $\B{V} \oplus \dual{\B{V}}$ and
+$\E_S \oplus \dual{\E_S}$ [2,3]. Representing $\B{u}$ in terms of these direct sums, we
+have
 
 $$
 \B{u} = \proj{\B{V}}{\B{v}} + \proj{\dual{\B{V}}}{\B{u}}
@@ -461,18 +463,12 @@ $$
 \begin{align}
 \norm{\rej{\B{V}}{\B{u}}}
 &\ge \abs{u_i} - \sin \theta_S \norm{\B{u}} \\
-&= \abs{u_i} \left( 1  - \sin \theta_S \frac{\norm{\B{u}}}{\abs{u_i}} \right) \\
-&= \abs{u_i} \left( 1  - \frac{\sin \theta_S}{\cos \phi} \right),
+&= \norm{\B{u}} \left( \frac{\abs{u_i}}{\norm{\B{u}}}  - \sin \theta_S \right) \\
+&= \norm{\B{u}} \left( \cos \phi - \sin \theta_S \right)
 \end{align}
 $$
 
 which is equivalent to the desired result.
-
-__Remark__. The geometric interpretation of Proposition 4 is that the magnitude of the
-orthogonal projection of a vector $\B{u}$ onto any blade $\B{V}$ not containing $\B{u}$ is
-constrained by how close (1) $\B{u}$ is to $\e_i$ and (2) $\B{V}$ is to $\E_S$. When $\phi$
-and $\theta_S$ are both small, the magnitude of the rejection of $\B{u}$ from $\B{V}$ is
-close to $\abs{u_i}$ (the magnitude of the projection of $\B{u}$ onto $\e_i$).
 
 __Remark__. Proposition 4 holds for arbitrary orthonormal bases. For an arbitrary
 orthonormal basis $\{\B{b}_1, \ldots, \B{b}_n\},$
@@ -484,6 +480,34 @@ orthonormal basis $\{\B{b}_1, \ldots, \B{b}_n\},$
 
 * define vector components by $u_i = \B{u} \cdot \B{b}_i$ (instead of
   $u_i = \B{u} \cdot \e_i$).
+
+#### Corollary 4.1. $\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right) \le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}} \le \frac{1}{\cos \phi}$ when $\B{u} \wedge \B{V} \ne 0$ and $\e_i \wedge \E_S \ne 0$
+
+Let $S$ be a subset of $\{ 1, \ldots n \}$ not containing $i$, $\B{V}$ be a blade, and
+$\B{u}$ be a vector. If $\B{u} \wedge \B{V} \ne 0$ (i.e., $\B{u}$ does not lie in the
+subspace represented by $\B{V}$), then
+
+$$
+\left( 1  - \frac{\sin \theta_S}{\cos \phi} \right)
+\le \frac{\norm{\rej{\B{V}}{\B{u}}}}{\abs{u_i}}
+\le \frac{1}{\cos \phi}.
+$$
+
+where $\theta_S$ is the angle between $\B{V}$ and $\E_S$ and $\phi$ is the angle between
+$\B{u}$ and $\e_i$.
+
+_Proof_. The result follows from Proposition 4 and the definition of $\cos \phi$:
+
+$$
+\frac{\abs{u_i}}{\norm{\B{u}}} = \cos \phi.
+$$
+
+__Remark__. The geometric interpretation of Proposition 4 and Corollary 4.1 is that the
+magnitude of the orthogonal rejection of a vector $\B{u}$ from any blade $\B{V}$ not
+containing $\B{u}$ is constrained by how close (1) $\B{u}$ is to $\e_i$ and (2) $\B{V}$ is
+to $\E_S$. When $\phi$ and $\theta_S$ are both small, the magnitude of the rejection of
+$\B{u}$ from $\B{V}$ is close to $\norm{\B{u}}$ and $\abs{u_i}$ (the magnitude of the
+projection of $\B{u}$ onto $\e_i$).
 
 --------------------------------------------------------------------------------------------
 ## References
