@@ -9,7 +9,7 @@ tags: geometric-algebra, linear-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-24
+_Last Updated_: 2022-09-28
 
 --------------------------------------------------------------------------------------------
 ## Notation
@@ -18,7 +18,15 @@ _Last Updated_: 2022-09-24
   A blade: $\B{B}$ (uppercase, boldface)
 
 * $\newcommand{\norm}[1]{\vert{#1}\vert}$
-  The norm of multivector $M$: $\norm{M}$
+  The norm of blade $\B{B}$: $\norm{\B{B}}$
+
+* $\newcommand{\grade}[1]{\operatorname{grade}\left({#1}\right)}$
+  The grade of blade $\B{B}$: $\grade{\B{B}}$
+
+* $\B{A}$ is a subspace of $\B{B}$: $\B{A} \subseteq \B{B}$
+
+* $\newcommand{\I}{\B{I}}$
+  The unit pseudoscalar: $\I$
 
 * $\newcommand{\dual}[1]{{#1}^\perp}$
   The orthogonal complement (i.e., dual) of blade $\B{B}$: $\dual{\B{B}}$
@@ -47,10 +55,10 @@ examining the geometry of blade (and subspace) constructions.
 
 ### Key Results
 
-Let $\B{B}$ and $\B{C}$ be blades and $\theta_{BC}$ be the angle between them. Then the
-angles between and projections of blades related to $\B{B}$ and $\B{C}$ satisfy the
-following inequalities involving $\theta_{BC}$ (where all angles are taken to lie within
-the interval $[0, \pi/2]$).
+Let $\B{B}$ and $\B{C}$ be blades with $\grade{\B{B}} \le \grade{\B{C}}$ and $\theta_{BC}$
+be the angle between them. Then the angles between and projections of blades related to
+$\B{B}$ and $\B{C}$ satisfy the following inequalities involving $\theta_{BC}$ (where all
+angles are taken to lie within the interval $[0, \pi/2]$).
 
 __Relationships Between $\B{C}$ and Subspaces of $\B{B}$__
 
@@ -67,6 +75,23 @@ __Relationships Between $\B{C}$ and Subspaces of $\B{B}$__
   $$
   \norm{\proj{\B{C}}{\B{A}}}
   \ge \norm{\B{A}} \cos \theta_{BC}.
+  $$
+
+__Relationships Between $\B{B}$ and Subspaces of $\B{C}$__
+
+* If $\B{D}$ is a subspace of $\B{C}$, then the angle $\theta_{BD}$ between $\B{B}$ and
+  $\B{D}$ is bounded from below:
+
+  $$
+  \theta_{BD} \ge \theta_{BC}.
+  $$
+
+* If $\B{D}$ is a blade that represents a subspace of $\B{C}$, then the norm of the
+  projection of $\B{B}$ onto $\B{D}$ is bounded from above:
+
+  $$
+  \norm{\proj{\B{D}}{\B{B}}}
+  \le \norm{\B{B}} \cos \theta_{BC}.
   $$
 
 __Relationships Between $\dual{\B{C}}$ and $\B{B}$__
@@ -114,11 +139,11 @@ __Relationships Between $\dual{\B{C}}$ and Subspaces of $\B{B}$__
 ### Remarks
 
 Thes bounds gives a sense how different life is in high-dimension vector spaces. If we are
-not careful, our intution from planar geometry might lead us astray. The following are a
+not careful, our intuition from planar geometry might lead us astray. The following are a
 few interesting examples.
 
 * The angle between $\B{B}$ and the orthogonal complement of $\B{C}$ must be closer to
-  $\pi/2$ than any subspace of $\B{B}$ is to $\B{C}$. In other words, if any subspace of
+  $\pi/2$ than any subspace of $\B{B}$ is to $\B{C}$. In particular, if any subspace of
   $\B{B}$ is close to lying in $\B{C}$, $\B{B}$ must make a large angle with and have a
   very small projection onto $\dual{\B{C}}$.
 
@@ -127,14 +152,6 @@ few interesting examples.
   its orthogonal complement. In low-dimensional spaces, blades that are far from a subspace
   (in the sense of forming a large angle with the subspace) cannot be that far from the
   subspace's orthogonal complement.
-
---------------------------------------------------------------------------------------------
-## Additional Notation
-
-* $\newcommand{\grade}[1]{\operatorname{grade}\left({#1}\right)}$
-  The grade of blade $\B{B}$: $\grade{\B{B}}$
-
-* $\B{A}$ is a subspace of $\B{B}$: $\B{A} \subseteq \B{B}$
 
 --------------------------------------------------------------------------------------------
 ## Propositions
@@ -148,7 +165,7 @@ For all of the propositions, assume the following.
 
 * All angles are taken to lie within the interval $[0, \pi/2]$.
 
-### Proposition 1. $\norm{\proj{\B{C}}{\B{A}}} \ge \norm{\B{A}} \cos \theta_{BC}$
+### Proposition 1. $\norm{\proj{\B{C}}{\B{A}}} \ge \norm{\B{A}} \cos \theta_{BC}$ when $\B{A} \subseteq \B{B}$
 
 If $\B{A} \subseteq \B{B}$, then
 
@@ -156,19 +173,20 @@ $$
 \norm{\proj{\B{C}}{\B{A}}} \ge \norm{\B{A}} \cos \theta_{BC}.
 $$
 
-_Proof_. Let $j = \grade{\B{A}}$ and $k = \grade{\B{B}}$. Choose $\{a_1, \ldots, a_j\}$ to
-be an orthogonal basis for $\B{A}$ such that
+_Proof_. Let $j = \grade{\B{A}}$ and $k = \grade{\B{B}}$. Choose
+$\{\B{a}_1, \ldots, \B{a}_j\}$ to be an orthogonal basis for $\B{A}$ such that
 
 $$
-\B{A} = a_1 \cdots a_j = a_1 \wedge \cdots \wedge a_j.
+\B{A} = \B{a}_1 \cdots \B{a}_j = \B{a}_1 \wedge \cdots \wedge \B{a}_j.
 $$
 
-Extend this basis to an orthogonal basis $\{a_1, \ldots, a_j, b_{j+1}, \ldots, b_k\}$ for
-$\B{B}$ choosing $\norm{b_i} = 1$ for all $j+1 \le i \le k$. Then
+Extend this basis to an orthogonal basis
+$\{\B{a}_1, \ldots, \B{a}_j, \B{b}_{j+1}, \ldots, \B{b}_k\}$ for
+$\B{B}$ choosing $\norm{\B{b}_i} = 1$ for $j+1 \le i \le k$. Then
 
 $$
-\B{B} = a_1 \cdots a_j b_{j+1} \cdots b_k
-= a_1 \wedge \cdots \wedge a_j \wedge b_{j+1} \wedge \cdots \wedge b_k,
+\B{B} = \B{a}_1 \cdots \B{a}_j \B{b}_{j+1} \cdots \B{b}_k
+= \B{a}_1 \wedge \cdots \wedge \B{a}_j \wedge \B{b}_{j+1} \wedge \cdots \wedge \B{b}_k,
 $$
 
 $$
@@ -187,19 +205,19 @@ Since projection preserves outer products [1],
 
 $$
 \proj{\B{C}}{\B{B}}
-= \proj{\B{C}}{a_1 \cdots a_j} \wedge \proj{C}{b_{j+1} \cdots b_k}
-= \proj{\B{C}}{\B{A}} \wedge \proj{C}{b_{j+1} \cdots b_k}.
+= \proj{\B{C}}{\B{a}_1 \cdots \B{a}_j} \wedge \proj{C}{\B{b}_{j+1} \cdots \B{b}_k}
+= \proj{\B{C}}{\B{A}} \wedge \proj{C}{\B{b}_{j+1} \cdots \B{b}_k}.
 $$
 
 Taking norms and using Hadamard's inequality for outer products, we find that
 
 $$
 \norm{\proj{\B{C}}{\B{B}}}
-\le \norm{\proj{\B{C}}{\B{A}}} \norm{\proj{\B{C}}{b_{j+1} \cdots b_k}}
+\le \norm{\proj{\B{C}}{\B{A}}} \norm{\proj{\B{C}}{\B{b}_{j+1} \cdots \B{b}_k}}
 \le \norm{\proj{\B{C}}{\B{A}}}
 $$
 
-where the last inequality follows because $b_{j+1} \cdots b_k$ is a unit blade by
+where the last inequality follows because $\B{b}_{j+1} \cdots \B{b}_k$ is a unit blade by
 construction and projection can only decrease the norm of a blade.
 
 Therefore,
@@ -211,7 +229,7 @@ $$
 
 which is equivalent to the desired result.
 
-#### Corollary. $\theta_{AC} \le \theta_{BC}$
+#### Corollary 1.1. $\theta_{AC} \le \theta_{BC}$ when $\B{A} \subseteq \B{B}$
 
 If $\B{A} \subseteq \B{B}$, then the angle $\theta_{AC}$ between $\B{A}$ and $\B{C}$
 satisfies the inequality
@@ -220,7 +238,7 @@ $$
 \theta_{AC} \le \theta_{BC}.
 $$
 
-_Proof_. Recalling that
+_Proof_. Since
 
 $$
 \cos \theta_{AC} = \frac{\norm{\proj{\B{C}}{\B{A}}}}{\norm{\B{A}}},
@@ -235,7 +253,7 @@ $$
 which is equivalent to the desired result because cosine is a decreasing function on
 $[0, \pi/2]$.
 
-#### Corollary. $\frac{\norm{\proj{\B{C}}{\B{A}}}}{\norm{\B{A}}} \ge \frac{\norm{\proj{\B{C}}{\B{B}}}}{\norm{\B{B}}}$
+#### Corollary 1.2. $\frac{\norm{\proj{\B{C}}{\B{A}}}}{\norm{\B{A}}} \ge \frac{\norm{\proj{\B{C}}{\B{B}}}}{\norm{\B{B}}}$ when $\B{A} \subseteq \B{B}$
 
 If $\B{A} \subseteq \B{B}$, then
 
@@ -247,7 +265,133 @@ $$
 _Proof_. The result follows from the definition of the cosine of the angle between two
 blades.
 
-### Proposition 2. $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} (\sin \theta_{BC})^k$
+### Proposition 2. $\norm{\proj{\B{D}}{\B{B}}} \le \norm{\B{B}} \cos \theta_{BC}$ when $\B{D} \subseteq \B{C}$
+
+If $\B{D} \subseteq \B{C}$, then
+
+$$
+\norm{\proj{\B{D}}{\B{B}}} \le \norm{\B{B}} \cos \theta_{BC}.
+$$
+
+__Remark__. This proposition is a generalization of the vector property that
+$\norm{\proj{\B{D}}{\B{v}}} \le \norm{\proj{\B{C}}{\B{v}}}$ when $\B{D} \subseteq \B{C}.$
+
+_Proof_. Let $j = \grade{\B{D}}$ and $k = \grade{\B{C}}$. Choose
+$\{\B{d}_1, \ldots, \B{d}_j\}$ to be an orthonormal basis for $\B{D}$ such that
+
+$$
+\B{D} = \B{d}_1 \cdots \B{d}_j = \B{d}_1 \wedge \cdots \wedge \B{d}_j.
+$$
+
+Extend this basis to an orthonormal basis
+$\{\B{d}_1, \ldots, \B{d}_j, \B{c}_{j+1}, \ldots, \B{c}_k\}$ for
+$\B{C}$. Then
+
+$$
+\B{C} = \B{d}_1 \cdots \B{d}_j \B{c}_{j+1} \cdots \B{c}_k
+= \B{d}_1 \wedge \cdots \wedge \B{d}_j \wedge \B{c}_{j+1} \wedge \cdots \wedge \B{c}_k,
+$$
+
+$$
+\norm{\B{D}} = \norm{\B{C}} = 1,
+$$
+
+and
+
+$$
+\begin{align}
+\norm{\dual{\B{D}}}
+&= \norm{(\B{d}_1 \cdots \B{d}_j) \ \I^{-1}} \\
+&= \norm{(\B{d}_1 \cdots \B{d}_j \B{c}_{j+1}^2 \cdots \B{c}_k^2) \ \I^{-1}} \\
+&= \norm{(\B{d}_1 \cdots \B{d}_j \B{c}_{j+1} \cdots \B{c}_k)
+         (\B{c}_{j+1} \cdots \B{c}_k) \ \I^{-1}} \\
+&= \norm{\left( \B{d}_1 \cdots \B{d}_j \B{c}_{j+1} \cdots \B{c}_k \ \I^{-1} \right)
+         (\B{c}_{j+1} \cdots \B{c}_k)} \\
+&= \norm{\dual{\B{C}} (\B{c}_{j+1} \cdots \B{c}_k)} \\
+&= \norm{\dual{\B{C}} \wedge (\B{c}_{j+1} \cdots \B{c}_k)}
+\end{align}
+$$
+
+where the last equality follows because $\B{c}_i \in \dual{\left(\dual{\B{C}}\right)}$ for
+$j+1 \le i \le k$ [2].
+
+Expressing $\norm{\proj{\B{D}}{\B{B}}}$ in terms of inner and geometric products, we have
+
+$$
+\begin{align}
+\norm{\proj{\B{D}}{\B{B}}}
+&= \frac{\norm{\B{B} \cdot \B{D}}}{\norm{\B{D}}} = \norm{\B{B} \cdot \B{D}} \\
+&= \norm{\dual{(\B{B} \cdot \B{D})}} \\
+&= \norm{\B{B} \wedge \dual{\B{D}}} \\
+&= \norm{\B{B} \wedge \left( \dual{\B{C}} \wedge (\B{c}_{j+1} \cdots \B{c}_k) \right) } \\
+&= \norm{\left( \B{B} \wedge \dual{\B{C}} \right) \wedge (\B{c}_{j+1} \cdots \B{c}_k) }
+\end{align}
+$$
+
+where the second equality follows because the norm of a blade and its dual are equal [1]
+and the third equality follows from the duality of the inner and outer products [1].
+
+Using Hadamard's inequality for outer products, we find that
+
+$$
+\begin{align}
+\norm{\proj{\B{D}}{\B{B}}}
+&= \norm{\left( \B{B} \wedge \dual{\B{C}} \right) \wedge (\B{c}_{j+1} \cdots \B{c}_k) } \\
+&\le \norm{\B{B} \wedge \dual{\B{C}}} \norm{\B{c}_{j+1} \cdots \B{c}_k} \\
+&= \norm{\B{B} \wedge \dual{\B{C}}} \\
+&= \norm{\dual{ \left( \B{B} \cdot \B{C} \right) }} \\
+&= \norm{\B{B} \cdot \B{C}} \\
+&= \norm{\proj{\B{C}}{\B{B}}}
+\end{align}
+$$
+
+Therefore,
+
+$$
+\frac{\norm{\proj{\B{D}}{\B{B}}}}{\norm{\B{B}}}
+\le \frac{\norm{\proj{\B{C}}{\B{B}}}}{\norm{\B{B}}}
+= \cos \theta_{BC}
+$$
+
+which is equivalent to the desired result.
+
+#### Corollary 2.1. $\theta_{BD} \ge \theta_{BC}$ when $\B{D} \subseteq \B{C}$
+
+If $\B{D} \subseteq \B{C}$, then the angle $\theta_{BD}$ between $\B{B}$ and $\B{D}$
+satisfies the inequality
+
+$$
+\theta_{BD} \ge \theta_{BC}.
+$$
+
+_Proof_. Since
+
+$$
+\cos \theta_{BD} = \frac{\norm{\proj{\B{D}}{\B{B}}}}{\norm{\B{B}}},
+$$
+
+we can express the inequality in the previous proposition as
+
+$$
+\cos \theta_{BD} \le \cos \theta_{BC},
+$$
+
+which is equivalent to the desired result because cosine is a decreasing function on
+$[0, \pi/2]$.
+
+#### Corollary 2.2. $\frac{\norm{\proj{\B{D}}{\B{B}}}}{\norm{\B{B}}} \le \frac{\norm{\proj{\B{C}}{\B{B}}}}{\norm{\B{B}}}$ when $\B{D} \subseteq \B{C}$
+
+If $\B{D} \subseteq \B{C}$, then
+
+$$
+\frac{\norm{\proj{\B{D}}{\B{B}}}}{\norm{\B{B}}}
+\le \frac{\norm{\proj{\B{C}}{\B{B}}}}{\norm{\B{B}}}.
+$$
+
+_Proof_. The result follows from the definition of the cosine of the angle between two
+blades.
+
+### Proposition 3. $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} (\sin \theta_{BC})^k$
 
 The norm of the projection of $\B{B}$ onto $\dual{\B{C}}$ satisfies the inequality
 
@@ -255,6 +399,12 @@ $$
 \norm{\proj{\dual{\B{C}}}{\B{B}}}
 \le \norm{\B{B}} (\sin \theta_{BC})^k.
 $$
+
+__Remark__. A geometric interpretation of this proposition is that a high-grade blade
+$\B{B}$ is nearly orthogonal to most subspaces because no matter how large of an angle it
+makes with an arbitrary subspace $\B{C}$ (i.e., $\sin \theta_{BC}$ close to 1), the power
+of $k$ in the bound implies that the projection of $\B{B}$ onto the orthogonal complement
+of $\B{C}$ is small.
 
 _Proof_. We start by expressing the projection of $\B{B}$ onto $\dual{\B{C}}$ in terms
 of inner products (left contractions) and the norms of $\B{B}$ and $\B{C}$:
@@ -352,7 +502,7 @@ $$
 
 which is equivalent to the desired result.
 
-#### Corollary. $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} \sin \theta_{BC}$
+#### Corollary 3.1. $\norm{\proj{\dual{\B{C}}}{\B{B}}} \le \norm{\B{B}} \sin \theta_{BC}$
 
 The norm of the projection of $\B{B}$ onto $\dual{\B{C}}$ satisfies the inequality
 
@@ -362,7 +512,7 @@ $$
 
 _Proof_. The result follows because $(\sin \theta)^k \le \sin \theta$.
 
-#### Corollary. $\theta_{B\dual{C}} \ge \cos^{-1} \left( (\sin \theta_{BC})^k \right) \ge \frac{\pi}{2} - \theta_{BC}$
+#### Corollary 3.2. $\theta_{B\dual{C}} \ge \cos^{-1} \left( (\sin \theta_{BC})^k \right) \ge \frac{\pi}{2} - \theta_{BC}$
 
 The angle $\theta_{B\dual{C}}$ between $\B{B}$ and $\dual{\B{C}}$ satisfies the
 inequalities
@@ -373,7 +523,7 @@ $$
 \ge \frac{\pi}{2} - \theta_{BC}.
 $$
 
-_Proof_. Dividing the inequalities from Proposition 2 by $\norm{\B{B}}$ and using the
+_Proof_. Dividing the inequalities from Proposition 3 by $\norm{\B{B}}$ and using the
 definition of the cosine of the angle between blades, we find that
 
 $$
@@ -385,7 +535,7 @@ $$
 where the second inequality follows because $(\sin \theta)^k \le \sin \theta$. Taking
 inverse cosines yields the desired result.
 
-### Proposition 3. $\norm{\B{A}} \cos \theta_{B\dual{C}} \le \norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{BC}$
+### Proposition 4. $\norm{\B{A}} \cos \theta_{B\dual{C}} \le \norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{BC}$ when $\B{A} \subseteq \B{B}$
 
 If $\B{A} \subseteq \B{B}$, then
 
@@ -398,12 +548,12 @@ $$
 _Proof_. The lower bound follows from Proposition 1 with $\dual{\B{C}}$ in the place of
 $\B{C}$.
 
-To prove the upper bound, observe that Proposition 2 with $\B{A}$ in the place of $\B{B}$
+To prove the upper bound, observe that Proposition 3 with $\B{A}$ in the place of $\B{B}$
 implies that $\norm{\proj{\dual{\B{C}}}{\B{A}}} \le \norm{\B{A}} \sin \theta_{AC}$. Since
 $\theta_{AC} \le \theta_{BC}$ by corollary of Proposition 1,
 $\sin \theta_{AC} \le \sin \theta_{BC}$, which yields the desired upper bound.
 
-#### Corollary. $\left( \frac{\pi}{2} - \theta_{BC} \right) \le \theta_{A\dual{C}} \le \theta_{B\dual{C}}$
+#### Corollary 4.1. $\left( \frac{\pi}{2} - \theta_{BC} \right) \le \theta_{A\dual{C}} \le \theta_{B\dual{C}}$
 
 If $\B{A} \subseteq \B{B}$, then the angle $\theta_{A\dual{C}}$ between $\B{A}$ and
 $\dual{\B{C}}$ satisfies the inequalities
@@ -429,5 +579,7 @@ which is equivalent to the desired result.
 ## References
 
 1. A. Macdonald. "Linear and Geometric Algebra" (2010).
+
+2. [[2022-09-27-Useful-Blade-Identities]]
 
 --------------------------------------------------------------------------------------------
