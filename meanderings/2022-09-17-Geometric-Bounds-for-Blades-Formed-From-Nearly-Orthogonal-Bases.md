@@ -18,7 +18,7 @@ _Last Updated_: 2022-09-27
   $\newcommand{\e}{\mathbf{e}}$
   The standard basis for $\R^n$: $\{ \e_1, \ldots, \e_n \}$
 
-* $\newcommand{\abs}[1]{\vert{#1}\vert}$
+* $\newcommand{\abs}[1]{\left\vert{#1}\right\vert}$
   The absolute value of $x$: $\abs{x}$
 
 __Blades__
