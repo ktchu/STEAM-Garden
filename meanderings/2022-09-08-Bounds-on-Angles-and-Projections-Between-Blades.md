@@ -9,7 +9,7 @@ tags: geometric-algebra, linear-algebra
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-09-28
+_Last Updated_: 2022-10-12
 
 --------------------------------------------------------------------------------------------
 ## Notation
@@ -34,6 +34,8 @@ _Last Updated_: 2022-09-28
 * $\newcommand{\proj}[2]{P_{#1}\left({#2}\right)}$
   The orthogonal projection of blade $\B{A}$ onto the subspace represented by $\B{B}$:
   $\proj{\B{B}}{\B{A}}$
+
+* The angle formed between subspaces $\B{B}$ and $\B{C}$: $\theta_{BC}$
 
 --------------------------------------------------------------------------------------------
 ## Summary
