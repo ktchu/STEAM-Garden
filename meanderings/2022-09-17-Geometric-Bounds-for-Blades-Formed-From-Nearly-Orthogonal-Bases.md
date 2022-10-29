@@ -129,8 +129,7 @@ formed between $\B{V}$ and $\E_S$.
   when projected onto any $\E_S$ containing $\e_i$ and $\e_j$.
 
 * The volume of $\proj{S}{\B{V}}$, the projection of $\B{V}$ onto $\E_S$, is nearly equal
-  to the product of the norms of the projections of $\B{v}_i$ onto any $\E_S$ containing
-  $\e_i$:
+  to the product of the norms of the projections of $\B{v}_i$ onto $\E_S$:
 
   $$
   (1 - s \epsilon) \prod_{k \in S} \norm[S]{\B{v}_k}
