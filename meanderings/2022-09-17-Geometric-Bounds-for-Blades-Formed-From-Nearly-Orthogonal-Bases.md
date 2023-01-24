@@ -137,7 +137,7 @@ formed between $\B{V}$ and $\E_S$.
   \le \prod_{k \in S} \norm[S]{\B{v}_k}.
   $$
 
-* The angle between $\proj{S}{\B{V}}$ and $\E_S$ is nearly 1:
+* The cosine of the angle between $\proj{S}{\B{V}}$ and $\E_S$ is nearly 1:
 
   $$
   (1 - s \epsilon)^2
