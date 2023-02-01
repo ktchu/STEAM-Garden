@@ -38,13 +38,15 @@ $\dim \range T = 2$.
 
 __Solution__. Consider $T: \R^5 \rightarrow \R^5$ by
 
-$
-T e_1 = 0 \\
-T e_2 = 0 \\
-T e_3 = 0 \\
-T e_4 = e_4 \\
-T e_5 = e_5.
-$
+$$
+\begin{align}
+T e_1 &= 0 \\
+T e_2 &= 0 \\
+T e_3 &= 0 \\
+T e_4 &= e_4 \\
+T e_5 &= e_5.
+\end{align}
+$$
 
 If $v \in \null T$, then
 
@@ -134,32 +136,38 @@ is not a subspace of $\maps{\R^5}{\R^4}$.
 __Solution__. Consider the following two linear maps.
 
 $$
-T_1 e_1 = 0 \\
-T_1 e_2 = 0 \\
-T_1 e_3 = 0 \\
-T_1 e_4 = e_4 \\
-T_1 e_5 = e_5
+\begin{align}
+T_1 e_1 &= 0 \\
+T_1 e_2 &= 0 \\
+T_1 e_3 &= 0 \\
+T_1 e_4 &= e_4 \\
+T_1 e_5 &= e_5
+\end{align}
 $$
 
 and
 
 $$
-T_2 e_1 = e_1 \\
-T_2 e_2 = e_2 \\
-T_2 e_3 = 0 \\
-T_2 e_4 = 0 \\
-T_2 e_5 = 0
+\begin{align}
+T_2 e_1 &= e_1 \\
+T_2 e_2 &= e_2 \\
+T_2 e_3 &= 0 \\
+T_2 e_4 &= 0 \\
+T_2 e_5 &= 0
+\end{align}
 $$
 
 Observe that $\dim \null T_1 = 3 = \dim \null T_2$. However,
 $\dim \null (T_1 + T_2) = 1 \le 2$ because
 
 $$
-(T_1 + T_2) e_1 = e_1 \\
-(T_1 + T_2) e_2 = e_2 \\
-(T_1 + T_2) e_3 = 0 \\
-(T_1 + T_2) e_4 = e_4 \\
-(T_1 + T_2) e_5 = e_5.
+\begin{align}
+(T_1 + T_2) e_1 &= e_1 \\
+(T_1 + T_2) e_2 &= e_2 \\
+(T_1 + T_2) e_3 &= 0 \\
+(T_1 + T_2) e_4 &= e_4 \\
+(T_1 + T_2) e_5 &= e_5.
+\end{align}
 $$
 
 --------------------------------------------------------------------------------------------
@@ -174,10 +182,12 @@ $$
 __Solution__. Consider $T$ defined by the following:
 
 $$
-T e_1 = 0 \\
-T e_2 = 0 \\
-T e_3 = e_1 \\
-T e_4 = e_2.
+\begin{align}
+T e_1 &= 0 \\
+T e_2 &= 0 \\
+T e_3 &= e_1 \\
+T e_4 &= e_2.
+\end{align}
 $$
 
 Clearly, $\null T = \span{e_1, e_2}$.
@@ -402,8 +412,10 @@ respectively, where $n = \dim V$ and $m = \dim W$. Since $\dim V \ge \dim W$, we
 define a linear map $T: V \rightarrow W$ with
 
 $$
-T v_i = w_i \textrm{ for $1 \le i \le m$} \\
-T v_i = 0 \textrm{ for $m < i \le n$}.
+\begin{array}{ll}
+T v_i = w_i & \textrm{for $1 \le i \le m$} \\
+T v_i = 0   & \textrm{for $m < i \le n$}.
+\end{array}
 $$
 
 Consider $w = \sum_{i=1}^m a_i w_i\in W$. Then $T$ maps $v = \sum_{i=1}^m a_i v_i$ to $w$:
@@ -453,8 +465,10 @@ $\dim U \ge \dim V - \dim W$. Therefore, we can define a linear map $T: V \right
 by
 
 $$
-T u_i = 0 \\
-T u^r_i = w_i \textrm{ for $1 \le i \le p$}
+\begin{array}{ll}
+T u_i = 0 & \\
+T u^r_i = w_i & \textrm{ for $1 \le i \le p$}
+\end{array}
 $$
 
 By definition, $U \subseteq \null T$. Now, suppose that
