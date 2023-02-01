@@ -89,7 +89,7 @@ $(-1)v$ because
 ### 6.
 
 __Problem__. Let $\infty$ and $-\infty$ denote two distinct objects, neither
-of which is in $\mathbb{R}$. Define an addtion and scalar multiplication on
+of which is in $\mathbb{R}$. Define an addition and scalar multiplication on
 $\mathbb{R} \cup \{\infty\} \cup \{-\infty\}$ as you could guess from the
 notation. Specifically, the sum and product of two real numbers is as usual,
 and for $t \in \mathbb{R}$ define
