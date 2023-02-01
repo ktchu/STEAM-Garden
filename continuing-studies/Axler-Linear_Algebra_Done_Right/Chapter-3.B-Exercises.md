@@ -16,10 +16,10 @@ Linear Algebra Done Right (S. Axler): Exercises 3.B
 * $\newcommand{\span}[1]{\operatorname{span}\left({#1}\right)}$
   The span of $u, v, w$: $\span{u, v, w}$
 
-* $\newcommand{\null}{\operatorname{null}}$
+* $\newcommand{\null}{\operatorname{null}\ }$
   The null space of $T$: $\null T$
 
-* $\newcommand{\range}{\operatorname{range}}$
+* $\newcommand{\range}{\operatorname{range}\ }$
   The range of $T$: $\range T$
 
 * $\newcommand{\maps}[2]{\mathcal{L}\left(#1,#2\right)}$
@@ -228,7 +228,45 @@ __Problem__. Suppose $V$ and $W$ are finite-dimentional with $2 \le \dim V \le \
 Show that $\{ T \in \maps{V}{W} : T \textrm{ is not injective} \}$ is not a subspace of
 $\maps{V}{W}$.
 
-__Solution__. TODO
+__Solution__. Consider the following linear maps $T_1, T_2 \in \maps{\R^2}{\R^2}$:
+
+$$
+\begin{align}
+T_1 e_1 &= e_1 + e_2 \\
+T_1 e_2 &= e_1 + e_2 \\
+\\
+T_2 e_1 &= e_1 + 2 e_2 \\
+T_2 e_2 &= 2 e_1 + 4 e_2
+\end{align}
+$$
+
+Observe that $T_1$ is not injective because $T_1 (e_1 - e_2) = 0$. Similarly, $T_2$ is not
+injective because $T_2 (2 e_1 - e_2) = 0$.
+
+Consider the linear map $(T_1 + T_2)$:
+
+$$
+\begin{align}
+(T_1 + T_2) e_1 &= 2 e_1 + 3 e_2 \\
+(T_1 + T_2) e_2 &= 3 e_1 + 5 e_2.
+\end{align}
+$$
+
+$(T_1 + T_2)$ is injective because
+
+$$
+\begin{align}
+0
+&= (T_1 + T_2) (a_1 e_1 + a_2 e_2) \\
+&= a_1 (2 e_1 + 3 e_2) + a_2 (3 e_1 + 5 e_2) \\
+&= (2 a_1 + 3 a_2) e_1 + (3 a_1 + 5 a_2) e_2
+\end{align}
+$$
+
+if and only if $a_1 = 0 = a_2$, which implies that $\null (T_1 + T_2) = \{ 0 \}$.
+
+Therefore, $\{ T \in \maps{\R^2}{\R^2} : T \textrm{ is not injective} \}$ is not a subspace
+of $\maps{\R^2}{\R^2}$.
 
 --------------------------------------------------------------------------------------------
 ### 8.
@@ -237,7 +275,35 @@ __Problem__. Suppose $V$ and $W$ are finite-dimentional with $\dim V \ge \dim W 
 Show that $\{ T \in \maps{V}{W} : T \textrm{ is not surjective} \}$ is not a subspace of
 $\maps{V}{W}$.
 
-__Solution__. TODO
+__Solution__. Consider the following linear maps $T_1, T_2 \in \maps{\R^2}{\R^2}$:
+
+$$
+\begin{align}
+T_1 e_1 &= e_1\\
+T_1 e_2 &= e_1 \\
+\\
+T_2 e_1 &=  e_2 \\
+T_2 e_2 &= -e_2
+\end{align}
+$$
+
+Observe that $T_1$ is not surjective because $\range T_1 = \span{e_1}$. Similarly, $T_2$ is
+not surjective because $\range T_2 = \span{e_2}$.
+
+Consider the linear map $(T_1 + T_2)$:
+
+$$
+\begin{align}
+(T_1 + T_2) e_1 &= e_1 + e_2 \\
+(T_1 + T_2) e_2 &= e_1 - e_2.
+\end{align}
+$$
+
+Since $\dim \R^2 = 2$ and $\dim \range (T_1 + T_2) \ge 2$ (because $e_1 + e_2$ and
+$e_1 - e_2$ are linearly independent), $\range (T_1 + T_2)$ must be $\R^2$. Therefore,
+$(T_1 + T_2)$ is surjective, and we can conclude that
+$\{ T \in \maps{\R^2}{\R^2} : T \textrm{ is not surjective} \}$ is not a subspace of
+$\maps{\R^2}{\R^2}$.
 
 --------------------------------------------------------------------------------------------
 ### 10.
