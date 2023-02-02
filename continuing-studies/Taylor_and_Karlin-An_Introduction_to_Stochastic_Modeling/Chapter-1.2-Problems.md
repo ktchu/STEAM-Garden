@@ -19,8 +19,8 @@ An Introduction to Stochastic Modeling (Taylor and Karlin): Problems 1.2
 * $\newcommand{\Var}[1]{{\operatorname{Var}}{\left(#1\right)}}$
   Variance of $X$: $\Var{X}$
 
-* $\newcommand{\Cov}[1]{{\operatorname{Cov}}{\left(#1\right)}}$
-  Covariance of $X$: $\Cov{X}$
+* $\newcommand{\Cov}[2]{{\operatorname{Cov}}{\left[#1, #2\right]}}$
+  Covariance of $X$ and $Y$: $\Cov{X}{Y}$
 
 --------------------------------------------------------------------------------------------
 ### 2.1.
