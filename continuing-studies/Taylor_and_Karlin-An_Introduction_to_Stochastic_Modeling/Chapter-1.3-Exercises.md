@@ -7,9 +7,6 @@ An Introduction to Stochastic Modeling (Taylor and Karlin): Exercises 1.3
 * $\newcommand{\Pr}[1]{{\mathbb{P}\left[{#1}\right]}}$
   Probability of event $E$: $\Pr{E}$
 
-* $\newcommand{\1}[1]{{\mathbf{1}_{\left\{{#1}\right\}}}}$
-  Indicator for event $E$: $\1{E}$
-
 * $\newcommand{\p}[1]{{p\left({#1}\right)}}$
   Probability density (or mass) function for a random variable $X$: $\p{x}$
 
@@ -119,7 +116,7 @@ The discrete uniform distribution on $\{ 1, \ldots, n \}$ corresponds to the pro
 mass function
 
 $$
-p(k)
+\p(k)
 = \left\{
     \begin{array}{cl}
     \frac{1}{n} & \textrm{for $k = 1, \ldots, n$} \\
