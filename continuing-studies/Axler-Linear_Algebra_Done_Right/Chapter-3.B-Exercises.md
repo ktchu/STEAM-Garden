@@ -364,7 +364,15 @@ $$
 
 Prove that $T$ is surjective.
 
-__Solution__. TODO
+__Solution__. Observe that $\dim \null T = 2$ because $(5, 1, 0, 0)$ and $(0, 0, 7, 1)$
+are a basis for $\null T$. By the Fundamental Theorem of Linear Maps,
+
+$$
+\dim \range T = \dim \F^4 - \dim \null T = 4 - 2 = 2,
+$$
+
+which implies that $\range T = \F^2$ because $\range T \subseteq \F^2$. Therefore, $T$ is
+surjective.
 
 --------------------------------------------------------------------------------------------
 ### 14.
@@ -628,7 +636,36 @@ $$
 \dim \null ST \le \dim \null S + \dim \null T.
 $$
 
-__Solution__. TODO
+__Solution__. By the Fundamental Theorem of Linear Maps,
+
+$$
+\dim U = \dim \null ST + \dim \range ST,
+$$
+
+$$
+\dim U = \dim \null T + \dim \range T,
+$$
+
+and
+
+$$
+\dim V = \dim \null S + \dim \range S.
+$$
+
+Therefore,
+
+$$
+\begin{align}
+\dim \null ST
+&= \dim \null T + \dim \range T - \dim \range ST \\
+&\le \dim \null T + \dim V - \dim \range ST \\
+&\le \dim \null T + \dim \null S + \dim \range S - \dim \range ST \\
+&\le \dim \null T + \dim \null S,
+\end{align}
+$$
+
+where the first inequality follows because $\range T \subseteq V$ and the last inequality
+follows because $\range T \subseteq V$ implies that $\range ST \subseteq \range S$.
 
 --------------------------------------------------------------------------------------------
 ### 23.
@@ -640,7 +677,28 @@ $$
 \dim \range ST \le \min\{ \dim \range S, \dim \range T \}.
 $$
 
-__Solution__. TODO
+__Solution__. First, observe that $\range T \subseteq V$ implies that
+$\range ST \subseteq \range S$, so
+
+$$
+\dim \range ST \le \dim \range S.
+$$
+
+Next, observe that the Fundamental Theorem of Linear Maps for $T$ and $ST$ implies that
+
+$$
+\begin{align}
+\dim \range T
+&= \dim U - \dim \null T \\
+&= \dim \range ST + \dim \null ST - \dim \null T \\
+&\ge \dim \range ST,
+\end{align}
+$$
+
+where the inequality follows beause $\null T \subseteq \null ST$ implies that
+$\dim \null ST \ge \dim \null T$.
+
+Combining these results yields the desired inequality.
 
 --------------------------------------------------------------------------------------------
 ### 24.
@@ -672,7 +730,25 @@ polynomial $p$ to $p'$. Without knowing the formula for the derivative of a poly
 every polynomial $q \in \P{\R}$, there exists a polynomial $p \in \P{\R}$ such that
 $p' = q$.]
 
-__Solution__. TODO
+__Solution__. Assume that $D p = 0$ when $p$ is a constant and consider the linear map
+$D_m$ that is the restriction of $D$ to the finite-dimensional domain $\P[m]{\R}$. Then
+the Fundamental Theorem of Linear Maps implies that
+
+$$
+m + 1 = \dim \P[m]{\R} = \dim \null D_m + \dim \range D_m.
+$$
+
+Since $\deg Dp \ge 0$ whenever $\deg p \ge 1$, the null space of $D_m$ is the subspace of
+constant polynomials, which has dimension 1. Therefore,
+
+$$
+\dim \range D_m = m,
+$$
+
+which implies that $\range D_m = \P[m-1]{\R}$ - that is, $D_m$ is surjective.
+
+$D$ is surjective because given $p \in \P{\R}$, any $q$ in the pre-image of $p$ under the
+map $D_{\deg p}$ satisfies $D q = p$.
 
 --------------------------------------------------------------------------------------------
 ### 27.
@@ -683,7 +759,49 @@ such that $5q'' + 3q' = p$.
 [This exercise can be done without linear algebra, but it's more fun to do it using linear
 algebra.]
 
-__Solution__. TODO
+__Solution__. Let $m = \deg p$. Consider the linear map
+$L_m: \P[m+1]{\R} \rightarrow \P[m]{\R}$ defined by
+
+$$
+L_m q = 5 q'' + 3 q'
+$$
+
+for $q \in \P[m+1]{\R}$. Expressing $q \in \P[m+1]{\R}$ in terms of the standard monomial
+basis
+
+$$
+q = \sum_{n=0}^{m+1} a_n x^n,
+$$
+
+we have
+
+$$
+\begin{align}
+q' &= \sum_{n=0}^{m} (n+1) a_{n+1} x^n \\
+q'' &= \sum_{n=0}^{m-1} (n+2)(n+1) a_{n+2} x^n,
+\end{align}
+$$
+
+so
+
+$$
+L_m q = (m+1) a_{m+1} x^{m}
+      + \sum_{n=0}^{m-1} \left[ 5(n+2)(n+1) a_{n+2} + 3 (n+1) a_{n+1} \right] x^n.
+$$
+
+Observe that $L_m q = 0$ if and only if that $a_{m+1} = a_{m} = \cdots = a_2 = a_1 = 0$, so
+the null space of $L_m$ is the space of constant polynomials, which has dimension 1. From
+the Fundamental Theorem of Linear Maps,
+
+$$
+\dim \range L_m
+= \dim \P[m+1]{\R} - \dim \null L_m = (m + 2) - 1
+= m + 1,
+$$
+
+which implies that $\range L_m = \P[m]{\R}$ and that $L_m$ is surjective. Therefore, for
+any $p \in \P{\R}$, there exists a polynomial $q \in \P[m+1]{\R} \subset \P{\R}$ such that
+$L_m q = 5 q'' + 3 q' = p$.
 
 --------------------------------------------------------------------------------------------
 ### 28.
