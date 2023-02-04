@@ -80,9 +80,9 @@ Similarly, the second and third representations of $n$ imply that
 
 * $c \equiv 3a + b + 3c \pmod{6}$, which is equivalent to $3a + b + 2c \equiv 0 \pmod{6}$.
 
-The first congruence relation implies that $a + b = 14$ because $a \ne 0$ and 14 is the
-only positive multiple of 14 less than or equal to 18 (the constraints $1 \le a \le 5$ and
-$0 \le b \le 13$ imply that $a + b \le 18$).
+Begin by observing that the first congruence relation implies that $a + b = 14$ because
+$a \ne 0$ and 14 is the only positive multiple of 14 less than or equal to 18 (the
+constraints $1 \le a \le 5$ and $0 \le b \le 13$ imply that $a + b \le 18$).
 
 Next, observe that the second and third congruences imply that 3 divides $(a - 2b + c)$ and
 $(3a + b + 2c)$. Eliminating $c$ from these expressions, we find that 3 divides $(a + 5b)$,
