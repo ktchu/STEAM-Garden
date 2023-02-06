@@ -1,3 +1,9 @@
+# --- Environments
+
+# direnv
+.direnv
+.envrc
+
 # --- Temporary files
 
 # Microsoft Office
