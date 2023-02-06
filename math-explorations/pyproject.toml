@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "Math Explorations"
+version = "0.0.0"
+description = ""
+license = "Apache-2.0"
+readme = "README.md"
+authors = ["Kevin T. Chu <kevin@velexi.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+bcrypt = "^3.2.2"
+dvc = {extras = ["s3", "ssh"], version = "^2.33.2"}
+fastds = "^0.6.0"
+ipython = "^8.4"
+jupyterlab = "^3.4"
+mlflow = "^1.27"
+pdoc = "^12.2.0"
+python-slugify = "^6.1"
+PyYAML = "^6.0"
+tqdm = "^4.64"
+typer = "^0,>=0.6"
+matplotlib = "^3.5.2"
+numpy = "^1.22.4"
+pandas = "^1.4.2"
+seaborn = "^0.11.2"
+numba = "^0.55.2"
+
+# security vulnerability fixes
+pywin32 = [
+    { version = '>=301', platform = 'win32' },
+]
+
+[tool.poetry.group.code-quality.dependencies]
+black = "^22.10.0"
+flake8 = "<5.0.0"  # Unpin after compatibility with pytest-flake8 is fixed
+pre-commit = "^2.20.0"
+radon = "^5.1.0"
+
+[tool.poetry.group.test.dependencies]
+coverage = "^6.4"
+pylint = "^2.14"
+pytest = "^7.1"
+pytest-cov = "^3.0"
+pytest-flake8 = "^1.1"
+pytest-pylint = "^0.18.0"
+pytest-xdist = "^2.5"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra --doctest-modules --flake8 --cov --cov-report="
+testpaths = [
+    "src",
+]
+doctest_optionflags = [
+    "NORMALIZE_WHITESPACE",
+    "IGNORE_EXCEPTION_DETAIL",
+    "ALLOW_UNICODE",
+    "ALLOW_BYTES",
+]
+norecursedirs = ["data", "docs", "extras", "notebooks", "reports", "spikes"]
+
+[tool.coverage.run]
+source = ["src/"]
+
+[tool.coverage.report]
+omit = ["*/tests/*"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
