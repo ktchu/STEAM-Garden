@@ -8,9 +8,9 @@ __Problem__. Prove that $-(-v) = v$ for every $v \in V$.
 
 __Solution__. For every $v \in V$, $-v = (-1)v$. Therefore,
 
-\[
-  -(-v) = (-1)(-v) = (-1)(-1)v = 1v = v.
-\]
+$$
+-(-v) = (-1)(-v) = (-1)(-1)v = 1v = v.
+$$
 
 -------------------------------------------------------------------------------
 ### 2.
@@ -21,9 +21,9 @@ $a = 0$ or $v = 0$.
 __Solution__. Clearly, $a = 0$ is one possibility of $av = 0$ because $0v = 0$.
 If $a \ne 0$, then $a$ has a multiplicative inverse $a^{-1}$. Therefore
 
-\[
-  v = 1v = (a^{-1} a) v = a^{-1} (av) = a^{-1} 0 = 0
-\]
+$$
+v = 1v = (a^{-1} a) v = a^{-1} (av) = a^{-1} 0 = 0
+$$
 
 -------------------------------------------------------------------------------
 ### 3.
@@ -40,11 +40,13 @@ equation.
 More formally, suppose that $x_1$ and $x_2$ both satisfy the equation
 $v + 3x = w$. Then
 
-\[
-  v + 3 x_1 = v + 3 x_2 \\
-  \Rightarrow 3 x_1 = v + 3 x_1 - v1 = v + 3 x_2 - v = 3 x_2 \\
-  \Rightarrow x_1 = (1/3) (3 x_1) = (1/3) (3 x_2) = x_2.
-\]
+$$
+\begin{align}
+v + 3 x_1 &= v + 3 x_2 \\
+\Rightarrow 3 x_1 &= v + 3 x_1 - v1 = v + 3 x_2 - v = 3 x_2 \\
+\Rightarrow x_1 &= (1/3) (3 x_1) = (1/3) (3 x_2) = x_2.
+\end{align}
+$$
 
 -------------------------------------------------------------------------------
 ### 4.
@@ -74,16 +76,16 @@ the condition $0v = 0$ forall $v \in V$, we show that they are equivalent.
 If we assume the additive inverse condition, then for every $0v \in V$ has
 and inverse $w \in V$. Therefore,
 
-\[
-  0v = 0v + 0 = 0v + (0v + w) = (0 + 0) v + w = 0v + w = 0
-\]
+$$
+0v = 0v + 0 = 0v + (0v + w) = (0 + 0) v + w = 0v + w = 0
+$$
 
 If we assume that $0v = 0$, then every $v \in V$ has an inverse equal to
 $(-1)v$ because
 
-\[
-  v + (-1)v = 1v + (-1)v = (1 - 1)v = 0v = 0.
-\]
+$$
+v + (-1)v = 1v + (-1)v = (1 - 1)v = 0v = 0.
+$$
 
 -------------------------------------------------------------------------------
 ### 6.
@@ -94,9 +96,9 @@ $\mathbb{R} \cup \{\infty\} \cup \{-\infty\}$ as you could guess from the
 notation. Specifically, the sum and product of two real numbers is as usual,
 and for $t \in \mathbb{R}$ define
 
-\[
-  TODO
-\]
+$$
+TODO
+$$
 
 Is $\mathbb{R} \cup \{\infty\} \cup \{-\infty\}$ a vector space over
 $\mathbb{R}$? Explain.

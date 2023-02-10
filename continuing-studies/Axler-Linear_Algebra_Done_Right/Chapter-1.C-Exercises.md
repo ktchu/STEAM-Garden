@@ -17,20 +17,20 @@ __Solution__. Yes.
 
 * Let $x$ and $y$ be in the set. $x + y$ satisfies
 
-  \[
-    (x_1 + y_1) + 2 (x_2 + y_2) + 3 (x_3 + y_3)
-    = (x_1 + 2 x_2 + 3 x_3) + (y_1 + 2 y_2 + 3 y_3)
-    = 0 + 0 = 0,
-  \]
+  $$
+  (x_1 + y_1) + 2 (x_2 + y_2) + 3 (x_3 + y_3)
+  = (x_1 + 2 x_2 + 3 x_3) + (y_1 + 2 y_2 + 3 y_3)
+  = 0 + 0 = 0,
+  $$
 
   so the set is closed under addition.
 
 * Let $x$ be in the set and $\lambda \in \mathbb{F}$. $\lambda x$ satisfies
 
-  \[
-    \lambda x_1 + 2 (\lambda x_2) + 3 (\lambda x_3)
-    = \lambda (x_1 + 2 x_2 + 3 x_3) = \lambda 0 = 0,
-  \]
+  $$
+  \lambda x_1 + 2 (\lambda x_2) + 3 (\lambda x_3)
+  = \lambda (x_1 + 2 x_2 + 3 x_3) = \lambda 0 = 0,
+  $$
 
   so the set is closed under scalar multiplication.
 
@@ -44,20 +44,20 @@ __Solution__. No.
 
 * Let $x$ and $y$ be in the set. $x + y$ satisfies
 
-  \[
-    (x_1 + y_1) + 2 (x_2 + y_2) + 3 (x_3 + y_3)
-    = (x_1 + 2 x_2 + 3 x_3) + (y_1 + 2 y_2 + 3 y_3)
-    = 4 + 4 = 8 \ne 4
-  \]
+  $$
+  (x_1 + y_1) + 2 (x_2 + y_2) + 3 (x_3 + y_3)
+  = (x_1 + 2 x_2 + 3 x_3) + (y_1 + 2 y_2 + 3 y_3)
+  = 4 + 4 = 8 \ne 4
+  $$
 
   so the set is not closed under addition.
 
 * Let $x$ be in the set and $\lambda \in \mathbb{F}$. $\lambda x$ satisfies
 
-  \[
-    \lambda x_1 + 2 (\lambda x_2) + 3 (\lambda x_3)
-    = \lambda (x_1 + 2 x_2 + 3 x_3) = 4 \lambda,
-  \]
+  $$
+  \lambda x_1 + 2 (\lambda x_2) + 3 (\lambda x_3)
+  = \lambda (x_1 + 2 x_2 + 3 x_3) = 4 \lambda,
+  $$
 
   which does not equal 4 except for $\lambda = 1$, so the set is not closed
   under scalar multiplication.
@@ -81,17 +81,17 @@ __Solution__. Yes.
 
 * Let $x$ and $y$ be in the set. $x + y$ satisfies
 
-  \[
-    x_1 + y_1 = 5 x_3 + 5 y_3 = 5 (x_3 + y_3),
-  \]
+  $$
+  x_1 + y_1 = 5 x_3 + 5 y_3 = 5 (x_3 + y_3),
+  $$
 
   so the set is closed under addition.
 
 * Let $x$ be in the set and $\lambda \in \mathbb{F}$. $\lambda x$ satisfies
 
-  \[
-    \lambda x_1 = \lambda (5 x_3) = 5 (\lambda x_3),
-  \]
+  $$
+  \lambda x_1 = \lambda (5 x_3) = 5 (\lambda x_3),
+  $$
 
   so the set is closed under scalar multiplication.
 
@@ -116,17 +116,17 @@ subspace are satisfied.
 
 * Let $f$ and $g$ be in the set, then
 
-  \[
-    (f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = (3f + 3g)(2) = 3(f+g)(2),
-  \]
+  $$
+  (f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = (3f + 3g)(2) = 3(f+g)(2),
+  $$
 
   so additive closure is satisfied.
 
 * Let $f$ in the set and $\lambda \in \mathbb{R}$, then
 
-  \[
-    (\lambda f)'(-1) = \lambda f'(-1) = \lambda(3f(2)) = 3(\lambda f(2))
-  \]
+  $$
+  (\lambda f)'(-1) = \lambda f'(-1) = \lambda(3f(2)) = 3(\lambda f(2))
+  $$
 
   so the set is closed under scalar multiplication.
 
@@ -148,17 +148,17 @@ three conditions for a $V$ to be a subspace.
 
 * Let $f$ and $g$ be in $V$, then
 
-  \[
-    \int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0
-  \]
+  $$
+  \int_0^1 (f + g) = \int_0^1 f + \int_0^1 g = 0 + 0 = 0
+  $$
 
   so additive closure is satisfied.
 
 * Let $f$ in the set and $\lambda \in \mathbb{R}$, then
 
-  \[
-    \int_0^1 \lambda f = \lambda \int_0^1 f = \lambda (0) = 0
-  \]
+  $$
+  \int_0^1 \lambda f = \lambda \int_0^1 f = \lambda (0) = 0
+  $$
 
   so the set is closed under scalar multiplication.
 
@@ -208,15 +208,17 @@ $y = (y_1, y_2, y_3) = (1, 1, 0)$. Then
 $x_1 = 1^3 = 1 = e^{2 \pi} = (e^{2 \pi i / 3})^3 = x_2^3$ and
 $y_1 = 1^3 = y_2^3$. However, $(x_1 + y_1)^3 = 2^3 = 8$ while
 
-\[
-  (x_2 + y_2)^3
-  = (1 + e^{2 \pi i / 3})^3
-  = 1 + 3 e^{2 \pi i / 3} + 3 e^{4 \pi i / 3}) + e^{2 \pi} \\
-  = 2 + 3 (\cos(2 \pi / 3) + i \sin(2 \pi / 3))
-      + 3 (\cos(4 \pi / 3) + i \sin(4 \pi / 3)) \\
-  = 2 + 6 (\cos(2 \pi / 3)
-  = 2 + 6 (-1/2) = 2 - 3 = -1.
-\]
+$$
+\begin{align}
+(x_2 + y_2)^3
+&= (1 + e^{2 \pi i / 3})^3 \\
+&= (1 + 3 e^{2 \pi i / 3} + 3 e^{4 \pi i / 3}) + e^{2 \pi} \\
+&= 2 + 3 (\cos(2 \pi / 3) + i \sin(2 \pi / 3))
+    + 3 (\cos(4 \pi / 3) + i \sin(4 \pi / 3)) \\
+&= 2 + 6 (\cos(2 \pi / 3) \\
+&= 2 + 6 (-1/2) = 2 - 3 = -1.
+\end{align}
+$$
 
 -------------------------------------------------------------------------------
 ### 7.
@@ -262,17 +264,17 @@ $\mathbb{R}^{\mathbb{R}}$ because it satisfies the conditions for a subspace.
 
 * Let $f$ and $g$ be periodic functions. Then
 
-  \[
-    (f + g)(x) = f(x) + g(x) = f(x + p) + g(x + p) = (f + g)(x + p),
-  \]
+  $$
+  (f + g)(x) = f(x) + g(x) = f(x + p) + g(x + p) = (f + g)(x + p),
+  $$
 
   so the set of periodic functions is closed under addition.
 
 * Let $\lambda \in \mathbb{R}$ and $f$ be a periodic function. Then
 
-  \[
-    (\lambda f)(x) = \lambda f(x) = \lambda f(x + p) = (\lambda f)(x + p),
-  \]
+  $$
+  (\lambda f)(x) = \lambda f(x) = \lambda f(x + p) = (\lambda f)(x + p),
+  $$
 
   so the set of periodic functions is closed under scalar multiplication.
 
@@ -405,20 +407,22 @@ larger than $\{0\}$ with any other subspace will always be larger than $\{0\}$.
 __Problem__. Prove or give a counterexample: if $U_1$, $U_2$, $W$ are subspaces
 of $V$ such that
 
-\[
-  U_1 + W = U_2 + W,
-\]
+$$
+U_1 + W = U_2 + W,
+$$
 
 then $U_1 = U_2$.
 
 __Solution__. The assertion is false. As a counter example, let
 $U_1, U_2, W \subset \mathbb{R}^2$ defined by
 
-\[
-  W = \{ (x, 0) : x \in \mathbb{R} \} \\
-  U_1 = \{ (0, y) : y \in \mathbb{R} \} \\
-  U_2 = \{ (z, z) : z \in \mathbb{R} \}.
-\]
+$$
+\begin{align}
+W &= \{ (x, 0) : x \in \mathbb{R} \} \\
+U_1 &= \{ (0, y) : y \in \mathbb{R} \} \\
+U_2 &= \{ (z, z) : z \in \mathbb{R} \}.
+\end{align}
+$$
 
 Then $U_1 + W = U_2 + W = \mathbb{R}^2$, but $U_1 \ne U_2$.
 
@@ -427,9 +431,9 @@ Then $U_1 + W = U_2 + W = \mathbb{R}^2$, but $U_1 \ne U_2$.
 
 __Problem__. Suppose
 
-\[
-  U = \{ (x, x, y, y) \in \mathbb{F}^4 : x, y \in \mathbb{F} \}.
-\]
+$$
+U = \{ (x, x, y, y) \in \mathbb{F}^4 : x, y \in \mathbb{F} \}.
+$$
 
 Find a subspace $W$ of $\mathbb{F}^4$ such that $\mathbb{F}^4 = U \oplus W$.
 
@@ -445,9 +449,9 @@ element of $W$.
 
 __Problem__. Suppose
 
-\[
-  U = \{ (x, y, x + y, x - y, 2x) \in \mathbb{F}^5 : x, y \in \mathbb{F} \}.
-\]
+$$
+U = \{ (x, y, x + y, x - y, 2x) \in \mathbb{F}^5 : x, y \in \mathbb{F} \}.
+$$
 
 Find a subspace $W$ of $\mathbb{F}^5$ such that $\mathbb{F}^5 = U \oplus W$.
 
@@ -464,9 +468,9 @@ an element of $U$ and an element of $W$.
 
 __Problem__. Suppose
 
-\[
-  U = \{ (x, y, x + y, x - y, 2x) \in \mathbb{F}^5 : x, y \in \mathbb{F} \}.
-\]
+$$
+U = \{ (x, y, x + y, x - y, 2x) \in \mathbb{F}^5 : x, y \in \mathbb{F} \}.
+$$
 
 Find three subspaces $W_1$, $W_2$, $W_3$ of $\mathbb{F}^5$, none of which
 equals $\{ 0 \}$, such that $\mathbb{F}^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
@@ -496,20 +500,22 @@ $\mathbb{F}^5 = U \oplus W_1 \oplus W_2 \oplus W_3$.
 __Problem__. Prove or give a counterexample: if $U_1$, $U_2$, $W$ are subspaces
 of $V$ such that
 
-\[
-  V = U_1 \oplus W \textrm{ and } V = U_2 \oplus W,
-\]
+$$
+V = U_1 \oplus W \textrm{ and } V = U_2 \oplus W,
+$$
 
 then $U_1 = U_2$.
 
 __Solution__. The assertion is false. As a counter example, let
 $U_1, U_2, W \subset \mathbb{R}^2$ defined by
 
-\[
-  W = \{ (x, 0) : x \in \mathbb{R} \} \\
-  U_1 = \{ (0, y) : y \in \mathbb{R} \} \\
-  U_2 = \{ (z, z) : z \in \mathbb{R} \}.
-\]
+$$
+\begin{align}
+W &= \{ (x, 0) : x \in \mathbb{R} \} \\
+U_1 &= \{ (0, y) : y \in \mathbb{R} \} \\
+U_2 &= \{ (z, z) : z \in \mathbb{R} \}.
+\end{align}
+$$
 
 Then $U_1 \oplus W = U_2 \oplus W = \mathbb{R}^2$, because
 $U_1 + W = U_2 + W = \mathbb{R}^2$ and $U_1 \cap W = U_2 \cap W = \{ 0 \}$,
@@ -521,16 +527,16 @@ but $U_1 \ne U_2$.
 __Problem__. A function $f : \mathbb{R} \rightarrow \mathbb{R}$ is called
 _even_ if
 
-\[
-  f(-x) = f(x)
-\]
+$$
+f(-x) = f(x)
+$$
 
 for all $x \in \mathbb{R}$. A function $f : \mathbb{R} \rightarrow \mathbb{R}$
 is called _odd_ if
 
-\[
-  f(-x) = -f(x)
-\]
+$$
+f(-x) = -f(x)
+$$
 
 for all $x \in \mathbb{R}$. Let $U_e$ denote the set of real-valued even
 functions on $\mathbb{R}$ and let $U_o$ denote the set of real-valued odd
