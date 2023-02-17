@@ -1,10 +1,6 @@
-Linear and Geometric Algebra (A. Macdonald): Chapter 5
-======================================================
-
-## Problems 5.2
-
--------------------------------------------------------------------------------
-
+Linear and Geometric Algebra (A. Macdonald): Chapter 5.2 Problems
+=================================================================
+--------------------------------------------------------------------------------------------
 ### 5.2.1.
 
 __Problem__. Show geometrically that vectors $\mathbf{u}$, $\mathbf{v}$,
@@ -22,31 +18,34 @@ parallelipiped formed by placing $\mathbf{u}$, $\mathbf{v}$, and $\mathbf{w}$
 tail-to-tail has a nonzero volume, which implies that the three vectors do not
 lie the same plane or line. Therefore, they are linearly independent.
 
+--------------------------------------------------------------------------------------------
 ### 5.2.2.
 
 __Problem__. Let
 
-\[
-\mathbf{u} = u_1 \mathbf{e}_1 + u_2 \mathbf{e}_2 + u_3 \mathbf{e}_3, \\
-\mathbf{v} = v_1 \mathbf{e}_1 + v_2 \mathbf{e}_2 + v_3 \mathbf{e}_3, \\
-\mathbf{w} = w_1 \mathbf{e}_1 + w_2 \mathbf{e}_2 + w_3 \mathbf{e}_3.
-\]
+$$
+\begin{align}
+\mathbf{u} &= u_1 \mathbf{e}_1 + u_2 \mathbf{e}_2 + u_3 \mathbf{e}_3, \\
+\mathbf{v} &= v_1 \mathbf{e}_1 + v_2 \mathbf{e}_2 + v_3 \mathbf{e}_3, \\
+\mathbf{w} &= w_1 \mathbf{e}_1 + w_2 \mathbf{e}_2 + w_3 \mathbf{e}_3.
+\end{align}
+$$
 
 Show that $(\mathbf{u} \wedge \mathbf{v}) \wedge \mathbf{w}$ is equal to
 
-\[
+$$
 ( u_1 v_2 w_3 - u_1 v_3 w_2
 + u_2 v_3 w_1 - u_2 v_1 w_3
 + u_3 v_1 w_2 - u_3 v_2 w_1)
 (\mathbf{e}_1 \wedge \mathbf{e}_2 \wedge \mathbf{e}_3).
-\]
+$$
 
 Compare with equation (5.2):
 
-\[
+$$
 \mathbf{u} \wedge \mathbf{v}
 = (u_1 v_2 - u_2 v_1) (\mathbf{e}_1 \wedge \mathbf{e}_2).
-\]
+$$
 
 Computing $\mathbf{u} \wedge (\mathbf{v} \wedge \mathbf{w})$ gives the
 same result, consistent with associativity.
@@ -98,4 +97,4 @@ $$
   (\mathbf{e}_1 \wedge \mathbf{e}_2 \wedge \mathbf{e}_3)
 $$
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------

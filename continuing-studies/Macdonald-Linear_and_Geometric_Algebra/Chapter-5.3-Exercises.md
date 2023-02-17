@@ -1,10 +1,6 @@
-Linear and Geometric Algebra (A. Macdonald): Chapter 5
-======================================================
-
-## Exercises: Section 5.3
-
--------------------------------------------------------------------------------
-
+Linear and Geometric Algebra (A. Macdonald): Chapter 5.3 Exercises
+==================================================================
+--------------------------------------------------------------------------------------------
 ### 5.9.
 
 #### 5.9.a.
@@ -32,6 +28,7 @@ of scalars, vectors, bivectors, and trivectors by 0 yields 0. Therefore, scalar
 multiplication of $M = s + \mathbf{v} + \mathbf{B} + \mathbf{T}$ by 0 yields
 0.
 
+--------------------------------------------------------------------------------------------
 ### 5.10.
 
 Prove the consequences of the definition of the geometric product:
@@ -96,11 +93,12 @@ $$
   \mathbf{u} \mathbf{v} = - \mathbf{v} \mathbf{u}.
 $$
 
+--------------------------------------------------------------------------------------------
 ### 5.11.
 
 __Problem__. Prove: If $a$ is a scalar and $\mathbf{u}$ and $\mathbf{v}$ are
 vectors, then $a(\mathbf{u} \mathbf{v}) = (a\mathbf{u}) \mathbf{v}$. It is also
-$a(\mathbf{u} \mathbf{v}) = a\mathbf{u} (a\mathbf{v})$.
+$a(\mathbf{u} \mathbf{v}) = \mathbf{u} (a\mathbf{v})$.
 
 __Solution__.
 
@@ -112,6 +110,7 @@ $$
   = (a \mathbf{u}) \mathbf{v}.
 $$
 
+--------------------------------------------------------------------------------------------
 ### 5.12.
 
 __Problem__. Solve the equation
@@ -141,11 +140,20 @@ $$
 yields
 
 $$
-  M
-  = \frac{1}{25} (3 \mathbf{e}_1 + 4 \mathbf{e}_2)
-                 (2 \mathbf{e}_1 + 3 \mathbf{e}_2)
-  = \frac{1}{25} (6 + 12)
-  = \frac{18}{25}
+\begin{align}
+M
+&= \frac{1}{25} (3 \mathbf{e}_1 + 4 \mathbf{e}_2)
+                (2 \mathbf{e}_1 + 3 \mathbf{e}_2) \\
+&= \frac{1}{25} (  6 \mathbf{e}_1 \mathbf{e}_1
+                +  9 \mathbf{e}_1 \mathbf{e}_2
+                +  8 \mathbf{e}_2 \mathbf{e}_1
+                + 12 \mathbf{e}_2 \mathbf{e}_2) \\
+&= \frac{1}{25} (  18
+                +  9 \mathbf{e}_1 \mathbf{e}_2
+                -  8 \mathbf{e}_1 \mathbf{e}_2) \\
+&= \frac{1}{25} (  18 + \mathbf{e}_1 \wedge \mathbf{e}_2 ) \\
+&= \frac{18}{25} + \frac{1}{25} (\mathbf{e}_1 \wedge \mathbf{e}_2)
+\end{align}
 $$
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
