@@ -134,9 +134,9 @@ $\bigcup_{i=1}^\infty A_i = \mathbb{N}$.
 __Solution__. Let $P = \{ p_1, p_2, \ldots \}$ be the set of prime numbers
 ordered so that $p_i < p_{i+1}$. Define $A_1 = \{1\}$ and
 
-\[
-  A_{n+1} = \{k p_n : k \in \mathbb{N} \} - \bigcup_{i = 1}^n A_i.
-\]
+$$
+A_{n+1} = \{k p_n : k \in \mathbb{N} \} - \bigcup_{i = 1}^n A_i.
+$$
 
 That is, $A_{n+1}$ contains the multiples of the $n$-th prime number that are
 not also multiples of a smaller prime.
@@ -219,14 +219,16 @@ demonstrating $(a + b)^2 \le (|a| + |b|)^2$.
 
 __Solution__. Observe that
 
-\[
-  (a + b)^2
-  = a^2 + b^2 + 2 a b
-  = |a|^2 + |b|^2 + 2 a b
-  \le |a|^2 + |b|^2 + 2 |a b|
-  = |a|^2 + |b|^2 + 2 |a| |b|
-  = (|a| + |b|)^2
-\]
+$$
+\begin{align}
+(a + b)^2
+&= a^2 + b^2 + 2 a b \\
+&= |a|^2 + |b|^2 + 2 a b \\
+&\le |a|^2 + |b|^2 + 2 |a b| \\
+&= |a|^2 + |b|^2 + 2 |a| |b| \\
+&= (|a| + |b|)^2
+\end{align}
+$$
 
 Taking the square root of both sides of this equation, we arrive at the
 triangle inequality: $|a + b| \le |a| + |b|$.
@@ -238,11 +240,11 @@ $a$, $b$, $c$, and $d$.
 
 __Solution__. Express $a - b$ as
 
-\[
-  a - b
-  = a - c + c - d + d - b
-  = (a - c) + (c - d) + (d - b).
-\]
+$$
+a - b
+= a - c + c - d + d - b
+= (a - c) + (c - d) + (d - b).
+$$
 
 Applying the triangle inequality two times yields the desired result.
 
@@ -254,23 +256,23 @@ identity $a = a - b + b$ may be useful.)
 __Solution__. Applying the triangle inequality to the identity
 $a = a - b + b = (a - b) + b$, we find that
 
-\[
-  |a| \le |a - b| + |b| \Rightarrow |a| - |b| \le |a - b|.
-\]
+$$
+|a| \le |a - b| + |b| \Rightarrow |a| - |b| \le |a - b|.
+$$
 
 Switching the roles of $a$ and $b$,
 
-\[
-  |b| \le |b - a| + |a|
-  \Rightarrow |b| - |a| \le |b - a|
-  \Rightarrow |a| - |b| \ge -|b - a| = -|a - b|.
-\]
+$$
+|b| \le |b - a| + |a|
+\Rightarrow |b| - |a| \le |b - a|
+\Rightarrow |a| - |b| \ge -|b - a| = -|a - b|.
+$$
 
 Combining these inequalities yields the desired result:
 
-\[
-  ||a| - |b|| \le |a - b|.
-\]
+$$
+||a| - |b|| \le |a - b|.
+$$
 
 -------------------------------------------------------------------------------
 ### 1.2.7.
@@ -357,9 +359,9 @@ __Problem__. $f : \mathbb{N} \rightarrow \mathbb{N}$ that is 1-1 but not onto.
 
 __Solution__. Define $f(x) = 2x$. $f$ is 1-1 because
 
-\[
-  f(a) = f(b) \Rightarrow 2a = 2b \Rightarrow a = b.
-\]
+$$
+f(a) = f(b) \Rightarrow 2a = 2b \Rightarrow a = b.
+$$
 
 $f$ is not onto because for any odd number $y$, there is no $x \in \mathbb{N}$
 such that $f(x) = 2x = y$.
@@ -372,18 +374,18 @@ __Solution__. Define $f(x) = \left\lfloor \frac{x}{2} \right\rfloor$.
 
 $f$ is onto because for any $y \in \mathbb{N}$, $x = 2y$ maps to $y$:
 
-\[
-  f(2y) = \left\lfloor \frac{2y}{2} \right\rfloor = y
-\]
+$$
+f(2y) = \left\lfloor \frac{2y}{2} \right\rfloor = y
+$$
 
 $f$ is not 1-1 because $2y$ and $(2y + 1)$ both map to y:
 
-\[
-  f(2y + 1)
-  = \left\lfloor \frac{2y + 1}{2} \right\rfloor
-  = \left\lfloor y + 1/2 \right\rfloor
-  = y
-\]
+$$
+f(2y + 1)
+= \left\lfloor \frac{2y + 1}{2} \right\rfloor
+= \left\lfloor y + 1/2 \right\rfloor
+= y
+$$
 
 #### 1.2.8.c.
 
@@ -391,19 +393,19 @@ __Problem__. $f : \mathbb{N} \rightarrow \mathbb{Z}$ that is 1-1 and onto.
 
 __Solution__. Define
 
-\[
-  f(x) = (-1)^x {\left\lceil \frac{x}{2} \right\rceil}.
-\]
+$$
+f(x) = (-1)^x {\left\lceil \frac{x}{2} \right\rceil}.
+$$
 
 $f$ is 1-1 because
 
-\[
-  f(a) = f(b)
-  \Rightarrow   (-1)^a {\left\lceil \frac{a}{2} \right\rceil}
-              = (-1)^b {\left\lceil \frac{b}{2} \right\rceil}
-  \Rightarrow   (-1)^{a-b} {\left\lceil \frac{a}{2} \right\rceil}
-              = {\left\lceil \frac{b}{2} \right\rceil}.
-\]
+$$
+f(a) = f(b)
+\Rightarrow   (-1)^a {\left\lceil \frac{a}{2} \right\rceil}
+            = (-1)^b {\left\lceil \frac{b}{2} \right\rceil}
+\Rightarrow   (-1)^{a-b} {\left\lceil \frac{a}{2} \right\rceil}
+            = {\left\lceil \frac{b}{2} \right\rceil}.
+$$
 
 Since the left hand side is positive, $a$ and $b$ must have the same parity.
 Since $a/2$ and $b/2$ must have the same ceiling value, $a$ and $b$ can
@@ -414,21 +416,21 @@ $f(x) = y$.
 
 * If $y \ge 0$, then
 
-  \[
-    f(2y)
-    = (-1)^{2y} {\left\lceil \frac{2y}{2} \right\rceil}
-    = y.
-  \]
+  $$
+  f(2y)
+  = (-1)^{2y} {\left\lceil \frac{2y}{2} \right\rceil}
+  = y.
+  $$
 
 * If $y < 0$, then
 
-  \[
-    f(-2y - 1)
-    = (-1)^{-2y - 1} {\left\lceil \frac{-2y - 1}{2} \right\rceil}
-    = -1 ( {\left\lceil -y - 1/2 \right\rceil}
-    = -1 ( -y )
-    = y.
-  \]
+  $$
+  f(-2y - 1)
+  = (-1)^{-2y - 1} {\left\lceil \frac{-2y - 1}{2} \right\rceil}
+  = -1 ( {\left\lceil -y - 1/2 \right\rceil}
+  = -1 ( -y )
+  = y.
+  $$
 
 -------------------------------------------------------------------------------
 ### 1.2.9.
@@ -450,15 +452,15 @@ __Solution__. By inspection, $f^{-1}(A) = [0, 2]$ and $f^{-1}(B) = [0, 1]$.
 
 In this case, $f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)$:
 
-\[
-  f^{-1}(A \cap B) = f^{-1}([0, 1]) = [0, 1] = f^{-1}(A) \cap f^{-1}(B).
-\]
+$$
+f^{-1}(A \cap B) = f^{-1}([0, 1]) = [0, 1] = f^{-1}(A) \cap f^{-1}(B).
+$$
 
 In this case, $f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)$:
 
-\[
-  f^{-1}(A \cup B) = f^{-1}([-1, 4]) = [0, 2] = f^{-1}(A) \cup f^{-1}(B).
-\]
+$$
+f^{-1}(A \cup B) = f^{-1}([-1, 4]) = [0, 2] = f^{-1}(A) \cup f^{-1}(B).
+$$
 
 #### 1.2.9.b.
 
@@ -592,9 +594,9 @@ for all $n \in \mathbb{N}$.
 __Solution__. The statement is true for $n = 1$: $y_1 = 6 > -6$. Suppose
 $y_n > -6$. Since $y_{n+1} = (2 y_n - 6) / 3$,
 
-\[
-  y_{n+1} > (2 (-6) - 6) / 3 = -18 / 3 = -6.
-\]
+$$
+y_{n+1} > (2 (-6) - 6) / 3 = -18 / 3 = -6.
+$$
 
 Therefore, by induction, $y_n > -6$ for all $n \in \mathbb{N}$.
 
@@ -606,9 +608,9 @@ $(y_1, y_2, y_3, \ldots)$ is decreasing.
 __Solution__. $y_1 = 6$ and $y_2 = (2 (6) - 6) / 3 = 2$, so $y_2 < y_1$.
 Suppose that that $y_{n+1} < y_n$. Then
 
-\[
-  y_{n+2} = (2 y_{n+1} - 6) / 3 < (2 y_n - 6) / 3 = y_{n+1}.
-\]
+$$
+y_{n+2} = (2 y_{n+1} - 6) / 3 < (2 y_n - 6) / 3 = y_{n+1}.
+$$
 
 Therefore, by induction, we can conclude that $y_{n+2} < y_{n+1}$ for all
 $n$. In other words, $(y_1, y_2, y_3, \ldots)$ is a decreasing sequence.
@@ -622,10 +624,10 @@ For this exercise, assume Exercise 1.2.5 has been successfully completed.
 
 __Problem__. Show how induction can be used to conclude that
 
-\[
-  \left( A_1 \cup A_2 \cup \cdots \cup A_n \right)^c
-  = A_1^c \cap A_2^c \cap \cdots \cap A_n^c
-\]
+$$
+\left( A_1 \cup A_2 \cup \cdots \cup A_n \right)^c
+= A_1^c \cap A_2^c \cap \cdots \cap A_n^c
+$$
 
 for any finite $n \in \mathbb{N}$.
 
@@ -633,37 +635,37 @@ __Solution__. The base case $n = 2$ follows from the solution to Problem 1.2.5.
 To apply induction, suppose that the statement holds for $n > 2$ and consider
 the set
 
-\[
-  \left( A_1 \cup A_2 \cup \cdots \cup A_{n+1} \right)^c
-  = \left(
-      \left(A_1 \cup A_2 \cup \cdots \cup A_n \right)
-      \cup A_{n+1}
-    \right)^c,
-\]
+$$
+\left( A_1 \cup A_2 \cup \cdots \cup A_{n+1} \right)^c
+= \left(
+    \left(A_1 \cup A_2 \cup \cdots \cup A_n \right)
+    \cup A_{n+1}
+  \right)^c,
+$$
 
 where we have used the associative property of the union operation. Applying
 De Morgan's Law holds for two sets, the right hand side of this equation
 becomes
 
-\[
-  \left(A_1 \cup A_2 \cup \cdots \cup A_n \right)^c \cap A_{n+1}^c.
-\]
+$$
+\left(A_1 \cup A_2 \cup \cdots \cup A_n \right)^c \cap A_{n+1}^c.
+$$
 
 Invoking the inductive hypothesis, this expression is equal to
 
-\[
-  \left(A_1^c \cap A_2^c \cap \cdots \cap A_n^c \right) \cap A_{n+1}^c
-  = A_1^c \cap A_2^c \cap \cdots \cap A_n^c \cap A_{n+1}^c,
-\]
+$$
+\left(A_1^c \cap A_2^c \cap \cdots \cap A_n^c \right) \cap A_{n+1}^c
+= A_1^c \cap A_2^c \cap \cdots \cap A_n^c \cap A_{n+1}^c,
+$$
 
 where the last equality follows because the intersection operation is
 associative. Combining these results, we find that the statement is true for
 $n + 1$:
 
-\[
-  \left( A_1 \cup A_2 \cup \cdots \cup A_{n+1} \right)^c
-  = A_1^c \cap A_2^c \cap \cdots \cap A_{n+1}^c.
-\]
+$$
+\left( A_1 \cup A_2 \cup \cdots \cup A_{n+1} \right)^c
+= A_1^c \cap A_2^c \cap \cdots \cap A_{n+1}^c.
+$$
 
 Therefore, the result holds for all $n > 2$.
 
@@ -671,9 +673,9 @@ Therefore, the result holds for all $n > 2$.
 
 __Problem__. It is tempting to appeal to induction to conclude
 
-\[
-  \left( \bigcup_{i=1}^\infty A_i \right)^c = \bigcap_{i=1}^\infty A_i^c,
-\]
+$$
+\left( \bigcup_{i=1}^\infty A_i \right)^c = \bigcap_{i=1}^\infty A_i^c,
+$$
 
 but induction does not apply here. Induction is used to prove that a particular
 statement holds for every value of $n \in \mathbb{N}$, but this does not imply
@@ -684,9 +686,9 @@ $\bigcap_{i=1}^\infty B_i \ne \emptyset$ fails.
 
 __Solution__. Consider the collection of sets defined by
 
-\[
-  B_i = (0, 1 / i]
-\]
+$$
+B_i = (0, 1 / i]
+$$
 
 Then $\bigcap_{i=1}^n B_i = (0, 1 / n] \ne \emptyset$ for all
 $n \in \mathbb{N}$. However, $\bigcap_{i=1}^\infty B_i = \emptyset$ because
@@ -704,7 +706,7 @@ cannot be an element of any of the $A_i$. In other words, $x \in A_i^c$ for
 all $i$. Therefore, we can conclude that
 $\left(\bigcup_{i=1}^\infty A_i \right)^c \subseteq \bigcap_{i=1}^\infty A_i^c$.
 
-If $x \in A^c \cap B^c$, then $x \in A_i^c$ for all $i$, which implies that
+If $x \in \bigcap_{i=1}^\infty A_i^c$, then $x \in A_i^c$ for all $i$, which implies that
 $x \notin A_i$ for all $i$. Since $x$ is not an element of any of the $A_i$,
 $x \notin \bigcup_{i=1}^\infty A_i$. Therefore,
 $x \in \left( \bigcup_{i=1}^\infty A_i \right)^c$, and we can conclude that
