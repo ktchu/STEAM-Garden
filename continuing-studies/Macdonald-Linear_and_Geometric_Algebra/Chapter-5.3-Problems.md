@@ -1,10 +1,6 @@
-Linear and Geometric Algebra (A. Macdonald): Chapter 5
-======================================================
-
-## Problems 5.3
-
--------------------------------------------------------------------------------
-
+Linear and Geometric Algebra (A. Macdonald): Chapter 5.3 Problems
+=================================================================
+--------------------------------------------------------------------------------------------
 ### 5.3.1.
 
 __Problem__. The geometric product distributes over vector addition:
@@ -36,6 +32,7 @@ $$
 =   \mathbf{u} \mathbf{w} + \mathbf{v} \mathbf{w}
 $$
 
+--------------------------------------------------------------------------------------------
 ### 5.3.2.
 
 #### 5.3.2.a.
@@ -56,6 +53,7 @@ has no inverse.
 __Solution__. $(1 + \mathbf{e})^2 = 1 + 2 \mathbf{e} + 1 = 2 (1 + \mathbf{e})$.
 Therefore, by part (a), $1 + \mathbf{e}$ has no inverse.
 
+--------------------------------------------------------------------------------------------
 ### 5.3.3.
 
 __Problem__. Solve the system of equations $\mathbf{a} \cdot \mathbf{v} = s$,
@@ -79,7 +77,7 @@ $$
 = \frac{s \mathbf{a} + \mathbf{a} \mathbf{B}}{|\mathbf{a}|^2}.
 $$
 
-
+--------------------------------------------------------------------------------------------
 ### 5.3.4.
 
 __Problem__. Suppose that $\mathbf{a} \perp \mathbf{b}$. Show that
@@ -108,7 +106,7 @@ $$
 = \mathbf{a} \cdot (\mathbf{a} \wedge \mathbf{b})
 $$
 
-because the outer product is commutative and $\mathbf{a} \wedge \mathbf{a} = 0$.
+because the outer product is associative and $\mathbf{a} \wedge \mathbf{a} = 0$.
 
 Since $\mathbf{a} \perp \mathbf{b}$, $\mathbf{a} \wedge \mathbf{b}$ is equal
 to the geometric product of $\mathbf{a}$ and $\mathbf{b}$, so
@@ -122,6 +120,7 @@ $$
 where we have used the associative property of the geometric product.
 Combining these results yields the desired result.
 
+--------------------------------------------------------------------------------------------
 ### 5.3.5.
 
 __Problem__. Show that
@@ -180,4 +179,4 @@ $$
 = 0.
 $$
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
