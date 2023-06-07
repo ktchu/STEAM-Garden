@@ -28,6 +28,14 @@ __Solution__. TODO
 ## Additional Exercises
 
 --------------------------------------------------------------------------------------------
+### A.1-3.1.
+
+__Problem__. Show that the lattice angles $\alpha$, $\beta$, and $\gamma$ can always be
+chosen so that $0 < \alpha, \beta, \gamma \le \pi/2$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
 ### A.1-5.1.
 
 __Problem__. Let $\a, \b, \c$ be basis vectors for the lattice defined by a unit cell.
