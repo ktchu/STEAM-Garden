@@ -7,7 +7,7 @@ readme = "README.md"
 authors = ["Kevin T. Chu <kevin@velexi.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.11"
+python = "^3.9"
 bcrypt = "^3.2.2"
 dvc = {extras = ["s3", "ssh"], version = "^2.33.2"}
 fastds = "^0.6.0"
@@ -20,23 +20,17 @@ PyYAML = "^6.0"
 tqdm = "^4.64"
 typer = "^0,>=0.6"
 matplotlib = "^3.5.2"
-numpy = "^1.22.4"
+numba = "^0.57.1"
+numpy = "^1.24"
 pandas = "^1.4.2"
 seaborn = "^0.11.2"
-numba = "^0.55.2"
 
 # security vulnerability fixes
 pywin32 = [
     { version = '>=301', platform = 'win32' },
 ]
 
-[tool.poetry.group.code-quality.dependencies]
-black = "^22.10.0"
-flake8 = "<5.0.0"  # Unpin after compatibility with pytest-flake8 is fixed
-pre-commit = "^2.20.0"
-radon = "^5.1.0"
-
-[tool.poetry.group.test.dependencies]
+# software testing packages
 coverage = "^6.4"
 pylint = "^2.14"
 pytest = "^7.1"
@@ -44,6 +38,11 @@ pytest-cov = "^3.0"
 pytest-flake8 = "^1.1"
 pytest-pylint = "^0.18.0"
 pytest-xdist = "^2.5"
+
+# code quality packages
+black = {extras = ["jupyter"], version = "^22.10.0"}
+flake8 = "<5.0.0"  # Unpin after compatibility with pytest-flake8 is fixed
+pre-commit = "^2.20.0"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
