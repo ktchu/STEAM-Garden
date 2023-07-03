@@ -147,7 +147,12 @@ with $q \le 10$.
 
 __Problem__. The set of all rational numbers $p/q$ with $q$ a power of $2$.
 
-__Solution__. This set is dense in $\R$. TODO: Proof
+__Solution__. This set is dense in $\R$.
+
+_Proof_. Suppose $a, b \in \R$ with $a < b$. Choose $n \in \N$ such that
+$1 / 2^{n+1} < |b - a| / 2$. Then $1 < 2^n |b - a| = |2^n b - 2^n a|$, so there exists an
+integer $p$ between $2^n b$ and $2^n a$. Thus, letting $q = 2^n \in \N$, we have
+$aq < p < bq$ or, equivalently $a < p / q < b$ with $p \in \Z$ and $q$ a power of 2.
 
 #### 1.4.6.c.
 
@@ -186,46 +191,64 @@ impossible, provide a compelling argument for why this is the case.
 #### 1.4.8.a.
 
 __Problem__.  Two sets $A$ and $B$ with $A \cap B = \emptyset$, $\sup A = \sup B$,
-$\sup A \notin A$ and $\sup B \notin $B$.
+$\sup A \notin A$ and $\sup B \notin B$.
 
-__Solution__. TODO
+__Solution__. Let $A = \{-1 / n : n \in \N, n \textrm{ even}\}$ and
+$B = \{-1 / n : n \in \N, n \textrm{ odd}\}$. Then $A \cap B = \emptyset$,
+$\sup A = \sup B = 0$, and $0 \notin A$ and $0 \notin B$.
 
 #### 1.4.8.b.
 
 __Problem__.  A sequence of nested open intervals
-$J_1 \supseteq J_2 \supseteq J_3 \supseteq \cdots$ with $\cap_{n=1}^\infty J_n$ nonempty
+$J_1 \supseteq J_2 \supseteq J_3 \supseteq \cdots$ with $\bigcap_{n=1}^\infty J_n$ nonempty
 but containing only a finite number of elements.
 
 __Solution__. Let $J_n = (-1/n, 1/n)$. Clearly, $0 \in J_n$ for all $n$, so
-$\cap_{n=1}^\infty J_n$ is nonempty. However, $x \notin \cap_{n=1}^\infty J_n$ for any
+$\bigcap_{n=1}^\infty J_n$ is nonempty. However, $x \notin \bigcap_{n=1}^\infty J_n$ for any
 nonzero $x$ because $x \notin J_n$ for $n > 1/x$. Therefore,
-$\cap_{n=1}^\infty J_n = \{0\}$ contains a finite number of elements.
+$\bigcap_{n=1}^\infty J_n = \{0\}$ contains a finite number of elements.
 
 #### 1.4.8.c.
 
 __Problem__.  A sequence of nested unbounded closed intervals
-$L_1 \supseteq L_2 \supseteq L_3 \supseteq \cdots$ with $\cap_{n=1}^\infty L_n = \emptyset$.
-(An unbounded closed interval has the form $[\alpha, \infty) = \{x \in \R : x \ge a \}$.)
+$L_1 \supseteq L_2 \supseteq L_3 \supseteq \cdots$ with
+$\bigcap_{n=1}^\infty L_n = \emptyset$. (An unbounded closed interval has the form
+$[\alpha, \infty) = \{x \in \R : x \ge a \}$.)
 
 __Solution__. Let $L_n = [n, \infty)$. Observe that $L_n$ contains only positive elements
-for all $n \in \N$, which implies that $\cap_{n=1}^\infty L_n$ can contain only positive
+for all $n \in \N$, which implies that $\bigcap_{n=1}^\infty L_n$ can contain only positive
 elements. Suppose there exists $x > 0$ such that $x \in L_n$ for all $n$. By the
 Archimedean Property, there exists $n_0 \in \N$ such that $n_0 > x$, which implies that
 $x \notin L_n$ for $n > n_0$, contracting the assumption $x \in L_n$ for all $n$. Therefore,
-$\cap_{n=1}^\infty L_n = \emptyset$.
+$\bigcap_{n=1}^\infty L_n = \emptyset$.
 
 #### 1.4.8.d.
 
 __Problem__.  A sequence of closed (not necessarily nested) intervals
-$I_1, I_2, I_3, \ldots$ with the property that $\cap_{n=1}^\infty I_n \ne \emptyset$ for
-all $N \in \N$, but $\cap_{n=1}^\infty I_n = \emptyset$.
+$I_1, I_2, I_3, \ldots$ with the property that $\bigcap_{n=1}^N I_n \ne \emptyset$ for all
+$N \in \N$, but $\bigcap_{n=1}^\infty I_n = \emptyset$.
 
-__Solution__. This request is impossible. Consider the sequence of closed sets defined by
+__Solution__. This request is impossible. Let $K_n$ be the sequence of closed sets defined
+by
 
 $$
-K_n = \cap_{k=1}^n
+K_n = \bigcap_{k=1}^n I_n.
 $$
 
-TODO
+Since each $I_n = [a_n, b_n]$ and $n$ is finite, $K_n$ can be expressed as
+$[\max_{1 \le k \le n}(a_k), \min_{1 \le k \le n}(b_k)]$. Observe that
+
+* $K_n$ is not empty (by assumption),
+
+* $K_{n+1} \subseteq K_n$ because
+  $\max_{1 \le k \le n+1}(a_k) \ge \max_{1 \le k \le n}(a_k)$ and
+  $\min_{1 \le k \le n+1}(b_k) \le \min_{1 \le k \le n}(b_k)$.
+
+In other words, $K_n$ is a nested sequence of closed intervals, so the Nested Interval
+Property implies that $\bigcap_{n=1}^\infty K_n \ne \emptyset$. Let
+$x \in \bigcap_{n=1}^\infty K_n$ so that $x \in K_n$ for all $n$. Since $K_n \subseteq I_n$
+for all $n$, $x$ must be an element of $I_n$ for all $n$, which implies that
+$x \in \bigcap_{n=1}^\infty I_n$. Thus, we conclude that $\bigcap_{n=1}^\infty I_n$ cannot
+be empty.
 
 --------------------------------------------------------------------------------------------
