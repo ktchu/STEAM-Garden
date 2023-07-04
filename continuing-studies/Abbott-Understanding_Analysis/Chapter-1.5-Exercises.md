@@ -108,7 +108,6 @@ $$
  2 &  5 &  9 & 14 & \cdots & \\
  4 &  8 & 13 & \cdots & & \\
  7 & 12 & \cdots & & & \\
- 7 & 12 & \cdots & & & \\
 11 & \cdots & & & & \\
  \vdots & & & & & \\
 \end{array}
@@ -304,10 +303,10 @@ B
 \end{align}
 $$
 
-Since $B$ is uncountable, $B \cap I_n$ must be infinite for at least one $n$. Taking
-$N = 2^{n+1}$ elements $\{ b_1, \ldots, b_N \}$ from $B \cap I_n$, we obtain the
-contradiction that the finite sum $\sum_{i=1}^N b_i > 2^{n+1} 2^{-n} = 2$ since
-$b_i > 2^{-n}$ for each $b_i$ in the sum.
+Since $B$ is uncountable, $B \cap I_n$ must be uncountable for at least one $n$ (note
+that we really only need that $B \cap I_n$ is infinite). Taking $N = 2^{n+1}$ elements
+$\{ b_1, \ldots, b_N \}$ from $B \cap I_n$, we obtain the contradiction that the finite sum
+$\sum_{i=1}^N b_i > 2^{n+1} 2^{-n} = 2$ since $b_i > 2^{-n}$ for each $b_i$ in the sum.
 
 --------------------------------------------------------------------------------------------
 ### 1.5.9.
@@ -358,14 +357,21 @@ __Problem__. Fix $n \in \N$, and let $A_n$ be the algebraic numbers obtained as 
 polynomials with integer coefficients that have degree $n$. Using the fact that every
 polynomial has a finite number of roots, show that $A_n$ is countable.
 
-__Solution__. TODO
+__Solution__. There is a 1-1 and onto map from $(n+1)$-tuples of integers to polynomials of
+degree $n$ with integer coefficients. Thus, the set of degree $n$ polynomials is countable
+because the set of $(n+1)$-tuples of integers is countable. Since every polynomial has a
+finite number of roots, the set of roots of $n$-th degree polynomials $A_n$ is a countable
+union of finite sets, which implies that it is countable.
 
 ### 1.5.9.c.
 
 __Problem__. Now, argue that the set of all algebraic numbers is countable. What may we
 conclude about the set of transcendental numbers?
 
-__Solution__. TODO
+__Solution__. The set of algebraic numbers is the union of $A_n$ over all $n \in N$, so
+it is a countable union of countable sets. Therefore, the set of algebraic numbers is
+countable. Since $\R$ is uncountable and $\R$ is the union of algebraic and transcendental
+numbers, the set of transcendental numbers must be uncountable.
 
 --------------------------------------------------------------------------------------------
 ### 1.5.10.
