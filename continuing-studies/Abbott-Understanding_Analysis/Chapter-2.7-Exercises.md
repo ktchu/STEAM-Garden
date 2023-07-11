@@ -47,7 +47,9 @@ $$
 $$
 
 $(a_n)$ is monotone decreasing, so $(a_{k} - a_{k+1}) \ge 0$ for all $k$. When $(n-m)$ is
-odd,
+odd, break the sum $a_{m+1} - a_{m+2} + a_{m+3} \cdots - a_{n-1} + a_n$ into two parts:
+$a_{m+1}$ and $(- a_{m+2} + a_{m+3} \cdots - a_{n-1} + a_n)$, where the second part has
+an even number of terms. Then
 
 $$
 \begin{align}
@@ -76,7 +78,6 @@ $$
 \begin{align}
 |s_n - s_m|
 &= |a_{m+1} - a_{m+2} + \cdots - a_{n-1} + a_n| \\
-&= |-a_{m+1} + a_{m+2} - \cdots + a_{n-1} - a_n| \\
 &\le |a_{m+1}| + |a_{m+2} - \cdots + a_{n-1} - a_n| \\
 &\le |a_{m+1}| + |a_n - a_{m+2}| \\
 &< \epsilon/2 + \epsilon/2 = \epsilon.
@@ -94,7 +95,7 @@ $$
 \end{align}
 $$
 
-where the first inequality follows from the same analysis we used for the $(n-m)$ even case.
+where the first inequality follows from the same analysis we used for the $(n-m)$ odd case.
 
 Combining the results for the even and odd cases for $(n-m)$, we conclude that $(s_n)$ is
 a Cauchy sequence, which implies that it converges.
