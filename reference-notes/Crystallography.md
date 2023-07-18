@@ -3,7 +3,7 @@ Crystallography
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
-__Last Updated__: 2023-07-15
+__Last Updated__: 2023-07-18
 
 --------------------------------------------------------------------------------------------
 
@@ -12,9 +12,11 @@ Table of Contents
 
 1. [Crystal Lattices][#1]
 
-2. [Miscellaneous Notes][#2]
+2. [Crystal Symmetry][#2]
 
-3. [References][#3]
+3. [Practical Considerations][#3]
+
+4. [References][#4]
 
 --------------------------------------------------------------------------------------------
 
@@ -27,11 +29,16 @@ Table of Contents
 
   * $\a, \b, \c$ form right-handed coordinate system.
 
-* Lattice constants
+* __Lattice constants__
   * The length lattice constants of a unit cell: $a, b, c$.
   * The angle lattice constants of a unit cell: $\alpha, \beta, \gamma$.
   * $\alpha$ is the angle between $\b$ and $\c$, $\beta$ is the angle between $\c$ and $\a$,
     and $\gamma$ is the angle between $\a$ and $\b$.
+
+* __Miller Indices__
+  * $(hkl)$: Miller indices for a particular lattice plane or a family of lattice planes
+  * $\{ hkl \}$: Miller indices for a family of lattice planes
+  * $hkl$: X-ray diffraction reflections from a set of lattice planes
 
 ### Seven Crystal Systems
 
@@ -134,16 +141,50 @@ Table of Contents
 
 --------------------------------------------------------------------------------------------
 
-## 2. Miscellaneous Notes
+## 2. Crystal Symmetry
 
-* Typical lattice constant lengths
+### Notes
+
+* Unit cell axes are always chosen so that the (non-translational) symmetry elements
+  possssed by the crystal always lie along an edge or diagonal of the unit cell
+  (Massa p. 65).
+
+--------------------------------------------------------------------------------------------
+
+## 3. Practical Considerations
+
+* Typical lattice constant lengths (Massa, p. 16)
   * Organic molecules: 3 to 40 angstroms
   * Inorganic molecules: 3 to 40 angstroms
   * Proteins: up to ~100 angstroms or more
 
+* Surfaces of crystals almost always lattice planes with low indices because lattice planes
+  with low indices have the highest packing densities and usually correspond to surfaces of
+  rapid crystal growth. (Massa, p. 36)
+
+  * When high-quality crystals of sufficiently large size are available, it may be possible
+    to determine the crystal system by using a goniometer to measure the angles between
+    crystal faces.
+
+* The intensity of X-ray reflections decreases rapidly with diffraction angle
+  (Massa, p. 36).
+
+  * For single-crystal X-ray diffraction experiments of "light atom structures", intensity
+    $\theta$ values above a cut-off are typically not measured because they are too weak.
+
+  * For powder X-ray diffraction experiments of "light atom structures", intensity data
+    for $\theta$ above a cut-off are likely to be mostly noise.
+
+  * Cut-off $\theta$ Values
+    * MoK$_\alpha$: $28^\circ$
+    * CuK$_\alpha$: $70^\circ$
+
+* The intensity of X-ray reflections for H-atoms is very weak compared to other atoms.
+  so the location of H-atoms is usually poorly determined by X-ray studies (Massa, p. 36).
+
 --------------------------------------------------------------------------------------------
 
-## 3. References
+## 4. References
 
 1. D. Sands. "Introduction to Crystallography" (1994).
 
@@ -153,8 +194,12 @@ Table of Contents
 
 [----------------------------------- INTERNAL LINKS -----------------------------------]: #
 
-[#1]: #1-miscellaneous-notes
+[#1]: #1-crystal-lattices
 
-[#2]: #2-references
+[#2]: #2-crystal-symmetry
+
+[#3]: #3-practical-considerations
+
+[#4]: #4-references
 
 [----------------------------------- EXTERNAL LINKS -----------------------------------]: #
