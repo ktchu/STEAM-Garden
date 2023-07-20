@@ -88,7 +88,7 @@ S = \{ (a_1, a_2, a_3, \ldots) : a_n = 0 \textrm{ or } 1 \}.
 $$
 
 As an example, the sequence $(1, 0, 1, 0, 1, 0, 1, 0, \ldots)$ is an element of $S$, as is
-the sequence (1, 1, 1, 1, 1, 1, \ldots)$.
+the sequence $(1, 1, 1, 1, 1, 1, \ldots)$.
 
 Give a rigorous argument showing that $S$ is uncountable.
 
@@ -193,5 +193,79 @@ with cardinality no greater than the cardinality of $A$. The power set of a fini
 always has a strictly greater cardinality than the cardinality of $A$ because $2^n > n$ for
 all $n \in \N$. Therefore, it is impossible to construct mappings from finite sets onto
 their power sets.
+
+--------------------------------------------------------------------------------------------
+### 1.6.7.
+
+__Problem__. Return to the particular functions constructed in Exercise 1.6.6 and construct
+the subset $B$ that results using the preceding rule. In each case, note that $B$ is not in
+the range of the function used.
+
+__Solution__.
+
+* 1.6.6.a. $B_f = \emptyset$. $B_g = A$.
+
+* 1.6.6.b. $B = \emptyset$.
+
+--------------------------------------------------------------------------------------------
+### 1.6.8.
+
+#### 1.6.8.a.
+
+__Problem__. First, show that the case $a' \in B$ leads to a contradiction.
+
+__Solution__. If $a' \in B$, then the definition of $B$ implies that $a' \notin f(a')$.
+Thus, we have a contradiction because $f(a') = B$ so that $a \in B$ and $a \notin B$.
+
+#### 1.6.8.b.
+
+__Problem__. Now, finish the argument by showing that the case $a' \notin B$ is equally
+unacceptable.
+
+__Solution__. If $a' \notin B$, then the definition of $B$ implies that $a' \in f(a')$.
+Again, we have a contradiction because $f(a') = B$ so that $a \notin B$ and $a \in B$.
+
+--------------------------------------------------------------------------------------------
+### 1.6.9.
+
+__Problem__. Using the various tools and tedchniques developed in the last two sections
+(including the exercises from Section 1.5, give a compelling argument showing that
+$P(\N) \sim \R$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 1.6.10.
+
+As a final exercise, answer each of the following by establishing a 1-1 correspondence
+with a set of known cardinality.
+
+#### 1.6.10.a.
+
+__Problem__. Is the set of all functions from $\{0, 1\}$ to $\N$ countable or uncountable?
+
+__Solution__. Any function from $\{0, 1\}$ to $\N$ is defined by two values:
+$f(0), f(1) \in \N$. Therefore, there is a 1-1 correspondence between the set of all
+functions from $\{0, 1\}$ to $\N$ and ordered pairs $(a, b)$ where $a, b \in \N$. Since
+the set of ordered pairs formed from elements of countable sets is countable, the set
+of functions from $\{0, 1\}$ to $\N$ is countable.
+
+#### 1.6.10.b.
+
+__Problem__. Is the set of all functions $\N$ to $\{0, 1\}$ countable or uncountable?
+
+__Solution__. Any function from $\N$ to $\{0, 1\}$ is defined by a sequence
+$f_1, f_2, f_3, \ldots$ where each term in the sequence is a $0$ or $1$. Therefore, there
+is a 1-1 correspondence between the set of all functions from $\N$ to $\{0, 1\}$ and
+sequences of $0$'s and $1$'s. Since the set of sequences of $0$'s and $1$'s is uncountable
+(see Problem 1.6.4), the set of functions from $\N$ to $\{0, 1\}$ is uncountable.
+
+#### 1.6.10.c.
+
+__Problem__. Given a set $B$, a subset $\mathcal{A}$ of $P(B)$ is called an _antichain_
+if no element in $\mathcal{A}$ is a subset of any other element of $\mathcal{A}$. Does
+$P(\N)$ contain an uncountable antichain?
+
+__Solution__. TODO
 
 --------------------------------------------------------------------------------------------
