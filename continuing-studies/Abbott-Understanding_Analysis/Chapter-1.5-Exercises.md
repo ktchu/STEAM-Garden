@@ -89,14 +89,53 @@ $B_2$ are disjoint. (What happens if $B_2$ is finite?).
 
 Now, explain how the more general statement in (i) follows.
 
-__Solution__. TODO
+__Solution__. Since $A_1$ is countable, there exists a 1-1 and onto map
+$f: \N \rightarrow A_1$.
+
+If $B_2$ is finite, then $B_2 = \{b_1, b_2, \ldots, b_N\}$ where $N$ is the number of
+elements in $B_2$. Define the map $g: \N \rightarrow A_1 \cup B_2$ by
+
+$$
+g(n)
+= \left\{\begin{array}{ll}
+  b_i    && \textrm{if $n \le N$} \\
+  f(n-N) && \textrm{if $n > N$}. \\
+\end{array}\right.
+$$
+
+$g$ is 1-1 because no two $n$ map to the same value. Suppose $c \in A_1 \cup B_2$, then
+$c \in A_1$ or $c \in B_2$. In the former case, $c = a_i$ for some $i$, so
+$g(i+N) = f(i) = c$ by construction. In the latter case, $c = b_i$ for some $i$, so
+$g(i) = c$.  Thus, $g$ is onto. Since $g$ is 1-1 and onto, $\N \sim A_1 \cup B_2$ and hence
+$A_1 \cup B_2 = A_1 \cup A_2$ is countable.
+
+If $B_2$ is infinite, then there exists a 1-1 and onto map $h: \N \rightarrow B_2$. Define
+the map $g: \N \rightarrow A_1 \cup B_2$ by
+
+$$
+g(n)
+= \left\{\begin{array}{ll}
+  f(n / 2)     && \textrm{if $n$ is even} \\
+  h((n-1) / 2) && \textrm{if $n$ is odd}. \\
+\end{array}\right.
+$$
+
+$g$ is 1-1 because no two $n$ map to the same value by definition of $f$ and $h$. Suppose
+$c \in A_1 \cup B_2$, then $c \in A_1$ or $c \in B_2$. In the former case, $c = f(i)$ for
+some $i$, so $h(2i) = f(i) = c$ by construction. In the latter case, $c = h(i)$ for some
+$i$, so $g(2i + 1) = h(i) = c$. Thus, $g$ is onto. Since $g$ is 1-1 and onto,
+$\N \sim A_1 \cup B_2$ and hence $A_1 \cup B_2 = A_1 \cup A_2$ is countable.
+
+The result for finite unions of countable sets follows directly from induction.
 
 #### 1.5.3.b.
 
 __Problem__. Explain why induction _cannot_ be used to prove part (ii) of Theorem 1.5.8
 from part (i).
 
-__Solution__. TODO
+__Solution__. Induction cannot be used to prove part (ii) of Theorem 1.5.8 because
+induction can only be used to prove a statement is true for any _finite_ value of $n$.
+The limiting case $n \rightarrow \infty$ is not covered by induction.
 
 #### 1.5.3.c.
 
@@ -115,7 +154,48 @@ $$
 
 leads to a proof of Theorem 1.5.8 (ii).
 
-__Solution__. TODO
+__Solution__. As in part (a), we first construct a collection of disjoint sets with the
+same infinite union: $B_1 = A_1$,
+$B_n = A_n \backslash \left( \bigcup_{k=1}^{n-1} A_k \right)$. Then the $B_n$ are disjoint
+and $\bigcup_{n=1}^\infty A_n = \bigcup_{n=1}^\infty B_n$.
+
+If all of the $B_n$ are infinite, then we can arrange the elements of $B_n$ in the
+following manner:
+
+$$
+\begin{array}{cccccc}
+ b_{11} & b_{12} & b_{13} & b_{14} & b_{15} & \cdots \\
+ b_{21} & b_{22} & b_{23} & b_{24} & \cdots & \\
+ b_{31} & b_{32} & b_{33} & \cdots & & \\
+ b_{41} & b_{42} & \cdots & & & \\
+ b_{51} & \cdots & & & & \\
+ \vdots & & & & & \\
+\end{array}
+$$
+
+Let $f(n)$ be equal to the element $b_{ij}$ that is in the same position as $n$ in the
+two-dimensional array. Then $f$ is a 1-1 map from $\N$ onto $\bigcup_{n=1}^\infty B_n$.
+
+* $f$ is 1-1. Because the $B_n$ are disjoint, each element of $\bigcup_{n=1}^\infty$ shows
+  up only once in the two-dimensional array. Thus, each value of $n$ maps to only a single
+  $b_{ij}$.
+
+* $f$ is onto. Let $b \in \bigcup_{k=1}^\infty B_k$, so it resides somewhere in the
+  two-dimensional array. By construction, the value of $n$ in the corresponding
+  two-dimensional array formed by elements of $\N$ maps to $b$.
+
+Therefore, $f$ is 1-1 and onto, so $N \sim \bigcup_{n=1}^\infty B_n$ and hence
+$\bigcup_{n=1}^\infty B_n = \bigcup_{n=1}^\infty A_n$ is countable.
+
+If any of the $B_n$ are finite, let $C$ be the union of all of the finite $B_n$. If $C$
+is infinite, then we can construct a new countable collection of countable sets by adding
+$C$ and removing all of the $B_n$ that are finite. The same reasoning as above shows that
+$\bigcup_{n=1}^\infty A_n$ is countable. If $C$ is finite, let $N$ be the number of
+elements in $C$. We first map the natural numbers $\{ 1, 2, \ldots, N \}$ to $C$. Then, we
+start the two-dimensional grid with $N+1$ and use the same reasoning as above to conclude
+that $\bigcup_{|B_n| = \infty} B_n = \bigcup_{n=1}^\infty A_n \backslash C$ is countable.
+Finally, we can conclude that $\bigcup_{n=1}^\infty A_n$ is countable because the union
+of a finite set and a countable set is countable.
 
 --------------------------------------------------------------------------------------------
 ### 1.5.4.
@@ -246,7 +326,7 @@ __Solution__. $I_n = (n, n+1)$ for all $n \in \N$.
 #### 1.5.6.b.
 
 __Problem__. Given an example of an uncountable collection of disjoint open intervals, or
-arcgue that no such collection exists.
+argue that no such collection exists.
 
 __Solution__. TODO
 
@@ -395,7 +475,10 @@ __Solution__. TODO
 __Problem__. Does the statement in (a) remain true if "uncountable" is replaced by
 "infinite"?
 
-__Solution__. TODO
+__Solution__. No. Consider $C = \{ 1/2, 1/2^2, \ldots \}$. Observe that $C \cap [a, 1]$
+contains only the powers of $1/2$ that are no less than $a$. If $a > 0$, there are only a
+finite number of powers of $1/2$ greater than or equal to $a$. Therefore, $C \cap [a, 1]$
+is finite for all $a \in (0, 1)$.
 
 --------------------------------------------------------------------------------------------
 ### 1.5.11. Schoder-Bernstein Theorem
