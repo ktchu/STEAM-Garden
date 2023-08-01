@@ -1,18 +1,18 @@
-tatistics
+Statistics
 ==========
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
-__Last Updated__: 2023-07-27
+__Last Updated__: 2023-07-31
 
 --------------------------------------------------------------------------------------------
 
 Table of Contents
 -----------------
 
-1. [TODO][#1]
+1. [Parameter Estimation][#1]
 
-5. [References][#5]
+2. [References][#2]
 
 --------------------------------------------------------------------------------------------
 
@@ -46,30 +46,119 @@ Table of Contents
 
 ## 1. Parameter Estimation
 
-#### 1.1. Bernoulli Parameter Estimation
+### 1.1. Parameter Estimation Methods
 
-Suppose that $x_1, x_2, \ldots, x_n \in \{0, 1\} $ is a random, independent samples drawn
-from a Bernoulli distribution with parameter $p$ such that $m$ of the $x_i$ is equal to 1.
-Two estimates $p$ include: the _Maximum Likelihood Estimate_ and the _Bayes Estimator_.
+The goal of parameter estimation is to estimate the parameters
+$\{ \theta_1, \ldots, \theta_k \}$ of a probability distribution from a set of i.i.d.
+observations $x_1, x_2, \ldots, x_n \in \{0, 1\}$ drawn from the probability distribution.
 
-__Maximum Likelihood Estimate (MLE)__
+#### 1.1.1. Maximum Likelihood Estimate
 
-The MLE for $p$ is the value of $p$ that maximizes the probability of observing
+The _maximum likelihood estimate_ (MLE) selects the set of parameters
+$\{ \theta_1, \ldots, \theta_k \}$ that maximize the probability of observing
 $x_1, x_2, \ldots, x_n$:
 
 $$
-\Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n; p} = \prod_{i=1}^n p^{x_i} (1-p)^{1-x_i}.
+\Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n; \theta_1, \ldots, \theta_k}.
 $$
 
-___Important Note___. The above expression is a function of $p$ and each of the $x_i$ is
-known. In particular, the function is _not_ a probability or probability density in $p$. To
-emphasize this interpretation, we introduce the _likelihood function_
+___Important Note___. The above expression is a function of $(\theta_1, \ldots, \theta_k)$
+and each of the $x_i$ is known. In particular, the function is _not_ a probability or
+probability density in $(\theta_1, \ldots, \theta_k)$. To emphasize this interpretation,
+we introduce the _likelihood function_
 
 $$
-L(p; x_1, x_2, \ldots, x_n) = \Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n; p},
+L(\theta_1, \ldots, \theta_k; x_1, x_2, \ldots, x_n)
+= \Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n; \theta_1, \ldots, \theta_k},
 $$
 
 which is parameterized by the values of the observed samples $x_1, x_2, \ldots, x_n$.
+
+___Advantages___
+
+* No arbitrariness in the point estimate.
+
+___Disadvantages___
+
+* Not readily extended to provide confidence interval estimates.
+
+#### 1.1.2. Bayes Estimator
+
+The _Bayes estimator_ is based on two ideas: (1) that we can model the parameters
+$\{ \theta_1, \ldots, \theta_k \}$ as random variables $\{ \Theta_1, \ldots \Theta_k \}$
+and (2) that observations provide information (via Bayes rule) about the distribution of
+$\{ \Theta_1, \ldots \Theta_k \}$.
+
+Using Bayes rule,
+
+$$
+\Pr{\Theta_1 = \theta_1, \ldots, \Theta_k = \theta_k
+    | X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n}
+= \frac{
+    \Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n
+        | \Theta_1 = \theta_1, \ldots, \Theta_k = \theta_k}
+    \times \Pr{\Theta_1 = \theta_1, \ldots, \Theta_k = \theta_k}
+  }{
+    \Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n}
+  }.
+$$
+
+The factor $\Pr{\Theta_1 = \theta_1, \ldots, \Theta_k = \theta_k}$ encodes any prior
+information or beliefs about $(\Theta_1, \ldots, \Theta_k)$. When there is no prior
+information about $(\Theta_1, \ldots \Theta_k)$, it is common to assume that
+$\Pr{\Theta_1 = \theta_1, \ldots, \Theta_k = \theta_k}$ is a uniform distribution on the
+parameter space for $(\Theta_1, \ldots, \Theta_k)$.
+
+To calculate a point estimate for $p$, we select a figure of merit (FoM) for each choice
+of $(\theta_1, \ldots, \theta_k)$ and find the value of $(\theta_1, \ldots, \theta_k)$
+that optmizes the FoM. A common choice for the FoM is the mean square error (MSE):
+$\E{\sum_{i=1}^k (\Theta_i - \theta_i)^2}$.  Expanding the expectation, taking the
+gradient of the MSE with respect to $(\theta_1, \ldots, \theta_k)$, and setting the
+gradent equal to zero, we obtain
+
+$$
+\begin{align}
+0
+&= \frac{d \E{(\Theta_i - \theta_i)^2}}{d\theta_i} \\
+&= \frac{d}{d\theta_i} \left(
+     \E{\Theta_i^2} - 2 \E{\Theta_i \theta_i} + \E{\theta_i^2}
+   \right) \\
+&= \frac{d}{d\theta_i} \left(
+     \E{\Theta_i^2} - 2\theta_i \E{\Theta_i} + \theta_i^2
+   \right) \\
+&= 0 - 2 \E{\Theta_i} + 2\theta_i, \\
+\end{align}.
+$$
+
+which yields $\theta_i = \E{\Theta_i}$ as the Bayes estimator (when the MSE is used as the
+FoM).
+
+___Advantages___
+
+* Amenable to incorporation of previous beliefs about $(\Theta_1, \ldots, \Theta_k)$.
+* Flexible choice of the figure of merit when computing a point estimate for
+  $(\theta_1, \ldots, \theta_k)$.
+* Readily extended to provide confidence interval estimates.
+
+___Disadvantages___
+
+* The figure of merit used for point estimation is an arbitrary choice.
+
+### 1.2. Bernoulli Parameter Estimation
+
+Suppose that $x_1, x_2, \ldots, x_n \in \{0, 1\}$ is a random, independent samples drawn
+from a Bernoulli distribution with parameter $p$ such that $m$ of the $x_i$ are equal to 1.
+
+#### Maximum Likelihood Estimate (MLE)
+
+The MLE for $p$ is the value of $p$ that maximizes the likelihood function for $p$ (i.e.,
+the probability of observing $x_1, x_2, \ldots, x_n$):
+
+$$
+L(p; x_1, x_2, \ldots, x_n)
+= \Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n; p}
+= \prod_{i=1}^n p^{x_i} (1-p)^{1-x_i}.
+$$
 
 To find the MLE for $p$, it is convenient to work with $\log L(p)$, which has the same
 maximum as $L(p)$:
@@ -92,41 +181,28 @@ $$
 
 which implies that $p = m / n$.
 
-___Advantages___
+#### Bayes Estimation
 
-* TODO
-
-___Disadvantages___
-
-* TODO
-
-__Bayes Estimation__
-
-Bayes Estimation is based on two ideas: (1) that we can model the parameter $p$ as a random
-variable $P$ and (2) that observations provide information (via Bayes rule) about the
-distribution of $P$.
-
-Using Bayes rule,
+Using Bayes rule, the posterior probability distribution for $p$ given the observations
+$x_1, \ldots, x_n$ is
 
 $$
 \begin{align}
 \Pr{P = p | X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n}
 &= \frac{
-    \Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n | P = p}
-    \Pr{P = p}
+    \Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n | P = p} \times \Pr{P = p}
   }{
     \Pr{X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n}
   } \\
 &= \frac{
-    \left( \prod_{i=1}^n p^{x_i} (1-p)^{1-x_i} \right)
-    \Pr{P = p}
+    \left( \prod_{i=1}^n p^{x_i} (1-p)^{1-x_i} \right) \times \Pr{P = p}
   }{
     \int_0^1 \prod_{i=1}^n p^{x_i} (1-p)^{1-x_i} dp
   } \\
 \end{align}
 $$
 
-When there is no prior information about $P$, $\Pr{P = p}$ is a uniform distribution on
+Assuming no prior information about $P$, $\Pr{P = p}$ is a uniform distribution on
 $[0, 1]$, so the posterior probability becomes
 
 $$
@@ -143,50 +219,50 @@ $$
 $$
 
 where the last step follows from the observation that $\sum_{i=1}^n x_i = m$ and the
-definition of the $\beta$-function $B(m, n) = \int_0^1 x^{m-1} (1-x)^{n-1} dx$.
+definition of the beta function $B(m, n) = \int_0^1 x^{m-1} (1-x)^{n-1} dx$.
 
-* __Point Estimate__
-
-  To calculate a point estimate for $p$, we select a figure of merit (FoM) for each choice
-  of $p$ and find the value of $p$ that optmizes the FoM.
-
-  A common choice for the FoM is the mean square error (MSE): $\E{(P - p)^2}$. Expanding
-  the expectation, taking the derivative of the MSE with respect to $p$, and setting the
-  derivative equal to zero, we obtain
+* __Point Estimate__. Using the MSE as the FoM for $p$, the Bayes estimator for $p$ is
+  equal to $\E{P}$:
 
   $$
   \begin{align}
-  0
-  &= \frac{d \E{(P-p)^2}}{dp} \\
-  &= \frac{d}{dp} \left( \E{P^2} - 2 \E{Pp} + \E{p^2} \right) \\
-  &= \frac{d}{dp} \left( \E{P^2} - 2 \E{Pp} + \E{p^2} \right) \\
-  &= \frac{d}{dp} \left( \E{P^2} - 2p \E{P} + p^2 \right) \\
-  &= 0 - 2 \E{P} + 2p, \\
-  \end{align}.
+  \E{P}
+  &= \int_0^1 p \left( \frac{ p^m (1-p)^{n-m} }{ B(m+1, n-m+1) } \right) dp \\
+  &= \int_0^1 \frac{ p^{m+1} (1-p)^{n-m} }{ B(m+1, n-m+1) } dp \\
+  &= \frac{ B(m+2, n-m+1) }{ B(m+1, n-m+1) }.
+  \end{align}
   $$
 
-  which yields $p = \E{P}$ as the Bayes estimator (when the MSE is used as the FoM).
+  Expressing the beta function in terms of the gamma function,
 
-  * TODO: computation of $\E{P}$
+  $$
+  \begin{align}
+  \frac{ B(m+2, n-m+1) }{ B(m+1, n-m+1) }
+  &= \frac{ \Gamma(m+2) \Gamma(n-m+1) }{\Gamma(n+3)} \times
+     \frac{ \Gamma(n+2) }{ \Gamma(m+1) \Gamma(n-m+1) } \\
+  &= \frac{ \Gamma(m+2) \Gamma(n+2) }{ \Gamma(m+1) \Gamma(n+3) } \\
+  &= \frac{ m+1 }{ n+2 }.
+  \end{align}
+  $$
 
-* __Confidence Interval Estimate__
+* __Confidence Interval Estimate__. Since the Bernoulli distribution has only one
+  parameter, we can use the posterior probability distribution to compute confidence
+  intervals for $p$. The confidence interval for $p$ at confidence level $\alpha$ is the
+  interval $[r, s]$ where $r$ and $s$ are solutions to the equations:
 
-  * TODO
-
-___Advantages___
-
-* TODO
-* Allows us to incorporate previous beliefs about $p$.
-* Allows choice of error measure.
-
-___Disadvantages___
-
-* TODO
+  $$
+  \begin{align}
+  \frac{1}{2} \left( 1 -\frac{\alpha}{100} \right)
+  &= \int_0^r \frac{ p^m (1-p)^{n-m} }{ B(m+1, n-m+1) } dp \\
+  \frac{1}{2} \left( 1 -\frac{\alpha}{100} \right)
+  &= \int_s^1 \frac{ p^m (1-p)^{n-m} }{ B(m+1, n-m+1) } dp. \\
+  \end{align}
+  $$
 
 
 --------------------------------------------------------------------------------------------
 
-## 5. References
+## 2. References
 
 1. TODO
 
@@ -194,6 +270,8 @@ ___Disadvantages___
 
 [----------------------------------- INTERNAL LINKS -----------------------------------]: #
 
-[#5]: #5-references
+[#1]: #1-parameter-estimation
+
+[#2]: #2-references
 
 [----------------------------------- EXTERNAL LINKS -----------------------------------]: #
