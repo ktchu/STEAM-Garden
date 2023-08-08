@@ -359,7 +359,6 @@ TODO
 [----------------------------------- INTERNAL LINKS -----------------------------------]: #
 
 [#0]: #references
-
 [#1]: #1-definitions
 [#2]: #2-analysis-of-markov-chains
 [#3]: #3-long-run-behavior
