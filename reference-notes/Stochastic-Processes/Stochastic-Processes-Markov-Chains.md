@@ -1,5 +1,5 @@
-Stochastic Processes Notes
-==========================
+Stochastic Processes: Markov Chains
+===================================
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
