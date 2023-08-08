@@ -3,14 +3,24 @@ Stochastic Processes: Markov Chains
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2023-07-18
+_Last Updated_: 2023-08-07
 
 --------------------------------------------------------------------------------------------
 
 Table of Contents
 -----------------
 
-1. [Markov Chains][#1]
+1. [Definitions][#1]
+
+2. [Analysis of Markov Chains][#2]
+
+3. [Long Run Behavior][#3]
+
+4. [Classification of States][#4]
+
+5. [Illustrative Examples of Markov Chains][#5]
+
+6. [Additional Notes][#6]
 
 --------------------------------------------------------------------------------------------
 
@@ -33,9 +43,7 @@ References
 
 --------------------------------------------------------------------------------------------
 
-## 1. Markov Chains
-
-### 1.1. Definitions
+## 1. Definitions
 
 * A _Markov chain_ $X_i$ a sequence of random variables with the property that the
   distribution $X_{n+1}$ depends only on the value of $X_n$ and is independent of all
@@ -77,9 +85,11 @@ References
 * The transition probability matrix from the initial state to (time) index $n$ is denoted
   by $\P^{(n)}$.
 
-### 1.2. Analysis of Markov Chains
+--------------------------------------------------------------------------------------------
 
-#### 1.2.1. Multi-step Transition Probabilities
+## 2. Analysis of Markov Chains
+
+### 2.1. Multi-step Transition Probabilities
 
 The transition probability matrix from time $0$ to time $n$ can be expressed as a
 product of transition probability matrices at times $0$ to $n$:
@@ -95,7 +105,7 @@ $$
 \P^{(n)} = \P^n.
 $$
 
-#### 1.2.2. First Step Analysis
+### 2.2. First Step Analysis
 
 First step analysis is a useful technique for analyzing many functionals on Markov
 chains. The basic procedure is as follows.
@@ -114,14 +124,16 @@ _Example_
 
 TODO
 
-### 1.3. Long Run Behavior
+--------------------------------------------------------------------------------------------
 
-#### 1.3.1. Definitions
+## 3. Long Run Behavior
+
+### 3.1. Definitions
 
 * A Markov chain (or its transition probability matrix) is _regular_ if all of the elements
   of $\P^k$ are strictly positive for some power $k$.
 
-#### 1.3.2. Key Results
+### 3.2. Key Results
 
 * (Lemma) If $P^k$ has no zero elements, then $P^l$ has no zero elements for all $l \ge k$.
 
@@ -250,7 +262,7 @@ TODO
     \lim_{m \rightarrow \infty} \frac{1}{m} \sum_{k=1}^m a_k = a.
     $$
 
-#### 1.3.3. Additional Notes
+### 3.3. Additional Notes
 
 * To determine if a Markov chain is regular, it suffices to check whether successive
   squares of $\P$ have zero elements: $\P^2, \P^4, \P^8, \ldots$. Moreever, since the
@@ -258,13 +270,17 @@ TODO
   zero or nonzero -- it is unncessary to determine the numerical values of the matrix
   elements.
 
-### 1.4. Classification of States
+--------------------------------------------------------------------------------------------
+
+## 4. Classification of States
 
 * TODO
 
-### 1.5. Illustrative Examples of Markov Chains
+--------------------------------------------------------------------------------------------
 
-#### 1.5.1. Applications of Markov Chain Models
+## 5. Illustrative Examples of Markov Chains
+
+### 5.1. Applications of Markov Chain Models
 
 * __Two-State Markov Chain__
 
@@ -290,7 +306,7 @@ TODO
 
   * TODO
 
-#### 1.5.2. Applications of Long Run Behavior
+### 5.2. Applications of Long Run Behavior
 
 * __Including History in the State Description__
 
@@ -312,7 +328,9 @@ TODO
 
   * TODO
 
-### 1.6. Additional Notes
+--------------------------------------------------------------------------------------------
+
+## 6. Additional Notes
 
 * __Doubly Stochastic Matrices__. A transition probability matrix is _doubly stochastic_
   if all of its columns sum to 1.
@@ -342,6 +360,11 @@ TODO
 
 [#0]: #references
 
-[#1]: #1-markov-chains
+[#1]: #1-definitions
+[#2]: #2-analysis-of-markov-chains
+[#3]: #3-long-run-behavior
+[#4]: #4-classification-of-states
+[#5]: #5-illustrative-examples-of-markov-chains
+[#6]: #6-additional-notes
 
 [----------------------------------- EXTERNAL LINKS -----------------------------------]: #
