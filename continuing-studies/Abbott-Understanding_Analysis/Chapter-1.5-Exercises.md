@@ -4,6 +4,9 @@ Understanding Analysis (S. Abbott): Section 1.5 Exercises
 --------------------------------------------------------------------------------------------
 ### Notation
 
+* $\newcommand{\N}{\mathbb{N}}$
+  The set of natural numbers: $\N$
+
 * $\newcommand{\Z}{\mathbb{Z}}$
   The set of integers: $\Z$
 
