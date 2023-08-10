@@ -228,7 +228,7 @@ Again, we have a contradiction because $f(a') = B$ so that $a \notin B$ and $a \
 --------------------------------------------------------------------------------------------
 ### 1.6.9.
 
-__Problem__. Using the various tools and tedchniques developed in the last two sections
+__Problem__. Using the various tools and techniques developed in the last two sections
 (including the exercises from Section 1.5, give a compelling argument showing that
 $P(\N) \sim \R$.
 
