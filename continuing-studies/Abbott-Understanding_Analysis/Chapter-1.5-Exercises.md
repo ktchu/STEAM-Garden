@@ -582,10 +582,10 @@ exists $x \in A_n$ such that $y = f(x)$. Therefore, $f$ maps $A$ onto $B$.
 __Problem__. Let $A' = X \backslash A$ and $B' = Y \backslash B$. Show $g$ maps $B'$ onto
 $A'$.
 
-__Solution__. Let $x \in A'$. Then $x \in \bigcap_{n=1}^\infty X \backslash A_n$. In
-particular, $x \in A_1$, so $x \in g(Y)$. In other words, there exists $y \in Y$ such that
-$g(y) = x$. Suppose $y \in B$. Then $y \in f(A_n)$ for some $n$, which implies that
-$g(y) \in A_{n+1}$ -- contradicting the assumption that $x \in A'$. Therefore, $y \in B'$,
-so we can conclude that $g$ maps $B'$ onto $A'$.
+__Solution__. Let $x \in A'.$ Then $x \in \bigcap_{n=1}^\infty X \backslash A_n.$ In
+particular, $x \in A_1$, so $x \in g(Y).$ In other words, there exists $y \in Y$ such that
+$g(y) = x.$ Suppose $y \in B.$ Then $y \in f(A_n)$ for some $n$, which implies that
+$g(y) \in A_{n+1}$ -- contradicting the assumption that $x \in A'.$ Therefore, $y \in B'$,
+so we can conclude that $g$ maps $B'$ onto $A'.$
 
 --------------------------------------------------------------------------------------------
