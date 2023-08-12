@@ -464,21 +464,35 @@ numbers, the set of transcendental numbers must be uncountable.
 __Problem__. Let $C \subseteq [0, 1]$ be uncountable. Show that there exists $a \in (0, 1)$
 such that $C \cap [a, 1]$ is uncountable.
 
-__Solution__. TODO
+__Solution__. Let $a_n = 1/2^n$ for $n \ge \{0\} \cup \N$. Suppose that $C \cap [a_n, 1]$
+is finite or countable for all $n$. Observing that $\bigcup_{n=1}^\infty [a_n, 1] = [0, 1]$,
+
+$$
+C \cap [0, 1]
+= C \cap \left( \bigcup_{n=1}^\infty [a_n, 1] \right)
+= \bigcup_{n=1}^\infty C \cap [a_n, 1].
+$$
+
+In other words, $C \cap [0, 1]$ is countable because it is a countable union of finite or
+countable sets - a contradiction with the assumption that $C \cap [0, 1]$ is uncountable.
+Therefore, $C \cap [a_n, 1]$ must be uncountable for some $a_n$, which yields the desired
+result.
 
 ### 1.5.10.b.
 
 __Problem__. Now let $A$ be the set of all $a \in (0, 1)$ such that $C \cap [a, 1]$ is
 uncountable, and set $\alpha = \sup A$. Is $C \cap [\alpha, 1]$ an uncountable set?
 
-__Solution__. TODO
+__Solution__. No. As a counterexample, consider $C = [0, 1]$. Then $C \cap [a, 1] = [a, 1]$
+for all $a \in (0, 1)$. Thus, $A = (0, 1)$. However, $\alpha = \sup A = 1$ and
+$C \cap [1, 1] = \{1\}$ is finite.
 
 ### 1.5.10.c.
 
 __Problem__. Does the statement in (a) remain true if "uncountable" is replaced by
 "infinite"?
 
-__Solution__. No. Consider $C = \{ 1/2, 1/2^2, \ldots \}$. Observe that $C \cap [a, 1]$
+__Solution__. No. Consider $C = \{ 1, 1/2, 1/2^2, \ldots \}$. Observe that $C \cap [a, 1]$
 contains only the powers of $1/2$ that are no less than $a$. If $a > 0$, there are only a
 finite number of powers of $1/2$ greater than or equal to $a$. Therefore, $C \cap [a, 1]$
 is finite for all $a \in (0, 1)$.
@@ -503,29 +517,75 @@ onto $B$, and $g$ maps $B'$ onto $A'$.
 
 __Problem__. Explain how achieving this would lead to a proof that $X \sim Y$.
 
-__Solution__. TODO
+__Solution__. With partitions of $X$ and $Y$ satisfying the above properties, $f$ is a 1-1
+map from $A$ onto $B$ and $g$ is a 1-1 map from $B'$ onto $A'$. Thus, we can define
+
+$$
+h(x) = \left\{
+          \begin{array}{rl}
+            f(x)      & \textrm{for $x \in A$} \\
+            g^{-1}(x) & \textrm{for $x \in A'$}
+          \end{array}
+        \right.
+$$
+
+Note that $g^{-1}$ is well-defined because $g$ is 1-1 and onto. Defined in this manner,
+$h$ is 1-1 and onto for the following reasons.
+
+* $h$ is 1-1. For $x \in A$, $h$ is 1-1 because $f$ is 1-1. For $x \in A'$, $h$ is 1-1
+  because $g$ is 1-1 and onto, which implies the existence of an inverse function
+  $g^{-1}$ having the same properties (in particular, $g^{-1}$ is 1-1).
+
+* $h$ is onto. For $y \in B$, $h$ is onto because $f$ is and onto. For $y \in B'$, $h$ is
+  onto because $g$ is 1-1 and onto, which implies the existence of an inverse function
+  $g^{-1}$ having the same properties (in particular, $g^{-1}$ is onto).
 
 #### 1.5.11.b.
 
 __Problem__. Set $A_1 = X \backslash g(Y) = \{ x \in X : x \notin g(Y) \}$ (what happens if
 $A_1 = \emptyset$?) and inductively define a sequence of sets letting $A_{n+1} = g(f(A_n))$.
 Show that $\{ A_n : n \in \N \}$ is a pairwise disjoint collection of subsets of $X$, while
-$\{ f(A_n) : n \in \N \}$ is a similar colleciton in $Y$.
+$\{ f(A_n) : n \in \N \}$ is a similar collection in $Y$.
 
-__Solution__. TODO
+__Solution__. Let $A_1 = X \backslash g(Y) = \{ x \in X : x \notin g(Y) \}$. If
+$A_1 = \emptyset$, then $g$ is onto, which implies that $X \sim Y$ because $g$ is a 1-1 and
+onto map from $Y$ to $X$. If $A_1 \ne \emptyset$, we can define a sequence of sets
+$A_{n+1} = g(f(A_n))$. We can inductively prove that $\{ A_n : n \in \N \}$ is a pairwise
+disjoint collection of subsets of $X$. Clearly $A_1$ and $A_2$ are disjoint because
+each $x_2 \in A_2$ is equal to $x_2 = g(f(x_1))$ for some $x_1 \in A_1$. Thus,
+$x_2 \in g(Y)$, so it cannot be in $A_1$. For the inductive step, assume that
+$A_1, A_2, \ldots, A_{n-1}$ are pairwise disjoint. Consider $x_n \in A_n$. Then
+$x_n = g(f(x_{n-1}))$ for some $x_{n-1} \in A_{n-1}$. By the same reasoning as for
+$x \in A_2$, $x_n$ cannot be an element of $A_1$. Suppose $x_n \in A_m$ for
+$2 \le m \le {n-1}$. Then $x_n = g(f(x_{m-1}))$ for some $x_{m-1} \in A_{m-1}$, which
+implies that $g(f(x_{n-1})) = g(f(x_{m-1}))$. Thus, $x_{n-1} = x_{m-1}$ because $f$ and $g$
+are both 1-1. However, this contradicts our assumption that $A_1, A_2, \ldots, A_{n-1}$
+are disjoint (because $m-1$ is strictly less than $n-1$). In other words, $x_n$ cannot be
+an element of $A_m$ for $m \le n-1$, so $A_n$ is pairwise disjoint from
+$A_1, A_2, \ldots, A_{n-1}$. Therefore, we can conclude that $\{ A_n : n \in \N \}$ is a
+pairwise disjoint collection of subsets of $X$.
+
+That the $\{ f(A_n) : n \in \N \}$ are a disjoint collection of subsets of $Y$ follows
+because $f$ is 1-1 (because 1-1 functions map disjoint subsets of $X$ to disjoint subsets
+of $Y$).
 
 #### 1.5.11.c.
 
 __Problem__. Let $A = \cup_{n=1}^\infty A_n$ and $B = \cup_{n=1}^\infty f(A_n)$. Show that
 $f$ maps $A$ onto $B$.
 
-__Solution__. TODO
+__Solution__. Let $y \in B$. Then $y \in f(A_n)$ for some $n$, which implies that there
+exists $x \in A_n$ such that $y = f(x)$. Therefore, $f$ maps $A$ onto $B$.
 
 #### 1.5.11.d.
 
-__Problem__. Let $A' = X \backslash A$ and $B' = X \backslash B$. Show $g$ maps $B'$ onto
+__Problem__. Let $A' = X \backslash A$ and $B' = Y \backslash B$. Show $g$ maps $B'$ onto
 $A'$.
 
-__Solution__. TODO
+__Solution__. Let $x \in A'$. Then $x \in \bigcap_{n=1}^\infty X \backslash A_n$. In
+particular, $x \in A_1$, so $x \in g(Y)$. In other words, there exists $y \in Y$ such that
+$g(y) = x$. Suppose $y \in B$. Then $y \in f(A_n)$ for some $n$, which implies that
+$g(y) \in A_{n+1}$ -- contradicting the assumption that $x \in A'$. Therefore, $y \in B'$,
+so we can conclude that $g$ maps $B'$ onto $A'$.
 
 --------------------------------------------------------------------------------------------
