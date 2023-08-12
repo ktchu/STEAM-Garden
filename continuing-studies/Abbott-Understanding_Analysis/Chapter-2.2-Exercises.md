@@ -141,7 +141,11 @@ __Solution__.
 
 a. $x_n = (-1)^n$ satisfies the request.
 
-b. Impossible. TODO
+b. Impossible. Suppose that the sequence $(a_n)$ converges to $a \ne 1$. Let
+   $\epsilon = |1 - a| / 2$. Observe that for all $N \in \N$, there exists $n \ge N$ such
+   that $a_n = 1$ (because there are an infinite number of ones in the sequence). Thus,
+   for all $N \in \N$, there exists $n \ge N$ with $|a_n - a| = |1 - a| > \epsilon$, which
+   implies that $(a_n)$ cannot converge to a value that is not equal to one.
 
 c. Let
 
@@ -179,23 +183,59 @@ c. Reflecting on these examples, comment on the statement following Definition 2
 
 __Solution__.
 
-a. TODO
+a. $\lim a_n = 0$. Let $\epsilon > 0$. Choose $N = 6$. Then for $n \ge N$,
 
-b. TODO
+   $$
+   |a_n - 0|
+   = \left\lfloor \frac{5}{n} \right\rfloor
+   \le \left\lfloor \frac{5}{N} \right\rfloor
+   = \left\lfloor \frac{5}{6} \right\rfloor
+   = 0
+   < \epsilon.
+   $$
 
-c. TODO
+b. $\lim a_n = 4/3$. Let $\epsilon > 0$. Choose $N = 5$. Then for $n \ge N$,
+
+   $$
+   |a_n - 1|
+   = \left\lfloor \frac{12 + 4n}{3n} - \frac{4}{3} \right\rfloor
+   = \left\lfloor \frac{4}{n} \right\rfloor
+   \le \left\lfloor \frac{4}{N} \right\rfloor
+   = \left\lfloor \frac{4}{5} \right\rfloor
+   = 0
+   < \epsilon.
+   $$
+
+c. In general, the smaller the $\epsilon$-neighborhood around the $\lim a_n$, the larger
+   $N$ needs to because no terms in the sequence are equal to the limit value. However, for
+   the sequences in this problem, the terms in the sequence eventually are all equal to
+   the limit value. Thus, we can always use the value of $N$ where $a_N = \lim a_n$ in a
+   convergence proof.
 
 --------------------------------------------------------------------------------------------
 ### 2.2.6.
 
 __Problem__. Prove Theorem 2.2.7.
 
- TODO: insert theorem
+_Theorem 2.2.7 (Uniqueness of Limits)_. The limit of a sequence, when it exists, must be
+unique.
 
 To get started, assume $(a_n) \rightarrow a$ and also that $(a_n) \rightarrow b$. Now
 argue that $a = b$.
 
-__Solution__. TODO
+__Solution__. Suppose $a \ne b$ and let $\epsilon = |a - b| / 3 > 0$. Since
+$a_n \rightarrow a$, there exists $N_a \in \N$ such that $|a_n - a| < \epsilon$ for all
+$n \ge N_a$. Similar, there exists $N_b \in \N$ such that $|a_n - b| < \epsilon$ for all
+$n \ge N_b$. Observe that for $n \ge N = \max(N_a, N_b)$,
+
+$$
+|b - a|
+\le |b - a_n| + |a_n - a|
+< 2 \epsilon
+= \frac{2 |b - a|}{3},
+$$
+
+a contradiction. Therefore, $a$ and $b$ must be equal.
 
 --------------------------------------------------------------------------------------------
 ### 2.2.7.
@@ -219,17 +259,23 @@ c. Give an alternate rephrasing of Definition 2.2.3B using either frequently or 
    Which is the term we want?
 
 d. Suppose an infinite number of terms of a sequence $(x_n)$ are equal to $2$. Is $(x_n)$
-   necessarily eventually in the interval $(1.9, 2.1)$? Is it frequently in $(1.9, 2.1)$?
+   necessarily eventually in the interval $(1.9, 2.1)?$ Is it frequently in $(1.9, 2.1)?$
 
 __Solution__.
 
-a. TODO
+a. Frequently.
 
-b. TODO
+b. Eventually is stronger than frequently because eventually implies frequently.
 
-c. TODO
+c. $(a_n)$ converges to $a$ if given $V_\epsilon(a)$, $(a_n)$ is eventually in
+   $V_\epsilon(a)$.
 
-d. TODO
+d. $(x_n)$ is not eventually in the interval $(1.9, 2.1).$. As a counterexample, consider
+   the sequence $x_n = 2 (-1)^n$.
+
+   However, $(x_n)$ is frequently in $(1.9, 2.1)$ because an infinite number of $2$s in
+   $(x_n)$ implies that for every $N \in \N$, there exists $n \ge N$ such that
+   $x_n = 2 \in (1.9, 2.1).$
 
 --------------------------------------------------------------------------------------------
 ### 2.2.8.
@@ -252,5 +298,15 @@ c. If a sequence contains an infinite number of zeros, is it necessarily zero-he
 
 d. Form the logical negation of the above definition. That is, complete the sentence:
    A sequence is _not_ zero-heavy if $\ldots$
+
+__Solution__.
+
+a. TODO
+
+b. TODO
+
+c. TODO
+
+d. TODO
 
 --------------------------------------------------------------------------------------------
