@@ -297,16 +297,23 @@ c. If a sequence contains an infinite number of zeros, is it necessarily zero-he
    not, provide a counterexample.
 
 d. Form the logical negation of the above definition. That is, complete the sentence:
-   A sequence is _not_ zero-heavy if $\ldots$
+   A sequence is _not_ zero-heavy if . . . .
 
 __Solution__.
 
-a. TODO
+a. Yes. For all $N \in \N$, $x_N = 0$ or $x_{N+1} = 0$, so choosing $M = 1$ shows that the
+   sequence is zero-heavy.
 
-b. TODO
+b. Yes. If a sequence contains a finite number of zeros, then there exists $N \in \N$ such
+   that $x_n \ne 0$ for all $n \ge N,$ with implies that for all $M \in \N$, $x_n \ne 0$
+   for $n$ satisfying $N \le n \le N + M$. Therefore, the sequence is not zero-heavy.
 
-c. TODO
+c. No. As a counterexample, consider the sequence $(1, 0, 1, 1, 0, 1, 1, 1, 0, \ldots)$.
+   This sequence is not zero-heavy because for all $M \in \N$, there is a point $N$ in the
+   sequence such that $x_{N-1} = 0$ and the next zero is greater than $M+1$ terms away,
+   which implies that $x_n = 1 \ne 0$ for $N \le n \le N + M.$
 
-d. TODO
+d. A sequence is not zero-heavy if for all $M \in \N$ there exists an $N \in \N$ such that
+   $x_n \ne 0$ for all $n$ satisfying $N \le n \le N + M.$
 
 --------------------------------------------------------------------------------------------
