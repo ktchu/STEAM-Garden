@@ -778,7 +778,7 @@ Define the random variables $X_n,$ $n \ge 0$ by
 
 $$
 \begin{align}
-X_n &= 0 \\
+X_0 &= 0 \\
 X_{n+1} &= \alpha X_n + Y_{n+1}. \\
 \end{align}
 $$
@@ -792,7 +792,65 @@ $$
 \end{align}
 $$
 
-__Solution__. TODO
+__Solution__. Consider the moment generating function for $Y_n$:
+
+$$
+\begin{align}
+\psi_{Y}(t)
+&= \E{e^{tY}} \\
+&= \alpha e^{0t} + \int_0^\infty (1-\alpha) e^{-y} e^{ty} dy \\
+&= \alpha + \frac{1-\alpha}{1 - t} \\
+&= \frac{1-\alpha t}{1 - t},
+\end{align}
+$$
+
+where $t < 1$ (so that the integral in the second line converges).
+
+Observe that
+
+$$
+X_n = \sum_{k=1}^n \alpha^{n-k} Y_k,
+$$
+
+so the moment generating function for $X_n$ is equal to
+
+$$
+\begin{align}
+\psi_{X_n}(t)
+&= \prod_{k=1}^n \psi_{Y}(\alpha^{n-k} t) \\
+&= \prod_{k=1}^n \frac{1 - \alpha^{n-k+1} t}{1 - \alpha^{n-k}t} \\
+&= \frac{1 - \alpha^n t}{1 - t}
+\end{align}
+$$
+
+because (1) the moment generating function of a sum of independent random variables is
+equal to the product of the moment generating function of the individual random variables
+and (2) the moment generating function of a random variable $aX$ evaluated at $t$ is equal
+to the moment generating function for $X$ evaluated at $at.$
+
+Computing the moment generating function the random variable $Z$ with distribution
+
+$$
+\begin{align}
+\Pr{Z = 0} &= \alpha^n \\
+\Pr{Z > z} &= (1 - \alpha^n) e^{-z} \textrm{ for $z > 0$,} \\
+\end{align}
+$$
+
+we find that
+
+$$
+\begin{align}
+\psi_{Z}(t)
+&= \E{e^{tZ}} \\
+&= \alpha^n e^{0t} + \int_0^\infty (1-\alpha^n) e^{-z} e^{tz} dz \\
+&= \alpha^n + \frac{1-\alpha^n}{1 - t} \\
+&= \frac{1-\alpha^n t}{1 - t},
+\end{align}
+$$
+
+where $t < 1$. Therefore, by uniqueness of moment generating functions, we can conclude
+that $X_n$ and $Z$ have the same distribution, which yields the desired result.
 
 --------------------------------------------------------------------------------------------
 ### 1.43.
@@ -805,11 +863,9 @@ $$
 
 Then use this result to show that $n! \ge (n/e)^n.$
 
-__Solution__.
-
-Since $X$ is nonnegative, $\Pr{X \ge a} = \Pr{X^t \ge a^t}$. Markov's inequality for the
-random variable $X^t$ implies that $\Pr{X^t \ge a^t} \le \E{X^t} / a^t,$ which yields the
-desired result.
+__Solution__. Since $X$ is nonnegative, $\Pr{X \ge a} = \Pr{X^t \ge a^t}$. Markov's
+inequality for the random variable $X^t$ implies that $\Pr{X^t \ge a^t} \le \E{X^t} / a^t,$
+which yields the desired result.
 
 TODO: second half of problem
 
