@@ -4,25 +4,25 @@ Stochastic Processes (Ross): Problems
 --------------------------------------------------------------------------------------------
 ## 0. Notation
 
-* $\newcommand{\Pr}[1]{\ {\mathbb{P}\left[{#1}\right]}\ }$
+* $\newcommand{\Pr}[1]{\ {\mathbb{P}\left[{#1}\right]}}$
   Probability of event $E$: $\Pr{E}$
 
-* $\newcommand{\1}[1]{\ {\mathbf{1}_{\left\{{#1}\right\}}}\ }$
+* $\newcommand{\1}[1]{\ {\mathbf{1}_{\left\{{#1}\right\}}}}$
   Indicator for event $E$: $\1{E}$
 
-* $\newcommand{\p}[1]{\ {p\left({#1}\right)}\ }$
+* $\newcommand{\p}[1]{\ {p\left({#1}\right)}}$
   Probability density (or mass) function for a random variable $X$: $\p{x}$
 
 * $\newcommand{\tail}[1]{\overline{#1}}$
   Probability that random variable $X$ is greater than $x$: $\tail{F}(x) = \Pr{X \ge x}$
 
-* $\newcommand{\E}[1]{\ {\mathbb{E}\left[{#1}\right]}\ }$
+* $\newcommand{\E}[1]{\ {\mathbb{E}\left[{#1}\right]}}$
   Expected value of $X$: $\E{X}$
 
-* $\newcommand{\var}[1]{\ {\operatorname{Var}}{\left(#1\right)}\ }$
+* $\newcommand{\var}[1]{\ {\operatorname{Var}}{\left(#1\right)}}$
   Variance of $X$: $\var{X}$
 
-* $\newcommand{\cov}[2]{\ {\operatorname{Cov}}{\left[#1, #2\right]}\ }$
+* $\newcommand{\cov}[2]{\ {\operatorname{Cov}}{\left[#1, #2\right]}}$
   Covariance of $X$ and $Y$: $\cov{X}{Y}$
 
 --------------------------------------------------------------------------------------------
@@ -761,5 +761,74 @@ M_n = a + b - b \left( 1 - \frac{1}{a + b} \right)^n.
 $$
 
 __Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 1.42.
+
+__Problem__. Let $Y_z, Y_2, \ldots$ be independent and identically distributed with
+
+$$
+\begin{align}
+\Pr{Y_n = 0} &= \alpha \\
+\Pr{Y_n > y} &= (1 - \alpha) e^{-y} \textrm{ for $y > 0$.}\\
+\end{align}
+$$
+
+Define the random variables $X_n,$ $n \ge 0$ by
+
+$$
+\begin{align}
+X_n &= 0 \\
+X_{n+1} &= \alpha X_n + Y_{n+1}. \\
+\end{align}
+$$
+
+Prove that
+
+$$
+\begin{align}
+\Pr{X_n = 0} &= \alpha^n \\
+\Pr{X_n > x} &= (1 - \alpha^n) e^{-x} \textrm{ for $x > 0.$} \\
+\end{align}
+$$
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 1.43.
+
+__Problem__. For a nonnegative random variable $X$, show that for $a > 0,$
+
+$$
+\Pr{X \ge a} \le \E{X^t} / a^t.
+$$
+
+Then use this result to show that $n! \ge (n/e)^n.$
+
+__Solution__.
+
+Since $X$ is nonnegative, $\Pr{X \ge a} = \Pr{X^t \ge a^t}$. Markov's inequality for the
+random variable $X^t$ implies that $\Pr{X^t \ge a^t} \le \E{X^t} / a^t,$ which yields the
+desired result.
+
+TODO: second half of problem
+
+IDEA:
+Let $X$ be Poisson random variable with mean $1$. Then
+
+$$
+\Pr{X \ge n} = \sum_{k=n}^\infty \frac{e^{-1}}{k!} \ge \frac{e^{-1}}{k!}
+$$
+
+where the inequality follows because the all of the terms in the series are positive (which
+implies that the infinite sum is no less than the first term). Since $X$ is nonnegative,
+setting $t = n$ in the upper bound on $\Pr{X \ge n}$ yields
+
+$$
+\Pr{X \ge n} \le \E{X^n} / {n^n}.
+$$
+
+Need an upper bound on $\E{X^n}.$
+
 
 --------------------------------------------------------------------------------------------
