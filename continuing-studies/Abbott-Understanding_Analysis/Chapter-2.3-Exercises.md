@@ -17,7 +17,8 @@ __Problem__. Let $x_n \ge 0$ for all $n \in \N$.
 
 a. If $(x_n) \rightarrow 0$, show that $(\sqrt{x_n}) \rightarrow 0$.
 
-b. If $(x_n) \rightarrow x$, show that $(\sqrt{x_n}) \rightarrow x$.
+b. If $(x_n) \rightarrow x$, show that $(\sqrt{x_n}) \rightarrow \sqrt{x}$.
+
 
 __Solution__.
 
@@ -187,7 +188,37 @@ __Problem__. Consider the sequence given by $b_n = n - \sqrt{n^2 + 2n}.$ Taking
 $(1/n) \rightarrow 0$ as given, and using both the Algebraic Limit Theorem and the result
 in Exercise 2.3.1, show $\lim b_n$ exists and find the value of the limit.
 
-__Solution__. TODO
+__Solution__. Observe that
+
+$$
+\begin{align}
+b_n
+&= n - \sqrt{n^2 + 2n} \\
+&= \left( n - \sqrt{n^2 + 2n} \right)
+   \left( \frac{n + \sqrt{n^2 + 2n}}{n + \sqrt{n^2 + 2n}} \right) \\
+&= \frac{
+     \left( n - \sqrt{n^2 + 2n} \right) \left( n + \sqrt{n^2 + 2n} \right)
+   }{
+     \left( n + \sqrt{n^2 + 2n} \right)
+   } \\
+&= \frac{-2n}{ \left( n + \sqrt{n^2 + 2n} \right) } \\
+&= \frac{-2}{ \left( 1 + \sqrt{1 + 2/n} \right) }. \\
+\end{align}
+$$
+
+Thus, by the Algebra Limit Theorem
+
+$$
+\begin{align}
+\lim b_n
+&= \frac{-2}{ \lim \left( 1 + \sqrt{1 + 2/n} \right) } \\
+&= \frac{-2}{ 1 + 1 } \\
+&= -1
+\end{align}
+$$
+
+where the limit of the square root in the denominator follows from the result in
+Exercise 2.3.1.b.
 
 --------------------------------------------------------------------------------------------
 ### 2.3.7.
@@ -197,7 +228,7 @@ impossible by reference the proper theorem(s).
 
 a. sequences $(x_n)$ and $(y_n)$, which both diverge, but whose sum $(x_n + y_n)$ converges;
 
-b. sequences $(x_n)$ and $(y_n)$, where $(x_n)$ converges, $(y_n) diverges, and
+b. sequences $(x_n)$ and $(y_n)$, where $(x_n)$ converges, $(y_n)$ diverges, and
    $(x_n + y_n)$ converges;
 
 c. a convergent sequence $(b_n)$ with $b_n \ne 0$ for all $n$ such that $(1 / b_n)$
@@ -209,7 +240,32 @@ d. an unbounded sequence $(a_n)$ and a convergent sequence $(b_n)$ with $(a_n - 
 e. two sequences $(a_n)$ and $(b_n)$, where $(a_n b_n)$ and $(a_n)$ converge but $(b_n)$
    does not.
 
-__Solution__. TODO
+__Solution__.
+
+a. Let $x_n = (-1)^n$ and $y_n = (-1)^{n+1}$. Then $(x_n)$ and $(y_n)$ both diverge and
+   $x_n + y_n = 0$ for all $n$ so that $(x_n + y_n)$ converges to $0.$
+
+b. It is impossible to satisfy this request. If $(x_n)$ and $(x_n + y_n)$ both converge,
+   then the Algebraic Limit Theorem implies that $(x_n + y_n - x_n) = (y_n)$ converges.
+
+c. Let $b_n = 1/n$. Then $b_n \ne 0$ for any $n,$ $(b_n)$ converges to $0,$ and
+   $(1/b_n) = (n)$ diverges.
+
+d. It is impossible to satisfy this request. Since convergent sequences are bounded,
+   $(b_n)$ convergent and $(a_n - b_n)$ bounded implies that $(a_n)$ is bounded because
+
+
+   $$
+   |a_n|
+   = |(a_n - b_n) + b_n|
+   \le |a_n - b_n| + |b_n|
+   \le M_b + M_{a-b}
+   $$
+
+   where $M_b$ and $M_{a-b}$ are bounds for $(b_n)$ and $(a_n - b_n),$ respectively.
+
+e. It is impossible to satisfy this request. If $(a_n b_n)$ and $(a_n)$ converge, then
+   $(a_n b_n / a_n) = (b_n)$ converges by the Algebraic Limit Theorem.
 
 --------------------------------------------------------------------------------------------
 ### 2.3.8.
@@ -238,7 +294,6 @@ $$
 = p(x).
 $$
 
-
 #### 2.3.8.b.
 
 __Problem__. Find an example of a function $f(x)$ and a convergent sequence
@@ -266,22 +321,35 @@ __Problem__. Let $(a_n)$ be a bounded (not necessarily convergent) sequence, and
 $\lim b_n = 0$. Show that $\lim (a_n b_n) = 0$. Why are we not allowed to use the Algebraic
 Limit Theorem to prove this?
 
-__Solution__. TODO
+__Solution__. Let $\epsilon > 0.$ Because $(a_n)$ is bounded, there exists $M > 0$ such
+that $|a_n| \le M$ for all $n \in \N.$ Since $(b_n) \rightarrow 0$, that there exists
+$N \in \N$ such that $|b_n| < \epsilon / M.$ Therefore, for $n \ge N,$
+$|a_n b_n| < M (\epsilon / M) = \epsilon,$ which implies that $(a_n b_n)$ converges to $0.$
+
+Note that we cannot use the Algebraic Limit Theorem because it requires that $(a_n)$
+converges.
 
 #### 2.3.9.b.
 
 __Problem__. Can we conclude anything about the convergence of $(a_n b_n)$ if we assume
-that $(b_n)$ converges to some nonzero limit $b$?
+that $(b_n)$ converges to some nonzero limit $b?$
 
-__Solution__. TODO
+__Solution__. When $(b_n)$ converges to a nonzero limit, we can only conclude that
+$(a_n b_n)$ is bounded.
+
+Since $(a_n)$ and $(b_n)$ are both bounded, $|a_n b_n| \le M_a M_b$ where $M_a$ and $M_b$
+are bounds for $(a_n)$ and $(b_n),$ respectively.
 
 #### 2.3.9.c.
 
 __Problem__. Use (a) to prove Theorem 2.3.3, part (iii), for the case when $a = 0$.
 
-_Theorem 2.3.3 Part (iii)_. TODO
+_Theorem 2.3.3 Part (iii)_. If $\lim a_n = a$ and $\lim b_n = b$, then
+$\lim (a_n b_n) = ab.$
 
-__Solution__. TODO
+__Solution__. If $a = 0$, the conditions for part (a) are satisfied with the roles of $a_n$
+and $b_n$ reversed: $\lim a_n = 0$ and $(b_n)$ is bounded (because it converges). Therefore,
+part (a) implies that $(a_n b_n)$ converges to $0 = ab.$
 
 --------------------------------------------------------------------------------------------
 ### 2.3.10.
@@ -293,12 +361,27 @@ a. If $\lim (a_n - b_n) = 0,$ then $\lim a_n = \lim b_n.$
 
 b. If $(b_n) \rightarrow b,$ then $|b_n| \rightarrow |b|.$
 
-c. If $(a_n) \rightarrow 0$ and $(b_n - a_n) \rightarrow 0,$ then $(b_n) \rightarrow a.$
+c. If $(a_n) \rightarrow a$ and $(b_n - a_n) \rightarrow 0,$ then $(b_n) \rightarrow a.$
 
 d. If $(a_n) \rightarrow 0$ and $|b_n - b| \le a_n$ for all $n \in \N$, then
    $(b_n) \rightarrow b.$
 
-__Solution__. TODO
+__Solution__.
+
+a. The conjecture is false. Consider the counterexample $a_n = b_n = (-1)^n$.
+   Then $a_n - b_n = 0$, so $\lim (a_n - b_n) = 0,$ but $(a_n) = (b_n)$ diverges.
+
+b. Let $\epsilon > 0.$ Since $(b_n) \rightarrow b$, there exists $N \in \N$ such that
+   $n \ge N$ implies that $|b_n - b| < \epsilon.$ Then $||b_n| - |b|| < \epsilon$ (because
+   $||b_n| - |b|| \le |b_n - b|$ by the triangle inequality). Therefore, $|b_N$ converges
+   to $|b|.$
+
+c. Since $(a_n)$ and $(b_n - a_n)$ both converge, the Algebraic Limit Theorem implies that
+   $\lim b_n = \lim (b_n - a_n) + a_n$ converges to $0 + a = a.$
+
+d. Let $\epsilon > 0.$ Since $(a_n) \rightarrow 0,$ there exists $N \in \N$ such that
+   $|a_n| < \epsilon$ for $n \ge N.$ Thus, for $n \ge N$,
+   $|b_n - b| \le a_n \le |a_n| < \epsilon$, which implies that $(b_n)$ converges to $b.$
 
 --------------------------------------------------------------------------------------------
 ### 2.3.11. Cesaro Means
@@ -314,12 +397,159 @@ $$
 
 also converges to the same limit.
 
-__Solution__. TODO
+__Solution__. Let $\epsilon > 0$ and $(x_n) \rightarrow x.$ Observe that
+
+* $x_n$ is bounded by $M > 0$ (because $(x_n)$ converges), which implies that
+  $|x_n - x| \le 2M$ for all $n \in \N.$; and
+
+* there exists $N' \in \N$ such that $|x_n - x| < \epsilon / 2$ for all $n \ge N'.$
+
+Choose $N > \max(N', 4MN' / \epsilon)$ and let $n \ge N$. Then
+
+$$
+\begin{align}
+|y_n - x|
+&= \left| \frac{x_1 + x_2 + \cdots + x_n}{n} - x \right| \\
+&= \left| \frac{(x_1 - x) + (x_2 - x) + \cdots + (x_n - x)}{n} \right| \\
+&\le \frac{|x_1 - x| + \cdots + |x_n - x|}{n} \\
+&\le \frac{1}{n} (|x_1 - x| + \cdots + |x_{N'} - x|)
+     + \frac{1}{n} (|x_{N'+1} - x| + \cdots + |x_n - x|).
+\end{align}
+$$
+
+Since $|x_n - x| \le 2M$ for all $n$, the first parenthesis is bounded by $\epsilon / 2$
+(because $2MN' / n \le 2MN' / N < \epsilon / 2$). The second parenthesis is also bounded by
+$\epsilon / 2$ because $n \ge N > N'$ implies that $|x_n - x| < \epsilon / 2$ so that
+
+$$
+\frac{1}{n} (|x_{N'+1} - x| + \cdots + |x_n - x|)
+< \frac{\epsilon (N-N')}{2n}
+\le \frac{\epsilon (N-N')}{2N}
+< \frac{\epsilon N}{2N}
+= \frac{\epsilon}{2}.
+$$
+
+Thereefore, we can conclude that $|y_n - x| < \epsilon$ for $n \ge N$, which proves the
+desired result.
 
 #### 2.3.11.b.
 
 __Problem__. Give an example to show that it is possible for the sequence $(y_n)$ of
 averages to converge even if $(x_n)$ does not.
+
+__Solution__.
+
+_Example #1._ Let $x_n = \sqrt{n}$. Then $(x_n)$ does not converge but
+$y_n = 1 / \sqrt{n} \rightarrow 0.$
+
+_Example #2._ Let $x_n = (-1)^{n+1}$. Then $(x_n)$ does not converge but
+
+$$
+y_n
+= \left\{\begin{array}{cl}
+    1/n & \textrm{if $n$ is odd} \\
+      0 & \textrm{if $n$ is even}. \\
+  \end{array}\right.
+$$
+
+Thus, $|y_n| \le 1/n,$ so $(y_n) \rightarrow 0.$
+
+--------------------------------------------------------------------------------------------
+### 2.3.12.
+
+A typical task in analysis is to decipher whether a property possess by every term in a
+convergent sequence is necessarily inherited by the limit. Assume $(a_n) \rightarrow a,$
+and determine the validity of each claim. Try to produce a counterexample for any that are
+false.
+
+#### 2.3.12.a.
+
+__Problem__. If every $a_n$ is an upper bound for a set $B,$ then $a$ is also an upper
+bound for $B.$
+
+__Solution__. True. The result follows from the Order Limit Theorems. Let $b \in B$. Then
+$a_n \ge b$ for all $n \in \N$, which implies that $a \ge b$ (by the Order Limit Theorems).
+Since $b$ was arbitrary, $a \ge b$ for all $b \in B.$ In other words, $a$ is an upper bound
+for $B.$
+
+#### 2.3.12.b.
+
+__Problem__. If every $a_n$ is in the complement of the interval $(0, 1),$ then $a$ is also
+in the complement of $(0, 1).$
+
+__Solution__. True. Suppose that $a \in (0, 1).$ Then $0 < a < 1$. In particular,
+$a - 0$ and $(1 - a)$ are both strictly positive. Let $\epsilon = \min(a, 1-a) > 0$. Since
+$(a_n) \rightarrow a$, there exists $N \in \N$ such that $|a_n - a| < \epsilon / 2.$
+Therefore,
+
+* $a_n \ge a - \epsilon / 2 \ge \epsilon - \epsilon / 2 = \epsilon / 2 > 0$
+
+and
+
+* $a_n \le a + \epsilon / 2 \le (1 - \epsilon) + \epsilon / 2 = 1 - \epsilon / 2 < 1.$
+
+In other words, $a_n \in (0, 1),$ which contradicts the assumption that $a_n \notin (0, 1).$
+Therefore, $a$ must be in the complement of $(0, 1).$
+
+#### 2.3.12.c.
+
+__Problem__. If every $a_n$ is rational, then $a$ is also rational.
+
+__Solution__. False. Let $a_n$ be the best decimal approximations to $\pi$ with $n$ digits
+to the right of the decimal point. Then each $a_n$ is rational, but the limit is irrational.
+
+--------------------------------------------------------------------------------------------
+### 2.3.13. Iterated Limits
+
+Given a doubly indexed array $a_{mn}$ where $m, n \in \N,$ what should
+$\lim_{m,n \rightarrow \infty} a_{mn}$ represent?
+
+#### 2.3.13.a.
+
+__Problem__. Let $a_{mn} = m / (m+n)$ and compute the _iterated_ limits
+
+$$
+\lim_{n \rightarrow \infty} \left( \lim_{m \rightarrow \infty} a_{mn} \right)
+$$
+
+and
+
+$$
+\lim_{m \rightarrow \infty} \left( \lim_{n \rightarrow \infty} a_{mn} \right).
+$$
+
+Define $\lim_{m,n \rightarrow \infty} a_{mn} = a$ to mean that for $\epsilon > 0$ there
+exists an $N \in \N$ such that if both $m,n \ge N$, then $|a_{mn} - a| < \epsilon.$
+
+__Solution__. TODO
+
+#### 2.3.13.b.
+
+__Problem__. Let $a_{mn} = 1 / (m+n).$ Does $\lim_{m,n \rightarrow \infty} a_{mn}$ exist in
+this case? Do the two iterated limits exist? How do these three values compare? Answer
+these same questions for $a_{mn} = mn / (m^2 + n^2).$
+
+__Solution__. TODO
+
+#### 2.3.13.c.
+
+__Problem__. Produce an example where $\lim_{m,n \rightarrow \infty} a_{mn}$ exists but
+where neither iterated limit can be computed.
+
+__Solution__. TODO
+
+#### 2.3.13.d.
+
+__Problem__. Assume $\lim_{m,n \rightarrow \infty} a_{mn} = a,$ and assume that for each
+fixed $m \in \N,$ $\lim_{n \rightarrow \infty} (a_{mn}) \rightarrow b_m.$ Show that
+$\lim_{m \rightarrow \infty} b_m = a.$
+
+__Solution__. TODO
+
+#### 2.3.13.e.
+
+__Problem__. Prove that if $\lim_{m,n \rightarrow \infty} a_{mn}$ exists and the iterated
+limits both exist, then all three limits must be equal.
 
 __Solution__. TODO
 
