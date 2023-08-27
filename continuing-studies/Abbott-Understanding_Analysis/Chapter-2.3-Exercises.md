@@ -504,6 +504,9 @@ to the right of the decimal point. Then each $a_n$ is rational, but the limit is
 Given a doubly indexed array $a_{mn}$ where $m, n \in \N,$ what should
 $\lim_{m,n \rightarrow \infty} a_{mn}$ represent?
 
+Define $\lim_{m,n \rightarrow \infty} a_{mn} = a$ to mean that for $\epsilon > 0$ there
+exists an $N \in \N$ such that if both $m,n \ge N$, then $|a_{mn} - a| < \epsilon.$
+
 #### 2.3.13.a.
 
 __Problem__. Let $a_{mn} = m / (m+n)$ and compute the _iterated_ limits
@@ -518,10 +521,19 @@ $$
 \lim_{m \rightarrow \infty} \left( \lim_{n \rightarrow \infty} a_{mn} \right).
 $$
 
-Define $\lim_{m,n \rightarrow \infty} a_{mn} = a$ to mean that for $\epsilon > 0$ there
-exists an $N \in \N$ such that if both $m,n \ge N$, then $|a_{mn} - a| < \epsilon.$
+__Solution__.
 
-__Solution__. TODO
+$$
+\lim_{n \rightarrow \infty} \left( \lim_{m \rightarrow \infty} a_{mn} \right)
+= \lim_{n \rightarrow \infty} 1
+= 1
+$$
+
+$$
+\lim_{m \rightarrow \infty} \left( \lim_{n \rightarrow \infty} a_{mn} \right)
+= \lim_{n \rightarrow \infty} 0
+= 0
+$$
 
 #### 2.3.13.b.
 
@@ -529,14 +541,71 @@ __Problem__. Let $a_{mn} = 1 / (m+n).$ Does $\lim_{m,n \rightarrow \infty} a_{mn
 this case? Do the two iterated limits exist? How do these three values compare? Answer
 these same questions for $a_{mn} = mn / (m^2 + n^2).$
 
-__Solution__. TODO
+__Solution__.
+
+__Case__: $a_{mn} = 1 / (m + n)$
+
+$\lim_{m,n \rightarrow \infty} a_{mn} = 0$ because $m,n \ge N > 1 / (2 \epsilon)$ implies
+that $1 / (m + n) \le 1 / (2N) < \epsilon.$ The two iterated limits are
+
+$$
+\lim_{n \rightarrow \infty} \left( \lim_{m \rightarrow \infty} 1 / (m + n) \right)
+= \lim_{n \rightarrow \infty} 0
+= 0
+$$
+
+and
+
+$$
+\lim_{m \rightarrow \infty} \left( \lim_{n \rightarrow \infty} 1 / (m + n) \right)
+= \lim_{n \rightarrow \infty} 0
+= 0.
+$$
+
+For $a_{mn} = 1 / (m + n)$, all three limits are equal.
+
+__Case__: $a_{mn} = mn / (m^2 + n^2)$.
+
+$\lim_{m,n \rightarrow \infty} a_{mn}$ does not converge because for all $N \in \N$
+$a_{mn} = 1/2$ for all $m = n \ge N$.
+
+$$
+\lim_{n \rightarrow \infty} \left( \lim_{m \rightarrow \infty} mn / (m^2 + n^2) \right)
+= \lim_{n \rightarrow \infty} 0
+= 0
+$$
+
+and
+
+$$
+\lim_{m \rightarrow \infty} \left( \lim_{n \rightarrow \infty} mn / (m^2 + n^2) \right)
+= \lim_{n \rightarrow \infty} 0
+= 0.
+$$
 
 #### 2.3.13.c.
 
 __Problem__. Produce an example where $\lim_{m,n \rightarrow \infty} a_{mn}$ exists but
 where neither iterated limit can be computed.
 
-__Solution__. TODO
+__Solution__.
+
+Let $a_{mn} = (-1)^{m+n} \left[ 1/m + 1/n \right].$ Then
+$\lim_{n \rightarrow \infty} a_{mn}$ does not exist because even terms in the sequence
+approach $(-1)^m / m$ while odd terms in the sequence approach $(-1)^{m+1} / m.$ For the
+same reason, $\lim_{m \rightarrow \infty} a_{mn}$ does not exist. However,
+$\lim_{m,n \rightarrow \infty} a_{mn}$ _does_ converge because for any $\epsilon > 0$,
+$n \ge N = \lceil 2 / \epsilon \rceil$ implies that
+
+$$
+|a_{mn}|
+= \left| \frac{1}{m} + \frac{1}{n} \right|
+\le \left| \frac{1}{m} \right| + \left| \frac{1}{n} \right|
+< \frac{\epsilon}{2} + \frac{\epsilon}{2}
+= \epsilon
+$$
+
+whenever $m,n \ge N.$
 
 #### 2.3.13.d.
 
@@ -544,13 +613,26 @@ __Problem__. Assume $\lim_{m,n \rightarrow \infty} a_{mn} = a,$ and assume that 
 fixed $m \in \N,$ $\lim_{n \rightarrow \infty} (a_{mn}) \rightarrow b_m.$ Show that
 $\lim_{m \rightarrow \infty} b_m = a.$
 
-__Solution__. TODO
+__Solution__. Let $\epsilon > 0$. Since $\lim_{m,n \rightarrow \infty} a_{mn} = a,$ there
+exists $N$ such that $m,n \ge N$ implies that $|a_{mn} - a| < \epsilon / 2.$ Let $m \ge N$.
+Since $\lim_{n \rightarrow \infty} (a_{mn}) \rightarrow b_m$, there exists $M \in \N$ such
+that $|a_{mn} - b_m| < \epsilon / 2$ whenever $n \ge M.$ Therefore,
+
+$$
+|b_m - a|
+= |(b_m - a_{mn}) + (a_{mn} - a)|
+\le |b_m - a_{mn}| + |a_{mn} - a|
+< \epsilon / 2 + \epsilon / 2
+= \epsilon
+$$
+
+which proves the desired result.
 
 #### 2.3.13.e.
 
 __Problem__. Prove that if $\lim_{m,n \rightarrow \infty} a_{mn}$ exists and the iterated
 limits both exist, then all three limits must be equal.
 
-__Solution__. TODO
+__Solution__. The desired result follows directly from part (d).
 
 --------------------------------------------------------------------------------------------
