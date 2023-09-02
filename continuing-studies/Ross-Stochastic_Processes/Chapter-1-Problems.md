@@ -4,25 +4,28 @@ Stochastic Processes (Ross): Problems
 --------------------------------------------------------------------------------------------
 ## 0. Notation
 
-* $\newcommand{\Pr}[1]{\ {\mathbb{P}\left[{#1}\right]}}$
+* $\newcommand{\Pr}[1]{{\mathbb{P}\left[{#1}\right]}}$
   Probability of event $E$: $\Pr{E}$
 
-* $\newcommand{\1}[1]{\ {\mathbf{1}_{\left\{{#1}\right\}}}}$
+* $\newcommand{\1}[1]{{\mathbf{1}_{\left\{{#1}\right\}}}}$
   Indicator for event $E$: $\1{E}$
 
-* $\newcommand{\p}[1]{\ {p\left({#1}\right)}}$
+* $\newcommand{\p}[1]{{p\left({#1}\right)}}$
   Probability density (or mass) function for a random variable $X$: $\p{x}$
 
 * $\newcommand{\tail}[1]{\overline{#1}}$
   Probability that random variable $X$ is greater than $x$: $\tail{F}(x) = \Pr{X \ge x}$
 
-* $\newcommand{\E}[1]{\ {\mathbb{E}\left[{#1}\right]}}$
+* $\newcommand{\E}[1]{{\mathbb{E}\left[{#1}\right]}}$
   Expected value of $X$: $\E{X}$
 
-* $\newcommand{\var}[1]{\ {\operatorname{Var}}{\left(#1\right)}}$
+* $\newcommand{\Esub}[2]{\mathbb{E}_{#1}\left[{#2}\right]}$
+  Expected value of $X$ with respect to random variable $Y$: $\Esub{Y}{X}$
+
+* $\newcommand{\var}[1]{{\operatorname{Var}}{\left(#1\right)}}$
   Variance of $X$: $\var{X}$
 
-* $\newcommand{\cov}[2]{\ {\operatorname{Cov}}{\left[#1, #2\right]}}$
+* $\newcommand{\cov}[2]{{\operatorname{Cov}}{\left[#1, #2\right]}}$
   Covariance of $X$ and $Y$: $\cov{X}{Y}$
 
 --------------------------------------------------------------------------------------------
@@ -934,6 +937,91 @@ M_n = a + b - b \left( 1 - \frac{1}{a + b} \right)^n.
 $$
 
 __Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 1.22.
+
+__Problem__. The conditional variance of $X,$ given $Y,$ is defined by
+
+$$
+\var{X|Y} = \E{ (X - \E{X|Y})^2 | Y }.
+$$
+
+Prove the conditional variance formula; namely,
+
+$$
+\var{X} = \E{ \var{X|Y} } + \var{ \E{X|Y} }.
+$$
+
+Use this to obtain $\var{X} in Example 1.5(B) and check your result by differentiating the
+generating function.
+
+__Solution__.
+
+Express $(X - \E{X})^2$ as
+
+$$
+\begin{align}
+(X - \E{X})^2
+&= ( (X - \E{X|Y}) + (\E{X|Y} - \E{X}) )^2 \\
+&= (X - \E{X|Y})^2 + (\E{X|Y} - \E{X})^2 + 2 (X - \E{X|Y}) (\E{X|Y} - \E{X}).
+\end{align}
+$$
+
+Observe that
+
+$$
+\var{X}
+= \Esub{X}{ (X - \E{X})^2 }
+= \Esub{Y}{ \Esub{X|Y}{ (X - \E{X})^2 | Y } }.
+$$
+
+Using linearity of expectation, $\var{X}$ is the sum of the following three parts:
+
+$$
+\Esub{Y}{ \Esub{X|Y} { (X - \E{X|Y})^2 | Y } }
+= \Esub{Y}{ \Esub{X|Y}{ (X - \E{X|Y})^2 | Y } }
+= \E{ \var{X | Y} }
+$$
+
+$$
+\begin{align}
+\Esub{Y}{ \Esub{X|Y}{ (\E{X|Y} - \E{X})^2 | Y } }
+&= \Esub{Y}{ \Esub{X|Y}{ (\E{X|Y} - \E{X})^2 | Y } } \\
+&= \Esub{Y}{ (\Esub{X|Y}{X|Y} - \E{X})^2 } \\
+&= \Esub{Y}{ (\Esub{X|Y}{X|Y} - \Esub{Y}{\Esub{X|Y}{X|Y}})^2 } \\
+&= \var{ \Esub{X|Y}{X|Y} } \\
+&= \var{ \E{X|Y} } \\
+\end{align}
+$$
+
+$$
+\begin{align}
+2 \Esub{Y}{ \Esub{X|Y}{ (X - \E{X|Y}) (\E{X|Y} - \E{X}) | Y } }
+&= 2 \Esub{Y}{ (\E{X|Y} - \E{X}) \Esub{X|Y}{ (X - \E{X|Y}) | Y } } \\
+&= 2 \Esub{Y}{ (\E{X|Y} - \E{X}) (\E{X|Y} - \E{X|Y}) } \\
+&= 0.
+\end{align}
+$$
+
+Combining these terms yields the desired result:
+
+$$
+\var{X} = \E{\var{X|Y}} + \var{\E{X|Y}}.
+$$
+
+Note that throughout the proof, we have used the observation that the taking repeated
+conditional expectations with respect to the same random variable is an idempotent
+operation. That is,
+
+$$
+\Esub{X|Y}{ \Esub{X|Y}{Z|Y} | Y }
+= \Esub{X|Y}{Z|Y}
+= \E{Z|Y},
+$$
+
+where the last expression is a shorthand that omits the conditional random variable that
+the expectation is taken over (when it can be unambiguously inferred from context).
 
 --------------------------------------------------------------------------------------------
 ### 1.40.
