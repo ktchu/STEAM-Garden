@@ -621,14 +621,39 @@ $$
 \var{X} \le a^2 / 4.
 $$
 
-__Solution__. TODO
+__Solution__. Let $g(t) = \E{(X - t)^2}.$ Since
+$g'(t) = - 2 \E{X} + 2\E{t} = -2 \E{X} + 2 t$ and $g''(t) = 2 > 0,$ we see that $g$ is
+minimized when $t = \E{X}$ and has a minimum value equal to $\var{X}.$
+
+Next, consider $g(a/2).$ Observe that
+
+$$
+\left| X - \frac{a}{2} \right|
+= \left| \frac{X}{2} + \frac{X-a}{2} \right|
+\le \left| \frac{X}{2} \right| + \left| \frac{X-a}{2} \right|
+= \frac{X}{2} + \frac{a-X}{2}
+= \frac{a}{2}
+$$
+
+where the inequality follows from the triangle inequality and the second to last equality
+follows because $X \le a$. Thus, $g(a/2)$ is bounded above:
+
+$$
+g(a/2)
+= \E{\left( X - \frac{a}{2} \right)^2}
+= \E{\left| X - \frac{a}{2} \right|^2}
+\le \E{\left( \frac{a}{2} \right)^2}
+= \frac{a^2}{4}.
+$$
+
+Combining these two results yields the desired bound: $\var{X} \le g(a/2) \le a^2/4.$
 
 --------------------------------------------------------------------------------------------
 ### 1.13.
 
 Consider the following method of shuffling a deck of $n$ playing cards, numbers $1$ through
 $n.$ Take the top card from the deck and then replace it so that it is equally likely to be
-put under exactly $k$ cards, for $k = 0, \1, \ldots, n-1.$ Continue doing this operation
+put under exactly $k$ cards, for $k = 0, 1, \ldots, n-1.$ Continue doing this operation
 until the card that was initially on the bottom of the deck is now on top. Then do it one
 more time and stop.
 
@@ -667,7 +692,155 @@ distinct rolls. Let $X_i$ denote the number of rolls that land on side $i$. Dete
 
 (d) the probability mass function of $X_2.$
 
-__Solution__. TODO
+__Solution__. Let the randon variable $N$ be the number of rolls that have occurred when
+the $10$-th even number appears. We can compute the desired quantities by conditioning on
+$N$. First, observe that for $n \ge 10$
+
+$$
+\Pr{N = n}
+= \frac{1}{2} {n-1 \choose 9} \left( \frac{1}{2} \right)^9 \left( \frac{1}{2} \right)^{n-10}
+= {n-1 \choose 9} \left( \frac{1}{2} \right)^n
+$$
+
+because there is a $1/2$ probability that the last roll is even, $n-1 \choose 9$ ways to
+choose the times of the other even rolls, a $1/2$ probability that an even roll occurred
+at those times, and a $1/2$ probability that an odd roll occurred at all other times.
+Conditioned on the event $N = n$, the the random variable $X_i = k$ has a binomial
+distribution with parameters $n$ and $p$ dependent on the whether $i$ is even or odd:
+
+$$
+\Pr{X_i = k | N = n}
+= \left\{\begin{array}{cl}
+    {n-10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{n-10-k}
+    & \textrm{for $i$ odd} \\
+    {10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{10-k}
+    & \textrm{for $i$ even} \\
+  \end{array}\right.
+$$
+
+The following identities are useful for the following calculations:
+
+$$
+\begin{align}
+\frac{d^k}{dx^k} \left( \frac{1}{1 - x} \right)
+&= \sum_{n=0}^\infty n (n-1) \cdots (n-k+1) x^{n-k} \\
+&= \sum_{n=k}^\infty n (n-1) \cdots (n-k+1) x^{n-k} \\
+&= \sum_{n=0}^\infty (n+k) (n+k-1) \cdots (n+1) x^n \\
+\end{align}
+$$
+
+and
+
+$$
+\frac{d^k}{dx^k} \left( \frac{1}{1 - x} \right)
+= \frac{k!}{(1-x)^{k+1}}.
+$$
+
+(a)
+
+$$
+\begin{align}
+\E{X_1}
+&= \sum_{n=10}^\infty \E{X_1 | N = n} \Pr{N = n} \\
+&= \sum_{n=10}^\infty \left( \frac{n-10}{3} \right) \Pr{N = n} \\
+&= \sum_{n=11}^\infty \left( \frac{n-10}{3} \right) \Pr{N = n} \\
+&= \sum_{n=0}^\infty \left( \frac{n+1}{3} \right) \Pr{N = n+11} \\
+&= \sum_{n=0}^\infty
+     {n+10 \choose 9} \left( \frac{n+1}{3} \right) \left( \frac{1}{2} \right)^{n+11} \\
+&= \frac{1}{3 \cdot 2^{11} \cdot 9!} \sum_{n=0}^\infty
+     (n+10) (n+9) \cdots (n+1) \left( \frac{1}{2} \right)^n \\
+&= \frac{1}{3 \cdot 2^{11} \cdot 9!} \left( \frac{10!}{(1 - (1/2))^{11}} \right) \\
+&= \frac{10}{3}
+\end{align}
+$$
+
+(b)
+
+$$
+\begin{align}
+\E{X_2}
+&= \sum_{n=10}^\infty \E{X_2 | N = n} \Pr{N = n} \\
+&= \sum_{n=10}^\infty \left( \frac{10}{3} \right) \Pr{N = n} \\
+&= \frac{10}{3} \sum_{n=10}^\infty \Pr{N = n} \\
+&= \frac{10}{3}
+\end{align}
+$$
+
+where the last line follows because $\Pr{N = n}$ is a probability mass function. We can
+verify that the sum over $\Pr{N = n}$ equals 1:
+
+$$
+\begin{align}
+\sum_{n=10}^\infty \Pr{N = n}
+&= \sum_{n=10}^\infty {n-1 \choose 9} \left( \frac{1}{2} \right)^n \\
+&= \sum_{n=0}^\infty {n+9 \choose 9} \left( \frac{1}{2} \right)^{n+10} \\
+&= \frac{1}{9! \cdot 2^{10}} \sum_{n=0}^\infty (n+9) (n+8) \cdots (n+1) \left( \frac{1}{2} \right)^n \\
+&= \frac{1}{9! \cdot 2^{10}} \left( \frac{9!}{(1 - (1/2))^{10}} \right) \\
+&= 1.
+\end{align}
+$$
+
+(c) For $k \ge 0$,
+
+$$
+\begin{align}
+\Pr{X_1 = k}
+&= \sum_{n=10}^\infty \Pr{X_1 = k | N = n} \Pr{N = n} \\
+&= \sum_{n=10}^\infty
+     {n-10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{n-10-k}
+     {n-1 \choose 9} \left( \frac{1}{2} \right)^n \\
+&= \frac{1}{9! k!} \left( \frac{1}{2} \right)^{k+10}
+   \sum_{n=10}^\infty \frac{(n-1)!}{(n-k-10)!} \left( \frac{1}{3} \right)^{n-10} \\
+&= \frac{1}{9! k!} \left( \frac{1}{2} \right)^{k+10}
+   \sum_{n=0}^\infty \frac{(n+9)!}{(n-k)!} \left( \frac{1}{3} \right)^n \\
+&= \frac{1}{9! k!} \left( \frac{1}{2} \right)^{k+10}
+   \sum_{n=0}^\infty (n+9) (n+8) \cdots (n-k+1) \left( \frac{1}{3} \right)^n  \\
+&= \frac{1}{9! k!} \left( \frac{1}{2} \right)^{k+10}
+   \sum_{n=k}^\infty (n+9) (n+8) \cdots (n-k+1) \left( \frac{1}{3} \right)^n  \\
+&= \frac{1}{9! k!} \left( \frac{1}{2} \right)^{k+10}
+   \sum_{n=0}^\infty (n+k+9) (n+k+8) \cdots (n+1) \left( \frac{1}{3} \right)^{n+k}  \\
+&= \frac{1}{9! k!} \left( \frac{1}{2} \right)^{10} \left( \frac{1}{6} \right)^k \
+   \sum_{n=0}^\infty (n+k+9) (n+k+8) \cdots (n+1) \left( \frac{1}{3} \right)^n  \\
+&= \frac{1}{9! k!} \left( \frac{1}{2} \right)^{10} \left( \frac{1}{6} \right)^k \
+   \left. \frac{d^{k+9}}{dx^{k+9}} \left( \frac{1}{1-x} \right) \right|_{x=1/3} \\
+&= \frac{1}{9! k!} \left( \frac{1}{2} \right)^{10} \left( \frac{1}{6} \right)^k \
+   \left( \frac{(k+9)!}{(1 - (1/3))^{k+10}} \right) \\
+&= {k+9 \choose 9} \left( \frac{3}{4} \right)^{10} \left( \frac{1}{4} \right)^k
+\end{align}
+$$
+
+(d) For $0 \le k \le 10$,
+
+$$
+\begin{align}
+\Pr{X_2 = k}
+&= \sum_{n=10}^\infty \Pr{X_2 = k | N = n} \Pr{N = n} \\
+&= \sum_{n=10}^\infty
+     {10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{10-k}
+     {n-1 \choose 9} \left( \frac{1}{2} \right)^n \\
+&= {10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{10-k}
+   \sum_{n=10}^\infty {n-1 \choose 9} \left( \frac{1}{2} \right)^n \\
+&= {10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{10-k}
+   \sum_{n=0}^\infty {n+9 \choose 9} \left( \frac{1}{2} \right)^{n+10} \\
+&= \frac{1}{9!} \left( \frac{1}{2} \right)^{10}
+   {10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{10-k}
+   \sum_{n=0}^\infty (n+9) (n+8) \cdots (n+1) \left( \frac{1}{2} \right)^n \\
+&= \frac{1}{9!} \left( \frac{1}{2} \right)^{10}
+   {10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{10-k}
+   \left. \frac{d^9}{dx^9} \left( \frac{1}{1-x} \right) \right|_{x=1/2} \\
+&= \frac{1}{9!} \left( \frac{1}{2} \right)^{10}
+   {10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{10-k}
+   \left( \frac{9!}{(1 - (1/2))^{10}} \right) \\
+&= {10 \choose k} \left( \frac{1}{3} \right)^k \left( \frac{2}{3} \right)^{10-k}.
+\end{align}
+$$
+
+In other words, $X_2$ has a binomial distribution with parameters $n=10$ and $p=1/3$.
+The same analysis shows that $X_4$ and $X_6$ also have the same distribution.
+
+The intuition behind this result is that there are exactly $10$ even rolls, so the
+probability that $k$ of them are equal to $2$ is precisely the binomial distribution for
+$10$ rolls with a probability of $1/3$ that $2$ is the outcome of each individual roll.
 
 --------------------------------------------------------------------------------------------
 ### 1.15.
@@ -759,6 +932,35 @@ __Problem__. Use part (a) to prove that
 $$
 M_n = a + b - b \left( 1 - \frac{1}{a + b} \right)^n.
 $$
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 1.40.
+
+__Problem__. Suppose that $r = 3$ in Example 1.9(C) and find the probability that the leaf
+on the ray of size $n_1$ is the last leaf to be visited.
+
+__Solution__. TODO
+
+
+--------------------------------------------------------------------------------------------
+### 1.41.
+
+Consider a star graph consisting of a central vertex and $r$ rays, with one ray consisting
+of $m$ vertices and the other $r-1$ all consisting of $n$ vertices. Let $P_r$ denote the
+probability that the leaf on the ray of $m$ vertices is the last leaf visited by a particle
+that starts at $0$ and at each step is equally likely to move to any of its neighbors.
+
+#### 1.41.a.
+
+__Problem__. Find $P_2.$
+
+__Solution__. TODO
+
+#### 1.41.b.
+
+__Problem__. Express $P_r$ in terms of $P_{r-1}.$
 
 __Solution__. TODO
 
