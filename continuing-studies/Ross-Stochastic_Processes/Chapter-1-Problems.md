@@ -953,12 +953,14 @@ $$
 \var{X} = \E{ \var{X|Y} } + \var{ \E{X|Y} }.
 $$
 
-Use this to obtain $\var{X} in Example 1.5(B) and check your result by differentiating the
+Use this to obtain $\var{X}$ in Example 1.5(B) and check your result by differentiating the
 generating function.
 
-__Solution__.
+__Solution__. Note: throughout this solution, we use the notation $\Esub{Y}{Z}$ and
+$\Esub{X|Y}{Z|Y} = \E{Z|Y}$ when it is helpful to clarify the random variable or
+conditional random variable that an expectation is taken over.
 
-Express $(X - \E{X})^2$ as
+First, express $(X - \E{X})^2$ as
 
 $$
 \begin{align}
@@ -968,7 +970,7 @@ $$
 \end{align}
 $$
 
-Observe that
+Next, observe that
 
 $$
 \var{X}
@@ -980,14 +982,12 @@ Using linearity of expectation, $\var{X}$ is the sum of the following three part
 
 $$
 \Esub{Y}{ \Esub{X|Y} { (X - \E{X|Y})^2 | Y } }
-= \Esub{Y}{ \Esub{X|Y}{ (X - \E{X|Y})^2 | Y } }
 = \E{ \var{X | Y} }
 $$
 
 $$
 \begin{align}
 \Esub{Y}{ \Esub{X|Y}{ (\E{X|Y} - \E{X})^2 | Y } }
-&= \Esub{Y}{ \Esub{X|Y}{ (\E{X|Y} - \E{X})^2 | Y } } \\
 &= \Esub{Y}{ (\Esub{X|Y}{X|Y} - \E{X})^2 } \\
 &= \Esub{Y}{ (\Esub{X|Y}{X|Y} - \Esub{Y}{\Esub{X|Y}{X|Y}})^2 } \\
 &= \var{ \Esub{X|Y}{X|Y} } \\
@@ -1000,9 +1000,12 @@ $$
 2 \Esub{Y}{ \Esub{X|Y}{ (X - \E{X|Y}) (\E{X|Y} - \E{X}) | Y } }
 &= 2 \Esub{Y}{ (\E{X|Y} - \E{X}) \Esub{X|Y}{ (X - \E{X|Y}) | Y } } \\
 &= 2 \Esub{Y}{ (\E{X|Y} - \E{X}) (\E{X|Y} - \E{X|Y}) } \\
-&= 0.
+&= 0,
 \end{align}
 $$
+
+where the first equality follows because $(\E{X|Y} - \E{X})$ is independent of $X$
+(conditioned on $Y$).
 
 Combining these terms yields the desired result:
 
@@ -1015,13 +1018,8 @@ conditional expectations with respect to the same random variable is an idempote
 operation. That is,
 
 $$
-\Esub{X|Y}{ \Esub{X|Y}{Z|Y} | Y }
-= \Esub{X|Y}{Z|Y}
-= \E{Z|Y},
+\Esub{X|Y}{ \Esub{X|Y}{Z|Y} | Y } = \Esub{X|Y}{Z|Y}.
 $$
-
-where the last expression is a shorthand that omits the conditional random variable that
-the expectation is taken over (when it can be unambiguously inferred from context).
 
 --------------------------------------------------------------------------------------------
 ### 1.40.
