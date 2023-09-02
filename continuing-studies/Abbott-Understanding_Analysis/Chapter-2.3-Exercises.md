@@ -26,21 +26,18 @@ a. Let $\epsilon > 0$. Since $(x_n) \rightarrow 0$, there exists $N \in \N$ such
    $|x_n - 0| = |x_n| \le \epsilon^2$ for $n \ge N.$ Therefore, $\sqrt{x_n} \le \epsilon$
    for $n \ge N$, which implies that $(\sqrt{x_n})$ converges to $0$.
 
-b. Let $\epsilon > 0$. Since $(x_n) \rightarrow x,$ there exists $N_1 \in \N$ such that
-   $|x_n - x| \le \frac{3}{4} |x|$ for $n \ge N_1,$ which implies that
-   $\frac{1}{4}|x| \le |x_n| \le \frac{7}{4} |x|$ for $n \ge N_1.$ Thus,
-   $\sqrt{x_n} \ge \frac{1}{2}\sqrt{x}$ for $n \ge N_1.$ Convergence of $(x_n)$ to $x$
-   also implies that exists $N_2 \in \N$ such that
-   $|x_n - x| \le \frac{3}{2} \epsilon \sqrt{x}.$ Therefore, for $n \ge \max(N_1, N_2)$,
+b. Let $\epsilon > 0$. Since $(x_n) \rightarrow $x$, there exists $N \in \N$ such that
+   $|x_n - x| \le \epsilon \sqrt{x}.$ Therefore, for $n \ge N,$
 
    $$
    |\sqrt{x_n} - \sqrt{x}|
    = \frac{|x_n - x|}{|\sqrt{x_n} + \sqrt{x}|}
-   \le \frac{\frac{3}{2} \epsilon \sqrt{x}}{\frac{3}{2} \sqrt{x}}
+   \le \frac{|x_n - x|}{\sqrt{x}}
+   \le \frac{\epsilon \sqrt{x}}{\sqrt{x}}
    = \epsilon,
    $$
 
-  which proves that $(\sqrt{x_n}) \rightarrow \sqrt{x}$.
+  which shows that $(\sqrt{x_n}) \rightarrow \sqrt{x}$.
 
 --------------------------------------------------------------------------------------------
 ### 2.3.2.
