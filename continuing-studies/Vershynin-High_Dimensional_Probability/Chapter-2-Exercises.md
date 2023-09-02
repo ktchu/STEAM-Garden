@@ -21,7 +21,7 @@ High-Dimensional Probability (Vershynin): Exercises - Chapter 2
   Expected value of $X$: $\E{X}$
 
 * $\newcommand{\Esub}[2]{\mathbb{E}_{#1}\left[{#2}\right]}$
-  Expected value of $XY$ with respect to $X$: $\Esub{X}{XY}$
+  Expected value of $X$ with respect to random variable $Y$: $\Esub{Y}{X}$
 
 * $\newcommand{\Var}[1]{\operatorname{Var}{\left(#1\right)}}$
   Variance of $X$: $\Var{X}$
