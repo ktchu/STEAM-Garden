@@ -341,7 +341,9 @@ recursion equation.
 __Problem__. Explain why $\sqrt{xy} \le (x + y) / 2$ for any two positive real numbers $x$
 and $y.$. (The geometric mean is always less than the arithmetic mean.)
 
-__Solution__. TODO
+__Solution__. For any positive real numbers $x$ and $y,$ observe that
+$\left( \sqrt{x} - \sqrt{y} \right)^2 \ge 0,$ which implies that
+$x - 2 \sqrt{xy} + y \ge 0$. Rearranging this inequality yields the desired result.
 
 #### 2.4.6.b.
 
@@ -359,45 +361,127 @@ $$
 
 Show $\lim x_n$ and $\lim y_n$ both exists and are equal.
 
-__Solution__. TODO
+__Solution__. First, observe that by the AM-GM inequality, $x_n \le y_n$ for all $n$.
+From this observation, we can conclude that $(x_n)$ is monotone increasing and $(y_n)$ is
+monotone decreasing:
+
+* $x_{n+1} = \sqrt{x_n y_n} \ge \sqrt{x_n^2} = x_n$ and
+
+* $y_{n+1} = (x_n + y_n) / 2 \le (y_n + y_n) / 2 = y_n.$
+
+Moreover, $(x_n)$ is bounded above by $y_1$ because $x_n \le y_n \le y_1$. Similarly,
+$(y_n)$ is bounded below by $x_1$ because $y_n \ge x_n \ge x_1$. Therefore, both $(x_n)$
+and $(y_n)$ are monotone and bounded, so the Monotone Convergence Theorem implies that they
+both converge.
+
+Let $x = \lim x_n$ and $y = \lim y_n$. Taking the limit across both recursion equations,
+we obtain the following equations for $x$ and $y$:
+
+$$
+\begin{align}
+x &= \sqrt{xy} \\
+y &= \frac{x + y}{2} \\
+\end{align}
+$$
+
+which both lead to the conclusion that $x = y.$
 
 --------------------------------------------------------------------------------------------
 ### 2.4.7. Limit Superior
 
-Let $(a_n)$ be a bounded sequence
+Let $(a_n)$ be a bounded sequence.
 
 #### 2.4.7.a.
 
 __Problem__. Prove that the sequence defined by $y_n = \sup\{ a_k : k \ge n \}$ converges.
 
-__Solution__. TODO
+__Solution__. Observe that $y_n$ is a monotone decreasing sequence because $A \subseteq B$
+implies that $\sup A \le \sup B$ and $\{ a_k : k \ge n+1 \} \subseteq \{ a_k : k \ge n \}.$
+Furthermore, because $(a_n)$ is bounded, there exists $M \le a_n$ for all $n,$ which
+implies that $M \le a_n \le y_n$ for all $n.$ Thus, we can conclude that $(y_n)$ is bounded.
+Therefore, since $(y_n)$ is monotone and bounded, it converges by the Monotone Convergence
+Theorem.
 
 #### 2.4.7.b.
 
-__Problem__. The $-limit superior$ of $(a_n),$ or $\lim \sup a_n,$ is defined by
+__Problem__. The _limit superior_ of $(a_n),$ or $\lim \sup a_n,$ is defined by
 
 $$
 \lim \sup a_n = \lim y_n,
 $$
 
-where $y_n$ is the sequence from part (a) of thi exercise. Provide a reasonable definition
+where $y_n$ is the sequence from part (a) of this exercise. Provide a reasonable definition
 of $\lim \inf a_n$ and briefly explain why it always exists for any bounded sequence.
 
-__Solution__. TODO
+__Solution__. $\lim \inf a_n = \lim z_n$ where $z_n = \inf \{ a_k : k \ge n \}.$ Using
+reasoning analogous to part (a), $\lim \inf a_n$ always exists because $z_n$ is monotone
+increasing and bounded.
 
 #### 2.4.7.c.
 
 __Problem__. Prove that $\lim \inf a_n \le \lim \sup a_n$ for every bounded sequence, and
 give an example of a sequence for which the inequality is strict.
 
-__Solution__. TODO
+__Solution__. Observe that $z_n \le y_n$ (by the definition of $\sup$ and $\inf$).
+Therefore, $\lim z_n \le \lim y_n$ by the Order Limit Theorem.
+
+As an example where $\lim \inf a_n$ is strictly less than $\lim \sup a_n,$ consider the
+sequence $a_n = (-1)^n$. Then $\lim \inf a_n = -1$ and $\lim \sup a_n = 1.$
 
 #### 2.4.7.d.
 
 __Problem__. Show that $\lim \inf a_n = \lim \sup a_n$ if and only if $\lim a_n$ exists. In
 this case, all three share the same value.
 
-__Solution__. TODO
+__Solution__. ($\Rightarrow$). Suppose that $\lim \inf a_n = \lim \sup a_n = a.$ Let
+$\epsilon > 0.$ Then there exists $N_z, N_y$ such that $n \ge N_z$ implies that
+$|z_n - a| < \epsilon / 3$ and $n \ge N_y$ implies that $|y_n - a| < \epsilon / 3.$ Let
+$N = \max(N_z, N_y).$ Then for $n \ge N,$
+
+$$
+|y_n - z_n|
+= |y_n - a + a - z_n|
+\le |y_n - a| + |a - z_n|
+< \frac{2 \epsilon}{3}.
+$$
+
+Next, observe that
+
+$$
+z_n = \inf\{a_k : k \ge n\}
+\le a_n
+\le \sup\{a_k : k \ge n\} = y_n,
+$$
+
+which implies that $|a_n - z_n| \le |y_n - z_n| < 2 \epsilon / 3.$
+
+Thus, we can conclude that
+
+$$
+|a_n - a|
+= |a_n - z_n + z_n - a|
+\le |a_n - z_n| + |z_n - a|
+< \frac{2 \epsilon}{3} + \frac{\epsilon}{3}
+= \epsilon,
+$$
+
+which shows that $(a_n)$ converges to $a$ and all three limits have the same value.
+
+($\Leftarrow$). Suppose that $\lim a_n = a.$ Let $\epsilon > 0.$ Then there exist
+$N \in \N$ such that $|a_n - a| < \epsilon / 2$ for all $n \ge N,$ which implies that
+$a - \epsilon / 2 < a_n < a + \epsilon/ 2$ for all $n \ge N.$ By the definition
+$z_n = \inf\{ a_k : k \ge n \},$
+
+* $z_n < a + \epsilon / 2$ because $z_n$ a lower bound for $\{ a_k : k \ge n \},$ and
+
+* $z_n \ge a - \epsilon / 2$ because $z_n$ is no less than any lower bound for
+  $\{ a_k : k \ge n \}$ and $a - \epsilon / 2$ is one such lower bound.
+
+Since $a + \epsilon / 2 < a + \epsilon$ and $a - \epsilon / 2 > a - \epsilon$ (strict
+inequalities), we can conclude that $a - \epsilon < z_n < a + \epsilon.$ for $n \ge N.$
+In other words, for sufficiently large $n$, $|z_n - a| < \epsilon,$ which shows that
+$(z_n) \rightarrow a.$ An analogous argument shows that $(y_n)$ also converges to $a,$
+which yields the desired result: $\lim \inf a_n = \lim \sup a_n.$
 
 --------------------------------------------------------------------------------------------
 ### 2.4.8.
@@ -420,7 +504,41 @@ $$
 \sum_{n=1}^\infty \log \left( \frac{n+1}{n} \right)
 $$
 
-__Solution__. TODO
+__Solution__.
+
+(a)
+
+$$
+S_n
+= \sum_{k=1}^n \frac{1}{2^k}
+= \frac{1/2 - 1/2^{n+1}}{1/2}
+= 1 - \frac{1}{2^n}.
+$$
+
+Therefore, $S_n$ converges to $1.$
+
+(b)
+
+$$
+S_n
+= \sum_{k=1}^n \frac{1}{k (k+1)}
+= \sum_{k=1}^n \frac{1}{k} - \frac{1}{k+1}
+= 1 - \frac{1}{n+1}
+$$
+
+Therefore, $S_n$ converges to $1.$
+
+(c)
+
+$$
+S_n
+= \sum_{k=1}^n \log\left( \frac{k + 1}{k} \right)
+= \sum_{k=1}^n \log(k + 1) - \log(k)
+= \log(n+1) - \log(1)
+= \log(n+1)
+$$
+
+Therefore, $S_n$ diverges as $n \rightarrow \infty.$
 
 --------------------------------------------------------------------------------------------
 ### 2.4.9.
