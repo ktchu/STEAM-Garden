@@ -509,36 +509,36 @@ __Solution__.
 (a)
 
 $$
-S_n
+s_n
 = \sum_{k=1}^n \frac{1}{2^k}
 = \frac{1/2 - 1/2^{n+1}}{1/2}
 = 1 - \frac{1}{2^n}.
 $$
 
-Therefore, $S_n$ converges to $1.$
+Therefore, $s_n$ converges to $1.$
 
 (b)
 
 $$
-S_n
+s_n
 = \sum_{k=1}^n \frac{1}{k (k+1)}
 = \sum_{k=1}^n \frac{1}{k} - \frac{1}{k+1}
 = 1 - \frac{1}{n+1}
 $$
 
-Therefore, $S_n$ converges to $1.$
+Therefore, $s_n$ converges to $1.$
 
 (c)
 
 $$
-S_n
+s_n
 = \sum_{k=1}^n \log\left( \frac{k + 1}{k} \right)
 = \sum_{k=1}^n \log(k + 1) - \log(k)
 = \log(n+1) - \log(1)
 = \log(n+1)
 $$
 
-Therefore, $S_n$ diverges as $n \rightarrow \infty.$
+Therefore, $s_n$ diverges as $n \rightarrow \infty.$
 
 --------------------------------------------------------------------------------------------
 ### 2.4.9.
@@ -547,7 +547,43 @@ __Problem__. Complete the proof of Theorem 2.4.6 by showing that if the series
 $\sum_{n=0}^\infty 2^n b_{2^n}$ diverges, then so does $\sum_{n=0}^\infty b_n.$ Example
 2.4.5 may be a useful reference.
 
-__Solution__. TODO
+_Theorem 2.4.6 (Cauchy Condensation Test)_. Suppose $(b_n)$ is decreasing and satisfies
+$b_n \ge 0$ for all $n \in N.$ Then, the series $\sum_{n=1}^\infty b_n$ converges if and
+only if the series
+
+$$
+\sum_{n=0} 2^n b_{2^n} = b_1 + 2 b_2 + 4 b_4 + 8 b_8 + 16 b_{16} + \cdots
+$$
+
+converges.
+
+__Solution__. ($\Rightarrow$) Define
+
+$$
+t_k = \sum_{n = 0}^k 2^n b_{2^n}.
+$$
+
+Suppose that $(t_k)$ diverges. Let $M > 0.$ Since $(t_k)$ is monotone increasing, it must
+be unbounded (otherwise the Monotone Convergence Theorem would imply that $(t_k)$
+converges). Thus, there exists $k \in \N$ such that $t_k > 2M,$ which implies that for
+$n \ge 2^k,$
+
+$$
+\begin{align}
+s_n
+&> s_{2^k} \\
+&= b_1 + b_2 + b_3 + b_4 + \cdots + b_{2^k} \\
+&= b_1 + b_2 + (b_3 + b_4) + \cdots
+ + (b_{2^{k-1} + 1} + b_{2^{k-1} + 2} + \cdots + b_{2^k}) \\
+&\ge b_1 + b_2 + (b_4 + b_4) + \cdots + (b_{2^k} + b_{2^k} + \cdots + b_{2^k}) \\
+&= b_1 + b_2 + 2 b_4 + \cdots + 2^{k-1} b_{2^k} \\
+&= \frac{b_1}{2} + \frac{1}{2} \sum_{n=0}^k 2^k b_{2^k} \\
+&> \frac{b_1}{2} + M \\
+&> M.
+\end{align}
+$$
+
+Therefore, $s_n$ is unbounded, which implies that it does not converge.
 
 --------------------------------------------------------------------------------------------
 ### 2.4.10. Infinite Products
@@ -575,11 +611,56 @@ where $a_n \ge 0.$
 #### 2.4.10.a.
 
 __Problem__. Find an explicit formula for the sequence of partial products in the case where
-$a_n = 1/n$ and decide whether the sequence c onverges. Write out the first few terms in
+$a_n = 1/n$ and decide whether the sequence converges. Write out the first few terms in
 the sequence of partial products in the case where $a_n = 1/n^2$ and make a conjecture
 about the convergence of this sequence.
 
-__Solution__. TODO
+__Solution__. When $a_n = 1/n,$ observe that
+
+$$
+1 + a_n
+= 1 + \frac{1}{n}
+= \frac{n + 1}{n}.
+$$
+
+Thus,
+
+$$
+p_m
+= (1 + a_1) (1 + a_2) \cdots (1 + a_m)
+= \left( \frac{2}{1} \right) \left( \frac{3}{2} \right) \cdots \left( \frac{m+1}{m} \right)
+= m + 1,
+$$
+
+which implies that the sequence of partial products $p_m$ diverges.
+
+When $a_n = 1/n^2,$ observe that
+
+$$
+1 + a_n
+= 1 + \frac{1}{n^2}
+= \frac{n^2 + 1}{n^2}.
+$$
+
+The first few partial products are
+
+$$
+\begin{align}
+p_1
+&= \frac{2}{1} = 2 \\
+p_2
+&= \left( \frac{5}{4} \right) \left( \frac{2}{1} \right) = \frac{5}{2} = 2.5 \\
+p_3
+&= \left( \frac{10}{9} \right) p_2 = \frac{25}{9} \approx 2.78 \\
+p_4
+&= \left( \frac{17}{16} \right) p_3 = \frac{425}{144} \approx 2.95 \\
+p_5
+&= \left( \frac{26}{25} \right) p_4 = \frac{221}{72} \approx 3.07 \\
+\end{align}
+$$
+
+Conjecture: the sequence $(p_m)$ converges because the gaps between successive partial
+products appears to be decreasing.
 
 #### 2.4.10.b.
 
@@ -587,6 +668,37 @@ __Problem__. Show, in general, that the sequence of partial products converges i
 if $\sum_{n=1}^\infty a_n$ converges. (The inequality $1 + x \le 3^x$ for positive $x$ will
 be useful in one direction.)
 
-__Solution__. TODO
+__Solution__. ($\Rightarrow$) Suppose that $\sum_{n=1}^\infty a_n$ converges. Then,
+recalling that $1 + x \le e^x \le 3^x$,
+
+$$
+p_m
+= \prod_{n=1}^m (1 + a_n)
+\le \prod_{n=1}^m 3^{a_n}
+= 3^{\sum_{n=1}^m a_n}
+$$
+
+Since $a_n \ge 0,$ the partial sume $s_m = \sum_{n=1}^m a_n$ is a monotone increasing
+sequence. Thus, the sequence of partial products $p_m$ is a monotone increasing sequence.
+Moreover, $(p_m)$ is bounded above by $3^s$ where $s = \sum{n=1}^\infty s_n.$ Therefore,
+the infinite product converges.
+
+($\Leftarrow$) Suppose that $\prod_{n=1}^\infty (1 + a_n)$ converges. Then, the sequence
+of partial products $(p_m)$ is bounded by $M > 0.$ Observe that
+
+$$
+p_m
+= \prod_{n=1}^m (1 + a_n)
+\ge 1 + \sum_{n=1}^m a_n.
+$$
+
+Thus, we can conclude that the partial sums $s_m$ are bounded from above because
+
+$$
+s_m = \sum_{n=1}^m a_n \le p_n - 1 \le M - 1.
+$$
+
+Therefore, $(s_m)$ is monotone increasing (because $a_n \ge 0$) and bounded, so the
+Monotone Convergence Theorem implies that it must converge.
 
 --------------------------------------------------------------------------------------------
