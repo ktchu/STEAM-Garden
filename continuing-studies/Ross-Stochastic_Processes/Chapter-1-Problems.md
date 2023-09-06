@@ -1155,24 +1155,42 @@ __Solution__. Since $X$ is nonnegative, $\Pr{X \ge a} = \Pr{X^t \ge a^t}$. Marko
 inequality for the random variable $X^t$ implies that $\Pr{X^t \ge a^t} \le \E{X^t} / a^t,$
 which yields the desired result.
 
-TODO: second half of problem
-
-IDEA:
-Let $X$ be Poisson random variable with mean $1$. Then
+To show that $n! \ge (n/e)^n$, let $X$ be an exponential random variable with parameter
+$\lambda = 1$. Then
 
 $$
-\Pr{X \ge n} = \sum_{k=n}^\infty \frac{e^{-1}}{k!} \ge \frac{e^{-1}}{k!}
+\Pr{X \ge n}
+= \int_n^\infty e^{-x} dx
+= e^{-n}.
 $$
 
-where the inequality follows because the all of the terms in the series are positive (which
-implies that the infinite sum is no less than the first term). Since $X$ is nonnegative,
-setting $t = n$ in the upper bound on $\Pr{X \ge n}$ yields
+Since $X$ is nonnegative, setting $t = n$ in the upper bound on $\Pr{X \ge n}$ yields
 
 $$
 \Pr{X \ge n} \le \E{X^n} / {n^n}.
 $$
 
-Need an upper bound on $\E{X^n}.$
+Using the moment generating function to compute $\E{X^n}$:
 
+$$
+\begin{align}
+\E{X^n}
+&= \left. \frac{d^n \psi}{dt^n} \right|_{t=0} \\
+&= \left. \frac{d^n}{dt^n} \left( \frac{1}{1 - t} \right) \right|_{t=0} \\
+&= \left. \frac{n!}{(1 - t)^{n+1}} \right|_{t=0} \\
+&= n!
+\end{align}
+$$
+
+where we have used the fact the moment generating function for exponential random variables
+is $\psi(t) = \lambda / (\lambda - t).$ Putting these pieces together yields the desired
+bound on $n!$:
+
+$$
+e^{-n}
+= \Pr{X \ge n}
+\le \frac{\E{X^n}}{n^n}
+\le \frac{n!}{n^n}.
+$$
 
 --------------------------------------------------------------------------------------------
