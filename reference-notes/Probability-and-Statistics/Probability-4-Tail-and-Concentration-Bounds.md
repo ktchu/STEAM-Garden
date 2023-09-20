@@ -55,16 +55,16 @@ Table of Contents
 
 * __Markov's Inequality__. For nonnegative random variables,
 
-  \[
-    P(X \ge a) \le \frac{\mathbb{E} [X]}{a}
-  \]
+  $$
+  P(X \ge a) \le \frac{\mathbb{E} [X]}{a}
+  $$
 
   * Markov's inequality yields a nice bound on the probability that $X$ is
     greater than a multiple its expected value:
 
-    \[
-      P(X \ge \alpha E[X]) \le 1 / \alpha.
-    \]
+    $$
+    P(X \ge \alpha E[X]) \le 1 / \alpha.
+    $$
 
 * Chebyshev's inequality
   * TODO
@@ -90,10 +90,10 @@ Table of Contents
 A random variable $X$ with mean $\mu = E[X]$ is _sub-Gaussian_ if there is a
 positive number $\sigma$ such that
 
-\[
+$$
 E\left[ e^{\lambda (X - \mu)} \right] \le e^{\sigma^2 \lambda^2 / 2}
 \text{ for all } \lambda \in \mathbb{R}.
-\]
+$$
 
 ### Equivalent Characterizations
 
@@ -102,10 +102,10 @@ equivalent.
 
 * The moment-generating function satisfies the following bound:
 
-  \[
-    E\left[ e^{\lambda X} \right] \le e^{\lambda^2 \sigma^2 / 2}
-    \text{ for all } \lambda \in \mathbb{R},
-  \]
+  $$
+  E\left[ e^{\lambda X} \right] \le e^{\lambda^2 \sigma^2 / 2}
+  \text{ for all } \lambda \in \mathbb{R},
+  $$
 
   where $\sigma$ is a constant.
 
@@ -113,30 +113,30 @@ equivalent.
   than 1 of the tail probability for a Gaussian random variable
   $Z \sim \mathcal{N}(0, \tau^2)$:
 
-  \[
-    P(|X| \ge t) \le c P(|Z| \ge t)
-    \text{ for all } t \ge 0,
-  \]
+  $$
+  P(|X| \ge t) \le c P(|Z| \ge t)
+  \text{ for all } t \ge 0,
+  $$
 
   where $c \ge 1$.
 
 * The even moments of $X$ satisy the following bound:
 
-  \[
-    E\left[ X^{2k} \right] \le \frac{(2k)!}{2^k k!} \theta^{2k}
-    \text{ for all } k = 1, 2, \ldots
-  \]
+  $$
+  E\left[ X^{2k} \right] \le \frac{(2k)!}{2^k k!} \theta^{2k}
+  \text{ for all } k = 1, 2, \ldots
+  $$
 
   where $\theta \ge 0$.
 
 * The expectation value of $\exp \left(\frac{\lambda X^2}{2 \sigma^2}\right)$
   satisfies the following bound:
 
-  \[
-    E[ e^{\frac{\lambda X^2}{2 \sigma^2}} ]
-    \le \frac{1}{\sqrt{1 - \lambda}}
-    \text{ for all } 0 \le \lambda < 1.
-  \]
+  $$
+  E[ e^{\frac{\lambda X^2}{2 \sigma^2}} ]
+  \le \frac{1}{\sqrt{1 - \lambda}}
+  \text{ for all } 0 \le \lambda < 1.
+  $$
 
 ### Properties
 
@@ -144,25 +144,25 @@ equivalent.
 
   _Proof_. If $X$ is sub-Gaussian, then
 
-  \[
-    E\left[ e^{\lambda (X - \mu)} \right] \le e^{\sigma^2 \lambda^2 / 2}
-    \text{ for all } \lambda \in \mathbb{R},
-  \]
+  $$
+  E\left[ e^{\lambda (X - \mu)} \right] \le e^{\sigma^2 \lambda^2 / 2}
+  \text{ for all } \lambda \in \mathbb{R},
+  $$
 
   which is equivalent to
 
-  \[
-    E\left[ e^{-\lambda (X - \mu)} \right] \le e^{\sigma^2 \lambda^2 / 2}
-    \text{ for all } \lambda \in \mathbb{R}.
-  \]
+  $$
+  E\left[ e^{-\lambda (X - \mu)} \right] \le e^{\sigma^2 \lambda^2 / 2}
+  \text{ for all } \lambda \in \mathbb{R}.
+  $$
 
   Let $Y = -X$. Then $E[Y] = -\mu$. In terms of $Y$ and $E[Y]$, the above
   inequality becomes
 
-  \[
-    E\left[ e^{\lambda (Y - E[Y])} \right] \le e^{\sigma^2 \lambda^2 / 2}
-    \text{ for all } \lambda \in \mathbb{R}.
-  \]
+  $$
+  E\left[ e^{\lambda (Y - E[Y])} \right] \le e^{\sigma^2 \lambda^2 / 2}
+  \text{ for all } \lambda \in \mathbb{R}.
+  $$
 
   Therefore $Y$ is sub-Gaussian. The same reasoning with $X$ replaced by
   $Y = -X$ yields the converse statement.
@@ -175,15 +175,17 @@ equivalent.
   _Proof_. Let $\mu_i = E[X_i]$ so that $E[Y] = \sum_i \alpha_i \mu_i$. The
   following chain of equalities and inequalities yields the desired result:
 
-  \[
-    E\left[ e^{\lambda (Y - E[Y])} \right]
-    = E\left[ e^{\lambda \left( \sum_i \alpha_i (X_i - \mu_i) \right)} \right]
-    = \prod_i E\left[ e^{\lambda \alpha_i (X_i - \mu_i)} \right]
-    = \prod_i E\left[ e^{\lambda \alpha_i (X_i - \mu_i)} \right] \\
-    \le \prod_i e^{\sigma_i^2 (\lambda \alpha_i)^2 / 2}
-    = \prod_i e^{\alpha_i^2 \sigma_i^2 \lambda^2 / 2}
-    = e^{\left( \sum_i \alpha_i^2 \sigma_i^2 \right) \lambda^2 / 2}.
-  \]
+  $$
+  \begin{align}
+  E\left[ e^{\lambda (Y - E[Y])} \right]
+  &= E\left[ e^{\lambda \left( \sum_i \alpha_i (X_i - \mu_i) \right)} \right] \\
+  &= \prod_i E\left[ e^{\lambda \alpha_i (X_i - \mu_i)} \right] \\
+  &= \prod_i E\left[ e^{\lambda \alpha_i (X_i - \mu_i)} \right] \\
+  &\le \prod_i e^{\sigma_i^2 (\lambda \alpha_i)^2 / 2} \\
+  &= \prod_i e^{\alpha_i^2 \sigma_i^2 \lambda^2 / 2} \\
+  &= e^{\left( \sum_i \alpha_i^2 \sigma_i^2 \right) \lambda^2 / 2}.
+  \end{align}
+  $$
 
 ### Tail and Concentration Bounds
 
@@ -197,36 +199,36 @@ equivalent.
 
   _Proof_.
 
-  \[
+  $$
   P(X - \mu \ge t)
   = P\left( e^{\lambda (X - \mu)} \ge e^{\lambda t} \right)
   \le \frac{ E\left[ e^{\lambda(X - \mu)} \right] }{ e^{\lambda t} }
   \le e^{\sigma^2 \lambda^2 / 2 - \lambda t}
-  \]
+  $$
 
   where the first inequality follows by applying Markov's inequality to the
   random variable $e^{\lambda (X - \mu)}$ and the second inequality follows
   because $X$ is sub-Gaussian. Minimizing $\lambda$ yields the Chernoff
   bound
 
-  \[
+  $$
   P(X - \mu \ge t) \le e^{-\frac{t^2}{2 \sigma^2}}.
-  \]
+  $$
 
   Because $-X$ is also sub-Gaussian, we can apply the same reasoning to $-X$
   to obtain
 
-  \[
+  $$
   P(X - \mu \le -t) = P(-X + \mu \ge t) \le e^{-\frac{t^2}{2 \sigma^2}}.
-  \]
+  $$
 
   Finally, combining these two tail bounds yields the concentration bound
 
-  \[
+  $$
   P(|X - \mu| \ge t)
   = P(X - \mu \ge t) + P(X - \mu \le -t)
   \le 2 e^{-\frac{t^2}{2 \sigma^2}}.
-  \]
+  $$
 
 ### Examples
 
@@ -254,10 +256,10 @@ equivalent.
 A random variable $X$ with mean $\mu = E[X]$ is _sub-exponential_ if there
 are non-negative parameters $(\nu, b)$ such that
 
-\[
+$$
 E\left[ e^{\lambda (X - \mu)} \right] \le e^{\nu^2 \lambda^2 / 2}
 \text{ for all } |\lambda| < \frac{1}{b}.
-\]
+$$
 
 ### Equivalent Characterizations
 
@@ -266,10 +268,10 @@ equivalent.
 
 * The moment-generating function satisfies the following bound:
 
-  \[
-    E\left[ e^{\lambda X} \right] \le e^{\lambda^2 \nu^2 / 2}
-    \text{ for all } |\lambda| < 1 / b
-  \]
+  $$
+  E\left[ e^{\lambda X} \right] \le e^{\lambda^2 \nu^2 / 2}
+  \text{ for all } |\lambda| < 1 / b
+  $$
 
   where $\nu$ and $b$ are constants.
 
@@ -278,18 +280,18 @@ equivalent.
 
 * The tail probability of $X$ is bounded by an exponentially decaying function:
 
-  \[
-    P(|X| \ge t) \le c_1 e^{-c_2 t}
-    \text{ for all } t \ge 0,
-  \]
+  $$
+  P(|X| \ge t) \le c_1 e^{-c_2 t}
+  \text{ for all } t \ge 0,
+  $$
 
   where $c_1, c_2 \ge 0$.
 
 * The moments of $X$ satisfy the property:
 
-  \[
-    \sup_{k \ge 2} \left( \frac{E[ X^k]}{k!} \right)^{1/k} < \infty.
-  \]
+  $$
+  \sup_{k \ge 2} \left( \frac{E[ X^k]}{k!} \right)^{1/k} < \infty.
+  $$
 
 ### Properties
 * A random variable $X$ is sub-exponential if and only if $-X$ is
@@ -297,25 +299,25 @@ equivalent.
 
   _Proof_. If $X$ is sub-exponential, then
 
-  \[
-    E\left[ e^{\lambda (X - \mu)} \right] \le e^{\nu^2 \lambda^2 / 2}
-    \text{ for all } |\lambda| < \frac{1}{b},
-  \]
+  $$
+  E\left[ e^{\lambda (X - \mu)} \right] \le e^{\nu^2 \lambda^2 / 2}
+  \text{ for all } |\lambda| < \frac{1}{b},
+  $$
 
   which is equivalent to
 
-  \[
-    E\left[ e^{-\lambda (X - \mu)} \right] \le e^{\nu^2 \lambda^2 / 2}
-    \text{ for all } |\lambda| < \frac{1}{b}.
-  \]
+  $$
+  E\left[ e^{-\lambda (X - \mu)} \right] \le e^{\nu^2 \lambda^2 / 2}
+  \text{ for all } |\lambda| < \frac{1}{b}.
+  $$
 
   Let $Y = -X$. Then $E[Y] = -\mu$. In terms of $Y$ and $E[Y]$, the above
   inequality becomes
 
-  \[
-    E\left[ e^{\lambda (Y - E[Y])} \right] \le e^{\nu^2 \lambda^2 / 2}
-    \text{ for all } |\lambda| < \frac{1}{b}.
-  \]
+  $$
+  E\left[ e^{\lambda (Y - E[Y])} \right] \le e^{\nu^2 \lambda^2 / 2}
+  \text{ for all } |\lambda| < \frac{1}{b}.
+  $$
 
   Therefore $Y$ is sub-exponential. The same reasoning with $X$ replaced by
   $Y = -X$ yields the converse statement.
@@ -328,15 +330,17 @@ equivalent.
   _Proof_. Let $\mu_i = E[X_i]$ so that $E[Y] = \sum_i \alpha_i \mu_i$. The
   following chain of equalities and inequalities yields the desired result:
 
-  \[
-    E\left[ e^{\lambda (Y - E[Y])} \right]
-    = E\left[ e^{\lambda \left( \sum_i \alpha_i (X_i - \mu_i) \right)} \right]
-    = \prod_i E\left[ e^{\lambda \alpha_i (X_i - \mu_i)} \right]
-    = \prod_i E\left[ e^{\lambda \alpha_i (X_i - \mu_i)} \right] \\
-    \le \prod_i e^{\nu_i^2 (\lambda \alpha_i)^2 / 2}
-    = \prod_i e^{\alpha_i^2 \nu_i^2 \lambda^2 / 2}
-    = e^{\left( \sum_i \alpha_i^2 \nu_i^2 \right) \lambda^2 / 2},
-  \]
+  $$
+  \begin{align}
+  E\left[ e^{\lambda (Y - E[Y])} \right]
+  &= E\left[ e^{\lambda \left( \sum_i \alpha_i (X_i - \mu_i) \right)} \right] \\
+  &= \prod_i E\left[ e^{\lambda \alpha_i (X_i - \mu_i)} \right] \\
+  &= \prod_i E\left[ e^{\lambda \alpha_i (X_i - \mu_i)} \right] \\
+  &\le \prod_i e^{\nu_i^2 (\lambda \alpha_i)^2 / 2} \\
+  &= \prod_i e^{\alpha_i^2 \nu_i^2 \lambda^2 / 2} \\
+  &= e^{\left( \sum_i \alpha_i^2 \nu_i^2 \right) \lambda^2 / 2},
+  \end{align}
+  $$
 
   where the inequality holds only if $|\lambda \alpha_i| < 1 / b_i$ for all
   $i$. Choosing $|\lambda| < \frac{1}{\max_i |\alpha_i| b_i}$ satisfies this
