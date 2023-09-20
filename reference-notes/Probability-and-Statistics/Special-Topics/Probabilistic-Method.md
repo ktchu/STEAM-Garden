@@ -1,5 +1,5 @@
-Probability and Statistics: Special Topics
-==========================================
+Probability and Statistics: Special Topics - The Probabilistic Method
+=====================================================================
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
@@ -44,48 +44,15 @@ Table of Contents
 
 --------------------------------------------------------------------------------------------
 
-## 1. Geometric Perspective for Random Variables
-
-* Random variable is a vector space
-
-* Norm: $\Vert X \Vert_{L^p} = \left( E\left[ |X|^p \right] \right)^{1/p}$
-  where $p \in [1, \infty]$.
-
-  * Triangle inequality property follows from Minkowski's inequality.
-
-  * $\Vert X \Vert_{L^p}$ is an increasing function of $p$. If $q > p$,
-
-    $$
-    \Vert X \Vert_{L^p} \le \Vert X \Vert_{L^q}.
-    $$
-
-    _Proof_. If $q \ge p$, Jensen's inequality implies that
-
-    $$
-    \left( \E{X^p}\right)^{q/p} \le \E{X^q},
-    $$
-
-    which is equivalent to the desired inequality.
-
-* Geometric Representation of Probability Concepts
-
-  * $\Var{X} = \Vert X \Vert_{L^2}^2$
-
-  * $\Cov{X} = \langle X - \E{X}, Y - \E{Y} \rangle_{L^2}$
-
-  * Minkowski's inequality
-
-  * Cauchy-Schwarz inequality
-
-  * Holder's inequality
+## 1. TODO
 
 --------------------------------------------------------------------------------------------
 
 ## 5. References
 
-1. R. Vershynin. "High-Dimensional Probability". (2018)
+1. R. Motwani and P. Raghavan. "Randomized Algorithms" (1995).
 
-2. M.J. Wainwright. "High-Dimensional Statistics: A Non-Asymptotic Viewpoint". (2019)
+2. S.M. Ross. "Stochastic Processes" (1996).
 
 --------------------------------------------------------------------------------------------
 

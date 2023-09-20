@@ -1,5 +1,5 @@
-Probability and Statistics: Toolbox
-===================================
+Probability: Toolbox
+====================
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
@@ -36,6 +36,10 @@ __Last Updated__: 2022-07-24
 --------------------------------------------------------------------------------------------
 
 ## 1. Toolbox
+
+### Probabilities in Terms of Expected Values Involving Indicator Variables
+
+* __Probability Identities__. TODO
 
 ### Symmetric Bernoulli/Rademacher Distribution
 
@@ -146,9 +150,11 @@ where the approximation error is $O\left( \E{(X - \mu)^3} \right)$.
 
 ## 2. References
 
-1. R. Vershynin. "High-Dimensional Probability". (2018)
+1. S.M. Ross. "Stochastic Processes" (1996).
 
-2. M.J. Wainwright. "High-Dimensional Statistics: A Non-Asymptotic Viewpoint". (2019)
+2. R. Vershynin. "High-Dimensional Probability". (2018)
+
+3. M.J. Wainwright. "High-Dimensional Statistics: A Non-Asymptotic Viewpoint". (2019)
 
 --------------------------------------------------------------------------------------------
 

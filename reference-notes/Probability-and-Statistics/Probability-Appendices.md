@@ -1,5 +1,5 @@
-Probability and Statistics: Appendices
-======================================
+Probability: Appendices
+=======================
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
@@ -46,20 +46,37 @@ C. [Useful Mathematical Functions][#C]
 
 --------------------------------------------------------------------------------------------
 
-## Appendix A. Useful Mathematical Definitions and Results
+## Appendix A. Basic Results From Set Theory
 
-* __Convergence in Distribution__. TODO
-  * pointwise convergencde of the CDF
+* __De Morgan's Laws__. Let $A_1, \ldots, A_n$ be arbitrary sets.
+
+  $$
+  \left( \cup_{i=1}^n A_i \right)^c = \cap_{i=1}^n A_i^c \\
+  \left( \cap_{i=1}^n A_i \right)^c = \cup_{i=1}^n A_i^c
+  $$
+
+* __Inclusion-Exclusion Principle__. Let $A_1, \ldots, A_n$ be arbitrary sets.
+
+  $$
+  \left| \bigcup_{i=1}^n A_i \right|
+  = \sum_{\emptyset \ne J \subseteq \{1, \ldots, n\}}
+    (-1)^{|J|+1} \left| \bigcap_{j \in J} A_j \right|
+  $$
+
+  _Important Special Case_. When the size of intersection of the sets in the
+  inclusion-exclusion formula only depends on the number sets in the intersection and not
+  the specific sets that appear, the inclusion-exclusion formula simplifies to
+
+  $$
+  \left| \bigcup_{i=1}^n A_i \right|
+  = \sum_{k=1}^n (-1)^{k-1} {n \choose k} \alpha_k
+  $$
+
+  where $\alpha_k = \left| \bigcap_{j \in J} A_j \right|$ for all $J$ with $|J| = k$.
 
 --------------------------------------------------------------------------------------------
 
 ## Appendix B. Useful Mathematical Identities and Inequalities
-
-* __Jensen's Inequality__. If $f$ is a convex function, then
-
-  $$
-  f(\E{X}) \le \E{f(X)}.
-  $$
 
 * __Minkowski's Inequality__. For $p \ge 1$,
 
@@ -80,6 +97,8 @@ C. [Useful Mathematical Functions][#C]
   $$
   \E{XY} \le \left( \E{|X|^p} \right)^{1/p} \left( \E{|Y|^q} \right)^{1/q}.
   $$
+
+  _Note_: the Cauchy-Schwarz Inequality is a special case of Holder's Inequality.
 
 --------------------------------------------------------------------------------------------
 
@@ -105,7 +124,7 @@ C. [Useful Mathematical Functions][#C]
 
 [----------------------------------- INTERNAL LINKS -----------------------------------]: #
 
-[#A]: #appendix-a-useful-mathematical-definitions-and-results
+[#A]: #appendix-a-basic-results-from-set-theory
 
 [#B]: #appendix-b-useful-mathematical-identities-and-inequalities
 

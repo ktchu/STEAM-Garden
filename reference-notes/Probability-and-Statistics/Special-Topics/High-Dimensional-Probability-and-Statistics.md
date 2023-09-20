@@ -1,5 +1,5 @@
-Probability and Statistics: High-Dimension Contexts
-===================================================
+Probability and Statistics: Special Topics - High-Dimensional TBD
+======================================================================================
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 

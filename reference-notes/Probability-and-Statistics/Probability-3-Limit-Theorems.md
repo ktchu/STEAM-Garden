@@ -1,5 +1,5 @@
-Probability and Statistics: Limit Theorems
-==========================================
+Probability: Limit Theorems
+===========================
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
@@ -45,6 +45,17 @@ Table of Contents
 
 * $\newcommand{\Cov}[1]{{\operatorname{Cov}}{\left(#1\right)}}$
   Covariance of $X$: $\Cov{X}$
+
+--------------------------------------------------------------------------------------------
+
+### 0. Convergence TODO
+
+* __Convergence in Distribution__. TODO
+  * pointwise convergence of the CDF
+
+* __Convergence in Probability__. TODO
+
+* __Convergence Almost Surely__. TODO
 
 --------------------------------------------------------------------------------------------
 

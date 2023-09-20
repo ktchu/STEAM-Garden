@@ -1,5 +1,5 @@
-Probability and Statistics: Tail and Concentration Bounds
-=========================================================
+Probability: Tail and Concentration Bounds
+==========================================
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 

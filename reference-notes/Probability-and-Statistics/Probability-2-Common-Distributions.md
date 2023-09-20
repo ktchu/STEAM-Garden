@@ -1,5 +1,5 @@
-Probability and Statistics: Common Distributions
-================================================
+Probability: Common Distributions
+=================================
 
 *Author(s)*: Kevin Chu `<kevin@velexi.com>`
 
