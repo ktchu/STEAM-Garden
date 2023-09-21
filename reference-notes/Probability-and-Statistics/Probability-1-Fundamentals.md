@@ -923,8 +923,10 @@ Table of Contents
     \le \frac{\var{X}}{t^2}.
     $$
 
-  * __Generic Chernoff Bound__. The moment-generating function can be used to compute
-    bounds on the probability contained in the upper tail of a probability distribution:
+  * __Generic Chernoff Bounds__. The moment-generating function can be used to compute
+    bounds on the probability contained in the upper tail of a probability distribution.
+
+    When $t > 0$,
 
     $$
     \Pr{X \ge a} = \Pr{e^{tX} \ge e^{ta}} \le e^{-at} \E{e^{tX}} = e^{-at} M(t)
@@ -933,7 +935,16 @@ Table of Contents
     where the first equality follows because $e^{tx}$ is a monotonically increasing
     function of $x$ when $t > 0$ and the inequality follows from Markov's inequality.
 
-    _Remark_. This bound for the tail probability forms the foundation of "optimal"
+    When $t < 0$,
+
+    $$
+    \Pr{X \le a} = \Pr{e^{tX} \ge e^{ta}} \le e^{-at} \E{e^{tX}} = e^{-at} M(t)
+    $$
+
+    where the first equality follows because $e^{tx}$ is a monotonically decreasing
+    function of $x$ when $t < 0$ and the inequality follows from Markov's inequality.
+
+    _Remark_. These bounds for the tail probabilities forms the foundation of "optimal"
     Chernoff bounds.
 
 * __Bounds on Moments__
