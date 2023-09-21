@@ -36,8 +36,6 @@ Table of Contents
 
    * 3.3. [Applications][#3.3]
 
-   * 3.4. [Other Useful Results][#3.4]
-
 4. [Basic Probability Bounds][#4]
 
 5. [References][#5]
@@ -705,8 +703,8 @@ Table of Contents
 
   * Random variables that are uncorrelated need not be independent.
 
-* __Bounds on the Values of a Random Variable__. If the expected value of a random variable
-  exists (i.e., is finite), then we are guaranteed the existence of
+* __Existence of the Values of a Random Variable__. If the expected value of a random
+  variable exists (i.e., is finite), then we are guaranteed the existence of
 
   * at least one instance of the random variable no greater than expected value and
 
@@ -758,9 +756,6 @@ Table of Contents
   * If two probability distributions have the same moment-generating or characteristic
     function, then they are identical (except possibly on a set of measure zero).
 
-* When a random variable has a moment-generating function $M(t)$, then the characteristic
-  function $\phi(t)$ can be extended to the complex plane and $M(t) = \phi(-it)$.
-
 * __Computing Moments__. The moments of a random variable $X$ can be computed
   from the derivatives of the moment-generating or characteristic function:
 
@@ -786,26 +781,49 @@ Table of Contents
   = i^n \E{X^n e^{itX}}.
   $$
 
-* __Linear Combinations of Random Variables__
+* __Probability Distributions of Sums of Independent Random Variables__
 
-  * If $X = \sum_{i=1}^n X_i$, then
+  * Moment-generating and characteristic functions are useful for calculating the
+    probability distributions of linear combinations of independent random variables.
 
-    $$
-    M_X(t) = \prod_{i=1}^n M_{X_i}(t)
-    $$
-
-    where $M_{X_i}(t)$ is the moment-generating functions for $X_i$.
-
-  * If $X = \sum_{i=1}^n \alpha_i X_i$, then
+  * Let $S = \sum a_k X_k$ where $X_k$ are independent random variables and the $a_k$ are
+    constants. Then the moment-generating function for $S$ is given by
 
     $$
-    M_X(t) = \prod_{i=1}^n M_{X_i}(\alpha_i t)
+      M_S(t) = \E{e^{tS}}
+      = \E{\exp\left( \sum_{k = 1}^N t a_k x_k \right)}
+      = \E{\prod_{k = 1}^N e^{t a_k x_k}}
+      = \prod_{k = 1}^N \E{e^{(a_k t) x_k}}
+      = \prod_{k = 1}^N M_{X_k}(at).
     $$
 
-    where $M_{X_i}(t)$ is the moment-generating functions for $X_i$.
+    where the second to last equality follows from the independence of the $X_k$ and
+    $M_{X_K}(t)$ is the moment-generating function for $X_k$.
 
-  * Analogous results hold with moment-generating functions replaced by characteristic
-    functions.
+  * Similarly, the characteristic function for $S$ is given by
+
+    $$
+      \phi_S(t) = \E{e^{itS}}
+      = \E{\exp\left( \sum_{k = 1}^N i t a_k x_k \right)}
+      = \E{\prod_{k = 1}^N e^{i t a_k x_k}}
+      = \prod_{k = 1}^N \E{e^{i (a_k t) x_k}}
+      = \prod_{k = 1}^N \phi_{X_k}(at)
+    $$
+
+  * In some situations, it is possible to invert $\phi_S(t)$ or $M_S(t)$ to obtain the
+    probability density function for the sum $S$.
+
+    * For some common distributions, it is possible to recognize that the
+      moment-generating/characteristic function for a sum is equal to the
+      moment-generating/characteristic function for a known distribution.
+
+    * Laplace transform tables are useful for inverting $M_S(t)$.
+
+    * Fourier transform tables are useful for inverting $\phi_S(t)$.
+
+    * When inversion tables are insufficient, contour integration techniques (including
+      approximation methods) can be useful to analyze the properties of the probability
+      density function.
 
 * __Linear Transformations of Random Variables__. If $S = aX + b$, then the
   moment-generating and characteristic functions for $S$ are
@@ -817,103 +835,13 @@ Table of Contents
   \end{align}
   $$
 
-### 3.3. Applications
+* __Other Results__
+  * For random variables that are nonnegative, it can be more convenient to work with the
+    Laplace transform of the random variable instead of the moment-generating or
+    characteristic function.
 
-* __Probability Distributions of Sums of Independent Random Variables__
-
-  * Characteristic and moment-generating functions are useful for calculating the
-    probability distributions of linear combinations of independent random variables.
-
-  * Let $S = \sum a_k X_k$ where $X_k$ are independent random variables and the $a_k$ are
-    constants. Then the characteristic function for $S$ is given by
-
-    $$
-      \phi(t) = \E{e^{itS}}
-      = \E{e^{\sum_{k = 1}^N it a_k x_k}}
-      = \E{\prod_{k = 1}^N e^{it a_k x_k}}
-      = \prod_{k = 1}^N \E{e^{it a_k x_k}}
-      = \prod_{k = 1}^N \phi_k(at)
-    $$
-
-    where the second to last equality follows from the independence of the
-    $X_k$ and $\phi_k(t)$ is the characteristic function for $X_k$.
-
-  * Similarly, the moment-generating function for $S$ is given by
-
-    $$
-      M(t) = \E{e^{tS}}
-      = \E{e^{\sum_{k = 1}^N t a_k x_k}}
-      = \E{\prod_{k = 1}^N e^{t a_k x_k}}
-      = \prod_{k = 1}^N \E{e^{t a_k x_k}}
-      = \prod_{k = 1}^N M_k(at).
-    $$
-
-  * In some situations, it is possible to invert $\phi(t)$ or $M(t)$ to obtain the
-    probability density function for the sum $S$.
-
-    * For some common distributions, it is possible to recognize that the
-      characteristic/moment-generating function for a sum is equal to the
-      characteristic/moment-generating function for a known distribution.
-
-    * Laplace transform tables are useful for inverting $M(t)$.
-
-    * Fourier transform tables are useful for inverting $\phi(t)$.
-
-    * When inversion tables are insufficient, contour integration techniques (including
-      approximation methods) can be useful to analyze the properties of the probability
-      density function.
-
-* __Bounding Moments__.
-
-  * __Lower Bound on MGF__. The MGF of a random variable is bounded from below by
-    $e^{t}$ where $\mu = \E{X}$:
-
-    $$
-    M(t) \ge e^{\mu t}.
-    $$
-
-    _Proof_. The bound follows directly from Jensen's inequality because $e^{tx}$ is a
-    convex function of $x$.
-
-  * (Corollary) __Upper Bound on $\E{X}$__. The expected value of $X$ is bounded above by
-    $(M(t) - 1) / t$.
-
-    _Proof_. The bound follows directly the previous result and the inequality
-    $1 + x \le e^x$.
-
-  * __Upper Bound on the Moments of $X$__. The $m$-th moment of $X$ is bounded from above:
-
-    $$
-    E[X^m] \le \left( \frac{m}{te} \right)^m M(t).
-    $$
-
-    _Proof_. Letting $z = Xt/m - 1$ in the inequality $1 + z \le e^z$ and rearranging, we
-    obtain the inequality
-
-    $$
-    X^m \le \left( \frac{m}{te} \right)^m e^{tX}.
-    $$
-
-    Taking the expected value of both sides yields the desired result.
-
-* __Bounding Upper Tail Probabilities__. The moment-generating function can be used to
-  compute bounds on the probability contained in the upper tail of a probability
-  distribution:
-
-  $$
-    \Pr{X \ge a} = \Pr{e^{tX} \ge e^{ta}} \le e^{-at} \E{e^{tX}} = e^{-at} M(t)
-  $$
-
-  where the first equality follows because $e^{tx}$ is a monotonically increasing function
-  of $x$ when $t > 0$ and the inequality follows from Markov's inequality.
-
-  _Remark_. This bound for the tail probability forms the foundation of Chernoff bounds.
-
-### 3.4. Other Useful Results
-
-* For random variables that are nonnegative, it can be more convenient to work with the
-  Laplace transform of the random variable (instead of the moment-generating or
-  characteristic functions).
+  * When a random variable has a moment-generating function $M(t)$, then the characteristic
+    function $\phi(t)$ can be extended to the complex plane and $M(t) = \phi(-it)$.
 
 --------------------------------------------------------------------------------------------
 
@@ -924,6 +852,19 @@ Table of Contents
   $$
   f(\E{X}) \le \E{f(X)}.
   $$
+
+* __Union Bound__. Let $A_1, \ldots$ be a collection of events. Then the probability
+  that probability any of the events occurs (i.e., the union of the events) is bounded by
+  sum of the probabilities of the individual events:
+
+  $$
+  \Pr{\textrm{any of the $A_i$ occurs}}
+  = \Pr{\bigcup_{i=1}^\infty A_i}
+  \le \sum_{i=1}^\infty \Pr{A_i}.
+  $$
+
+  _Remark_. The expression on the right-hand side of the inequality is the first term of
+  the inclusion-exclusion principle.
 
 * __Basic Tail Bounds__
 
@@ -982,36 +923,44 @@ Table of Contents
     \le \frac{\var{X}}{t^2}.
     $$
 
-* __Union Bound__. Let $A_1, \ldots, A_n$ be a collection of events. Then the probability
-  that probability any of the events occurs (i.e., the union of the events) is bounded by
-  sum of the probabilities of the individual events:
+  * __Generic Chernoff Bound__. The moment-generating function can be used to compute
+    bounds on the probability contained in the upper tail of a probability distribution:
 
-  $$
-  \Pr{\textrm{any of the $A_i$ occurs}}
-  = \Pr{A_1 \cup \cdots \cup A_n}
-  \le \Pr{A_1} + \cdots + \Pr{A_n}.
-  $$
+    $$
+    \Pr{X \ge a} = \Pr{e^{tX} \ge e^{ta}} \le e^{-at} \E{e^{tX}} = e^{-at} M(t)
+    $$
 
-  _Remark_. The expression on the right-hand side of the inequality is the first term of
-  the inclusion-exclusion principle.
+    where the first equality follows because $e^{tx}$ is a monotonically increasing
+    function of $x$ when $t > 0$ and the inequality follows from Markov's inequality.
 
-* __Bounds on Moment Generating Function__. TODO
+    _Remark_. This bound for the tail probability forms the foundation of "optimal"
+    Chernoff bounds.
 
-  The moment-generating function is bounded below by $e^{\mu t}$ where
-  $\mu$ is the mean of $X$: $M(t) \ge e^{\mu t}$.
+* __Bounds on Moments__
 
-  _Proof_. The bound follows directly from Jensen's inequality because $e^{tx}$ is a convex
-  function of $x$.
+  * __Upper Bound on $e^{\mu t}$__. Let $\mu = \E{X}$. Then
 
-* __Bounds on Moments__. TODO
+    $$
+    e^{\mu t} \le M(t).
+    $$
 
-  $$
-  \E{X^m}
-  \le \left( \frac{m}{te} \right)^m \E{e^{tX}}
-  = \left( \frac{m}{te} \right)^m M(t)
-  $$
+    _Proof_. The bound follows directly from Jensen's inequality because $e^{tx}$ is a
+    convex function of $x$.
 
-  where $M(t)$ is the moment generating function.
+  * __Upper Bounds on the Moments__. The $m$-th moment of $X$ is bounded from above:
+
+    $$
+    E[X^m] \le \left( \frac{m}{te} \right)^m M(t).
+    $$
+
+    _Proof_. Letting $z = Xt/m - 1$ in the inequality $1 + z \le e^z$ and rearranging, we
+    obtain the inequality
+
+    $$
+    X^m \le \left( \frac{m}{te} \right)^m e^{tX}.
+    $$
+
+    Taking the expected value of both sides yields the desired result.
 
 --------------------------------------------------------------------------------------------
 
@@ -1051,9 +1000,8 @@ Table of Contents
 [#3.1]: #31-fundamental-concepts
 [#3.2]: #32-basic-results
 [#3.3]: #33-applications
-[#3.4]: #34-other-useful-results
 
-[#4]: #4-probability-bounds
+[#4]: #4-basic-probability-bounds
 
 [#5]: #5-references
 
