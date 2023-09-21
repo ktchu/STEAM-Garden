@@ -853,6 +853,35 @@ Table of Contents
   f(\E{X}) \le \E{f(X)}.
   $$
 
+  _Proof_. Let $\mu = \E{X}$. Under the assumption that $f$ is twice-differentiable at
+  $\mu$ and $f'$ is continuous on an interval containing $\mu$, $f(x)$ can be represented
+  by the first-order Taylor polynomial at $\mu$:
+
+  $$
+  f(x) = f(\mu) + f'(\mu) (x - \mu) + \frac{f''(\xi)}{2} (x - \mu)^2
+  $$
+
+  where $\xi$ lies between $\mu$ and $x$. Since $f$ is convex, $f''(\xi) \ge 0$, which
+  implies that
+
+  $$
+  f(x) \ge f(\mu) + f'(\mu) (x - \mu).
+  $$
+
+  Taking expectations, we find that
+
+  $$
+  \begin{align}
+  \E{f(X)}
+  &\ge \E{f(\mu) + f'(\mu) (x - \mu)} \\
+  &= f(\mu) + f'(\mu) \E{x - \mu} \\
+  &= f(\mu) + f'(\mu) \left( \E{x} - \mu \right) \\
+  &= f(\mu)
+  \end{align}
+  $$
+
+  where the last equality follows because $\E{x} = \mu$.
+
 * __Union Bound__. Let $A_1, \ldots$ be a collection of events. Then the probability
   that probability any of the events occurs (i.e., the union of the events) is bounded by
   sum of the probabilities of the individual events:
