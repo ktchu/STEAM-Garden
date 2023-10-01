@@ -265,31 +265,210 @@ Suppose that $n$ independent trials -- each of which results in either outcome
 $1, 2, \ldots, r$ with respective probabilities $p_1, p_2, \ldots, p,$ -- are performed,
 $\sum_1^r p_i = 1.$ Let $N_i$ denote the number of trials resulting in outcome $i$.
 
-#### 1.5..
+#### 1.5.a.
 
 __Problem__. Compute the joint distribution of $N_1, \ldots, N_r.$ This is called the
 _multinomial_ distribution.
 
-__Solution__. TODO
+__Solution__.
+
+$$
+\begin{align}
+\Pr{N_1 = n_1, \ldots, N_r = n_r}
+&= \frac{n!}{n_1! \cdots n_k!} p_1^{n_1} \cdots p_k^{n_k} \\
+&= {n \choose n_1, n_2, \ldots, n_r} \prod_{k=1}^r p_k^{n_k}
+\end{align}
+$$
+
+where $n = \sum_{k=1}^r n_k$.
 
 #### 1.5.b.
 
 __Problem__. Compute $\cov{N_i}{N_j}$.
 
-__Solution__. TODO
+__Solution__. As we will see below, $\E{N_i N_j} = n (n-1) p_i p_j$ and $\E{N_i} = n p_i$.
+Therefore,
+
+$$
+\cov{N_i}{N_j}
+= \E{N_i N_j} - \E{N_i} \E{N_j}
+= -n p_i p_j
+$$
+
+The expectation values required for this calculation are computed below using two different
+methods.
+
+_Using Indicator Functions_
+
+Let $N_i = \sum_{k=1}^n I_{ik}$ where $I_{ik}$ is the indicator function for the event that
+the $k$-th trial has outcome $i$. Then
+
+$$
+\begin{align}
+\E{N_i}
+&= \E{\sum_{k=1}^n I_{ik}} \\
+&= \sum_{k=1}^n \E{I_{ik}} \\
+&= \sum_{k=1}^n \Pr{\textrm{$k$-th trial has outcome $i$}} \\
+&= \sum_{k=1}^n p_i \\
+&= n p_i \\
+\\
+\E{N_i N_j}
+&= \E{\left( \sum_{k=1}^n I_{ik} \right) \left( \sum_{k=1}^n I_{jk} \right)} \\
+&= \sum_{k=1}^n \sum_{l=1}^n \E{I_{ik} I_{jl}} \\
+&= \sum_{k=1}^n \sum_{l=1}^n
+   \Pr{\textrm{$k$-th trial has outcome $i$ and $l$-th trial has outcome $j$}} \\
+&= \sum_{k=1}^n
+   \Pr{\textrm{$k$-th trial has outcome $i$ and $k$-th trial has outcome $j$}}
+ + \sum_{k=1, l=1, k \ne l}^n
+   \Pr{\textrm{$k$-th trial has outcome $i$ and $k$-th trial has outcome $j$}} \\
+&= n \cdot 0 + \sum_{k=1, l=1, k \ne l}^n p_i p_j \\
+&= n (n-1) p_i p_j
+\end{align}
+$$
+
+where the zero in the second to last line results from the fact a trial cannot
+simultaneously have outcome $i$ and $j$ when $i \ne j$.
+
+_Direct Computation_
+
+$$
+\begin{align}
+\E{N_i}
+&= \sum_{n_1 + \cdots + n_r=n} n_i \left( \frac{n!}{n_1! \cdots n_i! \cdots n_k!}
+   p_1^{n_1} \cdots p_i^{n_i} \cdots p_k^{n_k} \right) \\
+&= \sum_{n_i=0}^n \left[ {\sum'}_{n_1 + \cdots + n_r=n - n_i}
+     n_i \left( \frac{n!}{n_1! \cdots n_i! \cdots n_k!}
+     p_1^{n_1} \cdots p_i^{n_i} \cdots p_k^{n_k} \right) \right]
+\end{align}
+$$
+
+where $\sum'$ is defined as the sum over all possible values $n_j$ that sum to $(n-n_i)$
+when $n_i$ is excluded. Continuing,
+
+$$
+\begin{align}
+\E{N_i}
+&= \sum_{n_i=0}^n \frac{n_i n! p_i^{n_i}}{n_i!(n-n_i)!}
+   \left[ {\sum'}_{n_1 + \cdots + n_r=n - n_i}
+     \left( \frac{(n-n_i)!}{n_1! \cdots \cdots n_k!}
+     p_1^{n_1} \cdots p_k^{n_k} \right) \right] \\
+&= \sum_{n_i=1}^n \frac{n_i n! p_i^{n_i}}{n_i!(n-n_i)!}
+   \left[ {\sum'}_{n_1 + \cdots + n_r=n - n_i}
+     \left( \frac{(n-n_i)!}{n_1! \cdots \cdots n_k!}
+     p_1^{n_1} \cdots p_k^{n_k} \right) \right] \\
+&= n p_i \sum_{n_i=1}^n \frac{(n-1)! p_i^{n_i-1}}{(n_i-1)!(n-n_i)!}
+   \left( \sum_{k=1, k \ne i}^r p_k \right)^{n-n_i} \\
+&= n p_i \sum_{n_i=1}^n {n - 1 \choose n_i - 1} p_i^{n_i-1} ( 1 - p_i )^{n-n_i} \\
+&= n p_i \sum_{n_i=0}^{n-1} {n - 1 \choose n_i} p_i^{n_i} ( 1 - p_i )^{(n-1)-n_i} \\
+&= n p_i (p_i + (1-p_i))^{n-1} \\
+&= n p_i
+\end{align}
+$$
+
+where the products in the inner sum exclude any factors involving the $i$-th outcome and
+we have used the fact that $\sum' p_k = 1 - p_i$.
+
+Similarly,
+
+$$
+\begin{align}
+\E{N_i N_j}
+&= \sum_{k=1} n_i n_j \left( \frac{n!}{n_1! \cdots n_i! \cdots n_j! \cdots n_k!}
+   p_1^{n_1} \cdots p_i^{n_i} \cdots p_j^{n_j} \cdots p_k^{n_k} \right) \\
+&= \sum_{n_i=0}^n \sum_{n_j=0}^{n-n_i}
+   \left[ {\sum''}_{n_1 + \cdots + n_r=n - n_i - n_j}
+     \left( \frac{n!}{n_1! \cdots n_i! \cdots n_j! \cdots n_k!}
+     p_1^{n_1} \cdots p_i^{n_i} \cdots p_j^{n_j} \cdots p_k^{n_k} \right) \\
+   \right] \\
+\end{align}
+$$
+
+where $\sum''$ is defined as the sum over all possible values $n_j$ that sum to
+$(n-n_i-n_j)$ when $n_i$ and $n_j$ are excluded. Continuing,
+
+$$
+\begin{align}
+\E{N_i N_j}
+&= \sum_{n_i=0}^n \sum_{n_j=0}^{n-n_i}
+   \frac{n_i n_j p_i^{n_i} p_j^{n_j} n!}{n_i! n_j! (n-n_i-n_j)!}
+   \left[ {\sum''}_{n_1 + \cdots + n_r=n - n_i - n_j}
+     \left( \frac{(n-n_i-n_j)!}{n_1! \cdots \cdots n_k!}
+     p_1^{n_1} \cdots p_k^{n_k} \right) \right] \\
+&= \sum_{n_i=1}^{n-1} \sum_{n_j=1}^{n-n_i}
+   \frac{n_i n_j p_i^{n_i} p_j^{n_j} n!}{n_i! n_j! (n-n_i-n_j)!}
+   \left[ {\sum''}_{n_1 + \cdots + n_r=n - n_i - n_j}
+     \left( \frac{(n-n_i-n_j)!}{n_1! \cdots \cdots n_k!}
+     p_1^{n_1} \cdots p_k^{n_k} \right) \right] \\
+&= n (n-1) p_i p_j \sum_{n_i=1}^{n-1} \sum_{n_j=1}^{n-n_i}
+   \frac{(n-2)! p_i^{n_i-1} p_j^{n_j-1}}{(n_i-1)! (n_j-1)! (n-n_i-n_j)!}
+   \left( \sum_{k=1, k \ne i,j}^r p_k \right)^{n-n_i-n_j} \\
+&= n (n-1) p_i p_j \sum_{n_i=1}^{n-1} \frac{(n-2)! p_i^{n_i-1}}{(n_i-1)! (n - 1 - n_i)!}
+   \sum_{n_j=1}^{n-n_i} \frac{(n - 1 - n_i)!}{(n_j-1)! (n-n_i-n_j)!}
+   p_j^{n_j-1} (1 - p_i - p_j)^{n-n_i-n_j} \\
+&= n (n-1) p_i p_j \sum_{n_i=1}^{n-1} {n-2 \choose n_i-1} p_i^{n_i-1}
+   \sum_{n_j=0}^{n-1-n_i} {n - 1 - n_i \choose n_j}
+   p_j^{n_j} (1 - p_i - p_j)^{n-1-n_i-n_j} \\
+&= n (n-1) p_i p_j \sum_{n_i=1}^{n-1} {n-2 \choose n_i-1}
+   p_i^{n_i-1} (p_j + 1 - p_i - p_j)^{n-1-n_i} \\
+&= n (n-1) p_i p_j \sum_{n_i=1}^{n-1} {n-2 \choose n_i-1} p_i^{n_i-1} (1 - p_i)^{n-1-n_i} \\
+&= n (n-1) p_i p_j \sum_{n_i=0}^{n-2} {n-2 \choose n_i} p_i^{n_i} (1 - p_i)^{n-2-n_i} \\
+&= n (n-1) p_i p_j (p_i + 1 - p_i)^{n-2} \\
+&= n (n-1) p_i p_j \\
+\end{align}
+$$
+
+where the products in the innermost sum exclude any factors involving the $i$-th or $j$-th
+outcome and we have used the fact that $\sum'' p_k = 1 - p_i - p_j$. Note that the limits
+on the summation for $n_i$ in the second line reflect the fact that $n_i n_j = 0$ when
+$n_i = 0$ or $n_i = n$ (which implies that $n_j = 0$).
 
 #### 1.5.c.
 
 __Problem__. Compute the mean and variance of the number of outcomes that do not occur.
 
-__Solution__. TODO
+__Solution__. Let $I(N_i)$ be the indicator function for the event that $N_i = 0$ (i.e.,
+the $i$-th outcome does not occur). Then $M = \sum_{k=1}^r I(N_k)$ is the number of
+outcomes that do not occur. Thus, the mean number of outcomes that do not occur is equal to
+
+$$
+\begin{align}
+\E{M}
+&= \E{\sum_{k=1}^r I(N_k)} \\
+&= \sum_{k=1}^r \E{I(N_k)} \\
+&= \sum_{k=1}^r \Pr{N_k=0} \\
+&= \sum_{k=1}^r (1-p_i)^n
+\end{align}
+$$
+
+since $\Pr{N_i = 0} = (1 - p_i)^n$. Similarly,
+
+$$
+\begin{align}
+\E{M^2}
+&= \E{\left( \sum_{k=1}^r I(N_k) \right) \left( \sum_{k=1}^r I(N_k) \right)} \\
+&= \sum_{j=1}^r \sum_{k=1}^r \E{I(N_j) I(N_k)} \\
+&= \sum_{j=1}^r \sum_{k=1}^r \Pr{N_j = 0, N_k = 0} \\
+&= \sum_{j=1}^r \Pr{N_j = 0}
+ + \sum_{j=1, k=1, j \ne k}^r \Pr{N_i = 0, N_j = 0} \\
+&= \sum_{j=1}^r (1 - p_j)^n
+ + \sum_{j=1, k=1, j \ne k}^r (1 - p_j - p_k)^n
+\end{align}
+$$
+
+Therefore, the variance of the number of outcomes that do not occur is
+
+$$
+\var{M}
+= \left( \sum_{j=1}^r (1 - p_j)^n \right) \left(1 -  \sum_{j=1}^r (1 - p_j)^n \right)
+ + \sum_{j=1, k=1, j \ne k}^r (1 - p_j - p_k)^n
+$$
 
 --------------------------------------------------------------------------------------------
 ### 1.6.
 
 Let $X_1, X_2, \ldots$ be independent identically distributed continuous random variables.
 We say that a record occurs at time $n,$ $n > 0$ and has value $X_n$ if
-$X_n > \max(X_1, \ldots, X_{n-1})$, where $X_0 = \infty.$
+$X_n > \max(X_1, \ldots, X_{n-1})$, where $X_0 = -\infty.$
 
 #### 1.6.a.
 
@@ -300,7 +479,7 @@ __Solution__. TODO
 
 #### 1.6.b.
 
-__Problem__. Let $T = \min\{ n: n < 1 \textrm{ and a record occurs at } n \}.$ Compute
+__Problem__. Let $T = \min\{ n: n > 1 \textrm{ and a record occurs at } n \}.$ Compute
 $\Pr{T > n}$ and show that $\Pr{T < \infty} = 1$ and $\E{T} = \infty$.
 
 __Solution__. TODO
@@ -325,7 +504,68 @@ __Solution__. TODO
 __Problem__. Let $X$ denote the number of white balls selected when $k$ balls are chosen at
 random from an urn containing $n$ white and $m$ black balls. Compute $\E{X}$ and $\var{X}$.
 
-__Solution__. TODO
+__Solution__. The probability that $j$ white balls are selected is equal to
+
+$$
+\Pr{X = j} = \frac{{n \choose j} {m \choose k-j}}{n+m \choose k}.
+$$
+
+Thus,
+
+$$
+\begin{align}
+\E{X}
+&= \sum_{j=0}^k j \frac{{n \choose j} {m \choose k-j}}{n+m \choose k} \\
+&= \frac{1}{n+m \choose k} \sum_{j=0}^k j {n \choose j} {m \choose k-j} \\
+&= \frac{1}{n+m \choose k} \sum_{j=1}^k j {n \choose j} {m \choose k-j} \\
+&= \frac{n}{n+m \choose k} \sum_{j=1}^k {n-1 \choose j-1} {m \choose k-j} \\
+&= \frac{n}{n+m \choose k} \sum_{j=0}^{k-1} {n-1 \choose j} {m \choose k-1-j} \\
+&= \frac{n}{n+m \choose k} {n+m-1 \choose k-1} \\
+&= \frac{nk}{n+m}
+\end{align}
+$$
+
+where the second to last equality follows from Vandermonde's identity.
+
+Similarly,
+
+$$
+\begin{align}
+\E{X(X-1)}
+&= \sum_{j=0}^k j(j-1) \frac{{n \choose j} {m \choose k-j}}{n+m \choose k} \\
+&= \frac{1}{n+m \choose k} \sum_{j=0}^k j(j-1) {n \choose j} {m \choose k-j} \\
+&= \frac{1}{n+m \choose k} \sum_{j=2}^k j(j-1) {n \choose j} {m \choose k-j} \\
+&= \frac{n(n-1)}{n+m \choose k} \sum_{j=2}^k {n-2 \choose j-2} {m \choose k-j} \\
+&= \frac{n(n-1)}{n+m \choose k} \sum_{j=0}^{k-2} {n-2 \choose j} {m \choose k-2-j} \\
+&= \frac{n(n-1)}{n+m \choose k} {n+m-2 \choose k-2} \\
+&= \frac{n(n-1)k(k-1)}{(n+m)(n+m-1)}
+\end{align}
+$$
+
+Combining these results, we find that
+
+$$
+\begin{align}
+\Var{X}
+&= \E{X^2} - \E{X}^2 \\
+&= \E{X(X-1)} + \E{X} - \E{X}^2 \\
+&= \frac{n(n-1)k(k-1)}{(n+m)(n+m-1)} + \frac{nk}{n+m} - \left( \frac{nk}{n+m} \right)^2 \\
+&= \frac{nmk(n+m-k)}{(n+m)^2(n+m-1)}
+\end{align}
+$$
+
+_Remark_. It is interesting to compare these results to expected value and variance when
+the balls are drawn with replacement. The expected values are the same in both scenarios.
+The variances differ by a factor of
+
+$$
+\frac{n+m-k}{n+m-1}
+= \frac{1 - k/(n+m)}{1 - 1/(n+m)}.
+$$
+
+Notice that this fraction is approximately $1$ when the total number of balls greatly
+exceeds the number of balls drawn (which is consistent with the expectation that the draws
+are more "independent" in this situation).
 
 --------------------------------------------------------------------------------------------
 ### 1.8.
@@ -888,16 +1128,32 @@ __Solution__. TODO
 --------------------------------------------------------------------------------------------
 ### 1.17.
 
-__Problem__. Let $X_1, \ldots, X_n$ be independent and identically distributed continuous
-random variables having distribution $F.$ Let $X_{i,n}$ denote the $i$th smallest of
-$X_1, \ldots, X_n$ and let $F_{i,n}$ be its distribution function. Show that:
+Let $X_1, \ldots, X_n$ be independent and identically distributed continuous random
+variables having distribution $F.$ Let $X_{i,n}$ denote the $i$th smallest of
+$X_1, \ldots, X_n$ and let $F_{i,n}$ be its distribution function.
 
-(a) $F_{i,n}(x) = F(x) F_{i-1,n-1}(x) + \tail{F}(x) F_{i,n-1}(x)$
+#### 1.17.a.
 
-(b) $F_{i,n-1}(x) = \frac{i}{n} F_{i+1,n}(x) + \frac{n-i}{n} F_{i,n}(x).$
+__Problem__. Show that:
 
-(_Hints_: For part (a) condition on whether $X_n \le x,$ and for part (b) start by
-conditioning on whether $X_n$ is among the $i$ smallest of $X_1, \ldots, X_n.$)
+$$
+F_{i,n}(x) = F(x) F_{i-1,n-1}(x) + \tail{F}(x) F_{i,n-1}(x).
+$$
+
+(_Hint_. Condition on whether $X_n \le x$)
+
+__Solution__. TODO
+
+#### 1.17.b.
+
+__Problem__. Show that:
+
+$$
+F_{i,n-1}(x) = \frac{i}{n} F_{i+1,n}(x) + \frac{n-i}{n} F_{i,n}(x).
+$$
+
+(_Hint_. Start by conditioning on whether $X_n$ is among the $i$ smallest of
+$X_1, \ldots, X_n.$)
 
 __Solution__. TODO
 
@@ -908,7 +1164,49 @@ __Problem__. A coin, which lands on heads with probability $p,$ is continually f
 Compute the expected number of flips that are made until a string of $r$ heads in a row
 is obtained.
 
-__Solution__. TODO
+__Solution__. Let $T$ be the number of flips until $r$ heads occur in a row and $S$ be
+the number of flips before a tail occurs. Conditioning on $S$ over the first $r$ flips and
+the event that the first $r$ flips are all heads:
+
+$$
+\E{T}
+= \sum_{k=1}^{r} \E{T | S = k} \Pr{S = k}
++ \E{T | \textrm{first $r$ flips all heads}}
+  \times \Pr{\textrm{first $r$ flips all heads}}
+$$
+
+It is straightforward to see that the probability that the first $r$ flips are all heads is
+$p^r$ and $r$ flips are needed to obtain $r$ heads if the first $r$ flips are all heads.
+Observing that the process essentially restarts every time a tail occurs, the probabilities
+for $S$ and conditional expectations given $S$ are readily computed as
+
+$$
+\begin{align}
+\Pr{S = k} &= p^{k-1} (1-p) \\
+\E{T | S = k} &= k + \E{T}. \\
+\end{align}
+$$
+
+Therefore, $\E{T}$ satisfies the equation
+
+$$
+\begin{align}
+\E{T}
+&= \sum_{k=1}^{r} (k + \E{T}) p^{k-1} (1-p) + r p^r \\
+&= (1-p) \sum_{k=1}^{r} k p^{k-1} + (1 - p^r) \E{T} + r p^r \\
+&= (1-p) \left( -\frac{r p^r}{1-p} + \frac{1 - p^r}{(1-p)^2}\right)
+ + (1 - p^r) \E{T} + r p^r \\
+&= -r p^r + \frac{1 - p^r}{1-p} + (1 - p^r) \E{T} + r p^r \\
+&= \frac{1 - p^r}{1-p} + (1 - p^r) \E{T}.
+\end{align}
+$$
+
+Solving for $\E{T}$, we find that the expected number flips until $r$ heads occur in a row
+is
+
+$$
+\E{T} = \frac{1 - p^r}{(1-p) p^r}.
+$$
 
 --------------------------------------------------------------------------------------------
 ### 1.19.
