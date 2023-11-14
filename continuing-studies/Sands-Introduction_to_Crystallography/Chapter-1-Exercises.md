@@ -116,7 +116,7 @@ $$
 \begin{align}
 \a &= a \e_1 \\
 \b &= (b \cos\gamma) \e_1 + (b \sin\gamma) \e_2 \\
-\c &= (c \cos\gamma) \e_1
+\c &= (c \cos\beta) \e_1
     + \left( \frac{c}{\sin\gamma} (\cos\alpha - \cos\beta \cos\gamma) \right) \e_2
     + \left[\frac{c}{\sin\gamma}
       (
