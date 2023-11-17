@@ -269,7 +269,7 @@ Therefore, $f$ is a 1-1 and onto function from the interval $(a, b)$ to $\R$.
 
 __Problem__. Using open intervals makes it more convenient to produce the required 1-1,
 onto functions, but it is not really necessary. Show that $[0, 1) \sim (0, 1)$ by
-exhibiting a 1-1 onto function between the two sets.
+exhibiting a 1-1 and onto function between the two sets.
 
 __Solution__. TODO
 
@@ -328,10 +328,17 @@ __Solution__. $I_n = (n, n+1)$ for all $n \in \N$.
 
 #### 1.5.6.b.
 
-__Problem__. Given an example of an uncountable collection of disjoint open intervals, or
+__Problem__. Give an example of an uncountable collection of disjoint open intervals, or
 argue that no such collection exists.
 
-__Solution__. TODO
+__Solution__. Any collection disjoint open intervals must be countable or finite. Let
+$\mathcal{B}$ be an infinite collection of disjoint intervals. Since $\Q$ is dense in $\R$,
+each interval $B \in \mathcal{B}$ must contain a rational number. Define the map
+$f: \mathcal{B} \rightarrow \Q$ by $f(B) = r$ where $r \in B$. Since the intervals
+in $\mathcal{B}$ are disjoint, $f$ is 1-1 (otherwise, two unequal intervals in
+$\mathcal{B}$ would have a non-empty intersection). Therefore, $f$ is a 1-1 and onto map
+to an infinite subset of $\Q$, which implies that $\mathcal{B}$ is countable (because its
+cardinality can be no larger than the cardinality of $\Q$).
 
 --------------------------------------------------------------------------------------------
 ### 1.5.7.
