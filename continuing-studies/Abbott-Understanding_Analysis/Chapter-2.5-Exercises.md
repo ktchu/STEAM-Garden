@@ -237,7 +237,7 @@ S = \{ x \in \R: x < a_n \textrm{ for infinitely  many terms $a_n$} \}.
 $$
 
 Show that there exists a subsequence $(a_{n_k})$ converging to $s = \sup S.$ (This is a
-direcct proof of the Bolzano-Weierstrass Theorem using the Axiom of Completeness.)
+direct proof of the Bolzano-Weierstrass Theorem using the Axiom of Completeness.)
 
 __Solution__. TODO
 
