@@ -19,9 +19,151 @@ Understanding Analysis (S. Abbott): Section 3.2 Exercises
 --------------------------------------------------------------------------------------------
 ### 3.2.1.
 
-__Problem__. TODO
+#### 3.2.1.a.
 
-__Solution__. TODO
+__Problem__. Where in the proof of Theorem 3.2.3 part (ii) does the assumption that the
+collection of open sets be _finite_ get used?
+
+__Solution__. The assumption that the collection of open sets is finite is used to ensure
+that $\epsilon$ is well-defined because infinite sets of real numbers are not guaranteed
+have a minimum. Note that it is not possible to replace $\min$ with $\inf$ because
+$\epsilon = \inf\{\epsilon_1, \epsilon_2, \epsilon_3, \ldots \}$ where $\epsilon_i > 0$
+could be equal to $0$, which precludes the possibility of finding an
+$\epsilon$-neighborhood contained in all of the $O_n$.
+
+#### 3.2.1.b.
+
+__Problem__. Give an example of a countable collection of open sets
+$\{O_1, O_2, O_3, \ldots\}$ whose intersection $\cap_{n=1}^\infty O_n$ is closed, not
+empty and not all of $\R$.
+
+__Solution__. Let $O_n = (-1/n, 1/n)$. Then
+
+$$
+\bigcap_{n=1}^\infty O_n = [0],
+$$
+
+which satisfies the desired conditions.
+
+--------------------------------------------------------------------------------------------
+### 3.2.2.
+
+Let
+
+$$
+A = \left\{ (-1)^n + \frac{2}{n}: n = 1, 2, 3, \ldots \right\}
+$$
+
+and
+
+$$
+B = \left\{ x \in \Q: 0 < x < 1 \right\}.
+$$
+
+Answer the following questions for each set.
+
+a. What are the limit points?
+
+b. Is the set open? Closed?
+
+c. Does the set contain any isolated points?
+
+d. Find the closure of the set.
+
+#### Set A
+
+a. The limit points of $A$ are $-1$ and $1$.
+
+b. $A$ is neither open nor closed.
+
+c. Yes. All of the points in $A$ are isolated points.
+
+d. The closure of $A$ is $A \cup \{-1, 1\}$.
+
+#### Set B
+
+a. The limit points of $B$ are all of the points in $[0, 1]$. Since $\Q$ is dense in $\R$,
+   all intervals about $x \in B$ contains rational numbers not equal to $x$, so all
+   points in $B$ are limit points. All irrational numbers in $[0, 1]$ are limit points of
+   rational numbers in $[0, 1]$; in other words, they are limit points of $B$. Therefore,
+   all of $[0, 1]$ are limit points of $B$.
+
+b. $B$ is neither open nor closed. If $x \in B$, then any interval about $x$ contains
+   $y \in \R \backslash \Q$, so $B$ cannot be open. Since any irrational number in
+   $[0, 1]$ is a limit point of $\Q$, $B$ is not closed.
+
+c. No. All of the points in $B$ are limit points.
+
+d. The closure of $B$ is $[0, 1]$.
+
+--------------------------------------------------------------------------------------------
+### 3.2.3.
+
+__Problem__. Decide whether the following sets are open, closed, or neither. If a set is
+not open, find a point in the set for which there is no $\epsilon$-neighborhood contained
+in the set. If a set is not closed, find a limit point that is not contained in the set.
+
+a. $\Q$
+
+b. $\N$
+
+c. $\{ x \in \R : x \ne 0 \}$
+
+d. $\{ 1 + 1/4 + 1/9 + \cdots + 1/n^2 : n \in \N \}$
+
+e. $\{ 1 + 1/2 + 1/3 + \cdots + 1/n : n \in \N \}$
+
+__Solution__.
+
+a. $\Q$ is neither open nor closed. $\Q$ is not open because $1 \in \Q$ but
+   $(1 - \epsilon, 1 + \epsilon)$ is not contained in $\Q$ for any choice of
+   $\epsilon > 0$. $\Q$ is not closed because $\sqrt{2}$ is a limit of rational decimal
+   approxmations but $\sqrt{2} \notin \Q$.
+
+b. $\N$ is closed but not open. $\N$ has no limit points because each $n \in \N$ is an
+   isolated point.  Since $\N$ has no limit points, it contains all of its limits points.
+   Thus, $\N$ is closed. $\N$ is not open because $1 \in \N$ but
+   $(1 - \epsilon, 1 + \epsilon)$ is not contained in $\N$ for any choice of $\epsilon > 0$.
+
+c. $\{ x \in \R : x \ne 0 \}$ is open but not closed. It is open because it is the union of
+   the two open sets $(-\infty, 0)$ and $(0, \infty)$. It is not closed because $0$ is a
+   limit point of the set that is not in the set.
+
+d. $\{ 1 + 1/4 + 1/9 + \cdots + 1/n^2 : n \in \N \}$ is neither open nor closed. It is not
+   open because every element in the set is isolated, which implies that for each $x$ in
+   the set $V_\epsilon(x)$ is not contained in the set for any $\epsilon > 0$. The set is
+   not closed because the series $1 + 1/4 + 1/9 + \cdots$ converges to $\pi^2/6$, which is
+   not an element of the set.
+
+e. $\{ 1 + 1/2 + 1/3 + \cdots + 1/n : n \in \N \}$ is closed but not open. It is not open
+   open because every element in the set is isolated, which implies that for each $x$ in
+   the set $V_\epsilon(x)$ is not contained in the set for any $\epsilon > 0$. The set is
+   closed because it has no limit points (which follows because all of its elements are
+   isolated and $1 + 1/2 + 1/3 + \cdots$ is the harmonic series and so diverges).
+
+--------------------------------------------------------------------------------------------
+### 3.2.4.
+
+Let $A$ be nonempty and bounded above so that $s = \sup A$ exists.
+
+### 3.2.4.a.
+
+__Problem__. Show that $s \in \overline{A}$.
+
+__Solution__. By Lemma 1.3.8, there exists $a \in A$ such that $a > s - \epsilon$ for any
+$\epsilon > 0$. Consider a sequence $(a_n)$ constructed by selecting $a_n > s - 1/n$.
+Then $(a_n)$ converges to $s$, so $s$ is a limit point of $A$. Since $\overline{A}$
+contains all of the limits points of $A$, $s \in \overline{A}$.
+
+### 3.2.4.b.
+
+__Problem__. Can an open set contain its supremum?
+
+__Solution__. No. Let $O$ be an open set with supremum $s$. Any $\epsilon$-neighborhood
+of $s$ must contain points $x$ satisfying $s < x < s + \epsilon$. None of these points can
+be elements of $O$ because $y \in O$ implies that $y \le s$ (by definition of the supremum).
+Therefore, no $\epsilon$-neighborhood of $s$ can be completely contained in $O$, which
+implies that $s \notin O$.
 
 --------------------------------------------------------------------------------------------
 ### 3.2.10.
@@ -116,6 +258,15 @@ $F_\sigma$ set.
 __Problem__. Show that $\Q$ is an $F_\sigma$ set, and the set of irrationals $\I$ form a
 $G_\delta$ set.
 
-__Solution__. TODO
+__Solution__. Let $q_1, q_2, q_3, \ldots$ be an enumeration of the rational numbers. Then
+$\Q = \cup_{n=1}^\infty [q_i, q_i]$. Since isolated points are closed sets, $\Q$ is
+$F_\sigma$. $\I = \Q^c$, so the set of irrational numbers is equal to
+
+$$
+\bigcap_{n=1}^\infty [q_i, q_i]^c,
+$$
+
+which is a countable intersection of open sets (because complements of closed sets are
+open). Thus, $\I$ is $G_\delta$.
 
 --------------------------------------------------------------------------------------------
