@@ -166,6 +166,116 @@ Therefore, no $\epsilon$-neighborhood of $s$ can be completely contained in $O$,
 implies that $s \notin O$.
 
 --------------------------------------------------------------------------------------------
+### 3.2.5.
+
+__Problem__. Prove Theorem 3.2.8.
+
+_Theorem 3.2.8._ A set  $F \subseteq \R$ is closed if and only if every Cauchy sequence
+contained in $F$ has a limit that is also an element of $F$.
+
+__Solution__. $(\Rightarrow)$ Suppose $F$ is closed. Consider a sequence $(a_n)$ contained
+in $F$. $(a_n)$ converges (because it is Cauchy). Let $a = \lim_{n \rightarrow \infty} a_n$.
+Then $a \in F$ because $a$ is a limit point of $F$ and $F$ is closed (which implies that
+it contains all of its limit points).
+
+$(\Leftarrow)$ Suppose every Cauchy sequence contained in $F$ has a limit in $F$. Let $x$
+be a limit point of $F$. Then there exists a sequence $(a_n)$ contained in $F$ with
+$(a_n) \rightarrow x$ and $a_n \ne x$ for all $n \in \N$ (Theorem 3.2.5). Since $(a_n)$
+convergent sequences are Cauchy, $x \in F$ (by assumption). Therefore, $F$ contains all of
+its limit points, which implies that $F$ is closed.
+
+--------------------------------------------------------------------------------------------
+### 3.2.6.
+
+Decide whether the following statements are true or false. Provide counterexamples for
+those that are false, and supply proofs for those that are true.
+
+#### 3.2.6.a.
+
+__Problem__. An open set that contains every rational number must necessarily be all of
+$\R$.
+
+__Solution__. True. TODO
+
+#### 3.2.6.b.
+
+__Problem__. The Nested Interval Property remains true if the term "closed interval" is
+replaced by "closed set".
+
+__Solution__. False. Consider the nested sequence of sets $I_n = [n, \infty)$. Each $I_n$
+is closed because it contains all of its limit points. However,
+$\cap_{n=1}^\infty I_n = \emptyset$ because for any $x > 0$, $x \notin I_n$ for
+$n \ge \lceil x \rceil$.
+
+#### 3.2.6.c.
+
+__Problem__. Every nonempty open set contains a rational number.
+
+__Solution__. True. Let $O$ be a nonempty open set. Then there exists $x \in O$ (because
+$O$ is not empty). $O$ is open, so there exists an $\epsilon$-neighborhood $V_\epsilon(x)$
+of $x$ that is completely contained in $O$. Take $y, z \in V_\epsilon(x)$ with $y < z$.
+Since $\Q$ is dense in $\R$, there exists a rational number
+$q \in V_\epsilon(x) \subseteq O$, which proves the desired result.
+
+#### 3.2.6.d.
+
+__Problem__. Evdery bounded infinite closed set contains a rational number.
+
+__Solution__. TODO
+
+#### 3.2.6.e.
+
+__Problem__. The Cantor set is closed.
+
+__Solution__. True. Observe that
+
+$$
+\begin{align}
+C
+&= [0, 1] \backslash
+   \left[
+     \left( \frac{1}{3}, \frac{2}{3} \right) \cup
+     \left( \frac{1}{9}, \frac{2}{9} \right) \cup
+     \left( \frac{7}{9}, \frac{8}{9} \right) \cup
+     \cdots
+   \right] \\
+&= [0, 1] \cap
+   \left[
+     \left( \frac{1}{3}, \frac{2}{3} \right) \cup
+     \left( \frac{1}{9}, \frac{2}{9} \right) \cup
+     \left( \frac{7}{9}, \frac{8}{9} \right) \cup
+     \cdots
+   \right]^c \\
+&= \left[ (-\infty, 0)^c \cap (1, \infty)^c \right] \cap
+   \left[
+     \left( \frac{1}{3}, \frac{2}{3} \right)^c \cap
+     \left( \frac{1}{9}, \frac{2}{9} \right)^c \cap
+     \left( \frac{7}{9}, \frac{8}{9} \right)^c \cap
+     \cdots
+   \right] \\
+&= \left[
+     (-\infty, 0)^c \cap
+     (1, \infty)^c \cap
+     \left( \frac{1}{3}, \frac{2}{3} \right)^c \cap
+     \left( \frac{1}{9}, \frac{2}{9} \right)^c \cap
+     \left( \frac{7}{9}, \frac{8}{9} \right)^c \cap
+     \cdots
+   \right] \\
+&= \left[
+     (-\infty, 0) \cup
+     (1, \infty) \cup
+     \left( \frac{1}{3}, \frac{2}{3} \right) \cup
+     \left( \frac{1}{9}, \frac{2}{9} \right) \cup
+     \left( \frac{7}{9}, \frac{8}{9} \right) \cup
+     \cdots
+   \right]^c \\
+\end{align}
+$$
+
+Since the union of an arbitrary collection of open sets is open, $C$ is closed (because
+it is the complement of an open set).
+
+--------------------------------------------------------------------------------------------
 ### 3.2.10.
 
 __Problem__. Only one of the following three descriptions can be realized. Provide an

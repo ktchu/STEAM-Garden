@@ -192,21 +192,117 @@ __Solution__. For all cases, assume nonempty sets of real numbers.
 --------------------------------------------------------------------------------------------
 ### 3.3.7.
 
-__Problem__. TODO
+As some more evidence of the surprising nature of the Cantor set, follow these steps to
+show that the sum $C + C = \{ x + y : x, y \in C \}$ is equal to the closed interval
+$[0, 2]$. (Keep in mind that $C$ has zero length and contains no intervals).
 
-__Solution__. TODO
+Because $C \subseteq [0, 1]$, $C + C \subseteq [0, 2]$, we only need to prove the reverse
+inclusion $[0, 2] \subseteq \{ x + y, : x, y \in C \}$. Thus, given $s \in [0, 2]$, we must
+find two elements $x, y \in C$ satisfying $x + y = s$.
+
+#### 3.3.7.a.
+
+__Problem__. Show that there exist $x_1, y_1 \in C_1$ for which $x_1 + y_1 = s$. Show in
+general that, for an arbitrary $n \in \N$, we can always find $x_n, y_n \in C$ for which
+$x_n + y_n = s$.
+
+__Solution__. Let $s \in [0, 2]$. To show that $s = x_1 + y_1$ with $x_1, y_1 \in C_1$, we
+consider the following six cases.
+
+* $0 \le s \le 1/3$. $x_1 = 0$ and $y_1 = s - x_1 \in [0, 1/3]$ satisfies the desired
+  conditions.
+
+* $1/3 < s \le 2/3$. $x_1 = 1/3 \in [0, 1/3]$ and $y_1 = s - x_1 \in [0, 1/3]$ satisfies
+  the desired conditions.
+
+* $2/3 < s \le 1$. $x_1 = 2/3 \in [2/3, 1]$ and $y_1 = s - x_1 \in [0, 1/3]$ satisfies the
+  desired conditions.
+
+* $1 < s \le 4/3$. $x_1 = 1/3 \in [0, 1/3]$ and $y_1 = s - x_1 \in [2/3, 1]$ satisfies the
+  desired conditions.
+
+* $4/3 < s \le 5/3$. $x_1 = 2/3 \in [2/3, 1]$ and $y_1 = s - x_1 \in [2/3, 1]$ satisfies the
+  desired conditions.
+
+* $5/3 < s \le 2$. $x_1 = 1 \in [2/3, 1]$ and $y_1 = s - x_1 \in [2/3, 1]$ satisfies the
+  desired conditions.
+
+For arbitrary $n \in \N$, we generalize this approach. Break the interval $[0, 2]$ into
+intervals of size $1/3^n$. For the first interval $[0, 1/3^n]$, $x_n = 0$ and
+$y_n = s \in [0, 1/3^n]$ satisfies the desired conditions. The remaining $2 \cdot 3^n - 1$
+intervals are of the form $(k / 3^n, (k+1) / 3^n]$ with $1 \le k \le 2 \cdot 3^n - 1$. We
+
+__TODO__
+
+#### 3.3.7.b.
+
+__Problem__. Keeping in mind that the sequences $(x_n)$ and $(y_n)$ do not necessarily
+converge, show how they can nevertheless be used to produce the desired $x$ and $y$ in $C$
+satisfying $x + y = s$.
+
+__Solution__. Since $(x_n)$ is bounded (because $C$ is bounded), the Bolzano-Weierstrass
+theorem implies that it contains a convergent subsequence $(x_{n_k})$. Consider the
+subsequence $(y_{n_k})$ of $(y_n)$. Since $(y_{n_k})$ is bounded, it contains a convergent
+subsequence $(y_{n_{k_l}})$. Since $(x_{n_{k_l}})$ is a subsequence of $(x_{n_k})$, it is
+also convergent.  $x$ and $y$ be the limits of $(x_{n_{k_l}})$ and $(y_{n_{k_l}})$,
+respectively. Since the Cantor set is closed, $x$ and $y$ must be elements of of $C$.
+By the Algebraic Limit Theorem, $x_{n_{k_l}} + y_{n_{k_l}} \rightarrow x + y$ as
+$l \rightarrow \infty$. Since $x_{n_{k_l}} + y_{n_{k_l}} = s$ by construction, $x + y = s$,
+which proves the desired result.
 
 --------------------------------------------------------------------------------------------
 ### 3.3.8.
 
-__Problem__. TODO
+Let $K$ and $L$ be nonempty compact sets, and define
+
+$$
+d = \inf \{ |x - y| : x \in K \textrm{ and } y \in Y \}.
+$$
+
+It turns out to be a reasonable definition of the _distance_ between $K$ and $L$.
+
+### 3.3.8.a.
+
+__Problem__. If $K$ and $L$ are disjoint, show $d > 0$ and that $d = |x_0 - y_0|$ for some
+$x_0 \in K$ and $y_0 \in L$.
+
+__Solution__. TODO
+
+### 3.3.8.b.
+
+__Problem__. Show that it's possible to have $d = 0$ if we assume only that the disjoint
+sets $K$ and $L$ are closed.
 
 __Solution__. TODO
 
 --------------------------------------------------------------------------------------------
 ### 3.3.9.
 
-__Problem__. TODO
+Follow these steps to prove the final implication of Theorem 3.3.8.
+
+Assume $K$ satisfies (i) and (ii), and let $\{ O_\lambda : \lambda \in \Lambda \}$ be an
+open cover for $K$. For contradiction, let's assume that no finite subcover exists. Let
+$I_0$ be a closed interval containing $K$.
+
+#### 3.3.9.a.
+
+__Problem__. Show that there exists a nested sequence of closed intervals
+$I_0 \supseteq I_1 \supseteq I_2 \supseteq \cdots$ with the property that, for each $n$,
+$I_n \cap K$ cannot be finitely covered and $\lim |I_n| = 0$.
+
+__Solution__. TODO
+
+#### 3.3.9.b.
+
+__Problem__. Argue that there exists an $x \in K$ such that $x \in \I_n$ for all $n$.
+
+__Solution__. TODO
+
+#### 3.3.9.c.
+
+__Problem__. Because $x \in K$, there must exist an open set $O_{\lambda_0}$ from the
+original collection that contains $x$ as an element. Explain how this leads to the desired
+contradiction.
 
 __Solution__. TODO
 
@@ -227,9 +323,35 @@ __Solution__. TODO
 --------------------------------------------------------------------------------------------
 ### 3.3.12.
 
-__Problem__. TODO
+__Problem__. Using the concept of open covers (and explicitly avoiding the
+Bolzano-Weierstrass Theorem), prove that every bounded infinite set has a limit point.
 
-__Solution__. TODO
+__Solution__. Let $S$ be an infinite bounded set. Suppose that $S$ has no limit points.
+Then $S$ is closed (because it contains all of its non-existent limit points), so it must
+be compact. Let $S_1 = S$ and consider the open cover
+$\Omega_1 = \{ (s - 1, s + 1) : s \in S_1 \}$. Since $S_1$ is compact, $\Omega_1$ contains
+a finite subcover. Observe that at least one of the open intervals in the finite subcover,
+say $(s_1 - 1, s_1 + 1)$, must be infinite because $S_1$ is infinite. Recursively define
+$S_{n+1} = S_n \cap (s_n - 1/n, s_n + 1/n)$ where $s_n \in S_n$ such that
+
+* $(s_n - 1/n, s_n + 1/n)$ is an interval in the finite subcover contained in the open
+  cover $\Omega_n = \{ (s - 1/n, s + 1/n) : s \in S_n \}$ for $S_n$ and
+
+* $(s_n - 1/n, s_n + 1/n)$ contains an infinite number of points from $S_n$.
+
+Note this recursive procedure is well-defined because $S_{n+1}$ is compact whenever $S_n$
+is compact (because the intersection of a closed set with an open set is closed and the
+intersection of a finite number of bounded sets is bounded). Furthermore, note that
+$S = S_1 \supset S_2 \supset S_3 \supset \cdots$ is a nested sequence of infinite sets, so
+$s_n \in S$ for all $n$.
+
+Now, consider a sequence $(a_n)$ constructed by selecting one element $a_n$ from each $S_n$.
+Then $(a_n)$ is a Cauchy sequence because $a_n \in (s_N - 1/N, s_N + 1/N)$ for $n > N$
+implies that $|a_n - a_m| < 2/N$ whenever $n, m > N$ (so choosing $N > 2/\epsilon$ yields
+the required condition $|a_n - a_m| < \epsilon$ for any $\epsilon > 0$). Therefore, $(a_n)$
+converges, which implies that $S$ has a limit point because $a_n \in S$ for all $n$. This
+conclusion contradicts our assumption that $S$ has no limit points, so it must be the case
+that $S$ has at least one limit point.
 
 --------------------------------------------------------------------------------------------
 ### 3.3.13.
