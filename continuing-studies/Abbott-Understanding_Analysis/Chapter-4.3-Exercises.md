@@ -35,7 +35,7 @@ $$
 \begin{align}
 |g(x) - g(c)|
 &= |\sqrt[3]{x} - \sqrt[3]{c}| \\
-&= \left| \frac{x - c}{\sqrt[3]{x^2} + \sqrt{3}{cx} + \sqrt[3]{c^2}} \right| \\
+&= \left| \frac{x - c}{\sqrt[3]{x^2} + \sqrt[3]{cx} + \sqrt[3]{c^2}} \right| \\
 &< \frac{|x - c|}{\sqrt[3]{c^2}} \\
 &< \frac{\epsilon \sqrt[3]{c^2}}{\sqrt[3]{c^2}} = \epsilon
 \end{align}
