@@ -92,13 +92,13 @@ b)
 __Problem__. Given a countable set $A = \{a_1, a_2, a_3, \ldots \}$, define $f(a_n) = 1/n$
 and $f(x) = 0$ for all $x \notin A$. Find $D_f$.
 
-__Solution__. $D_f = A$. $f$ is continuous at all points $x \notin A$ because $x$ must lie
-between two points in the set $A$. In other words, $x$ is an element of an interval that
-contains no points in $A$. $f(y) = 0$ for any point $y$ in that interval, so $f$ is
-continous at $x$. For $a_n \notin A$, construct a sequence $(x_k)$ with $x_k \ne a_n$ for
-all $k$ such that $(x_k) \rightarrow a_n$ as $k \rightarrow \infty$ (we can construct such
-a sequence by selecting $x_k$ from an open interval around $a_n$ that does not contain any
-of the other elements of $A$). Then
+__Solution__. $D_f = A$. $f$ is continuous at all points $x \notin A$ because $x \notin A$
+implies that $x$ must lie between two points in the set $A$. In other words, $x$ is an
+element of an interval that contains no points in $A$. $f(y) = 0$ for any point $y$ in that
+interval, so $f$ is continous at $x$ when $x \notin A$. For $x = a_n \in A$, construct a
+sequence $(x_k)$ with $x_k \ne a_n$ for all $k$ such that $(x_k) \rightarrow a_n$ as
+$k \rightarrow \infty$ (we can construct such a sequence by selecting $x_k$ from an open
+interval around $a_n$ that does not contain any of the other elements of $A$). Then
 
 $$
 \lim_{k \rightarrow \infty} f(x_k) = 0 \ne 1/n = f(a_n),
