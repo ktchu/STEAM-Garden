@@ -203,12 +203,24 @@ $b > 0,$ $b^{1/n}$ is strictly positive. In this case, $\lim b^{1/n} = 1.$
 __Problem__. Extend the result proved in Example 2.5.3 to the case $|b| < 1;$ that is,
 show $\lim (b^n) = 0$ if and only if $-1 < b < 1.$
 
-__Solution__. TODO
+__Solution__. If $-1 < b < 1$, then the argument in Example 2.5.3 shows that
+$|b|^n \rightarrow 0$. From the definition of convergence, for every $\epsilon > 0$ there
+exists $N \in \N$ such that $n \ge N$ implies that $| |b|^n | < \epsilon$. Since
+$|b^n - 0| = |b^n| = ||b|^n|$, the convergence of the sequence $(|b|^n)$ to $0$ implies
+that $\lim (b^n) = 0$.
+
+To show that $\lim(b_n) \ne 0$ when $b > 1$ or $b < -1$, we need to consider three cases:
+$b = 1$, $b = -1$, $|b| > 1$. If $b = 1$, then $b^n = 1$ for all $n$, so
+$\lim (b^n) = 1 \ne 0$. If $b = -1$, then the subsequences
+$(b^0, b^2, b^4, \ldots) \rightarrow 1$ and $(b^1, b^3, b^5, \ldots) \rightarrow -1$
+converge to different limits, so $(b^n)$ diverges. If $|b| > 1$, then the sequence $(b^n)$
+is unbounded (because for any $M > 0$, $n \ge \ln M / \ln |b|$ implies that
+$|b^n| = |b|^n > M$), so $(b_n)$ diverges.
 
 --------------------------------------------------------------------------------------------
 ### 2.5.8.
 
-Another way to prove the Bolzano-Weierstrass Theorem is to show that every sequecne
+Another way to prove the Bolzano-Weierstrass Theorem is to show that every sequence
 contains a monotone subsequence. A useful device in this endeavor is the notion of a
 _peak term_. Given a sequence $(x_n),$ a particular term $x_m$ is a peak term if no later
 term in the sequence exceeds it; i.e., if $x_m \ge x_n$ for all $n \ge m.$
