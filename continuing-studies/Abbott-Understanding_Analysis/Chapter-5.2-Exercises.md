@@ -236,3 +236,273 @@ where we have used the fact that differentiability of $g$ at $c$ implies that $g
 continuous at $c$.
 
 --------------------------------------------------------------------------------------------
+### 5.2.4.
+
+Follow these steps to provide a slightly modified proof of the Chain Rule.
+
+#### 5.2.4.a.
+
+__Problem__. Show that a function $h: A \rightarrow \R$ is differentiable at $a \in A$ if
+and only if there exists a function $l: A \rightarrow \R$ which is continuous at $a$ and
+satisfies
+
+$$
+h(x) - h(a) = l(x)(x-a)
+$$
+
+for all $x \in A$.
+
+__Solution__. TODO
+
+#### 5.2.4.b.
+
+__Problem__. Use this criterion for differentiability (in both directions) to prove
+Theorem 5.2.5.
+
+_Theorem 5.2.5 (Chain Rule)_. Let $f: A \rightarrow \R$ and $g: B \rightarrow \R$ satisfy
+$f(A) \subseteq B$ so that the composition $g \circ f$ is defined. If $f$ is differentiable
+at $c \in A$ and if $g$ is differentiable at $f(c) \in B$, then $g \circ f$ is
+differentiable at $c$ with $(g \circ f)'(c) = g'(f(c)) \cdot f'(c)$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 5.2.5.
+
+Let
+
+$$
+f_a(x)
+= \left\{\begin{array}{cl}
+    x^a & \textrm{if $x > 0$} \\
+    0 & \textrm{if $x \le 0$} \\
+  \end{array}\right.
+$$
+
+#### 5.2.5.a.
+
+__Problem__. For which values of $a$ is $f$ continuous at zero?
+
+__Solution__. TODO
+
+#### 5.2.5.b.
+
+__Problem__. For which values of $a$ is $f$ differentiable at zero? In this case, is the
+derivative function continuous?
+
+__Solution__. TODO
+
+#### 5.2.5.c.
+
+__Problem__. For which values of $a$ is $f$ twice-differentiable?
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 5.2.6.
+
+Let $g$ be defined on an interval $A$, and let $c \in A$.
+
+#### 5.2.6.a.
+
+__Problem__. Explain why $g'(c)$ in Definition 5.2.1 could have been given by
+
+$$
+g'(c) = \lim_{h \rightarrow 0} \frac{g(c+h) - g(c)}{h}.
+$$
+
+__Solution__. TODO
+
+#### 5.2.6.b.
+
+__Problem__. Assume $A$ is open. If $g$ is differentiable at $c \in A$, show
+
+$$
+g'(c) = \lim_{h \rightarrow 0} \frac{g(c+h) - g(c-h)}{2h}.
+$$
+
+__Solution__. Observe that the difference quotient in the above limit can be rewritten as
+
+$$
+\begin{align}
+\frac{g(c+h) - g(c-h)}{2h}
+&= \frac{g(c+h) - g(c) + g(c) - g(c-h)}{2h} \\
+&= \frac{1}{2} \left[ \frac{g(c+h) - g(c)}{h} + \frac{g(c) - g(c-h)}{h} \right] \\
+&= \frac{1}{2} \left[ \frac{g(c+h) - g(c)}{h} + \frac{g(c - h) - g(c)}{-h} \right] \\
+\end{align}
+$$
+
+Taking the limit as $h$ approaches $0$, the Algebraic Limit Theorem and differentiability
+of $g$ at $c$ imply that
+
+$$
+\begin{align}
+\lim_{h \rightarrow 0} \frac{g(c+h) - g(c-h)}{2h}
+&= \frac{1}{2} \left[
+      \lim_{h \rightarrow 0} \frac{g(c+h) - g(c)}{h}
+    + \lim_{h \rightarrow 0} \frac{g(c - h) - g(c)}{-h}
+  \right] \\
+&= \frac{1}{2} \left[
+      \lim_{h \rightarrow 0} \frac{g(c+h) - g(c)}{h}
+    + \lim_{-h \rightarrow 0} \frac{g(c-h) - g(c)}{-h}
+  \right] \\
+&= \frac{1}{2} \left[
+      \lim_{h \rightarrow 0} \frac{g(c+h) - g(c)}{h}
+    + \lim_{k \rightarrow 0} \frac{g(c+k) - g(c)}{k}
+  \right] \\
+&= \frac{1}{2} (g'(c) + g'(c)) \\
+&= g'(c)
+\end{align}
+$$
+
+where the third to last equality follows from the definition of the derivative in part (a).
+
+--------------------------------------------------------------------------------------------
+### 5.2.7.
+
+Let
+
+$$
+g_a(x)
+= \left\{\begin{array}{cl}
+    x^a \sin(1/x) & \textrm{if $x \ne 0$} \\
+                0 & \textrm{if $x = 0$}.
+  \end{array}\right.
+$$
+
+Find a particular (potentially noninteger) value so for $a$ so that
+
+(a) $g_a$ is differentiable on $\R$ but such that $g_a'$ is unbounded on $[0, 1]$
+
+(b) $g_a$ is differentiable on $\R$ with $g_a'$ continuous but not differentiable at zero.
+
+(c) $g_a$ is differentiable on $\R$ and $g_a'$ is differentiable on $\R$, but such that
+    $g_a''$ is not continuous at zero.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 5.2.8.
+
+Review the definition of uniform continuity (Definition 4.4.4). Given a differentiable
+function $f: A \rightarrow \R$, let's say that $f$ is _uniformly differentiable_ on $A$
+if, given $\epsilon > 0$ there exists a $\delta > 0$ such that
+
+$$
+\left| \frac{f(x) - f(y)}{x-y} - f'(y)\right| < \epsilon
+$$
+
+whenever $0 < |x-y| < \delta$.
+
+#### 5.2.8.a.
+
+__Problem__. Is $f(x) = x^2$ uniformly differentiable on $\R$? How about $g(x) = x^3$?
+
+__Solution__. TODO
+
+#### 5.2.8.b.
+
+__Problem__. Show that if a function is uniformly differentiable on an interval $A$, then
+the derivative must be continuous on $A$.
+
+__Solution__. TODO
+
+#### 5.2.8.c.
+
+__Problem__. Is there a theorem analogous to Theorem 4.4.7 for differentiation? Are
+functions that are differentiable on a closed intervale $[a, b]$ necessary uniformly
+differentiable?
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 5.2.9.
+
+Decide whether each conjecture is true or false. Provide an argument for those that are
+true and a counterexample for each one that is false.
+
+#### 5.2.9.a.
+
+__Problem__. If $f'$ exists on an interval and is not constant, then $f'$ must take on some
+irrational values.
+
+__Solution__. TODO
+
+#### 5.2.9.b.
+
+__Problem__. If $f'$ exists on an open interval and there is some point $c$ where
+$f'(c) > 0$, then there exists a $\delta$-neighborhood $V_\delta(c)$ around $c$ in which
+$f'(x) > 0$ for all $x \in V_\delta(x)$.
+
+__Solution__. TODO
+
+#### 5.2.9.a.
+
+__Problem__. If $f$ is differentiable on an interval containing zero and if
+$\lim_{x \rightarrow 0} f'(x) = L$, then it must be that $L = f'(0)$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 5.2.10.
+
+__Problem__. Recall that a function $f: (a, b) \rightarrow \R$ is _increasing_ on $(a, b)$
+if $f(x) \le f(y)$ whenever $x < y$ in $(a, b)$. A familiar mantra from calculus is that a
+differentiable function is increasing if its derivative is positive, but this statement
+requires some sharpening in order to be completely accurate.
+
+Show that the function
+
+$$
+g(x)
+= \left\{\begin{array}{ll}
+    x/2 + x^2 \sin(1/x) & \textrm{if $x \ne 0$} \\
+    0                   & \textrm{if $x = 0$} \\
+  \end{array}\right.
+$$
+
+is differentiable on $\R$ and satisfies $g'(0) > 0$. Now, prove that $g$ is _not_
+increasing over any interval containing $0$.
+
+In the next section we will see that $f$ is indeed increasing on $(a, b)$ if and only if
+$f'(x) \ge 0$ for all $x \in (a, b)$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 5.2.11.
+
+Assume that $g$ is differentiable on $[a, b]$ and satisfies $g'(a) < 0 < g'(b)$.
+
+#### 5.2.11.a.
+
+__Problem__. Show that there exists a point $x \in (a, b)$ where $g(a) > g(x)$, and a point
+$y \in (a, b)$ where $g(y) < g(b)$.
+
+__Solution__. TODO
+
+#### 5.2.11.b.
+
+__Problem__. Now complete the proof of Darboux's Theorem started earlier.
+$y \in (a, b)$ where $g(y) < g(b)$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
+### 5.2.12. (Inverse functions)
+
+__Problem__. If $f: [a,b] \rightarrow \R$ is one-to-one, then there exists an inverse
+function $f^{-1}$ defined on the range of $f$ given by $f^{-1}(y) = x$ where $y = f(x)$.
+In Exercise 4.5.8 we saw that if $f$ is continuous on $[a, b]$, then $f^{-1}$ is continuous
+on its domain. Let's add the assumption that $f$ is differentiable on $[a, b]$ with
+$f'(x) \ne 0$ for all $x \in [a, b]$. Show $f^{-1}$ is differentiable with
+
+$$
+(f^{-1})'(y) = \frac{1}{f'(x)}
+$$
+
+where $y = f(x)$.
+
+__Solution__. TODO
+
+--------------------------------------------------------------------------------------------
