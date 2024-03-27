@@ -252,7 +252,39 @@ $$
 
 for all $x \in A$.
 
-__Solution__. TODO
+__Solution__
+
+$(\Rightarrow)$ Define
+
+$$
+l(x)
+= \left\{\begin{array}{ll}
+    \frac{h(x) - h(a)}{x-a} & \textrm{if $x \ne a$} \\
+    h'(a)                   & \textrm{if $x = a$}.
+  \end{array}\right.
+$$
+
+Note that $l$ is well-defined because the differentiability of $h$ at $a$ guarantees that
+$h'(a)$ exists. $l$ is continuous because $\lim_{x \rightarrow a} l(x) = h'(a)$. Moreover,
+by definition, $h(x) - h(a) = l(x)(x-a)$ for $x \ne a$. For $x = a$, the differentiability
+of $h$ implies that $h$ is continuous at $a$ so that $h(x) - h(a)$ and $l(x)(x-a)$ both
+equal zero.
+
+$(\Leftarrow)$ Suppose there exists a continuous function $l$ satsifying
+
+$$
+h(x) - h(a) = l(x)(x-a).
+$$
+
+Then for $x \ne a$, $l(x)$ is equal to the difference quotient
+
+$$
+l(x) = \frac{h(x) - h(a)}{x-a}.
+$$
+
+The continuity of $l$ guarantees that $\lim_{x \rightarrow a} l(x) = l(a)$ exists, which
+implies that $h$ is differentiable at $a$ (by the definition of differentiability) with
+derivative $h'(a)$ equal to $\lim_{x \rightarrow a} l(x) = l(a)$.
 
 #### 5.2.4.b.
 
@@ -264,7 +296,35 @@ $f(A) \subseteq B$ so that the composition $g \circ f$ is defined. If $f$ is dif
 at $c \in A$ and if $g$ is differentiable at $f(c) \in B$, then $g \circ f$ is
 differentiable at $c$ with $(g \circ f)'(c) = g'(f(c)) \cdot f'(c)$.
 
-__Solution__. TODO
+__Solution__. Since $f$ is differentiable at $c$ and $g$ is differentiable at $f(c)$, there
+exist continuous functions $l_f: A \rightarrow \R$ and $l_g: B \rightarrow \R$ satisfying
+
+$$
+\begin{align}
+f(x) - f(c) &= l_f(x) (x -c) \\
+
+g(y) - g(f(c)) &= l_g(y) (y - f(c))
+\end{align}
+$$
+
+for all $x \in A$ and $y \in B$. In terms of $l_f$ and $l_g$, the difference
+$(g \circ f)(x) - (g \circ f)(c)$ can be expressed as
+
+$$
+\begin{align}
+(g \circ f)(x) - (g \circ f)(c)
+&= g(f(x)) - g(f(c)) \\
+&= l_g(f(x)) (f(x) - f(c)) \\
+&= l_g(f(x)) l_f(x) (x - c), \\
+\end{align}
+$$
+
+which is satisfied for all $x \in A$. Since $l_f$ and $l_g$ are continuous, their product
+is also continouous. Therefore, from the result in part (a), $g \circ f$ must be
+differentiable at $c$ with derivative $(g \circ f)'(c)$ equal to
+$\lim_{x \rightarrow c} l_g(f(x)) l_f(x) = l_g(f(c)) l_f(c) = g'(f(c)) f'(c)$, where the
+values of the limits for $l_f(x)$ and $l_g(f(x))$ follow from the definition of $l(x)$ in
+part (a).
 
 --------------------------------------------------------------------------------------------
 ### 5.2.5.
