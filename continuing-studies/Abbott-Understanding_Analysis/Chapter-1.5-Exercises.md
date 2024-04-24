@@ -263,7 +263,7 @@ Observe that
 
 * $f$ is strictly increasing because $f'$ is strictly positive.
 
-Therefore, $f$ is a 1-1 and onto function from the interval $(a, b)$ to $\R$.
+Therefore, $f$ is a 1-1 and onto function from the interval $(a, \infty)$ to $\R$.
 
 #### 1.5.4.c.
 
