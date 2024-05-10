@@ -34,7 +34,7 @@ Different characterizations of completeness lead to different proofs.
 
 __Problem__. Prove the Alternating Series Test by showing that $(s_n)$ is a Cauchy sequence.
 
-__Solution__. Observe that
+__Solution__. Without loss of generality, assume $n > m$. Observe that
 
 $$
 |s_n - s_m|
@@ -375,7 +375,7 @@ diverges because it is a multiple of the harmonic series.
 __Problem__. Now that we have proved the basic facts about geometric series, supply a proof
 for Corollary 2.4.7.
 
-_Corollary 2.4.7_. The series \sum_{n=1}^\infty 1 / n^p$ converges if and only if $p > 1.$
+_Corollary 2.4.7_. The series $\sum_{n=1}^\infty 1 / n^p$ converges if and only if $p > 1.$
 
 __Solution__. TODO
 
@@ -584,11 +584,36 @@ set $s_0 = 0.$ Use the observation that $x_j = s_j - s_{j-1}$ to verify the form
 
 $$
 \sum_{j=m}^n x_j y_j
-=  s_n y_{n+1} - s_{m-1} y_m + \sum_{j=m}^n s_j (y_j - y_j+1).
+=  s_n y_{n+1} - s_{m-1} y_m + \sum_{j=m}^n s_j (y_j - y_{j+1}).
 
 $$
 
-__Solution__. TODO
+__Solution__. Observe that $s_n y_{n+1} - s_{m-1} y_m$ is equal to the telescoping sum
+
+$$
+\sum_{j=m}^n (s_j y_{j+1} - s_{j-1} y_j).
+$$
+
+Adding and subtracting $s_j y_j$ to the summand, this sum becomes
+
+$$
+\begin{align}
+\sum_{j=m}^n (s_j y_{j+1} - s_{j-1} y_j)
+&= \sum_{j=m}^n (s_j y_{j+1} - s_j y_j) + (s_j y_j - s_{j-1} y_j) \\
+&= \sum_{j=m}^n (s_j y_{j+1} - s_j y_j) + \sum_{j=m}^n (s_j y_j - s_{j-1} y_j) \\
+&= \sum_{j=m}^n s_j (y_{j+1} - y_j) + \sum_{j=m}^n (s_j - s_{j-1}) y_j \\
+&= \sum_{j=m}^n s_j (y_{j+1} - y_j) + \sum_{j=m}^n x_j y_j.
+\end{align}
+$$
+
+Therefore,
+
+$$
+s_n y_{n+1} - s_{m-1} y_m
+= \sum_{j=m}^n s_j (y_{j+1} - y_j) + \sum_{j=m}^n x_j y_j,
+$$
+
+which, when rearranged, yields the desired result.
 
 --------------------------------------------------------------------------------------------
 ### 2.7.13. Abel's Test
@@ -607,19 +632,70 @@ then the series $\sum_{k=1}^\infty x_k y_k$ converges.
 __Problem__. Use Exercise 2.7.12 to show that
 
 $$
-\sum_{k=1}^n x_k y_k = s_n y_{n+1} - \sum_{k=1}^n s_k (y_k - y_{k+1}),
+\sum_{k=1}^n x_k y_k = s_n y_{n+1} + \sum_{k=1}^n s_k (y_k - y_{k+1}),
 $$
 
 where $s_n = x_1 + x_2 + \cdots + x_n.$
 
-__Solution__. TODO
+__Solution__. Taking $m = 1$ in the summation-by-parts formula yields
+
+$$
+\begin{align}
+\sum_{k=1}^n x_k y_k
+&= s_n y_{n+1} - s_0 y_1 + \sum_{k=1}^n s_k (y_k - y_{k+1}) \\
+&= s_n y_{n+1} + \sum_{k=1}^n s_k (y_k - y_{k+1}) \\
+\end{align}
+$$
+
+where the second equality follows because $s_0 = 0$.
 
 #### 2.7.13.b.
 
 __Problem__. Use the Comparison Test to argue that $\sum_{k=1}^\infty s_k (y_k - y_{k+1})$
 converges absolutely, and show how this leads directly to a proof of Abel's Test
 
-__Solution__. TODO
+__Solution__. First, observe that $s_k$ must be bounded because $\sum_{k=1}^\infty x_k$
+converges. Let $|s_k| \le M$. Then
+
+$$
+|s_k (y_k - y_{k+1})| \le M |y_k - y_{k+1}| = M (y_k - y_{k+1})
+$$
+
+where the last equality follows because $y_k \ge y_{k+1} \ge 0$. Next, observe that
+$(y_i)$ converges because it is monotone and bounded (by $0$ and $y_1$). Let $y$ be the
+limit of $(y_i)$. The partial sums of $(y_j - y_{j+1})$ are telescoping sums:
+
+$$
+\sum_{j=1}^k (y_j - y_{j+1}) = y_1 - y_{k+1},
+$$
+
+so the series $\sum_{k=1}^\infty M (y_k - y_{k+1})$ converges (because the partial sums are
+monotone increasing and bounded by above by $y_1$). Therefore, the Comparison Test implies
+that the series $\sum_{k=1}^\infty |s_k (y_k - y_{k+1})|$ converges. In other words,
+$\sum_{k=1}^\infty s_k (y_k - y_{k+1})$ converges absolutely.
+
+Combining this conclusion with the convergence of $(s_n)$ and $(y_n)$ yields the desired
+result because each of the terms in the expression for the partial sum
+$\sum_{k=1}^n x_k y_k$ converge:
+
+$$
+\begin{align}
+\sum_{k=1}^\infty x_k y_k
+&= \lim_{n \rightarrow \infty} \sum_{k=1}^n x_k y_k \\
+&= \lim_{n \rightarrow \infty}
+  \left[ s_n y_{n+1} + \sum_{k=1}^n s_k (y_k - y_{k+1}) \right] \\
+&= \lim_{n \rightarrow \infty} s_n y_{n+1}
+  + \lim_{n \rightarrow \infty} \sum_{k=1}^n s_k (y_k - y_{k+1}) \\
+&= \left[ \lim_{n \rightarrow \infty} s_n \right]
+   \left[ \lim_{n \rightarrow \infty} y_{n+1} \right]
+  + \lim_{n \rightarrow \infty} \sum_{k=1}^n s_k (y_k - y_{k+1}), \\
+&= \left[ \lim_{n \rightarrow \infty} s_n \right]
+   \left[ \lim_{n \rightarrow \infty} y_n \right]
+  + \lim_{n \rightarrow \infty} \sum_{k=1}^n s_k (y_k - y_{k+1}), \\
+\end{align}
+$$
+
+where all of the limits on the last expression on the right-hand side exist.
 
 --------------------------------------------------------------------------------------------
 ### 2.7.14. Dirichlet's Test
