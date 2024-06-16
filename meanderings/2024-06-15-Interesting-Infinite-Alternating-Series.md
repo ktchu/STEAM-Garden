@@ -47,8 +47,8 @@ expressions that are linear in $x$:
 $$
 \frac{1}{1 + x^3}
 = \frac{1}{3} \left[
-    \frac{e^{-2 i \pi / 3}}{x - e^{i \pi / 3}}
-    + \frac{1}{x - e^{3 i \pi / 3}}
+      \frac{1}{x - e^{3 i \pi / 3}}
+    + \frac{e^{-2 i \pi / 3}}{x - e^{i \pi / 3}}
     + \frac{e^{2 i \pi / 3}}{x - e^{-i \pi / 3}}
   \right]
 $$
@@ -59,24 +59,24 @@ $$
 \begin{align}
 f(1)
 &= \frac{1}{3} \left[
-       \left. e^{-2 i \pi / 3} \ln\left( x - e^{i \pi / 3} \right) \right|_0^1
-     + \left. \ln\left( x - e^{3 i \pi / 3} \right) \right|_0^1
+       \left. \ln\left( x - e^{3 i \pi / 3} \right) \right|_0^1
+     + \left. e^{-2 i \pi / 3} \ln\left( x - e^{i \pi / 3} \right) \right|_0^1
      + \left. e^{2 i \pi / 3} \ln\left( x - e^{-i \pi / 3} \right) \right|_0^1
    \right] \\
 &= \frac{1}{3} \left[
-       e^{-2 i \pi / 3} \left(
+       \left( \ln 2 - \ln 1 \right)
+     + e^{-2 i \pi / 3} \left(
          \ln\left( e^{-i \pi / 3} \right)
        - \ln\left( e^{-2 i \pi / 3} \right)
        \right)
-     + \left( \ln 2 - \ln 1 \right)
      + e^{2 i \pi / 3} \left(
          \ln\left( e^{i \pi / 3} \right)
        - \ln\left( e^{2 i \pi / 3} \right)
        \right)
    \right] \\
 &= \frac{1}{3} \left[
-       \frac{i \pi e^{-2 i \pi / 3}}{3}
-     + \ln 2
+       \ln 2
+     + \frac{i \pi e^{-2 i \pi / 3}}{3}
      - \frac{i \pi e^{2 i \pi / 3}}{3}
    \right] \\
 &= \frac{1}{3} \ln 2
