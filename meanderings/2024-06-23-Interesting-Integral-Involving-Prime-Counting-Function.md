@@ -111,6 +111,7 @@ Thus, we find that $I = \frac{1}{2} \ln \frac{\pi^2}{6}$.
 --------------------------------------------------------------------------------------------
 ## References
 
+* [Prime-Counting Function ()](https://en.wikipedia.org/wiki/Prime-counting_function)
 * [Euler Product (Wikipedia)](https://en.wikipedia.org/wiki/Euler_product)
 
 --------------------------------------------------------------------------------------------
