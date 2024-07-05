@@ -5,7 +5,7 @@
 
 # Source directories
 SRC_DIR=src
-CODE_DIRS=${SRC_DIR} tests
+CODE_DIRS=${SRC_DIR} ${SRC_DIR}/tests
 
 # Testing parameters
 NPROCS=auto
