@@ -1,21 +1,4 @@
-# --- Environments
-
-# direnv
-.direnv
-.envrc
-
-# --- Temporary files
-
-# Microsoft Office
-~*.pptx
-
-# vim
-*.swp
-
 # --- Miscellaneous
 
 # macOS
 .DS_Store*
-
-# Obsidian
-workspace.json
